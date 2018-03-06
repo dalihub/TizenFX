@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "63fac828_563fb1a7",
+        "filename": "src/Tizen.NUI/src/public/BaseComponents/LayoutInterface.cs",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1011527
+      },
+      "writtenOn": "2018-03-06T14:11:19Z",
+      "side": 1,
+      "message": "Thinking I should not have added Add() Remove() as already declared in View.",
+      "revId": "6112bce989db1d02df194f534188f0094317b5ec",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
