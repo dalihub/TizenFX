@@ -63,10 +63,6 @@ namespace Tizen.NUI.BaseComponents
                 if (NDalicPINVOKE.SWIGPendingException.Pending)
                     throw NDalicPINVOKE.SWIGPendingException.Retrieve();
                 Children.Add(child);
-
-                // If View GetLayout false then create a new layout for this child
-
-                // Add layout to LayoutGroup
             }
         }
 
