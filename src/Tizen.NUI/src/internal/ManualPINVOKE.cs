@@ -1749,5 +1749,14 @@ namespace Tizen.NUI
         [global::System.Runtime.InteropServices.DllImport("libdali-csharp-binder.so", EntryPoint = "CSharp_ImageView_IMAGE_VISUAL_ACTION_STOP_get")]
         public static extern int ImageView_IMAGE_VISUAL_ACTION_STOP_get();
 
+        [global::System.Runtime.InteropServices.DllImport("libdali-csharp-binder.so", EntryPoint = "CSharp_Dali_LayoutGroupImpl_director_connect")]
+        public static extern void LayoutGroupImpl_director_connect(global::System.Runtime.InteropServices.HandleRef jarg1, LayoutGroupImpl.DelegateLayoutGroupImpl_0 delegate0 );
+
+        [global::System.Runtime.InteropServices.DllImport("libdali-csharp-binder.so", EntryPoint="CSharp_Dali_LayoutGroupImpl_OnMeasure")]
+        public static extern void LayoutGroupImpl_OnMeasure( uint jarg1, uint jarg2 );
+
+        [global::System.Runtime.InteropServices.DllImport("libdali-csharp-binder.so", EntryPoint="CSharp_Dali_HorizontalBox_SWIGUpcast")]
+        public static extern global::System.IntPtr HorizontalBox_SWIGUpcast(global::System.IntPtr jarg1);
+
     }
 }
