@@ -15,32 +15,30 @@
  *
  */
 
+using System.Runtime.InteropServices;
 using Tizen.NUI.BaseComponents;
-
 namespace Tizen.NUI
 {
     /// <summary>
-    /// LayoutWrapper.
+    /// Layout class that all layout containers should derive from.
     /// </summary>
-    public class LayoutWrapper : CustomView
+    internal class LayoutWrapperImpl : ViewImpl
     {
         private global::System.Runtime.InteropServices.HandleRef swigCPtr;
-        internal LayoutWrapperImpl layoutWrapperImpl;
+        public delegate void OnMeasureDelegate(int depth);
 
-        internal LayoutWrapper(global::System.IntPtr cPtr, bool cMemoryOwn) : base(NDalicManualPINVOKE.LayoutWrapper_SWIGUpcast(cPtr), cMemoryOwn)
+        public new OnMeasureDelegate OnStageConnection;
+
+        internal LayoutWrapperImpl(global::System.IntPtr cPtr, bool cMemoryOwn) : base(NDalicManualPINVOKE.LayoutWrapperImpl_SWIGUpcast(cPtr), cMemoryOwn)
         {
             swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
         }
 
-        internal static global::System.Runtime.InteropServices.HandleRef getCPtr(LayoutWrapper obj)
+        internal static global::System.Runtime.InteropServices.HandleRef getCPtr(LayoutWrapperImpl obj)
         {
             return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
         }
 
-        /// <summary>
-        /// Dispose.
-        /// </summary>
-        /// <param name="type">The dispose type</param>
         protected override void Dispose(DisposeTypes type)
         {
             if (disposed)
@@ -65,7 +63,6 @@ namespace Tizen.NUI
                 if (swigCMemOwn)
                 {
                     swigCMemOwn = false;
-                    NDalicManualPINVOKE.delete_LayoutWrapper(swigCPtr);
                 }
                 swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
             }
@@ -73,11 +70,36 @@ namespace Tizen.NUI
             base.Dispose(type);
         }
 
-
-        internal LayoutWrapper(string typeName, LayoutWrapperImpl implementation) : this(NDalicManualPINVOKE.LayoutWrapper_New(typeName, LayoutWrapperImpl.getCPtr(implementation)), true)
+        public LayoutWrapperImpl(CustomViewBehaviour behaviourFlags) : this(NDalicManualPINVOKE.new_LayoutWrapperImpl((int)behaviourFlags), true)
         {
-            layoutWrapperImpl = implementation;
             if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            DirectorConnect();
         }
-    }
-}
+
+        public static LayoutWrapper New(string typeName, LayoutWrapperImpl viewWrapper)
+        {
+            ViewWrapper ret = new ViewWrapper(NDalicManualPINVOKE.LayoutWrapperImpl_New(typeName, LayoutWrapperImpl.getCPtr(viewWrapper)), true);
+            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        private void DirectorConnect()
+        {
+            Delegate0 = new DelegateLayoutWrapperImpl_0(DirectorOnMeasure);
+
+            NDalicManualPINVOKE.LayoutWrapperImpl_director_connect(swigCPtr, Delegate0, null, null);
+        }
+
+        private void DirectorOnMeasure( uint widthMeasureSpec, uint heightMeasureSpec )
+        {
+            OnMeasure( widthMeasureSpec, heightMeasureSpec );
+        }
+
+        public delegate void DelegateViewWrapperImpl_0( uint widthMeasureSpec, uint heightMeasureSpec );
+
+        private DelegateViewWrapperImpl_0 Delegate0;
+
+
+    } // class LayoutWrapperImpl
+
+} // namespace Tizen.NUI
