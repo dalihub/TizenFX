@@ -66,7 +66,7 @@ namespace Tizen.NUI.BaseComponents
 
                 // If View GetLayout false then create a new layout for this child
             Console.WriteLine("View Add");
-                NDalicManualPINVOKE.View_SetLayout(swigCPtr, NDalicManualPINVOKE new layout);
+                //NDalicManualPINVOKE.View_SetLayout(swigCPtr, NDalicManualPINVOKE new layout);
 
                 // Add layout to LayoutGroup
             }
