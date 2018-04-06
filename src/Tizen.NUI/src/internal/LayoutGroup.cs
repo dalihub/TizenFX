@@ -15,6 +15,7 @@
  *
  */
 
+using System;
 using Tizen.NUI.BaseComponents;
 
 namespace Tizen.NUI
@@ -22,55 +23,14 @@ namespace Tizen.NUI
     /// <summary>
     /// LayoutGroup class providing container functionality.
     /// </summary>
-    public class LayoutGroup : BaseHandle
+    internal class LayoutGroup : LayoutGroupWrapper
     {
-        private global::System.Runtime.InteropServices.HandleRef swigCPtr;
-        internal LayoutGroupImpl layoutGroupImpl;
-
-        internal LayoutGroup(global::System.IntPtr cPtr, bool cMemoryOwn) : base(NDalicPINVOKE.Handle_SWIGUpcast(cPtr), cMemoryOwn)
+        public LayoutGroup() : base( new LayoutGroupImpl() )
         {
-            swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
         }
 
-        internal static global::System.Runtime.InteropServices.HandleRef getCPtr(LayoutGroup obj)
+        ~LayoutGroup()
         {
-            return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
         }
-
-        /// <summary>
-        /// Dispose.
-        /// </summary>
-        /// <param name="type">The dispose type</param>
-        protected override void Dispose(DisposeTypes type)
-        {
-            if (disposed)
-            {
-                return;
-            }
-
-            if (type == DisposeTypes.Explicit)
-            {
-                //Called by User
-                //Release your own managed resources here.
-                //You should release all of your own disposable objects here.
-
-            }
-
-            //Release your own unmanaged resources here.
-            //You should not access any managed member here except static instance.
-            //because the execution order of Finalizes is non-deterministic.
-
-            if (swigCPtr.Handle != global::System.IntPtr.Zero)
-            {
-                if (swigCMemOwn)
-                {
-                    swigCMemOwn = false;
-                    NDalicPINVOKE.delete_Handle(swigCPtr);
-                }
-                swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
-            }
-
-            base.Dispose(type);
-        }
-    } // class LayoutGroup
+    }
 }

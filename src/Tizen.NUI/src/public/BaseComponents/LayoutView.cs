@@ -15,6 +15,8 @@
  *
  */
 
+using System;
+
 namespace Tizen.NUI.BaseComponents
 {
 
@@ -23,12 +25,21 @@ namespace Tizen.NUI.BaseComponents
     /// </summary>
     public class LayoutView : CustomView
     {
+        // LayoutView has a LayoutGroup
+        LayoutGroup layoutGroup = null;
 
         /// <summary>
         /// Create an instance of Layout.
         /// </summary>
         public LayoutView() : base(typeof(LayoutView).FullName, CustomViewBehaviour.ViewBehaviourDefault)
         {
+            layoutGroup = new LayoutGroup();
+            layoutGroup.layoutGroupImpl.OnMeasureConnection = new LayoutGroupImpl.OnMeasureConnectionDelegate( OnMeasure );
+
+            Tizen.NUI.NDalicManualPINVOKE.View_SetLayout( ViewWrapper.getCPtr( this ), LayoutGroup.getCPtr( layoutGroup)  );
+
+            // Created LayoutGroup needs to be set on the control.
+            // Add API that Sets the layout maybe taking control and layoutGroup as parameters.
         }
 
         /// <summary>
@@ -36,7 +47,7 @@ namespace Tizen.NUI.BaseComponents
         /// </summary>
         /// <param name="widthMeasureSpec">Horizontal space requirements as imposed by the parent.</param>
         /// <param name="heightMeasureSpec">Vertical space requirements as imposed by the parent.</param>
-        public virtual void OnMeasure( uint widthMeasureSpec, uint heightMeasureSpec )
+        protected virtual void OnMeasure( uint widthMeasureSpec, uint heightMeasureSpec )
         {
         }
 

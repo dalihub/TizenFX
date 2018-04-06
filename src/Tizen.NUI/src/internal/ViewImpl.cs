@@ -1,5 +1,5 @@
 /*
- * Copyright(c) 2017 Samsung Electronics Co., Ltd.
+ * Copyright(c) 2018 Samsung Electronics Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  * limitations under the License.
  *
  */
-
+using System;
 using System.Reflection;
 using Tizen.NUI.BaseComponents;
 
@@ -72,6 +72,7 @@ namespace Tizen.NUI
         {
             View ret = new View(NDalicPINVOKE.ViewImpl_New(), true);
             if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            Console.WriteLine("ViewImpl New constructor");
             return ret;
         }
 
