@@ -1,5 +1,5 @@
 /*
- * Copyright(c) 2017 Samsung Electronics Co., Ltd.
+ * Copyright(c) 2018 Samsung Electronics Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  * limitations under the License.
  *
  */
-
+using System;
 using System.Reflection;
 using Tizen.NUI.BaseComponents;
 
@@ -28,6 +28,7 @@ namespace Tizen.NUI
         internal ViewImpl(global::System.IntPtr cPtr, bool cMemoryOwn) : base(NDalicPINVOKE.ViewImpl_SWIGUpcast(cPtr), cMemoryOwn)
         {
             swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
+            Console.WriteLine("ViewImpl internal constructor");
         }
 
         internal static global::System.Runtime.InteropServices.HandleRef getCPtr(ViewImpl obj)
@@ -72,6 +73,7 @@ namespace Tizen.NUI
         {
             View ret = new View(NDalicPINVOKE.ViewImpl_New(), true);
             if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            Console.WriteLine("ViewImpl New constructor");
             return ret;
         }
 

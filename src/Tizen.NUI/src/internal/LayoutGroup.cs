@@ -15,6 +15,7 @@
  *
  */
 
+using System;
 using Tizen.NUI.BaseComponents;
 
 namespace Tizen.NUI
@@ -22,20 +23,45 @@ namespace Tizen.NUI
     /// <summary>
     /// LayoutGroup class providing container functionality.
     /// </summary>
-    public class LayoutGroup : BaseHandle
+    public class LayoutGroup : LayoutGroupWrapper
     {
         private global::System.Runtime.InteropServices.HandleRef swigCPtr;
+
         internal LayoutGroupImpl layoutGroupImpl;
 
-        internal LayoutGroup(global::System.IntPtr cPtr, bool cMemoryOwn) : base(NDalicPINVOKE.Handle_SWIGUpcast(cPtr), cMemoryOwn)
+        // callback
+        public new OnMeasureDelegate OnMeasure;
+
+        // delegate declarations
+        public delegate void OnMeasureDelegate( uint width, uint height);
+
+        public LayoutGroup() : base( new LayoutGroupImpl() )
         {
+            Console.WriteLine("LayoutGroup public constructor");
+        }
+
+        internal LayoutGroup(global::System.IntPtr cPtr, bool cMemoryOwn) : base(NDalicManualPINVOKE.LayoutGroup_SWIGUpcast(cPtr), cMemoryOwn)
+        {
+            Console.WriteLine("LayoutGroup internal constructor");
             swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
+            layoutGroupImpl = new LayoutGroupImpl( cPtr, true );
+            //OnMeasure = layoutGroupImpl.OnMeasureDelegate(OnMeasure);
+
         }
 
         internal static global::System.Runtime.InteropServices.HandleRef getCPtr(LayoutGroup obj)
         {
             return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
         }
+
+        /// <summary>
+        /// Measure the view and its content to determine the measured width and height.
+        /// </summary>
+        /// <param name="widthMeasureSpec">Horizontal space requirements as imposed by the parent.</param>
+        /// <param name="heightMeasureSpec">Vertical space requirements as imposed by the parent.</param>
+        //public virtual void OnMeasure( uint widthMeasureSpec, uint heightMeasureSpec )
+        //{
+        //}
 
         /// <summary>
         /// Dispose.

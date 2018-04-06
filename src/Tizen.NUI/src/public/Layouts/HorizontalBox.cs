@@ -36,24 +36,23 @@ namespace Tizen.NUI
             return new HorizontalBox();
         }
 
+        public HorizontalBox()
+        {
+            Console.WriteLine("HorizontalBox() public constructor ");
+        }
+
         // static constructor registers the control type (only runs once)
         static HorizontalBox()
         {
+            Console.WriteLine("HorizontalBox() static constructor");
             // ViewRegistry registers control type with DALi type registery
             // also uses introspection to find any properties that need to be registered with type registry
-            CustomViewRegistry.Instance.Register(CreateInstance, typeof(HorizontalBox));
-        }
-
-        /// <summary>
-        /// Creates an initialized spin.
-        /// </summary>
-        /// <since_tizen> 3 </since_tizen>
-        internal HorizontalBox(global::System.IntPtr cPtr, bool cMemoryOwn) : base(NDalicManualPINVOKE.HorizontalBox_SWIGUpcast(cPtr), cMemoryOwn)
-        {
+            //CustomViewRegistry.Instance.Register(CreateInstance, typeof(HorizontalBox));
         }
 
         public override void OnInitialize()
         {
+            Console.WriteLine("OnInitialize called in HorizontalBox");
             //1 Create LayoutGroup, explictly here first using control-devel, in
             // future an intermediate class like LayoutGroup, hence user doesn't need to.
 
@@ -64,7 +63,7 @@ namespace Tizen.NUI
 
         public override void OnMeasure( uint widthMeasureSpec, uint heightMeasureSpec )
         {
-
+            Console.WriteLine("OnMeasure called in HorizontalBox");
         }
 
         public override void OnLayout( bool changed, int left, int top, int right, int bottom, bool animate )

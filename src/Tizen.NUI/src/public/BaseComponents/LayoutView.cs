@@ -15,6 +15,8 @@
  *
  */
 
+using System;
+
 namespace Tizen.NUI.BaseComponents
 {
 
@@ -23,12 +25,22 @@ namespace Tizen.NUI.BaseComponents
     /// </summary>
     public class LayoutView : CustomView
     {
+        // LayoutView has a LayoutGroup
+        internal LayoutGroup layoutGroup;
 
         /// <summary>
         /// Create an instance of Layout.
         /// </summary>
         public LayoutView() : base(typeof(LayoutView).FullName, CustomViewBehaviour.ViewBehaviourDefault)
         {
+            Console.WriteLine("LayoutView public constructor");
+            layoutGroup = new LayoutGroup();
+            layoutGroup.OnMeasure = new LayoutGroup.OnMeasureDelegate( OnMeasure );
+
+           // Tizen.NUI.NDalicManualPINVOKE.View_SetLayout( ViewWrapper.getCPtr( this ), LayoutGroup.getCPtr( layoutGroup)  );
+
+            // Created LayoutGroup needs to be set on the control.
+            // Add API that Sets the layout maybe taking control and layoutGroup as parameters.
         }
 
         /// <summary>
@@ -71,6 +83,7 @@ namespace Tizen.NUI.BaseComponents
         internal LayoutView(global::System.IntPtr cPtr, bool cMemoryOwn) : base(typeof(LayoutView).FullName, CustomViewBehaviour.ViewBehaviourDefault)
         {
             swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
+            Console.WriteLine("LayoutView internal constructor");
         }
 
     } // class LayoutView

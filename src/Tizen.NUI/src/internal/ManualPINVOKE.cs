@@ -1755,6 +1755,15 @@ namespace Tizen.NUI
         [global::System.Runtime.InteropServices.DllImport("libdali-csharp-binder.so", EntryPoint="CSharp_Dali_LayoutGroupImpl_OnMeasure")]
         public static extern void LayoutGroupImpl_OnMeasure( uint jarg1, uint jarg2 );
 
+        [global::System.Runtime.InteropServices.DllImport("libdali-csharp-binder.so", EntryPoint="CSharp_Dali_new_LayoutGroupImpl")]
+        public static extern global::System.IntPtr new_LayoutGroupImpl();
+
+        [global::System.Runtime.InteropServices.DllImport("libdali-csharp-binder.so", EntryPoint="CSharp_Dali_LayoutGroupImpl_New")]
+        public static extern global::System.IntPtr LayoutGroupImpl_New(global::System.Runtime.InteropServices.HandleRef jarg);
+
+        [global::System.Runtime.InteropServices.DllImport("libdali-csharp-binder.so", EntryPoint="CSharp_Dali_LayoutGroup_SWIGUpcast")]
+        public static extern global::System.IntPtr LayoutGroup_SWIGUpcast(global::System.IntPtr jarg1);
+
         [global::System.Runtime.InteropServices.DllImport("libdali-csharp-binder.so", EntryPoint="CSharp_Dali_HorizontalBox_SWIGUpcast")]
         public static extern global::System.IntPtr HorizontalBox_SWIGUpcast(global::System.IntPtr jarg1);
 
