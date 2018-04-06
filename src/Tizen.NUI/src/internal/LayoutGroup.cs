@@ -15,6 +15,7 @@
  *
  */
 
+using System;
 using Tizen.NUI.BaseComponents;
 
 namespace Tizen.NUI
@@ -29,12 +30,20 @@ namespace Tizen.NUI
 
         internal LayoutGroup(global::System.IntPtr cPtr, bool cMemoryOwn) : base(NDalicPINVOKE.Handle_SWIGUpcast(cPtr), cMemoryOwn)
         {
+            Console.WriteLine("LayoutGroup internal constructor");
             swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
+            layoutGroupImpl = new LayoutGroupImpl();
         }
 
         internal static global::System.Runtime.InteropServices.HandleRef getCPtr(LayoutGroup obj)
         {
             return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
+        }
+
+        public LayoutGroup() : this(NDalicPINVOKE.Handle_New(), true)
+        {
+            Console.WriteLine("LayoutGroup public constructor");
+            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
         }
 
         /// <summary>

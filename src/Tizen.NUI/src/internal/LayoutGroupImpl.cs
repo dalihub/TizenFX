@@ -15,6 +15,7 @@
  *
  */
 
+using System;
 using System.Runtime.InteropServices;
 using Tizen.NUI.BaseComponents;
 namespace Tizen.NUI
@@ -26,9 +27,15 @@ namespace Tizen.NUI
     internal class LayoutGroupImpl : BaseHandle
     {
         private global::System.Runtime.InteropServices.HandleRef swigCPtr;
-        public delegate void OnMeasureDelegate(int depth);
 
-        public new OnMeasureDelegate OnStageConnection;
+        public LayoutGroupImpl()
+        {
+            Console.WriteLine("LayoutGroupImpl public constructor");
+            DirectorConnect();
+        }
+
+        // Delegates
+        public delegate void OnMeasureDelegate(int depth);
 
         internal LayoutGroupImpl(global::System.IntPtr cPtr, bool cMemoryOwn) : base(NDalicPINVOKE.Handle_SWIGUpcast(cPtr), cMemoryOwn)
         {

@@ -15,6 +15,8 @@
  *
  */
 
+using System;
+
 namespace Tizen.NUI.BaseComponents
 {
 
@@ -23,12 +25,16 @@ namespace Tizen.NUI.BaseComponents
     /// </summary>
     public class LayoutView : CustomView
     {
+        // LayoutView has a LayoutGroup
+        internal LayoutGroup layoutGroup;
 
         /// <summary>
         /// Create an instance of Layout.
         /// </summary>
         public LayoutView() : base(typeof(LayoutView).FullName, CustomViewBehaviour.ViewBehaviourDefault)
         {
+            layoutGroup = new LayoutGroup();
+            Console.WriteLine("LayoutView public constructor");
         }
 
         /// <summary>
@@ -71,6 +77,7 @@ namespace Tizen.NUI.BaseComponents
         internal LayoutView(global::System.IntPtr cPtr, bool cMemoryOwn) : base(typeof(LayoutView).FullName, CustomViewBehaviour.ViewBehaviourDefault)
         {
             swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
+            Console.WriteLine("LayoutView internal constructor");
         }
 
     } // class LayoutView
