@@ -1192,11 +1192,12 @@ namespace Tizen.NUI.BaseComponents
         public View() : this(NDalicPINVOKE.View_New(), true)
         {
             if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-
+            Console.WriteLine("View Public constructor");
         }
         internal View(View uiControl) : this(NDalicPINVOKE.new_View__SWIG_1(View.getCPtr(uiControl)), true)
         {
             if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            Console.WriteLine("View internal 1 parameter constructor");
         }
 
         private View ConvertIdToView(uint id)

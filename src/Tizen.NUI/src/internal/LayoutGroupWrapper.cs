@@ -20,35 +20,33 @@ using Tizen.NUI.BaseComponents;
 namespace Tizen.NUI
 {
     /// <summary>
-    /// Internal Layout class that all layout containers should derive from.
-    /// Mirrors the native class LayoutGroup.
+    /// LayoutGroupWrapper wrappig my the LayoutGroup handle and body into a LayoutGroup.
     /// </summary>
-    internal class LayoutGroupImpl : RefObject
+    internal class LayoutGroupWrapper : BaseHandle
     {
         private global::System.Runtime.InteropServices.HandleRef swigCPtr;
+        internal LayoutGroupImpl layoutGroupImpl;
 
-        // Delegates
-        public delegate void OnMeasureConnectionDelegate( uint width, uint height );
-
-        public new OnMeasureConnectionDelegate OnMeasureConnection;
-
-        internal LayoutGroupImpl(global::System.IntPtr cPtr, bool cMemoryOwn) : base(NDalicPINVOKE.Handle_SWIGUpcast(cPtr), cMemoryOwn)
+        internal LayoutGroupWrapper(global::System.IntPtr cPtr, bool cMemoryOwn) : base(NDalicManualPINVOKE.LayoutGroupWrapper_SWIGUpcast(cPtr), cMemoryOwn)
         {
             swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
         }
 
-        internal static global::System.Runtime.InteropServices.HandleRef getCPtr(LayoutGroupImpl obj)
+        internal static global::System.Runtime.InteropServices.HandleRef getCPtr(LayoutGroup obj)
         {
             return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
         }
 
-        public LayoutGroupImpl() : this(NDalicManualPINVOKE.new_LayoutGroupImpl(), true)
+        internal LayoutGroupWrapper(LayoutGroupImpl implementation) : this(NDalicManualPINVOKE.LayoutGroupWrapper_New(LayoutGroupImpl.getCPtr(implementation)), true)
         {
+            layoutGroupImpl = implementation;
             if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-
-            DirectorConnect();
         }
 
+        /// <summary>
+        /// Dispose.
+        /// </summary>
+        /// <param name="type">The dispose type</param>
         protected override void Dispose(DisposeTypes type)
         {
             if (disposed)
@@ -59,7 +57,7 @@ namespace Tizen.NUI
             if (type == DisposeTypes.Explicit)
             {
                 //Called by User
-                //Release your own managed resources here.LayoutGroup
+                //Release your own managed resources here.
                 //You should release all of your own disposable objects here.
 
             }
@@ -67,38 +65,17 @@ namespace Tizen.NUI
             //Release your own unmanaged resources here.
             //You should not access any managed member here except static instance.
             //because the execution order of Finalizes is non-deterministic.
-
             if (swigCPtr.Handle != global::System.IntPtr.Zero)
             {
                 if (swigCMemOwn)
                 {
                     swigCMemOwn = false;
+                    NDalicManualPINVOKE.delete_LayoutGroupWrapper(swigCPtr);
                 }
-                // Do not delete native object as it will deleted by native handle automatically.
-
                 swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
             }
 
             base.Dispose(type);
         }
-
-        private void DirectorConnect()
-        {
-            Delegate0 = new DelegateLayoutGroupImpl_0(DirectorOnMeasure);
-
-            NDalicManualPINVOKE.LayoutGroupImpl_director_connect(swigCPtr, Delegate0 );
-        }
-
-        private void DirectorOnMeasure( uint widthMeasureSpec, uint heightMeasureSpec )
-        {
-            OnMeasureConnection( widthMeasureSpec, heightMeasureSpec );
-        }
-
-        public delegate void DelegateLayoutGroupImpl_0( uint widthMeasureSpec, uint heightMeasureSpec );
-
-        private DelegateLayoutGroupImpl_0 Delegate0;
-
-
-    } // class LayoutGroupImpl
-
-} // namespace Tizen.NUI
+    } // class LayoutGroupWrapper
+}

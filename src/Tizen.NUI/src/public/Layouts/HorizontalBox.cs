@@ -31,40 +31,12 @@ namespace Tizen.NUI
     /// </summary>
     public class HorizontalBox : LayoutView
     {
-        static CustomView CreateInstance()
-        {
-            return new HorizontalBox();
-        }
-
-        // static constructor registers the control type (only runs once)
-        static HorizontalBox()
-        {
-            // ViewRegistry registers control type with DALi type registery
-            // also uses introspection to find any properties that need to be registered with type registry
-            CustomViewRegistry.Instance.Register(CreateInstance, typeof(HorizontalBox));
-        }
-
-        /// <summary>
-        /// Creates an initialized spin.
-        /// </summary>
-        /// <since_tizen> 3 </since_tizen>
-        internal HorizontalBox(global::System.IntPtr cPtr, bool cMemoryOwn) : base(NDalicManualPINVOKE.HorizontalBox_SWIGUpcast(cPtr), cMemoryOwn)
+        public HorizontalBox()
         {
         }
 
-        public override void OnInitialize()
+        protected override void OnMeasure( uint widthMeasureSpec, uint heightMeasureSpec )
         {
-            //1 Create LayoutGroup, explictly here first using control-devel, in
-            // future an intermediate class like LayoutGroup, hence user doesn't need to.
-
-            //2 Set created LayoutGroup to control-data-impl.cpp
-
-            //3 How will layout-group native connect up to interface calls.
-        }
-
-        public override void OnMeasure( uint widthMeasureSpec, uint heightMeasureSpec )
-        {
-
         }
 
         public override void OnLayout( bool changed, int left, int top, int right, int bottom, bool animate )
@@ -72,33 +44,9 @@ namespace Tizen.NUI
 
         }
 
-        public override void OnSetLayoutData( /*ChildLayoutData*/ uint layoutData )
+        public override void OnSetLayoutData( uint layoutData )
         {
 
-        }
-
-// HboxView native has AddChild( ... )
-        public uint Add(View child)
-        {
-            // Add child to View tree exclusively
-            child.Unparent();
-            //Self().Add( child );
-
-            // Add child to layout group so will be positioned and sized.
-            //
-            //layout-group->Native::Add( child.GetNative() )
-            return 0;
-        }
-
-        public void Remove( uint childId )
-        {
-            // todo
-        }
-
-        public View GetChild( uint childId )
-        {
-            // todo
-            return new View();
         }
     }
 }
