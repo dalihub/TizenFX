@@ -1,0 +1,90 @@
+/*
+ * Copyright (c) 2018 Samsung Electronics Co., Ltd.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+
+namespace Tizen.NUI.BaseComponents
+{
+
+    /// <summary>
+    /// Layout class that all layout containers should derive from.
+    /// </summary>
+    public class LayoutView : CustomView
+    {
+        // LayoutView has a LayoutGroup
+        //LayoutGroupWrapper layoutGroupWrapper = null;
+        LayoutGroup layoutGroup = null;
+
+        /// <summary>]
+        /// Create an instance of Layout.
+        /// </summary>
+        public LayoutView() : base(typeof(LayoutView).FullName, CustomViewBehaviour.ViewBehaviourDefault)
+        {
+            layoutGroup = new LayoutGroup();
+            Tizen.NUI.NDalicManualPINVOKE.SetLayout__SWIG_1( ViewWrapper.getCPtr( this ), LayoutGroup.getCPtr( layoutGroup)  );
+            //layoutGroupWrapper = new LayoutGroupWrapper();
+            //layoutGroupWrapper.layoutGroupImpl.OnMeasureConnection = new LayoutGroupWrapperImpl.OnMeasureConnectionDelegate( OnMeasure );
+
+            //Tizen.NUI.NDalicManualPINVOKE.View_SetLayout( ViewWrapper.getCPtr( this ), LayoutGroupWrapper.getCPtr( layoutGroupWrapper)  );
+
+            // Created LayoutGroup needs to be set on the control.
+            // Add API that Sets the layout maybe taking control and layoutGroup as parameters.
+        }
+
+        /// <summary>
+        /// Measure the view and its content to determine the measured width and height.
+        /// </summary>
+        /// <param name="widthMeasureSpec">Horizontal space requirements as imposed by the parent.</param>
+        /// <param name="heightMeasureSpec">Vertical space requirements as imposed by the parent.</param>
+        protected virtual void OnMeasure( uint widthMeasureSpec, uint heightMeasureSpec )
+        {
+        }
+
+        /// <summary>
+        /// Called when a layout should assign a size and position to each of its children.
+        /// </summary>
+        /// <param name="changed">Flag indicating there is a new or changed size/position for this layout.</param>
+        /// <param name="left">Left position, relative to parent.</param>
+        /// <param name="top">Top position, relative to parent.</param>
+        /// <param name="right">Right position, relative to parent.</param>
+        /// <param name="bottom">Bottom position, relative to parent.</param>
+        /// <param name="animate">Flag indicating whether the layout is about to animate into place</param>
+        public virtual void OnLayout( bool changed, int left, int top, int right, int bottom, bool animate )
+        {
+        }
+
+        /// <summary>
+        /// Called after new layout data has been set on this layout.
+        /// </summary>
+        /// <param name="layoutData">Data structure storing properties on a child.</param>
+        public virtual void OnSetLayoutData( /*ChildLayoutData*/ uint layoutData )
+        {
+        }
+
+        /// todo Check if this is needed
+        //public virtual void OnSizeChanged();
+        // todo check if needed
+        //public virtual void GetChildMeasureSpec
+
+        private global::System.Runtime.InteropServices.HandleRef swigCPtr;
+
+        internal LayoutView(global::System.IntPtr cPtr, bool cMemoryOwn) : base(typeof(LayoutView).FullName, CustomViewBehaviour.ViewBehaviourDefault)
+        {
+            swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
+        }
+
+    } // class LayoutView
+
+} // namespace Tizen.NUI.BaseComponents
