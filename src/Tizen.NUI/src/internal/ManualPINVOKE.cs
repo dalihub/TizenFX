@@ -1260,6 +1260,13 @@ namespace Tizen.NUI
         [global::System.Runtime.InteropServices.DllImport("libdali-csharp-binder.so", EntryPoint="CSharp_Dali_ViewLayoutDirectionSignal_Emit")]
         public static extern void ViewLayoutDirectionChangedSignal_Emit(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
 
+        [global::System.Runtime.InteropServices.DllImport("libdali-csharp-binder.so", EntryPoint="CSharp_Dali_View_SetLayout")]
+        public static extern void View_SetLayout(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2 );
+
+        [global::System.Runtime.InteropServices.DllImport("libdali-csharp-binder.so", EntryPoint="CSharp_Dali_View_GetLayout")]
+        public static extern global::System.IntPtr View_GetLayout(global::System.Runtime.InteropServices.HandleRef jarg1 );
+
+
         [global::System.Runtime.InteropServices.DllImport("libdali-csharp-binder.so", EntryPoint="CSharp_Dali_new_ViewLayoutDirectionSignal")]
         public static extern global::System.IntPtr new_ViewLayoutDirectionChangedSignal();
 
@@ -1751,6 +1758,27 @@ namespace Tizen.NUI
 
         [global::System.Runtime.InteropServices.DllImport("libdali-csharp-binder.so", EntryPoint = "CSharp_ImageView_IMAGE_VISUAL_ACTION_STOP_get")]
         public static extern int ImageView_IMAGE_VISUAL_ACTION_STOP_get();
+
+        [global::System.Runtime.InteropServices.DllImport("libdali-csharp-binder.so", EntryPoint = "CSharp_Dali_LayoutGroupImpl_director_connect")]
+        public static extern void LayoutGroupImpl_director_connect(global::System.Runtime.InteropServices.HandleRef jarg1, LayoutGroupImpl.DelegateLayoutGroupImpl_0 delegate0 );
+
+        [global::System.Runtime.InteropServices.DllImport("libdali-csharp-binder.so", EntryPoint="CSharp_Dali_LayoutGroupImpl_OnMeasure")]
+        public static extern void LayoutGroupImpl_OnMeasure( uint jarg1, uint jarg2 );
+
+        [global::System.Runtime.InteropServices.DllImport("libdali-csharp-binder.so", EntryPoint="CSharp_Dali_new_LayoutGroupImpl")]
+        public static extern global::System.IntPtr new_LayoutGroupImpl();
+
+        [global::System.Runtime.InteropServices.DllImport("libdali-csharp-binder.so", EntryPoint="CSharp_Dali_LayoutGroupImpl_IsLayoutRequested")]
+        public static extern bool LayoutGroupImpl_IsLayoutRequested(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+        [global::System.Runtime.InteropServices.DllImport("libdali-csharp-binder.so", EntryPoint="CSharp_Dali_LayoutGroupWrapper_New")]
+        public static extern global::System.IntPtr LayoutGroupWrapper_New(global::System.Runtime.InteropServices.HandleRef jarg);
+
+        [global::System.Runtime.InteropServices.DllImport("libdali-csharp-binder.so", EntryPoint="CSharp_Dali_LayoutGroupWrapper_SWIGUpcast")]
+        public static extern global::System.IntPtr LayoutGroupWrapper_SWIGUpcast(global::System.IntPtr jarg1);
+
+        [global::System.Runtime.InteropServices.DllImport("libdali-csharp-binder.so", EntryPoint="CSharp_Dali_delete_LayoutGroupWrapper")]
+        public static extern void delete_LayoutGroupWrapper(global::System.Runtime.InteropServices.HandleRef jarg1);
 
     }
 }
