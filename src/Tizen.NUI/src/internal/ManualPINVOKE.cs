@@ -1260,6 +1260,13 @@ namespace Tizen.NUI
         [global::System.Runtime.InteropServices.DllImport("libdali-csharp-binder.so", EntryPoint="CSharp_Dali_ViewLayoutDirectionSignal_Emit")]
         public static extern void ViewLayoutDirectionChangedSignal_Emit(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
 
+        [global::System.Runtime.InteropServices.DllImport("libdali-csharp-binder.so", EntryPoint="CSharp_Dali_View_SetLayout")]
+        public static extern void View_SetLayout(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2 );
+
+        [global::System.Runtime.InteropServices.DllImport("libdali-csharp-binder.so", EntryPoint="CSharp_Dali_View_GetLayout")]
+        public static extern global::System.IntPtr View_GetLayout(global::System.Runtime.InteropServices.HandleRef jarg1 );
+
+
         [global::System.Runtime.InteropServices.DllImport("libdali-csharp-binder.so", EntryPoint="CSharp_Dali_new_ViewLayoutDirectionSignal")]
         public static extern global::System.IntPtr new_ViewLayoutDirectionChangedSignal();
 
@@ -1751,6 +1758,5 @@ namespace Tizen.NUI
 
         [global::System.Runtime.InteropServices.DllImport("libdali-csharp-binder.so", EntryPoint = "CSharp_ImageView_IMAGE_VISUAL_ACTION_STOP_get")]
         public static extern int ImageView_IMAGE_VISUAL_ACTION_STOP_get();
-
     }
 }
