@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "167996b2_3302abd2",
+        "filename": "src/Tizen.NUI/src/public/BaseComponents/LayoutView.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1011527
+      },
+      "writtenOn": "2018-05-08T14:39:54Z",
+      "side": 1,
+      "message": "I the latest NUI design slide I thought the new layout Views should derive from View not CustomView.",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 40
+      },
+      "revId": "97f7424ddd3db19584564d77284d3e69df932e25",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5734b148_0fc89453",
+        "filename": "src/Tizen.NUI/src/public/BaseComponents/LayoutView.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1011527
+      },
+      "writtenOn": "2018-05-08T14:39:54Z",
+      "side": 1,
+      "message": "I the latest NUI design slide I thought the new layout Views should derive from View not CustomView.",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 40
+      },
+      "revId": "97f7424ddd3db19584564d77284d3e69df932e25",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "32663c84_1e1113ec",
+        "filename": "src/Tizen.NUI/src/public/BaseComponents/LayoutView.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1011527
+      },
+      "writtenOn": "2018-05-08T14:39:54Z",
+      "side": 1,
+      "message": "Don\u0027t think this should be stored in the derived View, should be set by calling View:SetView hence stored in View?",
+      "range": {
+        "startLine": 27,
+        "startChar": 8,
+        "endLine": 27,
+        "endChar": 39
+      },
+      "revId": "97f7424ddd3db19584564d77284d3e69df932e25",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "278b1281_5b0ce6c9",
+        "filename": "src/Tizen.NUI/src/public/BaseComponents/LayoutView.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1011527
+      },
+      "writtenOn": "2018-05-08T14:39:54Z",
+      "side": 1,
+      "message": "Should use the correct DataType",
+      "range": {
+        "startLine": 69,
+        "startChar": 45,
+        "endLine": 69,
+        "endChar": 80
+      },
+      "revId": "97f7424ddd3db19584564d77284d3e69df932e25",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2beefdf3_7110ca88",
+        "filename": "src/Tizen.NUI/src/public/BaseComponents/LayoutView.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1011527
+      },
+      "writtenOn": "2018-05-08T14:39:54Z",
+      "side": 1,
+      "message": "Answer or remove these",
+      "range": {
+        "startLine": 73,
+        "startChar": 1,
+        "endLine": 76,
+        "endChar": 49
+      },
+      "revId": "97f7424ddd3db19584564d77284d3e69df932e25",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1689e42f_b6fe6789",
+        "filename": "src/Tizen.NUI/src/public/Layouts/HorizontalBox.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1011527
+      },
+      "writtenOn": "2018-05-08T14:39:54Z",
+      "side": 1,
+      "message": "Currently this does do anything, empty functions. Don\u0027t think it should be merged.",
+      "revId": "97f7424ddd3db19584564d77284d3e69df932e25",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
