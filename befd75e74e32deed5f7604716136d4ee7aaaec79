@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "74cafc29_fad59eae",
+        "filename": "src/Tizen.NUI/src/internal/LayoutGroup.cs",
+        "patchSetId": 8
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1007416
+      },
+      "writtenOn": "2018-05-24T10:59:09Z",
+      "side": 1,
+      "message": "These should NOT be public.",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 9
+      },
+      "revId": "befd75e74e32deed5f7604716136d4ee7aaaec79",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "039ee075_9aa743dd",
+        "filename": "src/Tizen.NUI/src/internal/LayoutGroup.cs",
+        "patchSetId": 8
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1007416
+      },
+      "writtenOn": "2018-05-24T10:59:09Z",
+      "side": 1,
+      "message": "Commented out code should not be checked in.",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 11
+      },
+      "revId": "befd75e74e32deed5f7604716136d4ee7aaaec79",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "123048a1_9d499ab1",
+        "filename": "src/Tizen.NUI/src/internal/LayoutGroup.cs",
+        "patchSetId": 8
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1007416
+      },
+      "writtenOn": "2018-05-24T10:59:09Z",
+      "side": 1,
+      "message": "There should be comments on these methods and an explanation on why they should be overridden.",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 9
+      },
+      "revId": "befd75e74e32deed5f7604716136d4ee7aaaec79",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "61f5879d_c68df4cf",
         "filename": "src/Tizen.NUI/src/internal/LayoutItem.cs",
         "patchSetId": 8
@@ -108,6 +177,144 @@
       "revId": "befd75e74e32deed5f7604716136d4ee7aaaec79",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4673e0c5_b8404818",
+        "filename": "src/Tizen.NUI/src/internal/LayoutLength.cs",
+        "patchSetId": 8
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1007416
+      },
+      "writtenOn": "2018-05-24T10:59:09Z",
+      "side": 1,
+      "message": "Why aren\u0027t these operators?",
+      "range": {
+        "startLine": 78,
+        "startChar": 2,
+        "endLine": 202,
+        "endChar": 9
+      },
+      "revId": "befd75e74e32deed5f7604716136d4ee7aaaec79",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37d07337_1d447db0",
+        "filename": "src/Tizen.NUI/src/internal/LayoutMeasureSpec.cs",
+        "patchSetId": 8
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1007416
+      },
+      "writtenOn": "2018-05-24T10:59:09Z",
+      "side": 1,
+      "message": "These should be operators.",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 9
+      },
+      "revId": "befd75e74e32deed5f7604716136d4ee7aaaec79",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "935ad903_8743a338",
+        "filename": "src/Tizen.NUI/src/internal/LayoutSize.cs",
+        "patchSetId": 8
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1007416
+      },
+      "writtenOn": "2018-05-24T10:59:09Z",
+      "side": 1,
+      "message": "These are already properties so we don\u0027t need the getters and setters.",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 9
+      },
+      "revId": "befd75e74e32deed5f7604716136d4ee7aaaec79",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e739a7a_721929fb",
+        "filename": "src/Tizen.NUI/src/internal/LayoutSize.cs",
+        "patchSetId": 8
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1007416
+      },
+      "writtenOn": "2018-05-24T10:59:09Z",
+      "side": 1,
+      "message": "convert to an operator.",
+      "range": {
+        "startLine": 109,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 9
+      },
+      "revId": "befd75e74e32deed5f7604716136d4ee7aaaec79",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1dcb9a68_943a7f92",
+        "filename": "src/Tizen.NUI/src/internal/LayoutSize.cs",
+        "patchSetId": 8
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1007416
+      },
+      "writtenOn": "2018-05-24T10:59:09Z",
+      "side": 1,
+      "message": "Should just have Width, remove.",
+      "range": {
+        "startLine": 116,
+        "startChar": 0,
+        "endLine": 129,
+        "endChar": 9
+      },
+      "revId": "befd75e74e32deed5f7604716136d4ee7aaaec79",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de82f8d1_903c3169",
+        "filename": "src/Tizen.NUI/src/internal/LayoutSize.cs",
+        "patchSetId": 8
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1007416
+      },
+      "writtenOn": "2018-05-24T10:59:09Z",
+      "side": 1,
+      "message": "Should just have Height. Remove.",
+      "range": {
+        "startLine": 145,
+        "startChar": 0,
+        "endLine": 159,
+        "endChar": 9
+      },
+      "revId": "befd75e74e32deed5f7604716136d4ee7aaaec79",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
     },
     {
       "key": {
