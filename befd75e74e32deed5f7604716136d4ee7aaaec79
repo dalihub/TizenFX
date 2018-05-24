@@ -318,6 +318,23 @@
     },
     {
       "key": {
+        "uuid": "80d3744d_fe0113d5",
+        "filename": "src/Tizen.NUI/src/public/BaseComponents/LayoutView.cs",
+        "patchSetId": 8
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1007416
+      },
+      "writtenOn": "2018-05-24T11:33:42Z",
+      "side": 1,
+      "message": "Why are we creating this class now?",
+      "revId": "befd75e74e32deed5f7604716136d4ee7aaaec79",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3232145_765c5ec0",
         "filename": "src/Tizen.NUI/src/public/BaseComponents/LayoutView.cs",
         "patchSetId": 8
