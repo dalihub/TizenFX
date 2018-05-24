@@ -341,6 +341,23 @@
     },
     {
       "key": {
+        "uuid": "d91b1700_718f3a64",
+        "filename": "src/Tizen.NUI/src/public/BaseComponents/View.cs",
+        "patchSetId": 8
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1007416
+      },
+      "writtenOn": "2018-05-24T11:33:14Z",
+      "side": 1,
+      "message": "Do we not need a SetLayout method in this class?  Could that be a property instead?",
+      "revId": "befd75e74e32deed5f7604716136d4ee7aaaec79",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "53841211_eb20ad24",
         "filename": "src/Tizen.NUI/src/public/Layouts/HorizontalBox.cs",
         "patchSetId": 8
