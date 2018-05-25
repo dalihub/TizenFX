@@ -324,6 +324,30 @@
     },
     {
       "key": {
+        "uuid": "2924b135_2cbb730c",
+        "filename": "src/Tizen.NUI/src/internal/LayoutItemWrapperImpl.cs",
+        "patchSetId": 11
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1011650
+      },
+      "writtenOn": "2018-05-25T13:36:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c1ed48c_aa17048a",
+      "range": {
+        "startLine": 91,
+        "startChar": 31,
+        "endLine": 91,
+        "endChar": 37
+      },
+      "revId": "8029200f704b4d5bff8ddef88799b39316e6a895",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c3975867_2f15546d",
         "filename": "src/Tizen.NUI/src/internal/LayoutItemWrapperImpl.cs",
         "patchSetId": 11
