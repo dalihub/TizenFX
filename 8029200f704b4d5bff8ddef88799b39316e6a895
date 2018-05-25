@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "26a865da_7591c015",
+        "filename": "src/Tizen.NUI/src/internal/LayoutGroup.cs",
+        "patchSetId": 11
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1007394
+      },
+      "writtenOn": "2018-05-25T13:04:29Z",
+      "side": 1,
+      "message": "Need uncommenting",
+      "range": {
+        "startLine": 36,
+        "startChar": 10,
+        "endLine": 37,
+        "endChar": 38
+      },
+      "revId": "8029200f704b4d5bff8ddef88799b39316e6a895",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "84692251_03d4b359",
         "filename": "src/Tizen.NUI/src/internal/LayoutGroup.cs",
         "patchSetId": 11
@@ -13,6 +36,75 @@
       "writtenOn": "2018-05-25T12:24:59Z",
       "side": 1,
       "message": "Documentation please.",
+      "revId": "8029200f704b4d5bff8ddef88799b39316e6a895",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "246c3bc2_513e1a81",
+        "filename": "src/Tizen.NUI/src/internal/LayoutGroup.cs",
+        "patchSetId": 11
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1007394
+      },
+      "writtenOn": "2018-05-25T13:04:29Z",
+      "side": 1,
+      "message": "Needs uncommenting",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 11
+      },
+      "revId": "8029200f704b4d5bff8ddef88799b39316e6a895",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d348117d_e758263d",
+        "filename": "src/Tizen.NUI/src/internal/LayoutGroupWrapperImpl.cs",
+        "patchSetId": 11
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1007394
+      },
+      "writtenOn": "2018-05-25T13:04:29Z",
+      "side": 1,
+      "message": "Why didn\u0027t this work?",
+      "range": {
+        "startLine": 203,
+        "startChar": 0,
+        "endLine": 208,
+        "endChar": 11
+      },
+      "revId": "8029200f704b4d5bff8ddef88799b39316e6a895",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a812ae1_a46b6b18",
+        "filename": "src/Tizen.NUI/src/internal/LayoutItem.cs",
+        "patchSetId": 11
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1007394
+      },
+      "writtenOn": "2018-05-25T13:04:29Z",
+      "side": 1,
+      "message": "Need some way of marking that these methods aren\u0027t for application developers... (We need to consider if these can be removed from public API - maybe mark these as internal?)",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 9
+      },
       "revId": "8029200f704b4d5bff8ddef88799b39316e6a895",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
@@ -53,6 +145,70 @@
       "writtenOn": "2018-05-25T12:24:59Z",
       "side": 1,
       "message": "I thought we were removing this?",
+      "revId": "8029200f704b4d5bff8ddef88799b39316e6a895",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "efd8bab1_98b3b67c",
+        "filename": "src/Tizen.NUI/src/internal/LayoutItemPtr.cs",
+        "patchSetId": 11
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1007394
+      },
+      "writtenOn": "2018-05-25T13:04:29Z",
+      "side": 1,
+      "message": "Keeping it for today\u0027s commit. It\u0027s internal.",
+      "parentUuid": "a94a3c66_c67b293f",
+      "revId": "8029200f704b4d5bff8ddef88799b39316e6a895",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c1ed48c_aa17048a",
+        "filename": "src/Tizen.NUI/src/internal/LayoutItemWrapperImpl.cs",
+        "patchSetId": 11
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1007394
+      },
+      "writtenOn": "2018-05-25T13:04:29Z",
+      "side": 1,
+      "message": "Replace with View and uncomment method\nNote - this owner will eventually also be a visual.",
+      "range": {
+        "startLine": 91,
+        "startChar": 31,
+        "endLine": 91,
+        "endChar": 37
+      },
+      "revId": "8029200f704b4d5bff8ddef88799b39316e6a895",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3975867_2f15546d",
+        "filename": "src/Tizen.NUI/src/internal/LayoutItemWrapperImpl.cs",
+        "patchSetId": 11
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1007394
+      },
+      "writtenOn": "2018-05-25T13:04:29Z",
+      "side": 1,
+      "message": "Dali::Extents needs adding to SWIG also.",
+      "range": {
+        "startLine": 231,
+        "startChar": 0,
+        "endLine": 236,
+        "endChar": 11
+      },
       "revId": "8029200f704b4d5bff8ddef88799b39316e6a895",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
@@ -173,6 +329,24 @@
       "writtenOn": "2018-05-25T12:24:59Z",
       "side": 1,
       "message": "File is LayoutMeasuredSize and the class is MeasureSize. Please pick one or the other. The class name should match the filename.",
+      "revId": "8029200f704b4d5bff8ddef88799b39316e6a895",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca12fb6c_c04b4c2c",
+        "filename": "src/Tizen.NUI/src/internal/LayoutMeasuredSize.cs",
+        "patchSetId": 11
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1007394
+      },
+      "writtenOn": "2018-05-25T13:04:29Z",
+      "side": 1,
+      "message": "Change the filename to match the class name (MeasuredSize)",
+      "parentUuid": "89984844_9b1cc795",
       "revId": "8029200f704b4d5bff8ddef88799b39316e6a895",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
