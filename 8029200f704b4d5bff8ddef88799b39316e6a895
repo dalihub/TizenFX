@@ -131,6 +131,29 @@
     },
     {
       "key": {
+        "uuid": "bf2504b1_4bee8d32",
+        "filename": "src/Tizen.NUI/src/internal/LayoutGroup.cs",
+        "patchSetId": 11
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1007416
+      },
+      "writtenOn": "2018-05-25T15:14:21Z",
+      "side": 1,
+      "message": "Is there a concept of final in C#?  This should NOT be overridden by deriving classes!",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 9
+      },
+      "revId": "8029200f704b4d5bff8ddef88799b39316e6a895",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d348117d_e758263d",
         "filename": "src/Tizen.NUI/src/internal/LayoutGroupWrapperImpl.cs",
         "patchSetId": 11
