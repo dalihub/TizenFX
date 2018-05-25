@@ -1,0 +1,290 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "84692251_03d4b359",
+        "filename": "src/Tizen.NUI/src/internal/LayoutGroup.cs",
+        "patchSetId": 11
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1007416
+      },
+      "writtenOn": "2018-05-25T12:24:59Z",
+      "side": 1,
+      "message": "Documentation please.",
+      "revId": "8029200f704b4d5bff8ddef88799b39316e6a895",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1891c267_5d68d2f5",
+        "filename": "src/Tizen.NUI/src/internal/LayoutItem.cs",
+        "patchSetId": 11
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1007416
+      },
+      "writtenOn": "2018-05-25T12:24:59Z",
+      "side": 1,
+      "message": "Surely this can be a property as well?\n\nAlso missing documentation from all below and other files.",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 9
+      },
+      "revId": "8029200f704b4d5bff8ddef88799b39316e6a895",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a94a3c66_c67b293f",
+        "filename": "src/Tizen.NUI/src/internal/LayoutItemPtr.cs",
+        "patchSetId": 11
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1007416
+      },
+      "writtenOn": "2018-05-25T12:24:59Z",
+      "side": 1,
+      "message": "I thought we were removing this?",
+      "revId": "8029200f704b4d5bff8ddef88799b39316e6a895",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fda5fe32_59dbd5bb",
+        "filename": "src/Tizen.NUI/src/internal/LayoutLength.cs",
+        "patchSetId": 11
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1007416
+      },
+      "writtenOn": "2018-05-25T12:24:59Z",
+      "side": 1,
+      "message": "Shouldn\u0027t it be just Value?  I\u0027m not sure what we\u0027ve done with other classes but I got the impression we didn\u0027t have the m prefix in NUI.",
+      "revId": "8029200f704b4d5bff8ddef88799b39316e6a895",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1de2fea1_16692b0c",
+        "filename": "src/Tizen.NUI/src/internal/LayoutMeasureSpec.cs",
+        "patchSetId": 11
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1007416
+      },
+      "writtenOn": "2018-05-25T12:24:59Z",
+      "side": 1,
+      "message": "These shouldn\u0027t be public.",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 9
+      },
+      "revId": "8029200f704b4d5bff8ddef88799b39316e6a895",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d03e7d0c_0e4ad3cd",
+        "filename": "src/Tizen.NUI/src/internal/LayoutMeasureSpec.cs",
+        "patchSetId": 11
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1007416
+      },
+      "writtenOn": "2018-05-25T12:24:59Z",
+      "side": 1,
+      "message": "Isn\u0027t it just Size?",
+      "range": {
+        "startLine": 115,
+        "startChar": 19,
+        "endLine": 115,
+        "endChar": 24
+      },
+      "revId": "8029200f704b4d5bff8ddef88799b39316e6a895",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c15c9d4_f52f13d8",
+        "filename": "src/Tizen.NUI/src/internal/LayoutMeasureSpec.cs",
+        "patchSetId": 11
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1007416
+      },
+      "writtenOn": "2018-05-25T12:24:59Z",
+      "side": 1,
+      "message": "Change to Mode.\n\nChange the Mode enum to ModeType",
+      "revId": "8029200f704b4d5bff8ddef88799b39316e6a895",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fffe7a8b_3a81d61c",
+        "filename": "src/Tizen.NUI/src/internal/LayoutMeasureSpec.cs",
+        "patchSetId": 11
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1007416
+      },
+      "writtenOn": "2018-05-25T12:24:59Z",
+      "side": 1,
+      "message": "Missing documentation.",
+      "range": {
+        "startLine": 145,
+        "startChar": 0,
+        "endLine": 150,
+        "endChar": 9
+      },
+      "revId": "8029200f704b4d5bff8ddef88799b39316e6a895",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89984844_9b1cc795",
+        "filename": "src/Tizen.NUI/src/internal/LayoutMeasuredSize.cs",
+        "patchSetId": 11
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1007416
+      },
+      "writtenOn": "2018-05-25T12:24:59Z",
+      "side": 1,
+      "message": "File is LayoutMeasuredSize and the class is MeasureSize. Please pick one or the other. The class name should match the filename.",
+      "revId": "8029200f704b4d5bff8ddef88799b39316e6a895",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d293b25b_3def0070",
+        "filename": "src/Tizen.NUI/src/internal/LayoutMeasuredSize.cs",
+        "patchSetId": 11
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1007416
+      },
+      "writtenOn": "2018-05-25T12:24:59Z",
+      "side": 1,
+      "message": "Replace with operators.",
+      "range": {
+        "startLine": 139,
+        "startChar": 1,
+        "endLine": 151,
+        "endChar": 9
+      },
+      "revId": "8029200f704b4d5bff8ddef88799b39316e6a895",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe57acf6_1404b54b",
+        "filename": "src/Tizen.NUI/src/internal/LayoutMeasuredSize.cs",
+        "patchSetId": 11
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1007416
+      },
+      "writtenOn": "2018-05-25T12:24:59Z",
+      "side": 1,
+      "message": "Replace with properties.",
+      "range": {
+        "startLine": 153,
+        "startChar": 8,
+        "endLine": 177,
+        "endChar": 9
+      },
+      "revId": "8029200f704b4d5bff8ddef88799b39316e6a895",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5988e4b_115fb11b",
+        "filename": "src/Tizen.NUI/src/internal/LayoutMeasuredSize.cs",
+        "patchSetId": 11
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1007416
+      },
+      "writtenOn": "2018-05-25T12:24:59Z",
+      "side": 1,
+      "message": "StateType",
+      "revId": "8029200f704b4d5bff8ddef88799b39316e6a895",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7172f15_495c6731",
+        "filename": "src/Tizen.NUI/src/internal/LayoutSize.cs",
+        "patchSetId": 11
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1007416
+      },
+      "writtenOn": "2018-05-25T12:24:59Z",
+      "side": 1,
+      "message": "INternal. Should only be properties.",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 9
+      },
+      "revId": "8029200f704b4d5bff8ddef88799b39316e6a895",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e883b8bd_2e925b4a",
+        "filename": "src/Tizen.NUI/src/public/BaseComponents/View.cs",
+        "patchSetId": 11
+      },
+      "lineNbr": 2365,
+      "author": {
+        "id": 1007416
+      },
+      "writtenOn": "2018-05-25T12:24:59Z",
+      "side": 1,
+      "message": "LayoutItem?",
+      "range": {
+        "startLine": 2365,
+        "startChar": 15,
+        "endLine": 2365,
+        "endChar": 27
+      },
+      "revId": "8029200f704b4d5bff8ddef88799b39316e6a895",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
