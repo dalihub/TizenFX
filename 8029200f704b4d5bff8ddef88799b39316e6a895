@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "16abfcf5_86eeebae",
+        "filename": "src/Tizen.NUI/src/internal/LayoutGroup.cs",
+        "patchSetId": 11
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1011650
+      },
+      "writtenOn": "2018-05-25T13:30:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26a865da_7591c015",
+      "range": {
+        "startLine": 36,
+        "startChar": 10,
+        "endLine": 37,
+        "endChar": 38
+      },
+      "revId": "8029200f704b4d5bff8ddef88799b39316e6a895",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84692251_03d4b359",
         "filename": "src/Tizen.NUI/src/internal/LayoutGroup.cs",
         "patchSetId": 11
@@ -39,6 +63,24 @@
       "revId": "8029200f704b4d5bff8ddef88799b39316e6a895",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e8b1ecf_71fa3478",
+        "filename": "src/Tizen.NUI/src/internal/LayoutGroup.cs",
+        "patchSetId": 11
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1011650
+      },
+      "writtenOn": "2018-05-25T13:30:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84692251_03d4b359",
+      "revId": "8029200f704b4d5bff8ddef88799b39316e6a895",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     },
     {
       "key": {
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "b347d0b9_291d13b4",
+        "filename": "src/Tizen.NUI/src/internal/LayoutGroup.cs",
+        "patchSetId": 11
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1011650
+      },
+      "writtenOn": "2018-05-25T13:30:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "246c3bc2_513e1a81",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 11
+      },
+      "revId": "8029200f704b4d5bff8ddef88799b39316e6a895",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d348117d_e758263d",
         "filename": "src/Tizen.NUI/src/internal/LayoutGroupWrapperImpl.cs",
         "patchSetId": 11
@@ -88,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "1f23b30c_46784687",
+        "filename": "src/Tizen.NUI/src/internal/LayoutGroupWrapperImpl.cs",
+        "patchSetId": 11
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1011650
+      },
+      "writtenOn": "2018-05-25T13:30:38Z",
+      "side": 1,
+      "message": "Handle is not available in NUI. Have to replace handle with something else (View?)",
+      "parentUuid": "d348117d_e758263d",
+      "range": {
+        "startLine": 203,
+        "startChar": 0,
+        "endLine": 208,
+        "endChar": 11
+      },
+      "revId": "8029200f704b4d5bff8ddef88799b39316e6a895",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6a812ae1_a46b6b18",
         "filename": "src/Tizen.NUI/src/internal/LayoutItem.cs",
         "patchSetId": 11
@@ -99,6 +189,30 @@
       "writtenOn": "2018-05-25T13:04:29Z",
       "side": 1,
       "message": "Need some way of marking that these methods aren\u0027t for application developers... (We need to consider if these can be removed from public API - maybe mark these as internal?)",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 9
+      },
+      "revId": "8029200f704b4d5bff8ddef88799b39316e6a895",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9aca29f_29556b90",
+        "filename": "src/Tizen.NUI/src/internal/LayoutItem.cs",
+        "patchSetId": 11
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1011650
+      },
+      "writtenOn": "2018-05-25T13:30:38Z",
+      "side": 1,
+      "message": "i have marked them as internal but who would use this if it is not for application developer.?",
+      "parentUuid": "6a812ae1_a46b6b18",
       "range": {
         "startLine": 54,
         "startChar": 0,
@@ -169,6 +283,24 @@
     },
     {
       "key": {
+        "uuid": "ea91f861_9510c7ef",
+        "filename": "src/Tizen.NUI/src/internal/LayoutItemPtr.cs",
+        "patchSetId": 11
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1011650
+      },
+      "writtenOn": "2018-05-25T13:30:38Z",
+      "side": 1,
+      "message": "yes we are not using it anymore. But David and I agreed to keep it until we have implemented few layouts.",
+      "parentUuid": "a94a3c66_c67b293f",
+      "revId": "8029200f704b4d5bff8ddef88799b39316e6a895",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4c1ed48c_aa17048a",
         "filename": "src/Tizen.NUI/src/internal/LayoutItemWrapperImpl.cs",
         "patchSetId": 11
@@ -232,6 +364,24 @@
     },
     {
       "key": {
+        "uuid": "5d5b8cdf_bd4fe346",
+        "filename": "src/Tizen.NUI/src/internal/LayoutLength.cs",
+        "patchSetId": 11
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1011650
+      },
+      "writtenOn": "2018-05-25T13:30:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fda5fe32_59dbd5bb",
+      "revId": "8029200f704b4d5bff8ddef88799b39316e6a895",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1de2fea1_16692b0c",
         "filename": "src/Tizen.NUI/src/internal/LayoutMeasureSpec.cs",
         "patchSetId": 11
@@ -252,6 +402,30 @@
       "revId": "8029200f704b4d5bff8ddef88799b39316e6a895",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26b57d34_fad2e06e",
+        "filename": "src/Tizen.NUI/src/internal/LayoutMeasureSpec.cs",
+        "patchSetId": 11
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1011650
+      },
+      "writtenOn": "2018-05-25T13:30:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1de2fea1_16692b0c",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 9
+      },
+      "revId": "8029200f704b4d5bff8ddef88799b39316e6a895",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     },
     {
       "key": {
@@ -278,6 +452,30 @@
     },
     {
       "key": {
+        "uuid": "7b371da8_07feeb14",
+        "filename": "src/Tizen.NUI/src/internal/LayoutMeasureSpec.cs",
+        "patchSetId": 11
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1011650
+      },
+      "writtenOn": "2018-05-25T13:30:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d03e7d0c_0e4ad3cd",
+      "range": {
+        "startLine": 115,
+        "startChar": 19,
+        "endLine": 115,
+        "endChar": 24
+      },
+      "revId": "8029200f704b4d5bff8ddef88799b39316e6a895",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8c15c9d4_f52f13d8",
         "filename": "src/Tizen.NUI/src/internal/LayoutMeasureSpec.cs",
         "patchSetId": 11
@@ -292,6 +490,24 @@
       "revId": "8029200f704b4d5bff8ddef88799b39316e6a895",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8aba05be_904eeb69",
+        "filename": "src/Tizen.NUI/src/internal/LayoutMeasureSpec.cs",
+        "patchSetId": 11
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1011650
+      },
+      "writtenOn": "2018-05-25T13:30:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8c15c9d4_f52f13d8",
+      "revId": "8029200f704b4d5bff8ddef88799b39316e6a895",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     },
     {
       "key": {
@@ -315,6 +531,30 @@
       "revId": "8029200f704b4d5bff8ddef88799b39316e6a895",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4901716_422f7203",
+        "filename": "src/Tizen.NUI/src/internal/LayoutMeasureSpec.cs",
+        "patchSetId": 11
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1011650
+      },
+      "writtenOn": "2018-05-25T13:30:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fffe7a8b_3a81d61c",
+      "range": {
+        "startLine": 145,
+        "startChar": 0,
+        "endLine": 150,
+        "endChar": 9
+      },
+      "revId": "8029200f704b4d5bff8ddef88799b39316e6a895",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     },
     {
       "key": {
@@ -376,6 +616,30 @@
     },
     {
       "key": {
+        "uuid": "f1900948_962dfc05",
+        "filename": "src/Tizen.NUI/src/internal/LayoutMeasuredSize.cs",
+        "patchSetId": 11
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1011650
+      },
+      "writtenOn": "2018-05-25T13:30:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d293b25b_3def0070",
+      "range": {
+        "startLine": 139,
+        "startChar": 1,
+        "endLine": 151,
+        "endChar": 9
+      },
+      "revId": "8029200f704b4d5bff8ddef88799b39316e6a895",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fe57acf6_1404b54b",
         "filename": "src/Tizen.NUI/src/internal/LayoutMeasuredSize.cs",
         "patchSetId": 11
@@ -399,6 +663,30 @@
     },
     {
       "key": {
+        "uuid": "a2177fb5_d495efd5",
+        "filename": "src/Tizen.NUI/src/internal/LayoutMeasuredSize.cs",
+        "patchSetId": 11
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1011650
+      },
+      "writtenOn": "2018-05-25T13:30:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fe57acf6_1404b54b",
+      "range": {
+        "startLine": 153,
+        "startChar": 8,
+        "endLine": 177,
+        "endChar": 9
+      },
+      "revId": "8029200f704b4d5bff8ddef88799b39316e6a895",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f5988e4b_115fb11b",
         "filename": "src/Tizen.NUI/src/internal/LayoutMeasuredSize.cs",
         "patchSetId": 11
@@ -413,6 +701,24 @@
       "revId": "8029200f704b4d5bff8ddef88799b39316e6a895",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf3be1df_122e8b71",
+        "filename": "src/Tizen.NUI/src/internal/LayoutMeasuredSize.cs",
+        "patchSetId": 11
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1011650
+      },
+      "writtenOn": "2018-05-25T13:30:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f5988e4b_115fb11b",
+      "revId": "8029200f704b4d5bff8ddef88799b39316e6a895",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     },
     {
       "key": {
@@ -439,6 +745,30 @@
     },
     {
       "key": {
+        "uuid": "21dd5d7b_e2a8bf3e",
+        "filename": "src/Tizen.NUI/src/internal/LayoutSize.cs",
+        "patchSetId": 11
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1011650
+      },
+      "writtenOn": "2018-05-25T13:30:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d7172f15_495c6731",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 9
+      },
+      "revId": "8029200f704b4d5bff8ddef88799b39316e6a895",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e883b8bd_2e925b4a",
         "filename": "src/Tizen.NUI/src/public/BaseComponents/View.cs",
         "patchSetId": 11
@@ -459,6 +789,30 @@
       "revId": "8029200f704b4d5bff8ddef88799b39316e6a895",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08f6bdd1_371e0691",
+        "filename": "src/Tizen.NUI/src/public/BaseComponents/View.cs",
+        "patchSetId": 11
+      },
+      "lineNbr": 2365,
+      "author": {
+        "id": 1011650
+      },
+      "writtenOn": "2018-05-25T13:30:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e883b8bd_2e925b4a",
+      "range": {
+        "startLine": 2365,
+        "startChar": 15,
+        "endLine": 2365,
+        "endChar": 27
+      },
+      "revId": "8029200f704b4d5bff8ddef88799b39316e6a895",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     }
   ]
 }
