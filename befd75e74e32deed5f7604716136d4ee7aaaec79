@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fa417883_966a9348",
+        "filename": "src/Tizen.NUI/src/internal/LayoutGroup.cs",
+        "patchSetId": 8
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1011650
+      },
+      "writtenOn": "2018-05-25T11:54:51Z",
+      "side": 1,
+      "message": "Made them protected",
+      "parentUuid": "74cafc29_fad59eae",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 9
+      },
+      "revId": "befd75e74e32deed5f7604716136d4ee7aaaec79",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "039ee075_9aa743dd",
         "filename": "src/Tizen.NUI/src/internal/LayoutGroup.cs",
         "patchSetId": 8
@@ -45,6 +69,30 @@
       "revId": "befd75e74e32deed5f7604716136d4ee7aaaec79",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "176b2801_25d75bb5",
+        "filename": "src/Tizen.NUI/src/internal/LayoutGroup.cs",
+        "patchSetId": 8
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1011650
+      },
+      "writtenOn": "2018-05-25T11:54:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "039ee075_9aa743dd",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 11
+      },
+      "revId": "befd75e74e32deed5f7604716136d4ee7aaaec79",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "bd095936_ab68ab0b",
+        "filename": "src/Tizen.NUI/src/internal/LayoutGroup.cs",
+        "patchSetId": 8
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1011650
+      },
+      "writtenOn": "2018-05-25T11:54:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "123048a1_9d499ab1",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 9
+      },
+      "revId": "befd75e74e32deed5f7604716136d4ee7aaaec79",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "61f5879d_c68df4cf",
         "filename": "src/Tizen.NUI/src/internal/LayoutItem.cs",
         "patchSetId": 8
@@ -82,6 +154,30 @@
       "writtenOn": "2018-05-24T10:48:59Z",
       "side": 1,
       "message": "Not sure what you\u0027re saying with this comment.  Is it a TODO? Why have we made it internal if it should be protected?",
+      "range": {
+        "startLine": 33,
+        "startChar": 8,
+        "endLine": 33,
+        "endChar": 43
+      },
+      "revId": "befd75e74e32deed5f7604716136d4ee7aaaec79",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75e96683_61e68f19",
+        "filename": "src/Tizen.NUI/src/internal/LayoutItem.cs",
+        "patchSetId": 8
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1011650
+      },
+      "writtenOn": "2018-05-25T11:54:51Z",
+      "side": 1,
+      "message": "// This should be protected though but made internal because LayoutItemWrapperImpl is internal.",
+      "parentUuid": "61f5879d_c68df4cf",
       "range": {
         "startLine": 33,
         "startChar": 8,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "b0df3e04_fe12df09",
+        "filename": "src/Tizen.NUI/src/internal/LayoutItem.cs",
+        "patchSetId": 8
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1011650
+      },
+      "writtenOn": "2018-05-25T11:54:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1be4bf64_b35b07a8",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 9
+      },
+      "revId": "befd75e74e32deed5f7604716136d4ee7aaaec79",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "25fa4347_dffe026e",
         "filename": "src/Tizen.NUI/src/internal/LayoutItem.cs",
         "patchSetId": 8
@@ -128,6 +248,30 @@
       "writtenOn": "2018-05-24T10:48:59Z",
       "side": 1,
       "message": "All these getters sound like they could be read-only properties.",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 132,
+        "endChar": 9
+      },
+      "revId": "befd75e74e32deed5f7604716136d4ee7aaaec79",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5dbd64e7_f96af199",
+        "filename": "src/Tizen.NUI/src/internal/LayoutItem.cs",
+        "patchSetId": 8
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1011650
+      },
+      "writtenOn": "2018-05-25T11:54:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25fa4347_dffe026e",
       "range": {
         "startLine": 84,
         "startChar": 0,
@@ -180,6 +324,24 @@
     },
     {
       "key": {
+        "uuid": "a64039e7_42ec47c1",
+        "filename": "src/Tizen.NUI/src/internal/LayoutItemPtr.cs",
+        "patchSetId": 8
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1011650
+      },
+      "writtenOn": "2018-05-25T11:54:51Z",
+      "side": 1,
+      "message": "Removed all usage and made it internal for now. Will remove later once confirmed behavior.",
+      "parentUuid": "e002dc4d_091324ca",
+      "revId": "befd75e74e32deed5f7604716136d4ee7aaaec79",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4673e0c5_b8404818",
         "filename": "src/Tizen.NUI/src/internal/LayoutLength.cs",
         "patchSetId": 8
@@ -191,6 +353,30 @@
       "writtenOn": "2018-05-24T10:59:09Z",
       "side": 1,
       "message": "Why aren\u0027t these operators?",
+      "range": {
+        "startLine": 78,
+        "startChar": 2,
+        "endLine": 202,
+        "endChar": 9
+      },
+      "revId": "befd75e74e32deed5f7604716136d4ee7aaaec79",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7641d01b_c842fd3f",
+        "filename": "src/Tizen.NUI/src/internal/LayoutLength.cs",
+        "patchSetId": 8
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1011650
+      },
+      "writtenOn": "2018-05-25T11:54:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4673e0c5_b8404818",
       "range": {
         "startLine": 78,
         "startChar": 2,
@@ -226,6 +412,30 @@
     },
     {
       "key": {
+        "uuid": "819508ed_4c4665e4",
+        "filename": "src/Tizen.NUI/src/internal/LayoutMeasureSpec.cs",
+        "patchSetId": 8
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1011650
+      },
+      "writtenOn": "2018-05-25T11:54:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "37d07337_1d447db0",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 9
+      },
+      "revId": "befd75e74e32deed5f7604716136d4ee7aaaec79",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "935ad903_8743a338",
         "filename": "src/Tizen.NUI/src/internal/LayoutSize.cs",
         "patchSetId": 8
@@ -246,6 +456,30 @@
       "revId": "befd75e74e32deed5f7604716136d4ee7aaaec79",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ca29331_56af7841",
+        "filename": "src/Tizen.NUI/src/internal/LayoutSize.cs",
+        "patchSetId": 8
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1011650
+      },
+      "writtenOn": "2018-05-25T11:54:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "935ad903_8743a338",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 9
+      },
+      "revId": "befd75e74e32deed5f7604716136d4ee7aaaec79",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     },
     {
       "key": {
@@ -272,6 +506,30 @@
     },
     {
       "key": {
+        "uuid": "03cb2941_545e248e",
+        "filename": "src/Tizen.NUI/src/internal/LayoutSize.cs",
+        "patchSetId": 8
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1011650
+      },
+      "writtenOn": "2018-05-25T11:54:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e739a7a_721929fb",
+      "range": {
+        "startLine": 109,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 9
+      },
+      "revId": "befd75e74e32deed5f7604716136d4ee7aaaec79",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1dcb9a68_943a7f92",
         "filename": "src/Tizen.NUI/src/internal/LayoutSize.cs",
         "patchSetId": 8
@@ -295,6 +553,30 @@
     },
     {
       "key": {
+        "uuid": "64a5187a_c96114c0",
+        "filename": "src/Tizen.NUI/src/internal/LayoutSize.cs",
+        "patchSetId": 8
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1011650
+      },
+      "writtenOn": "2018-05-25T11:54:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1dcb9a68_943a7f92",
+      "range": {
+        "startLine": 116,
+        "startChar": 0,
+        "endLine": 129,
+        "endChar": 9
+      },
+      "revId": "befd75e74e32deed5f7604716136d4ee7aaaec79",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "de82f8d1_903c3169",
         "filename": "src/Tizen.NUI/src/internal/LayoutSize.cs",
         "patchSetId": 8
@@ -315,6 +597,30 @@
       "revId": "befd75e74e32deed5f7604716136d4ee7aaaec79",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0fa62290_f9a2e006",
+        "filename": "src/Tizen.NUI/src/internal/LayoutSize.cs",
+        "patchSetId": 8
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1011650
+      },
+      "writtenOn": "2018-05-25T11:54:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de82f8d1_903c3169",
+      "range": {
+        "startLine": 145,
+        "startChar": 0,
+        "endLine": 159,
+        "endChar": 9
+      },
+      "revId": "befd75e74e32deed5f7604716136d4ee7aaaec79",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     },
     {
       "key": {
@@ -369,6 +675,24 @@
       "writtenOn": "2018-05-24T11:33:14Z",
       "side": 1,
       "message": "Do we not need a SetLayout method in this class?  Could that be a property instead?",
+      "revId": "befd75e74e32deed5f7604716136d4ee7aaaec79",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcd6db0b_5ff25462",
+        "filename": "src/Tizen.NUI/src/public/BaseComponents/View.cs",
+        "patchSetId": 8
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1011650
+      },
+      "writtenOn": "2018-05-25T11:54:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d91b1700_718f3a64",
       "revId": "befd75e74e32deed5f7604716136d4ee7aaaec79",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": false
