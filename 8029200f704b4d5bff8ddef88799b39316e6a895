@@ -225,6 +225,30 @@
     },
     {
       "key": {
+        "uuid": "a5de27f3_46dce97d",
+        "filename": "src/Tizen.NUI/src/internal/LayoutItem.cs",
+        "patchSetId": 11
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1007416
+      },
+      "writtenOn": "2018-05-25T13:37:24Z",
+      "side": 1,
+      "message": "They are called by the Layouting Algorithm within DALi. They should never be called directly by an application developer.",
+      "parentUuid": "b9aca29f_29556b90",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 9
+      },
+      "revId": "8029200f704b4d5bff8ddef88799b39316e6a895",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1891c267_5d68d2f5",
         "filename": "src/Tizen.NUI/src/internal/LayoutItem.cs",
         "patchSetId": 11
