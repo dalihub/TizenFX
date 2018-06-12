@@ -15,10 +15,14 @@
  *
  */
 
+using System.ComponentModel;
 using Tizen.NUI.BaseComponents;
 
 namespace Tizen.NUI
 {
+    /// This will be public opened in tizen_5.0 after ACR done. 
+    /// before ACR, need to be hidden as inhouse API.
+    [EditorBrowsable(EditorBrowsableState.Never)]
     internal class LayoutItemPtr : global::System.IDisposable
     {
         private global::System.Runtime.InteropServices.HandleRef swigCPtr;
@@ -42,15 +46,18 @@ namespace Tizen.NUI
 
         public virtual void Dispose()
         {
-            lock(this) {
-            if (swigCPtr.Handle != global::System.IntPtr.Zero) {
-                if (swigCMemOwn) {
-                swigCMemOwn = false;
-                LayoutPINVOKE.delete_LayoutItemPtr(swigCPtr);
+            lock (this)
+            {
+                if (swigCPtr.Handle != global::System.IntPtr.Zero)
+                {
+                    if (swigCMemOwn)
+                    {
+                        swigCMemOwn = false;
+                        LayoutPINVOKE.delete_LayoutItemPtr(swigCPtr);
+                    }
+                    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
                 }
-                swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
-            }
-            global::System.GC.SuppressFinalize(this);
+                global::System.GC.SuppressFinalize(this);
             }
         }
 

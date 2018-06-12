@@ -17,6 +17,7 @@
 using System;
 using Tizen.NUI.BaseComponents;
 using System.Runtime.InteropServices;
+using System.ComponentModel;
 
 namespace Tizen.NUI
 {
@@ -24,6 +25,10 @@ namespace Tizen.NUI
     /// Internal Layout class that all layout containers should derive from.
     /// Mirrors the native class LayoutGroup.
     /// </summary>
+
+    /// This will be public opened in tizen_5.0 after ACR done. 
+    /// before ACR, need to be hidden as inhouse API.
+    [EditorBrowsable(EditorBrowsableState.Never)]
     internal class LayoutGroupWrapperImpl : LayoutItemWrapperImpl
     {
         private global::System.Runtime.InteropServices.HandleRef swigCPtr;
@@ -225,7 +230,7 @@ namespace Tizen.NUI
             if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
         }
 
-        private void SwigDirectorConnect()
+        private new void SwigDirectorConnect()
         {
             base.SwigDirectorConnect();
 

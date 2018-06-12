@@ -15,10 +15,14 @@
  *
  */
 
+using System.ComponentModel;
 using Tizen.NUI.BaseComponents;
 
 namespace Tizen.NUI
 {
+    /// This will be public opened in tizen_5.0 after ACR done. 
+    /// before ACR, need to be hidden as inhouse API.
+    [EditorBrowsable(EditorBrowsableState.Never)]
     internal class LayoutItemWrapperImpl : BaseObject, ILayoutParent
     {
         private global::System.Runtime.InteropServices.HandleRef swigCPtr;

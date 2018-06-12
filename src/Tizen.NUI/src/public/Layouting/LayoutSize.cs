@@ -15,14 +15,22 @@
  *
  */
 
+using System.ComponentModel;
 using Tizen.NUI.BaseComponents;
 
 namespace Tizen.NUI
 {
 
+    /// This will be public opened in tizen_5.0 after ACR done. 
+    /// before ACR, need to be hidden as inhouse API.
+    [EditorBrowsable(EditorBrowsableState.Never)]
     public class LayoutSize : global::System.IDisposable
     {
         private global::System.Runtime.InteropServices.HandleRef swigCPtr;
+
+        /// This will be public opened in tizen_5.0 after ACR done. 
+        /// before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         protected bool swigCMemOwn;
 
         internal LayoutSize(global::System.IntPtr cPtr, bool cMemoryOwn)
@@ -36,14 +44,20 @@ namespace Tizen.NUI
             return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
         }
 
+        /// This will be public opened in tizen_5.0 after ACR done. 
+        /// before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         ~LayoutSize()
         {
             Dispose();
         }
 
+        /// This will be public opened in tizen_5.0 after ACR done. 
+        /// before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public virtual void Dispose()
         {
-            lock(this)
+            lock (this)
             {
                 if (swigCPtr.Handle != global::System.IntPtr.Zero)
                 {
@@ -58,11 +72,17 @@ namespace Tizen.NUI
             }
         }
 
+        /// This will be public opened in tizen_5.0 after ACR done. 
+        /// before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public LayoutSize() : this(LayoutPINVOKE.new_LayoutSize__SWIG_0(), true)
         {
             if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
         }
 
+        /// This will be public opened in tizen_5.0 after ACR done. 
+        /// before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public LayoutSize(int x, int y) : this(LayoutPINVOKE.new_LayoutSize__SWIG_1(x, y), true)
         {
             if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
@@ -87,16 +107,25 @@ namespace Tizen.NUI
             return ret;
         }
 
+        /// This will be public opened in tizen_5.0 after ACR done. 
+        /// before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public static bool operator ==(LayoutSize r1, LayoutSize r2)
         {
             return r1.EqualTo(r2);
         }
 
+        /// This will be public opened in tizen_5.0 after ACR done. 
+        /// before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public static bool operator !=(LayoutSize r1, LayoutSize r2)
         {
             return !r1.EqualTo(r2);
         }
 
+        /// This will be public opened in tizen_5.0 after ACR done. 
+        /// before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public int Width
         {
             set
@@ -112,6 +141,9 @@ namespace Tizen.NUI
             }
         }
 
+        /// This will be public opened in tizen_5.0 after ACR done. 
+        /// before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public int Height
         {
             set

@@ -15,14 +15,22 @@
  *
  */
 
+using System.ComponentModel;
 using Tizen.NUI.BaseComponents;
 
 namespace Tizen.NUI
 {
 
+    /// This will be public opened in tizen_5.0 after ACR done. 
+    /// before ACR, need to be hidden as inhouse API.
+    [EditorBrowsable(EditorBrowsableState.Never)]
     public class LayoutLength : global::System.IDisposable
     {
         private global::System.Runtime.InteropServices.HandleRef swigCPtr;
+
+        /// This will be public opened in tizen_5.0 after ACR done. 
+        /// before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         protected bool swigCMemOwn;
 
         internal LayoutLength(global::System.IntPtr cPtr, bool cMemoryOwn)
@@ -33,17 +41,24 @@ namespace Tizen.NUI
 
         internal static global::System.Runtime.InteropServices.HandleRef getCPtr(LayoutLength obj)
         {
-            return ( obj.Equals(null) ) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
+            return (obj.Equals(null)) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
         }
 
+
+        /// This will be public opened in tizen_5.0 after ACR done. 
+        /// before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         ~LayoutLength()
         {
             Dispose();
         }
 
+        /// This will be public opened in tizen_5.0 after ACR done. 
+        /// before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public virtual void Dispose()
         {
-            lock(this)
+            lock (this)
             {
                 if (swigCPtr.Handle != global::System.IntPtr.Zero)
                 {
@@ -58,11 +73,18 @@ namespace Tizen.NUI
             }
         }
 
+        /// This will be public opened in tizen_5.0 after ACR done. 
+        /// before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public LayoutLength(int value) : this(LayoutPINVOKE.new_LayoutLength__SWIG_0(value), true)
         {
             if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
         }
 
+
+        /// This will be public opened in tizen_5.0 after ACR done. 
+        /// before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public LayoutLength(LayoutLength layoutLength) : this(LayoutPINVOKE.new_LayoutLength__SWIG_1(LayoutLength.getCPtr(layoutLength)), true)
         {
             if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
@@ -74,6 +96,10 @@ namespace Tizen.NUI
         /// <param name="arg1">The first value.</param>
         /// <param name="arg2">The second value.</param>
         /// <returns>The LayoutLength containing the result of the addition.</returns>
+
+        /// This will be public opened in tizen_5.0 after ACR done. 
+        /// before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public static LayoutLength operator +(LayoutLength arg1, LayoutLength arg2)
         {
             return arg1.Add(arg2);
@@ -85,6 +111,10 @@ namespace Tizen.NUI
         /// <param name="arg1">The first value.</param>
         /// <param name="arg2">The second value.</param>
         /// <returns>The LayoutLength containing the result of the addition.</returns>
+
+        /// This will be public opened in tizen_5.0 after ACR done. 
+        /// before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public static LayoutLength operator +(LayoutLength arg1, int arg2)
         {
             return arg1.Add(arg2);
@@ -96,6 +126,10 @@ namespace Tizen.NUI
         /// <param name="arg1">The first value.</param>
         /// <param name="arg2">The second value.</param>
         /// <returns>The LayoutLength containing the result of the subtraction.</returns>
+
+        /// This will be public opened in tizen_5.0 after ACR done. 
+        /// before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public static LayoutLength operator -(LayoutLength arg1, LayoutLength arg2)
         {
             return arg1.Subtract(arg2);
@@ -107,6 +141,10 @@ namespace Tizen.NUI
         /// <param name="arg1">The first value.</param>
         /// <param name="arg2">The second value.</param>
         /// <returns>The LayoutLength containing the result of the subtraction.</returns>
+
+        /// This will be public opened in tizen_5.0 after ACR done. 
+        /// before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public static LayoutLength operator -(LayoutLength arg1, int arg2)
         {
             return arg1.Subtract(arg2);
@@ -118,6 +156,10 @@ namespace Tizen.NUI
         /// <param name="arg1">The first value.</param>
         /// <param name="arg2">The second value.</param>
         /// <returns>The LayoutLength containing the result of the multiplication.</returns>
+
+        /// This will be public opened in tizen_5.0 after ACR done. 
+        /// before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public static LayoutLength operator *(LayoutLength arg1, LayoutLength arg2)
         {
             return arg1.Multiply(arg2);
@@ -129,6 +171,10 @@ namespace Tizen.NUI
         /// <param name="arg1">The first value.</param>
         /// <param name="arg2">The int value to scale the LayoutLength.</param>
         /// <returns>The LayoutLength containing the result of the scaling.</returns>
+
+        /// This will be public opened in tizen_5.0 after ACR done. 
+        /// before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public static LayoutLength operator *(LayoutLength arg1, int arg2)
         {
             return arg1.Multiply(arg2);
@@ -140,6 +186,10 @@ namespace Tizen.NUI
         /// <param name="arg1">The first value.</param>
         /// <param name="arg2">The second value.</param>
         /// <returns>The LayoutLength containing the result of the division.</returns>
+
+        /// This will be public opened in tizen_5.0 after ACR done. 
+        /// before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public static LayoutLength operator /(LayoutLength arg1, LayoutLength arg2)
         {
             return arg1.Divide(arg2);
@@ -151,16 +201,26 @@ namespace Tizen.NUI
         /// <param name="arg1">The first value.</param>
         /// <param name="arg2">The int value to scale the vector by.</param>
         /// <returns>The LayoutLength containing the result of the scaling.</returns>
+
+        /// This will be public opened in tizen_5.0 after ACR done. 
+        /// before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public static LayoutLength operator /(LayoutLength arg1, int arg2)
         {
             return arg1.Divide(arg2);
         }
 
+        /// This will be public opened in tizen_5.0 after ACR done. 
+        /// before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public static bool operator ==(LayoutLength r1, LayoutLength r2)
         {
             return r1.EqualTo(r2);
         }
 
+        /// This will be public opened in tizen_5.0 after ACR done. 
+        /// before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public static bool operator !=(LayoutLength r1, LayoutLength r2)
         {
             return !r1.EqualTo(r2);
@@ -292,6 +352,9 @@ namespace Tizen.NUI
             return ret;
         }
 
+        /// This will be public opened in tizen_5.0 after ACR done. 
+        /// before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public float ConvertToFloat()
         {
             float ret = LayoutPINVOKE.LayoutLength_ConvertToFloat(swigCPtr);
@@ -299,6 +362,9 @@ namespace Tizen.NUI
             return ret;
         }
 
+        /// This will be public opened in tizen_5.0 after ACR done. 
+        /// before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public int Value
         {
             set

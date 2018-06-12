@@ -15,14 +15,22 @@
  *
  */
 
+using System.ComponentModel;
 using Tizen.NUI.BaseComponents;
 
 namespace Tizen.NUI
 {
 
+    /// This will be public opened in tizen_5.0 after ACR done. 
+    /// before ACR, need to be hidden as inhouse API.
+    [EditorBrowsable(EditorBrowsableState.Never)]
     public class MeasuredSize : global::System.IDisposable
     {
         private global::System.Runtime.InteropServices.HandleRef swigCPtr;
+
+        /// This will be public opened in tizen_5.0 after ACR done. 
+        /// before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         protected bool swigCMemOwn;
 
         internal MeasuredSize(global::System.IntPtr cPtr, bool cMemoryOwn)
@@ -33,7 +41,7 @@ namespace Tizen.NUI
 
         internal static global::System.Runtime.InteropServices.HandleRef getCPtr(MeasuredSize obj)
         {
-            return ( obj.Equals(null) ) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
+            return (obj.Equals(null)) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
         }
 
         //A Flag to check who called Dispose(). (By User or DisposeQueue)
@@ -48,9 +56,13 @@ namespace Tizen.NUI
         /// Dispose.
         /// </summary>
         /// <since_tizen> 3 </since_tizen>
+
+        /// This will be public opened in tizen_5.0 after ACR done. 
+        /// before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         ~MeasuredSize()
         {
-            if(!isDisposeQueued)
+            if (!isDisposeQueued)
             {
                 isDisposeQueued = true;
                 DisposeQueue.Instance.Add(this);
@@ -61,6 +73,10 @@ namespace Tizen.NUI
         /// Dispose.
         /// </summary>
         /// <since_tizen> 3 </since_tizen>
+
+        /// This will be public opened in tizen_5.0 after ACR done. 
+        /// before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public void Dispose()
         {
             //Throw excpetion if Dispose() is called in separate thread.
@@ -84,6 +100,10 @@ namespace Tizen.NUI
         /// Dispose.
         /// </summary>
         /// <since_tizen> 3 </since_tizen>
+
+        /// This will be public opened in tizen_5.0 after ACR done. 
+        /// before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         protected virtual void Dispose(DisposeTypes type)
         {
             if (disposed)
@@ -91,7 +111,7 @@ namespace Tizen.NUI
                 return;
             }
 
-            if(type == DisposeTypes.Explicit)
+            if (type == DisposeTypes.Explicit)
             {
                 //Called by User
                 //Release your own managed resources here.
@@ -114,16 +134,25 @@ namespace Tizen.NUI
             disposed = true;
         }
 
+        /// This will be public opened in tizen_5.0 after ACR done. 
+        /// before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public MeasuredSize() : this(LayoutPINVOKE.new_MeasuredSize__SWIG_0(), true)
         {
             if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
         }
 
+        /// This will be public opened in tizen_5.0 after ACR done. 
+        /// before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public MeasuredSize(LayoutLength measuredSize) : this(LayoutPINVOKE.new_MeasuredSize__SWIG_1(LayoutLength.getCPtr(measuredSize)), true)
         {
             if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
         }
 
+        /// This will be public opened in tizen_5.0 after ACR done. 
+        /// before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public MeasuredSize(LayoutLength measuredSize, MeasuredSize.StateType state) : this(LayoutPINVOKE.new_MeasuredSize__SWIG_2(LayoutLength.getCPtr(measuredSize), (int)state), true)
         {
             if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
@@ -143,16 +172,25 @@ namespace Tizen.NUI
             return ret;
         }
 
+        /// This will be public opened in tizen_5.0 after ACR done. 
+        /// before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public static bool operator ==(MeasuredSize r1, MeasuredSize r2)
         {
             return r1.EqualTo(r2);
         }
 
+        /// This will be public opened in tizen_5.0 after ACR done. 
+        /// before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public static bool operator !=(MeasuredSize r1, MeasuredSize r2)
         {
             return r1.NotEqualTo(r2);
         }
 
+        /// This will be public opened in tizen_5.0 after ACR done. 
+        /// before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public MeasuredSize.StateType State
         {
             get
@@ -178,6 +216,9 @@ namespace Tizen.NUI
             return ret;
         }
 
+        /// This will be public opened in tizen_5.0 after ACR done. 
+        /// before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public LayoutLength Size
         {
             get
@@ -203,9 +244,19 @@ namespace Tizen.NUI
             return ret;
         }
 
+        /// This will be public opened in tizen_5.0 after ACR done. 
+        /// before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public enum StateType
         {
+            /// This will be public opened in tizen_5.0 after ACR done. 
+            /// before ACR, need to be hidden as inhouse API.
+            /// need to be changed as Pascal case.
+            [EditorBrowsable(EditorBrowsableState.Never)]
             MEASURED_SIZE_OK,
+            /// This will be public opened in tizen_5.0 after ACR done. 
+            /// before ACR, need to be hidden as inhouse API.
+            /// need to be changed as Pascal case.
             MEASURED_SIZE_TOO_SMALL
         }
     }

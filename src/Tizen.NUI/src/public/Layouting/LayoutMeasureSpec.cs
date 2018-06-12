@@ -15,14 +15,22 @@
  *
  */
 
+using System.ComponentModel;
 using Tizen.NUI.BaseComponents;
 
 namespace Tizen.NUI
 {
 
+    /// This will be public opened in tizen_5.0 after ACR done. 
+    /// before ACR, need to be hidden as inhouse API.
+    [EditorBrowsable(EditorBrowsableState.Never)]
     public class LayoutMeasureSpec : global::System.IDisposable
     {
         private global::System.Runtime.InteropServices.HandleRef swigCPtr;
+
+        /// This will be public opened in tizen_5.0 after ACR done. 
+        /// before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         protected bool swigCMemOwn;
 
         internal LayoutMeasureSpec(global::System.IntPtr cPtr, bool cMemoryOwn)
@@ -36,14 +44,20 @@ namespace Tizen.NUI
             return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
         }
 
+        /// This will be public opened in tizen_5.0 after ACR done. 
+        /// before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         ~LayoutMeasureSpec()
         {
             Dispose();
         }
 
+        /// This will be public opened in tizen_5.0 after ACR done. 
+        /// before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public virtual void Dispose()
         {
-            lock(this)
+            lock (this)
             {
                 if (swigCPtr.Handle != global::System.IntPtr.Zero)
                 {
@@ -57,21 +71,33 @@ namespace Tizen.NUI
             }
         }
 
+        /// This will be public opened in tizen_5.0 after ACR done. 
+        /// before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public LayoutMeasureSpec(LayoutLength measureSpec, LayoutMeasureSpec.ModeType mode) : this(LayoutPINVOKE.new_MeasureSpec__SWIG_0(LayoutLength.getCPtr(measureSpec), (int)mode), true)
         {
             if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
         }
 
+        /// This will be public opened in tizen_5.0 after ACR done. 
+        /// before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public LayoutMeasureSpec(int measureSpec) : this(LayoutPINVOKE.new_MeasureSpec__SWIG_1(measureSpec), true)
         {
             if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
         }
 
+        /// This will be public opened in tizen_5.0 after ACR done. 
+        /// before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public static bool operator ==(LayoutMeasureSpec r1, LayoutMeasureSpec r2)
         {
             return r1.EqualTo(r2);
         }
 
+        /// This will be public opened in tizen_5.0 after ACR done. 
+        /// before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public static bool operator !=(LayoutMeasureSpec r1, LayoutMeasureSpec r2)
         {
             return !r1.EqualTo(r2);
@@ -105,6 +131,9 @@ namespace Tizen.NUI
             return ret;
         }
 
+        /// This will be public opened in tizen_5.0 after ACR done. 
+        /// before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public static LayoutMeasureSpec Adjust(LayoutMeasureSpec measureSpec, int delta)
         {
             LayoutMeasureSpec ret = new LayoutMeasureSpec(LayoutPINVOKE.MeasureSpec_Adjust(LayoutMeasureSpec.getCPtr(measureSpec), delta), true);
@@ -112,6 +141,9 @@ namespace Tizen.NUI
             return ret;
         }
 
+        /// This will be public opened in tizen_5.0 after ACR done. 
+        /// before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public int Size
         {
             set
@@ -127,6 +159,9 @@ namespace Tizen.NUI
             }
         }
 
+        /// This will be public opened in tizen_5.0 after ACR done. 
+        /// before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public LayoutMeasureSpec.ModeType Mode
         {
             set
@@ -142,13 +177,33 @@ namespace Tizen.NUI
             }
         }
 
+        /// This will be public opened in tizen_5.0 after ACR done. 
+        /// before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public enum ModeType
         {
-            UNSPECIFIED, ///< This is used by a parent to determine the desired dimension of a child layout.
-            EXACTLY,     /** This is used by a parent to impose an exact size on the child. The child must use
-                             this size, and guarantee that all of its descendants will fit within this size. */
-            AT_MOST      /** This is used by the parent to impose a maximum size on the child. The child must guarantee
-                          * that it and all of it's descendants will fit within this size. */
+            /// This is used by a parent to determine the desired dimension of a child layout.
+
+            /// This will be public opened in tizen_5.0 after ACR done. 
+            /// before ACR, need to be hidden as inhouse API.
+            /// need to be changed as Pascal case.
+            UNSPECIFIED,
+
+            ///This is used by a parent to impose an exact size on the child. The child must use
+            ///this size, and guarantee that all of its descendants will fit within this size.
+
+            /// This will be public opened in tizen_5.0 after ACR done. 
+            /// before ACR, need to be hidden as inhouse API.
+            /// need to be changed as Pascal case.
+            EXACTLY,
+
+            /// This is used by the parent to impose a maximum size on the child. The child must guarantee
+            /// that it and all of it's descendants will fit within this size.
+            
+            /// This will be public opened in tizen_5.0 after ACR done. 
+            /// before ACR, need to be hidden as inhouse API.
+            /// need to be changed as Pascal case.
+            AT_MOST
         }
     }
 }
