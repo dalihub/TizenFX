@@ -17,6 +17,7 @@
 
 using System;
 using System.ComponentModel;
+using Tizen.NUI.Binding;
 
 namespace Tizen.NUI
 {
@@ -27,6 +28,7 @@ namespace Tizen.NUI
     /// <since_tizen> 3 </since_tizen>
     [Obsolete("Please do not use! This will be deprecated! Please use Size2D instead!")]
     [EditorBrowsable(EditorBrowsableState.Never)]
+    [Tizen.NUI.Binding.TypeConverter(typeof(SizeTypeConverter))]
     public class Size : global::System.IDisposable
     {
         private global::System.Runtime.InteropServices.HandleRef swigCPtr;
