@@ -1,0 +1,220 @@
+/*
+ * Copyright (c) 2017 Samsung Electronics Co., Ltd.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+using System;
+using System.ComponentModel;
+using Tizen.NUI.Binding;
+using Tizen.NUI.BaseComponents;
+
+namespace Tizen.NUI
+{
+    /// <summary>
+    /// The ContentPage class.
+    /// </summary>
+    [ContentProperty("Content")]
+    [EditorBrowsable(EditorBrowsableState.Never)]
+    public class ContentPage : TemplatedPage
+    {
+        public View Root {get; internal set;}
+
+        internal static readonly BindableProperty ContentProperty = BindableProperty.Create(nameof(Content), typeof(View), typeof(ContentPage), null, propertyChanged: (bindable, oldValue, newValue) =>
+        {
+            // var self = (IControlTemplated)bindable;
+			// var newElement = (Element)newValue;
+			// if (self.ControlTemplate == null)
+			// {
+			// 	while (self.InternalChildren.Count > 0)
+			// 	{
+			// 		self.InternalChildren.RemoveAt(self.InternalChildren.Count - 1);
+			// 	}
+
+			// 	if (newValue != null)
+			// 		self.InternalChildren.Add(newElement);
+			// }
+			// else
+			// {
+			// 	if (newElement != null)
+			// 	{
+			// 		BindableObject.SetInheritedBindingContext(newElement, bindable.BindingContext);
+			// 	}
+			// }
+            var self = (ContentPage)bindable;
+            if (newValue != null)
+            {
+                self.Root.Add((View)newValue);
+            }
+        });
+
+        /// <summary>
+        /// The contents of ContentPage can be added into it.
+        /// </summary>
+        public View Content
+        {
+            get { return (View)GetValue(ContentProperty); }
+            set { SetValue(ContentProperty, value); }
+        }
+
+        /// <summary>
+        /// Method that is called when the binding content changes.
+        /// </summary>
+		protected override void OnBindingContextChanged()
+		{
+			base.OnBindingContextChanged();
+
+			View content = Content;
+			// ControlTemplate controlTemplate = ControlTemplate;
+			// if (content != null && controlTemplate != null)
+			// {
+			// 	SetInheritedBindingContext(content, BindingContext);
+			// }
+		}
+
+		internal override void OnControlTemplateChanged(ControlTemplate oldValue, ControlTemplate newValue)
+		{
+			if (oldValue == null)
+				return;
+
+			base.OnControlTemplateChanged(oldValue, newValue);
+			View content = Content;
+			ControlTemplate controlTemplate = ControlTemplate;
+			if (content != null && controlTemplate != null)
+			{
+				SetInheritedBindingContext(content, BindingContext);
+			}
+		}
+
+        /// <summary>
+        /// The constructor.
+        /// </summary>
+        public ContentPage(Window win)
+        {
+            Root = new View();
+            Root.WidthResizePolicy = ResizePolicyType.FillToParent;
+            Root.HeightResizePolicy = ResizePolicyType.FillToParent;
+
+            win.Add(Root);
+        }
+
+        /// <summary>
+        /// To make the ContentPage instance be disposed.
+        /// </summary>
+        protected override void Dispose(DisposeTypes type)
+        {
+            if (disposed)
+            {
+                return;
+            }
+
+            if (type == DisposeTypes.Explicit)
+            {
+                //Called by User
+                //Release your own managed resources here.
+                //You should release all of your own disposable objects here.
+            }
+
+            //Release your own unmanaged resources here.
+            //You should not access any managed member here except static instance.
+            //because the execution order of Finalizes is non-deterministic.
+            Window.Instance.Remove(Root);
+            Root?.Dispose();
+            Root = null;
+
+            base.Dispose(type);
+        }
+
+        /// <summary>
+        /// The contents of ContentPage can be added into it.
+        /// </summary>
+        // public View Content
+        // {
+        //     get
+        //     {
+        //         return Root;
+        //     }
+        //     set
+        //     {
+        //         if (value != null)
+        //         {
+        //             Root.Add(value);
+        //         }
+        //     }
+        // }
+
+        /// <summary>
+        /// Check whether the content is empty.
+        /// </summary>
+        public bool IsEmpty
+        {
+            get
+            {
+                return ( Root.ChildCount == 0 ) ? true : false;
+            }
+        }
+
+        /// <summary>
+        /// Clear all contents from this ContentPage.
+        /// </summary>
+        public void ClearContent()
+        {
+            if ( Root != null )
+            {
+                //Remove it from the window
+                Window.Instance.Remove(Root);
+                Root.Dispose();
+                Root = null;
+
+                //Readd to window
+                Root = new View();
+                Root.WidthResizePolicy = ResizePolicyType.FillToParent;
+                Root.HeightResizePolicy = ResizePolicyType.FillToParent;
+                Window.Instance.Add(Root);
+
+                ClearHandler();
+            }
+        }
+
+        private EventHandler _clearEventHandler;
+
+        /// <summary>
+        /// Clear event.
+        /// </summary>
+        public event EventHandler ClearEvent
+        {
+            add
+            {
+                _clearEventHandler += value;
+            }
+            remove
+            {
+                _clearEventHandler -= value;
+            }
+        }
+
+        private void ClearHandler()
+        {
+            if (_clearEventHandler != null)
+            {
+                _clearEventHandler(this, null);
+            }
+        }
+
+        /// <summary>
+        /// Users can set focus logic codes here.
+        /// </summary>
+        public virtual void SetFocus() { }
+
+    }
+}
