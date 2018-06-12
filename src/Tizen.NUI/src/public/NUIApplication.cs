@@ -18,8 +18,10 @@
 using System;
 using System.ComponentModel;
 using System.Threading;
+using System.Reflection;
 using Tizen.Applications;
 using Tizen.Applications.CoreBackend;
+using Tizen.NUI.Xaml;
 
 namespace Tizen.NUI
 {
@@ -244,6 +246,14 @@ namespace Tizen.NUI
             set
             {
                 resourceManager = value;
+            }
+        }
+
+        public static void RegisterAssembly(Assembly assembly)
+        {
+            if (false == XamlParser.s_assemblies.Contains(assembly))
+            {
+                XamlParser.s_assemblies.Add(assembly);
             }
         }
 

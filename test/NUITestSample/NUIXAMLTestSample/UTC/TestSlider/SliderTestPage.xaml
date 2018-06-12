@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage x:Class="Tizen.NUI.Examples.SliderTestPage"
+  xmlns="http://tizen.org/Tizen.NUI/2018/XAML"
+  xmlns:l="clr-namespace:Tizen.UI_Xaml;assembly=Tizen.UI_Xaml"
+  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+      <Slider PositionY="50" Size2D="380, 30"
+              LowerBound="0" UpperBound="100" Value="10.1" 
+              ParentOrigin="TopLeft" PivotPoint="TopLeft" PositionUsesPivotPoint="true"/>
+
+</ContentPage>
