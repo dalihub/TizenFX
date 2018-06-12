@@ -58,7 +58,7 @@ namespace Tizen.NUI.Xaml.Internals
 
 namespace Tizen.NUI.Xaml
 {
-	static class XamlLoader
+	internal static class XamlLoader
 	{
 		public static void Load(object view, Type callingType)
 		{

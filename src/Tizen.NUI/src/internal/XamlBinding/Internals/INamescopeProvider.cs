@@ -2,8 +2,8 @@
 
 namespace Tizen.NUI.Internals
 {
-	interface INameScopeProvider
-	{
-		INameScope NameScope { get; }
-	}
+    interface INameScopeProvider
+    {
+        INameScope NameScope { get; }
+    }
 }
