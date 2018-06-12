@@ -84,7 +84,8 @@ namespace Tizen.NUI
         /// <param name="heightMeasureSpec">vertical space requirements as imposed by the parent.</param>
         protected virtual void OnMeasure(LayoutMeasureSpec widthMeasureSpec, LayoutMeasureSpec heightMeasureSpec)
         {
-
+            SetMeasuredDimensions( new MeasuredSize( LayoutItemWrapperImpl.GetDefaultSize( layoutItemWrapperImpl.GetSuggestedMinimumWidth(), widthMeasureSpec ) ),
+                                   new MeasuredSize( LayoutItemWrapperImpl.GetDefaultSize( layoutItemWrapperImpl.GetSuggestedMinimumHeight(), heightMeasureSpec )));
         }
 
         /// <summary>
@@ -126,7 +127,7 @@ namespace Tizen.NUI
         /// <param name="child">The Layout child.</param>
         internal virtual void OnChildAdd(LayoutItemWrapperImpl child)
         {
-            layoutGroupWrapperImpl.OnChildAddNative(child);
+            //layoutGroupWrapperImpl.OnChildAddNative(child);
         }
 
         /// <summary>
@@ -135,7 +136,7 @@ namespace Tizen.NUI
         /// <param name="child">The Layout child.</param>
         internal virtual void OnChildRemove(LayoutItemWrapperImpl child)
         {
-            layoutGroupWrapperImpl.OnChildRemoveNative(child);
+            //layoutGroupWrapperImpl.OnChildRemoveNative(child);
         }
 
         /// <summary>
@@ -143,7 +144,7 @@ namespace Tizen.NUI
         /// </summary>
         protected virtual void DoInitialize()
         {
-            layoutGroupWrapperImpl.DoInitializeNative();
+            //layoutGroupWrapperImpl.DoInitializeNative();
         }
 
         /// <summary>
@@ -152,7 +153,7 @@ namespace Tizen.NUI
         /// <param name="containerType">The fully qualified typename of the container.</param>
         protected virtual void DoRegisterChildProperties(string containerType)
         {
-            layoutGroupWrapperImpl.DoRegisterChildPropertiesNative(containerType);
+            //layoutGroupWrapperImpl.DoRegisterChildPropertiesNative(containerType);
         }
 
         /// <summary>
@@ -164,7 +165,7 @@ namespace Tizen.NUI
         /// <param name="heightMeasureSpec">The height requirements for this view.</param>
         protected virtual void MeasureChildren(LayoutMeasureSpec widthMeasureSpec, LayoutMeasureSpec heightMeasureSpec)
         {
-            layoutGroupWrapperImpl.MeasureChildrenNative(widthMeasureSpec, heightMeasureSpec);
+            //layoutGroupWrapperImpl.MeasureChildrenNative(widthMeasureSpec, heightMeasureSpec);
         }
 
         /// <summary>
@@ -177,7 +178,7 @@ namespace Tizen.NUI
         /// <param name="parentHeightMeasureSpec">The height requirements for this view.</param>
         protected virtual void MeasureChild(LayoutItem child, LayoutMeasureSpec parentWidthMeasureSpec, LayoutMeasureSpec parentHeightMeasureSpec)
         {
-            layoutGroupWrapperImpl.MeasureChildNative(child, parentWidthMeasureSpec, parentHeightMeasureSpec);
+            //layoutGroupWrapperImpl.MeasureChildNative(child, parentWidthMeasureSpec, parentHeightMeasureSpec);
         }
 
         /// <summary>

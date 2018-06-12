@@ -63,7 +63,7 @@ namespace Tizen.NUI
         /// <param name="containerType"> The type of the containing view (owner).</param>
         public void RegisterChildProperties(string containerType)
         {
-            layoutItemWrapperImpl.RegisterChildProperties(containerType);
+            //layoutItemWrapperImpl.RegisterChildProperties(containerType);
         }
 
         /// <summary>
@@ -76,7 +76,7 @@ namespace Tizen.NUI
         /// <param name="heightMeasureSpec">Vertical space requirements as imposed by the parent.</param>
         internal void Measure(LayoutMeasureSpec widthMeasureSpec, LayoutMeasureSpec heightMeasureSpec)
         {
-            layoutItemWrapperImpl.Measure(widthMeasureSpec, heightMeasureSpec);
+            //layoutItemWrapperImpl.Measure(widthMeasureSpec, heightMeasureSpec);
         }
 
         /// <summary>
@@ -351,7 +351,7 @@ namespace Tizen.NUI
         /// </summary>
         protected virtual void OnUnparent()
         {
-            layoutItemWrapperImpl.OnUnparentNative();
+            //layoutItemWrapperImpl.OnUnparentNative();
         }
 
         /// <summary>
@@ -360,7 +360,7 @@ namespace Tizen.NUI
         /// <param name="containerType">The type name of the owner container.</param>
         protected virtual void OnRegisterChildProperties(string containerType)
         {
-            layoutItemWrapperImpl.OnRegisterChildPropertiesNative(containerType);
+            //layoutItemWrapperImpl.OnRegisterChildPropertiesNative(containerType);
         }
 
         /// <summary>
@@ -376,7 +376,7 @@ namespace Tizen.NUI
         /// <param name="heightMeasureSpec">vertical space requirements as imposed by the parent.</param>
         protected virtual void OnMeasure(LayoutMeasureSpec widthMeasureSpec, LayoutMeasureSpec heightMeasureSpec)
         {
-            layoutItemWrapperImpl.OnMeasureNative(widthMeasureSpec, heightMeasureSpec);
+            //layoutItemWrapperImpl.OnMeasureNative(widthMeasureSpec, heightMeasureSpec);
         }
 
         /// <summary>
@@ -390,7 +390,7 @@ namespace Tizen.NUI
         /// <param name="bottom">Bottom position, relative to parent.</param>
         protected virtual void OnLayout(bool changed, LayoutLength left, LayoutLength top, LayoutLength right, LayoutLength bottom)
         {
-            layoutItemWrapperImpl.OnLayoutNative(changed, left, top, right, bottom);
+            //layoutItemWrapperImpl.OnLayoutNative(changed, left, top, right, bottom);
         }
 
         /// <summary>
@@ -400,7 +400,7 @@ namespace Tizen.NUI
         /// <param name="oldSize">The old size of the layout.</param>
         protected virtual void OnSizeChanged(LayoutSize newSize, LayoutSize oldSize)
         {
-            layoutItemWrapperImpl.OnSizeChangedNative(newSize, oldSize);
+            //layoutItemWrapperImpl.OnSizeChangedNative(newSize, oldSize);
         }
 
         /// <summary>
@@ -408,7 +408,7 @@ namespace Tizen.NUI
         /// </summary>
         protected virtual void OnInitialize()
         {
-            layoutItemWrapperImpl.OnInitializeNative();
+            //layoutItemWrapperImpl.OnInitializeNative();
         }
     }
 }
