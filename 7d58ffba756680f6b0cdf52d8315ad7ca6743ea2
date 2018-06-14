@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1e49d040_58db312f",
+        "filename": "src/Tizen.NUI/src/internal/Xaml/ApplyPropertiesVisitor.cs",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1014228
+      },
+      "writtenOn": "2018-06-14T01:59:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ec195c33_e92a3973",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 1
+      },
+      "revId": "7d58ffba756680f6b0cdf52d8315ad7ca6743ea2",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d9321824_33e4dcaf",
         "filename": "src/Tizen.NUI/src/internal/Xaml/ApplyPropertiesVisitor.cs",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "7d58ffba756680f6b0cdf52d8315ad7ca6743ea2",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b563695_9e893de0",
+        "filename": "src/Tizen.NUI/src/internal/Xaml/ApplyPropertiesVisitor.cs",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1014228
+      },
+      "writtenOn": "2018-06-14T01:59:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9321824_33e4dcaf",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 1
+      },
+      "revId": "7d58ffba756680f6b0cdf52d8315ad7ca6743ea2",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     }
   ]
 }
