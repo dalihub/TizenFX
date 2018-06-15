@@ -1,5 +1,5 @@
 /*
- * Copyright(c) 2017 Samsung Electronics Co., Ltd.
+ * Copyright(c) 2018 Samsung Electronics Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,6 +31,8 @@ namespace Tizen.NUI
     {
         private global::System.Runtime.InteropServices.HandleRef swigCPtr;
         private global::System.Runtime.InteropServices.HandleRef stageCPtr;
+        private global::System.Runtime.InteropServices.HandleRef rootLayoutCPtr;
+        private global::System.IntPtr rootLayoutIntPtr;
         private Layer _rootLayer;
         private string _windowTitle;
 
@@ -49,6 +51,10 @@ namespace Tizen.NUI
             if (NDalicPINVOKE.Stage_IsInstalled())
             {
                 stageCPtr = new global::System.Runtime.InteropServices.HandleRef(this, NDalicPINVOKE.Stage_GetCurrent());
+                rootLayoutIntPtr = NDalicManualPINVOKE.Window_NewRootLayout();
+                rootLayoutCPtr = new global::System.Runtime.InteropServices.HandleRef(this, rootLayoutIntPtr);
+                Layer rootLayer = GetRootLayer();
+                NDalicPINVOKE.Actor_Add(  Layer.getCPtr(rootLayer), rootLayoutCPtr );
             }
         }
 
@@ -597,7 +603,9 @@ namespace Tizen.NUI
         /// <since_tizen> 3 </since_tizen>
         public void Add(View view)
         {
-            GetRootLayer()?.Add(view);
+            NDalicPINVOKE.Actor_Add( rootLayoutCPtr, View.getCPtr(view) );
+            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            this.GetRootLayer().AddViewToLayerList(view);
         }
 
         /// <summary>
@@ -607,7 +615,7 @@ namespace Tizen.NUI
         /// <since_tizen> 3 </since_tizen>
         public void Remove(View view)
         {
-            GetRootLayer()?.Remove(view);
+            NDalicPINVOKE.Actor_Remove( rootLayoutCPtr, View.getCPtr(view) );
         }
 
         internal Vector2 GetSize()
@@ -662,8 +670,8 @@ namespace Tizen.NUI
             // Core has been initialized, not when Stage is ready.
             if (_rootLayer == null && Window.IsInstalled())
             {
+                // Get RootLayer so can add RootLayout to it.
                 _rootLayer = new Layer(NDalicPINVOKE.Stage_GetRootLayer(stageCPtr), true);
-                if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
                 LayersChildren.Add(_rootLayer);
             }
             return _rootLayer;
