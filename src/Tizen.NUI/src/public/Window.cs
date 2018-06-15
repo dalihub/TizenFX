@@ -1,5 +1,5 @@
 /*
- * Copyright(c) 2017 Samsung Electronics Co., Ltd.
+ * Copyright(c) 2018 Samsung Electronics Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,6 +31,8 @@ namespace Tizen.NUI
     {
         private global::System.Runtime.InteropServices.HandleRef swigCPtr;
         private global::System.Runtime.InteropServices.HandleRef stageCPtr;
+        private global::System.Runtime.InteropServices.HandleRef rootLayoutCPtr;
+        private global::System.IntPtr rootLayoutIntPtr;
         private Layer _rootLayer;
         private string _windowTitle;
 
@@ -49,6 +51,8 @@ namespace Tizen.NUI
             if (NDalicPINVOKE.Stage_IsInstalled())
             {
                 stageCPtr = new global::System.Runtime.InteropServices.HandleRef(this, NDalicPINVOKE.Stage_GetCurrent());
+                rootLayoutIntPtr = NDalicManualPINVOKE.Window_NewRootLayout();
+                rootLayoutCPtr = new global::System.Runtime.InteropServices.HandleRef(this, rootLayoutIntPtr);
             }
         }
 
@@ -598,6 +602,7 @@ namespace Tizen.NUI
         public void Add(View view)
         {
             GetRootLayer()?.Add(view);
+Console.WriteLine("Add Adding View to RootLayer");
         }
 
         /// <summary>
@@ -662,7 +667,13 @@ namespace Tizen.NUI
             // Core has been initialized, not when Stage is ready.
             if (_rootLayer == null && Window.IsInstalled())
             {
-                _rootLayer = new Layer(NDalicPINVOKE.Stage_GetRootLayer(stageCPtr), true);
+Console.WriteLine("GetRootLayer Adding RootLayout to RootLayer");
+                // Get RootLayer so can add RootLayout to it.
+                Layer rootLayer = new Layer(NDalicPINVOKE.Stage_GetRootLayer(stageCPtr), true);
+                // Add AbsoluteLayout to be used as root.
+                NDalicPINVOKE.Actor_Add(  Layer.getCPtr(rootLayer), rootLayoutCPtr );
+                // Keeping the layer type for compatibility, internally we know it's a Control.
+                _rootLayer = new Layer(rootLayoutIntPtr, true);
                 if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
                 LayersChildren.Add(_rootLayer);
             }
