@@ -34,6 +34,7 @@ namespace Tizen.NUI
         private global::System.Runtime.InteropServices.HandleRef rootLayoutCPtr;
         private global::System.IntPtr rootLayoutIntPtr;
         private Layer _rootLayer;
+        private View  _rootLayout;
         private string _windowTitle;
 
         private List<Layer> _childLayers = new List<Layer>();
@@ -601,8 +602,7 @@ namespace Tizen.NUI
         /// <since_tizen> 3 </since_tizen>
         public void Add(View view)
         {
-            GetRootLayer()?.Add(view);
-Console.WriteLine("Add Adding View to RootLayer");
+            GetRootLayout()?.Add(view);
         }
 
         /// <summary>
@@ -612,7 +612,7 @@ Console.WriteLine("Add Adding View to RootLayer");
         /// <since_tizen> 3 </since_tizen>
         public void Remove(View view)
         {
-            GetRootLayer()?.Remove(view);
+            GetRootLayout()?.Remove(view);
         }
 
         internal Vector2 GetSize()
@@ -667,17 +667,32 @@ Console.WriteLine("Add Adding View to RootLayer");
             // Core has been initialized, not when Stage is ready.
             if (_rootLayer == null && Window.IsInstalled())
             {
-Console.WriteLine("GetRootLayer Adding RootLayout to RootLayer");
                 // Get RootLayer so can add RootLayout to it.
-                Layer rootLayer = new Layer(NDalicPINVOKE.Stage_GetRootLayer(stageCPtr), true);
-                // Add AbsoluteLayout to be used as root.
-                NDalicPINVOKE.Actor_Add(  Layer.getCPtr(rootLayer), rootLayoutCPtr );
-                // Keeping the layer type for compatibility, internally we know it's a Control.
-                _rootLayer = new Layer(rootLayoutIntPtr, true);
-                if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+                _rootLayer = new Layer(NDalicPINVOKE.Stage_GetRootLayer(stageCPtr), true);
                 LayersChildren.Add(_rootLayer);
             }
             return _rootLayer;
+        }
+
+        internal View GetRootLayout()
+        {
+            // Window.IsInstalled() is actually true only when called from event thread and
+            // Core has been initialized, not when Stage is ready.
+            if (_rootLayout == null && Window.IsInstalled())
+            {
+                // Get RootLayer so can add RootLayout to it.
+                Layer rootLayer = GetRootLayer();
+                // Add AbsoluteLayout to be used as root(RootLayout).
+                NDalicPINVOKE.Actor_Add(  Layer.getCPtr(rootLayer), rootLayoutCPtr );
+                _rootLayout = new View(rootLayoutIntPtr, true);
+                _rootLayout.ParentOrigin = ParentOrigin.Center;
+                _rootLayout.PivotPoint = PivotPoint.Center;
+                _rootLayout.PositionUsesPivotPoint = true;
+                _rootLayout.BackgroundColor = Color.Red;
+
+                if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            }
+            return _rootLayout;
         }
 
         internal void SetBackgroundColor(Vector4 color)
