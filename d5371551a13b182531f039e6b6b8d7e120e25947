@@ -1,0 +1,480 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e4717a50_69de807a",
+        "filename": "src/Tizen.NUI/Properties/AssemblyInfo.cs",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2018-06-19T06:33:01Z",
+      "side": 1,
+      "message": "is this file needed? I think this file is one of Visual Studio configuration files. I am not sure though...",
+      "revId": "d5371551a13b182531f039e6b6b8d7e120e25947",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78378d47_0b5c56a1",
+        "filename": "src/Tizen.NUI/src/public/BaseComponents/TableView.cs",
+        "patchSetId": 3
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2018-06-19T06:33:01Z",
+      "side": 1,
+      "message": "please add this here \u003d\u003e\n\n/// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.\n[EditorBrowsable(EditorBrowsableState.Never)]",
+      "revId": "d5371551a13b182531f039e6b6b8d7e120e25947",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5bb3fec4_820a1602",
+        "filename": "src/Tizen.NUI/src/public/BaseHandle.cs",
+        "patchSetId": 3
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2018-06-19T06:33:01Z",
+      "side": 1,
+      "message": "for internal access modifier, [EditorBrowsable(EditorBrowsableState.Never)] is not needed. please erase this [EditorBrowsable(EditorBrowsableState.Never)]",
+      "revId": "d5371551a13b182531f039e6b6b8d7e120e25947",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9be76461_5163190e",
+        "filename": "src/Tizen.NUI/src/public/BaseHandle.cs",
+        "patchSetId": 3
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2018-06-19T06:33:01Z",
+      "side": 1,
+      "message": "please add this here \u003d\u003e\n\n/// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.\n[EditorBrowsable(EditorBrowsableState.Never)]",
+      "revId": "d5371551a13b182531f039e6b6b8d7e120e25947",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89716a85_159a609b",
+        "filename": "src/Tizen.NUI/src/public/BaseHandle.cs",
+        "patchSetId": 3
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2018-06-19T06:33:01Z",
+      "side": 1,
+      "message": "please add this here \u003d\u003e\n\n/// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.\n[EditorBrowsable(EditorBrowsableState.Never)]",
+      "revId": "d5371551a13b182531f039e6b6b8d7e120e25947",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04debc73_dc090552",
+        "filename": "src/Tizen.NUI/src/public/BaseHandle.cs",
+        "patchSetId": 3
+      },
+      "lineNbr": 512,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2018-06-19T06:33:01Z",
+      "side": 1,
+      "message": "please add this here \u003d\u003e\n\n/// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.\n[EditorBrowsable(EditorBrowsableState.Never)]",
+      "revId": "d5371551a13b182531f039e6b6b8d7e120e25947",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77f3f0d2_cd5b2056",
+        "filename": "src/Tizen.NUI/src/public/NUIApplication.cs",
+        "patchSetId": 3
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2018-06-19T06:33:01Z",
+      "side": 1,
+      "message": "please add this here \u003d\u003e\n\n/// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.\n[EditorBrowsable(EditorBrowsableState.Never)]",
+      "revId": "d5371551a13b182531f039e6b6b8d7e120e25947",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ccd2041e_90a9a5c3",
+        "filename": "src/Tizen.NUI/src/public/Property.cs",
+        "patchSetId": 3
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2018-06-19T06:33:01Z",
+      "side": 1,
+      "message": "please add this here \u003d\u003e\n\n/// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.\n[EditorBrowsable(EditorBrowsableState.Never)]",
+      "revId": "d5371551a13b182531f039e6b6b8d7e120e25947",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22e671bd_7266f8a6",
+        "filename": "src/Tizen.NUI/src/public/Property.cs",
+        "patchSetId": 3
+      },
+      "lineNbr": 1030,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2018-06-19T06:33:01Z",
+      "side": 1,
+      "message": "please add this here \u003d\u003e\n\n/// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.\n[EditorBrowsable(EditorBrowsableState.Never)]",
+      "revId": "d5371551a13b182531f039e6b6b8d7e120e25947",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8439a97d_91805e3d",
+        "filename": "src/Tizen.NUI/src/public/Property.cs",
+        "patchSetId": 3
+      },
+      "lineNbr": 1815,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2018-06-19T06:33:01Z",
+      "side": 1,
+      "message": "please add this here \u003d\u003e\n\n/// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.\n[EditorBrowsable(EditorBrowsableState.Never)]",
+      "revId": "d5371551a13b182531f039e6b6b8d7e120e25947",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4e6ca80_40515b11",
+        "filename": "src/Tizen.NUI/src/public/Property.cs",
+        "patchSetId": 3
+      },
+      "lineNbr": 1861,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2018-06-19T06:33:01Z",
+      "side": 1,
+      "message": "please add this here \u003d\u003e\n\n/// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.\n[EditorBrowsable(EditorBrowsableState.Never)]",
+      "revId": "d5371551a13b182531f039e6b6b8d7e120e25947",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f6c307d_627e075c",
+        "filename": "src/Tizen.NUI/src/public/Property.cs",
+        "patchSetId": 3
+      },
+      "lineNbr": 2120,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2018-06-19T06:33:01Z",
+      "side": 1,
+      "message": "if the above properties are all public, please add this for each of them... \u003d\u003e \n/// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.\n[EditorBrowsable(EditorBrowsableState.Never)]",
+      "revId": "d5371551a13b182531f039e6b6b8d7e120e25947",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d590d073_45576841",
+        "filename": "src/Tizen.NUI/src/public/Xaml/ViewExtensions.cs",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2018-06-19T06:33:01Z",
+      "side": 1,
+      "message": "please add this here \u003d\u003e\n\n/// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.\n[EditorBrowsable(EditorBrowsableState.Never)]",
+      "revId": "d5371551a13b182531f039e6b6b8d7e120e25947",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ff8b40c_082ce3ec",
+        "filename": "src/Tizen.NUI/src/public/Xaml/ViewExtensions.cs",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2018-06-19T06:33:01Z",
+      "side": 1,
+      "message": "please add this here \u003d\u003e\n\n/// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.\n[EditorBrowsable(EditorBrowsableState.Never)]",
+      "revId": "d5371551a13b182531f039e6b6b8d7e120e25947",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "744bf104_02f31e25",
+        "filename": "src/Tizen.NUI/src/public/XamlBinding/BindableObject.cs",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2018-06-19T06:33:01Z",
+      "side": 1,
+      "message": "please add this here \u003d\u003e\n\n/// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.\n[EditorBrowsable(EditorBrowsableState.Never)]",
+      "revId": "d5371551a13b182531f039e6b6b8d7e120e25947",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f17bf56_c0b30b9d",
+        "filename": "src/Tizen.NUI/src/public/XamlBinding/BindableObject.cs",
+        "patchSetId": 3
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2018-06-19T06:33:01Z",
+      "side": 1,
+      "message": "no need for internal access modifier",
+      "revId": "d5371551a13b182531f039e6b6b8d7e120e25947",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5572afaa_27c9718c",
+        "filename": "src/Tizen.NUI/src/public/XamlBinding/ContentPage.cs",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2018-06-19T06:33:01Z",
+      "side": 1,
+      "message": "please add this here \u003d\u003e\n\n/// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.\n[EditorBrowsable(EditorBrowsableState.Never)]",
+      "revId": "d5371551a13b182531f039e6b6b8d7e120e25947",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f057ffd3_d2a09098",
+        "filename": "src/Tizen.NUI/src/public/XamlBinding/ContentPage.cs",
+        "patchSetId": 3
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2018-06-19T06:33:01Z",
+      "side": 1,
+      "message": "please add this here \u003d\u003e\n\n/// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.\n[EditorBrowsable(EditorBrowsableState.Never)]",
+      "revId": "d5371551a13b182531f039e6b6b8d7e120e25947",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53988ac8_952b3bb7",
+        "filename": "src/Tizen.NUI/src/public/XamlBinding/ContentPage.cs",
+        "patchSetId": 3
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2018-06-19T06:33:01Z",
+      "side": 1,
+      "message": "please add this here \u003d\u003e\n\n/// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.\n[EditorBrowsable(EditorBrowsableState.Never)]",
+      "revId": "d5371551a13b182531f039e6b6b8d7e120e25947",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f922f2be_fec63ad7",
+        "filename": "src/Tizen.NUI/src/public/XamlBinding/ContentPage.cs",
+        "patchSetId": 3
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2018-06-19T06:33:01Z",
+      "side": 1,
+      "message": "please add this here \u003d\u003e\n\n/// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.\n[EditorBrowsable(EditorBrowsableState.Never)]",
+      "revId": "d5371551a13b182531f039e6b6b8d7e120e25947",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "731f557d_15933f19",
+        "filename": "src/Tizen.NUI/src/public/XamlBinding/ContentPage.cs",
+        "patchSetId": 3
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2018-06-19T06:33:01Z",
+      "side": 1,
+      "message": "please add this here \u003d\u003e\n\n/// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.\n[EditorBrowsable(EditorBrowsableState.Never)]",
+      "revId": "d5371551a13b182531f039e6b6b8d7e120e25947",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6cacb280_b496129e",
+        "filename": "src/Tizen.NUI/src/public/XamlBinding/ContentPage.cs",
+        "patchSetId": 3
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2018-06-19T06:33:01Z",
+      "side": 1,
+      "message": "please add this here \u003d\u003e\n\n/// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.\n[EditorBrowsable(EditorBrowsableState.Never)]",
+      "revId": "d5371551a13b182531f039e6b6b8d7e120e25947",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8fb4b30_37c2050a",
+        "filename": "src/Tizen.NUI/src/public/XamlBinding/ContentPage.cs",
+        "patchSetId": 3
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2018-06-19T06:33:01Z",
+      "side": 1,
+      "message": "please add this here \u003d\u003e\n\n/// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.\n[EditorBrowsable(EditorBrowsableState.Never)]",
+      "revId": "d5371551a13b182531f039e6b6b8d7e120e25947",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24b703a9_2873d2dc",
+        "filename": "src/Tizen.NUI/src/public/XamlBinding/NameScopeExtensions.cs",
+        "patchSetId": 3
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2018-06-19T06:33:01Z",
+      "side": 1,
+      "message": "please add this here \u003d\u003e\n\n/// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.\n[EditorBrowsable(EditorBrowsableState.Never)]",
+      "revId": "d5371551a13b182531f039e6b6b8d7e120e25947",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f5023d2_5c732854",
+        "filename": "src/Tizen.NUI/src/public/XamlBinding/NameScopeExtensions.cs",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2018-06-19T06:33:01Z",
+      "side": 1,
+      "message": "please add this here \u003d\u003e\n\n/// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.\n[EditorBrowsable(EditorBrowsableState.Never)]",
+      "revId": "d5371551a13b182531f039e6b6b8d7e120e25947",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83e23766_16c98432",
+        "filename": "src/Tizen.NUI/src/public/XamlBinding/Page.cs",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2018-06-19T06:33:01Z",
+      "side": 1,
+      "message": "please add this here \u003d\u003e\n\n/// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.\n[EditorBrowsable(EditorBrowsableState.Never)]",
+      "revId": "d5371551a13b182531f039e6b6b8d7e120e25947",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01af5699_795ca66b",
+        "filename": "src/Tizen.NUI/src/public/XamlBinding/XmlnsDefinitionAttribute.cs",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2018-06-19T06:33:01Z",
+      "side": 1,
+      "message": "is this name space is right? \"Tizen.NUI.Internals\" namespace is used for VD inhouse API package. is it \"Tizen.NUI\" ?",
+      "revId": "d5371551a13b182531f039e6b6b8d7e120e25947",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8272f9dd_c2a68613",
+        "filename": "src/Tizen.NUI/src/public/XamlBinding/XmlnsDefinitionAttribute.cs",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2018-06-19T06:33:01Z",
+      "side": 1,
+      "message": "please add this here \u003d\u003e\n\n/// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.\n[EditorBrowsable(EditorBrowsableState.Never)]",
+      "revId": "d5371551a13b182531f039e6b6b8d7e120e25947",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
