@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a2db0fe9_50cfa48a",
+        "filename": "src/Tizen.NUI/src/public/Layer.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1007394
+      },
+      "writtenOn": "2018-06-20T17:01:19Z",
+      "side": 1,
+      "message": "If this is the root layer, you\u0027ll need to re-direct the View to the AbsoluteLayout owner - you\u0027ll need a handle to it.",
+      "range": {
+        "startLine": 60,
+        "startChar": 12,
+        "endLine": 60,
+        "endChar": 71
+      },
+      "revId": "643c8be407e37dc102191d65820107786bd0c2e4",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "194d7842_740a19db",
+        "filename": "src/Tizen.NUI/src/public/Layer.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 1007394
+      },
+      "writtenOn": "2018-06-20T17:01:19Z",
+      "side": 1,
+      "message": "You\u0027ll need to do the unparenting part of the above code, too.",
+      "range": {
+        "startLine": 468,
+        "startChar": 12,
+        "endLine": 468,
+        "endChar": 20
+      },
+      "revId": "643c8be407e37dc102191d65820107786bd0c2e4",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "959d1fae_67283805",
+        "filename": "src/Tizen.NUI/src/public/Window.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1007394
+      },
+      "writtenOn": "2018-06-20T17:01:19Z",
+      "side": 1,
+      "message": "Write some comments. It\u0027ll help you, me and everyone else understand what\u0027s going on.",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 85
+      },
+      "revId": "643c8be407e37dc102191d65820107786bd0c2e4",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97ebed49_d3e6aa76",
+        "filename": "src/Tizen.NUI/src/public/Window.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 675,
+      "author": {
+        "id": 1007394
+      },
+      "writtenOn": "2018-06-20T17:01:19Z",
+      "side": 1,
+      "message": "Add the exception handling back in.",
+      "range": {
+        "startLine": 675,
+        "startChar": 16,
+        "endLine": 675,
+        "endChar": 47
+      },
+      "revId": "643c8be407e37dc102191d65820107786bd0c2e4",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
