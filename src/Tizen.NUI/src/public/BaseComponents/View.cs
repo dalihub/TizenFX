@@ -2094,6 +2094,11 @@ namespace Tizen.NUI.BaseComponents
             }
             set
             {
+                if (Layout != null)
+                {
+                    Layout.MinimumWidth = new Tizen.NUI.LayoutLength(value.Width);
+                    Layout.MinimumHeight = new Tizen.NUI.LayoutLength(value.Height);
+                }
                 SetProperty(View.Property.SIZE, new Tizen.NUI.PropertyValue(new Size(value)));
             }
         }
