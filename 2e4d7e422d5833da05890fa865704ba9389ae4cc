@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "00d5411a_49b127ad",
+        "filename": "src/Tizen.NUI/src/public/Layer.cs",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1007394
+      },
+      "writtenOn": "2018-06-26T11:39:05Z",
+      "side": 1,
+      "message": "Doesn\u0027t this generate a new root layout for every layer that\u0027s created? Surely we only want to do this on the actual root layer?",
+      "range": {
+        "startLine": 38,
+        "startChar": 1,
+        "endLine": 44,
+        "endChar": 64
+      },
+      "revId": "2e4d7e422d5833da05890fa865704ba9389ae4cc",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
