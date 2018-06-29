@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5adcee53_39ac750d",
+        "filename": "src/Tizen.NUI/src/public/Layer.cs",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1007394
+      },
+      "writtenOn": "2018-06-29T17:18:14Z",
+      "side": 1,
+      "message": "default layout?",
+      "range": {
+        "startLine": 41,
+        "startChar": 94,
+        "endLine": 41,
+        "endChar": 99
+      },
+      "revId": "8c0e2de50cc7f49cc8ca152bbe9269ec76312137",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
