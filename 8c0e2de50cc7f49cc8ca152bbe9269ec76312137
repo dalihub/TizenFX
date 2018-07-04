@@ -22,6 +22,30 @@
       "revId": "8c0e2de50cc7f49cc8ca152bbe9269ec76312137",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe10e779_3e155b17",
+        "filename": "src/Tizen.NUI/src/public/Layer.cs",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1011527
+      },
+      "writtenOn": "2018-07-04T12:19:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5adcee53_39ac750d",
+      "range": {
+        "startLine": 41,
+        "startChar": 94,
+        "endLine": 41,
+        "endChar": 99
+      },
+      "revId": "8c0e2de50cc7f49cc8ca152bbe9269ec76312137",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     }
   ]
 }
