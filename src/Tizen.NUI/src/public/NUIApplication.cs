@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 Samsung Electronics Co., Ltd.
+ * Copyright (c) 2018 Samsung Electronics Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -58,6 +58,23 @@ namespace Tizen.NUI
             Registry.Instance.SavedApplicationThread = Thread.CurrentThread;
         }
 
+        private Size2D _windowSize2D = null;
+        private Position2D _windowPosition2D = null;
+        /// <summary>
+        /// The constructor with window size and position
+        /// </summary>
+        /// <param name="windowSize">The window size</param>
+        /// <param name="windowPosition">The window position</param>
+        /// <since_tizen> 5 </since_tizen>
+        /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public NUIApplication(Size2D windowSize, Position2D windowPosition) : base(new NUICoreBackend())
+        {
+            Registry.Instance.SavedApplicationThread = Thread.CurrentThread;
+            _windowSize2D = windowSize;
+            _windowPosition2D = windowPosition;
+        }
+
         /// <summary>
         /// The constructor with a stylesheet.
         /// </summary>
@@ -69,6 +86,22 @@ namespace Tizen.NUI
         }
 
         /// <summary>
+        /// The constructor with a stylesheet, window size and position
+        /// </summary>
+        /// <param name="styleSheet">The styleSheet url.</param>
+        /// <param name="windowSize">The window size</param>
+        /// <param name="windowPosition">The window position</param>
+        /// <since_tizen> 5 </since_tizen>
+        /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public NUIApplication(string styleSheet, Size2D windowSize, Position2D windowPosition) : base(new NUICoreBackend(styleSheet))
+        {
+            Registry.Instance.SavedApplicationThread = Thread.CurrentThread;
+            _windowSize2D = windowSize;
+            _windowPosition2D = windowPosition;
+        }
+
+        /// <summary>
         /// The constructor with a stylesheet and window mode.
         /// </summary>
         /// <param name="styleSheet">The styleSheet url.</param>
@@ -77,6 +110,23 @@ namespace Tizen.NUI
         public NUIApplication(string styleSheet, WindowMode windowMode) : base(new NUICoreBackend(styleSheet, windowMode))
         {
             Registry.Instance.SavedApplicationThread = Thread.CurrentThread;
+        }
+
+        /// <summary>
+        /// The constructor with a stylesheet, window mode, window size and position
+        /// </summary>
+        /// <param name="styleSheet">The styleSheet url</param>
+        /// <param name="windowMode">The windowMode</param>
+        /// <param name="windowSize">The window size</param>
+        /// <param name="windowPosition">The window position</param>
+        /// <since_tizen> 5 </since_tizen>
+        /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public NUIApplication(string styleSheet, WindowMode windowMode, Size2D windowSize, Position2D windowPosition) : base(new NUICoreBackend(styleSheet, windowMode))
+        {
+            Registry.Instance.SavedApplicationThread = Thread.CurrentThread;
+            _windowSize2D = windowSize;
+            _windowPosition2D = windowPosition;
         }
 
         /// <summary>
@@ -148,6 +198,14 @@ namespace Tizen.NUI
         /// <since_tizen> 3 </since_tizen>
         protected virtual void OnPreCreate()
         {
+            if (_windowSize2D != null)
+            {
+                Window.Instance.WindowSize = _windowSize2D;
+            }
+            if (_windowPosition2D != null)
+            {
+                Window.Instance.WindowPosition = _windowPosition2D;
+            }
         }
 
         /// <summary>
