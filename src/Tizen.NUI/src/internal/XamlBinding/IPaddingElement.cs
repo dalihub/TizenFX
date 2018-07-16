@@ -1,4 +1,4 @@
-﻿namespace Tizen.NUI.Binding
+namespace Tizen.NUI.Binding
 {
     interface IPaddingElement
     {

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Xml;
 using Tizen.NUI.StyleSheets;
 using System.Reflection;

@@ -1,4 +1,4 @@
-﻿using Tizen.NUI.Binding;
+using Tizen.NUI.Binding;
 
 namespace Tizen.NUI.Binding
 {
