@@ -20,9 +20,7 @@ using Tizen.NUI.BaseComponents;
 
 namespace Tizen.NUI
 {
-    /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
-    [EditorBrowsable(EditorBrowsableState.Never)]
-    public class LayoutItemWrapper : BaseHandle
+    internal class LayoutItemWrapper : BaseHandle
     {
         private global::System.Runtime.InteropServices.HandleRef swigCPtr;
         internal LayoutItemWrapperImpl layoutItemWrapperImpl;
@@ -37,8 +35,6 @@ namespace Tizen.NUI
             return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
         }
 
-        /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
-        [EditorBrowsable(EditorBrowsableState.Never)]
         protected override void Dispose(DisposeTypes type)
         {
             if (disposed)
@@ -71,8 +67,6 @@ namespace Tizen.NUI
             base.Dispose(type);
         }
 
-        /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
-        [EditorBrowsable(EditorBrowsableState.Never)]
         public class ChildProperty
         {
             public static readonly int WIDTH_SPECIFICATION = LayoutPINVOKE.LayoutItemWrapper_ChildProperty_WIDTH_SPECIFICATION_get();
@@ -85,8 +79,6 @@ namespace Tizen.NUI
             if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
         }*/
 
-        /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
-        [EditorBrowsable(EditorBrowsableState.Never)]
         public View GetOwner()
         {
             global::System.IntPtr cPtr = LayoutPINVOKE.LayoutItemWrapper_GetOwner(swigCPtr);
@@ -108,8 +100,6 @@ namespace Tizen.NUI
             return ret;
         }
 
-        /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
-        [EditorBrowsable(EditorBrowsableState.Never)]
         public bool LayoutAnimate
         {
             get
@@ -129,10 +119,7 @@ namespace Tizen.NUI
         }
     }
 
-
-    /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
-    [EditorBrowsable(EditorBrowsableState.Never)]
-    public interface ILayoutParent
+    internal interface ILayoutParent
     {
         ILayoutParent GetParent();
         /*{
