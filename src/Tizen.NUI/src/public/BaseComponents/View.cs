@@ -3390,10 +3390,7 @@ namespace Tizen.NUI.BaseComponents
         /// </summary>
         /// <remarks>
         /// </remarks>
-        /// <since_tizen> 5 </since_tizen>
-        /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public LayoutItem Layout
+        internal LayoutItem Layout
         {
             get
             {
@@ -5370,9 +5367,10 @@ namespace Tizen.NUI.BaseComponents
 
         internal readonly MergedStyle _mergedStyle;
 
-        /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public int WidthSpecificationFixed
+        /// <summary>
+        /// Child property to specify desired width
+        /// </summary>
+        internal int LayoutWidthSpecificationFixed
         {
             get
             {
@@ -5388,10 +5386,11 @@ namespace Tizen.NUI.BaseComponents
                 SetProperty(LayoutItemWrapper.ChildProperty.WIDTH_SPECIFICATION, new Tizen.NUI.PropertyValue(value));
             }
         }
-        
-        /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public int HeightSpecificationFixed
+
+        /// <summary>
+        /// Child property to specify desired height
+        /// </summary>
+        internal int LayoutHeightSpecificationFixed
         {
             get
             {
@@ -5407,10 +5406,11 @@ namespace Tizen.NUI.BaseComponents
                 SetProperty(LayoutItemWrapper.ChildProperty.HEIGHT_SPECIFICATION, new Tizen.NUI.PropertyValue(value));
             }
         }
-        
-        /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public ChildLayoutData WidthSpecification
+
+        /// <summary>
+        /// Child property to specify desired width, use MatchParent/WrapContent)
+        /// </summary>
+        internal ChildLayoutData LayoutWidthSpecification
         {
             get
             {
@@ -5426,10 +5426,11 @@ namespace Tizen.NUI.BaseComponents
                 SetProperty(LayoutItemWrapper.ChildProperty.WIDTH_SPECIFICATION, new Tizen.NUI.PropertyValue((int)value));
             }
         }
-        
-        /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public ChildLayoutData HeightSpecification
+
+        /// <summary>
+        /// Child property to specify desired height, use MatchParent/WrapContent)
+        /// </summary>
+        internal ChildLayoutData LayoutHeightSpecification
         {
             get
             {
@@ -5446,11 +5447,7 @@ namespace Tizen.NUI.BaseComponents
             }
         }
 
-
     }
-
-
-
 
     /// <summary>
     /// The View layout Direction type.
@@ -5470,11 +5467,15 @@ namespace Tizen.NUI.BaseComponents
         RTL
     }
 
-    /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
-    [EditorBrowsable(EditorBrowsableState.Never)]
-    public enum ChildLayoutData
+    internal enum ChildLayoutData
     {
+        /// <summary>
+        /// Constant which indicates child size should match parent size
+        /// </summary>
         MatchParent = -1,
+        /// <summary>
+        /// Constant which indicates parent should take the smallest size possible to wrap it's children with their desired size
+        /// </summary>
         WrapContent = -2,
     }
 
