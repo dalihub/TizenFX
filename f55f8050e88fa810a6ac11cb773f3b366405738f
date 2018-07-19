@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f9866e59_3c25601c",
+        "filename": "src/Tizen.NUI/src/public/BaseComponents/View.cs",
+        "patchSetId": 1
+      },
+      "lineNbr": 3180,
+      "author": {
+        "id": 1007416
+      },
+      "writtenOn": "2018-07-19T17:22:05Z",
+      "side": 1,
+      "message": "Could there be a point where the LayoutItemWrapper does not exist?",
+      "range": {
+        "startLine": 3180,
+        "startChar": 28,
+        "endLine": 3180,
+        "endChar": 46
+      },
+      "revId": "f55f8050e88fa810a6ac11cb773f3b366405738f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
