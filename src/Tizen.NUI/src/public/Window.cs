@@ -32,9 +32,10 @@ namespace Tizen.NUI
         private global::System.Runtime.InteropServices.HandleRef swigCPtr;
         private global::System.Runtime.InteropServices.HandleRef stageCPtr;
         private global::System.Runtime.InteropServices.HandleRef rootLayoutCPtr;
-        private global::System.IntPtr rootLayoutIntPtr;
+        private global::System.IntPtr rootLayoutIntPtr = IntPtr.Zero;
         private Layer _rootLayer;
         private string _windowTitle;
+        private bool _enableLayout = false;
 
         private List<Layer> _childLayers = new List<Layer>();
         internal List<Layer> LayersChildren
@@ -48,19 +49,7 @@ namespace Tizen.NUI
         internal Window(global::System.IntPtr cPtr, bool cMemoryOwn) : base(NDalicPINVOKE.Window_SWIGUpcast(cPtr), cMemoryOwn)
         {
             swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
-            if (NDalicPINVOKE.Stage_IsInstalled())
-            {
-                stageCPtr = new global::System.Runtime.InteropServices.HandleRef(this, NDalicPINVOKE.Stage_GetCurrent());
-                // Create a root layout (AbsoluteLayout) that is invisible to the user but enables layouts added to the Window
-                // Enables layouts added to the Window to have a parent layout.  As parent layout is needed to store measure spec properties.
-                // Currently without these measure specs the new layout added will always be the size of the window.
-                rootLayoutIntPtr = NDalicManualPINVOKE.Window_NewRootLayout();
-                // Store HandleRef used by Add()
-                rootLayoutCPtr = new global::System.Runtime.InteropServices.HandleRef(this, rootLayoutIntPtr);
-                Layer rootLayer = GetRootLayer();
-                // Add the root layout created above to the root layer.
-                NDalicPINVOKE.Actor_Add(  Layer.getCPtr(rootLayer), rootLayoutCPtr );
-            }
+            stageCPtr = new global::System.Runtime.InteropServices.HandleRef(this, NDalicPINVOKE.Stage_GetCurrent());
         }
 
         internal static global::System.Runtime.InteropServices.HandleRef getCPtr(Window obj)
@@ -608,9 +597,16 @@ namespace Tizen.NUI
         /// <since_tizen> 3 </since_tizen>
         public void Add(View view)
         {
-            NDalicPINVOKE.Actor_Add( rootLayoutCPtr, View.getCPtr(view) );
-            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            this.GetRootLayer().AddViewToLayerList(view); // Maintain the children list in the Layer
+            if (_enableLayout)
+            {
+                NDalicPINVOKE.Actor_Add(rootLayoutCPtr, View.getCPtr(view));
+                if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+                this.GetRootLayer().AddViewToLayerList(view); // Maintain the children list in the Layer
+            }
+            else
+            {
+                this.GetRootLayer()?.Add(view);
+            }
         }
 
         /// <summary>
@@ -620,8 +616,15 @@ namespace Tizen.NUI
         /// <since_tizen> 3 </since_tizen>
         public void Remove(View view)
         {
-            NDalicPINVOKE.Actor_Remove( rootLayoutCPtr, View.getCPtr(view) );
-            this.GetRootLayer().RemoveViewFromLayerList(view); // Maintain the children list in the Layer
+            if (_enableLayout)
+            {
+                NDalicPINVOKE.Actor_Remove(rootLayoutCPtr, View.getCPtr(view));
+                this.GetRootLayer().RemoveViewFromLayerList(view); // Maintain the children list in the Layer
+            }
+            else
+            {
+                this.GetRootLayer()?.Remove(view);
+            }
         }
 
         internal Vector2 GetSize()
@@ -676,7 +679,7 @@ namespace Tizen.NUI
             // Core has been initialized, not when Stage is ready.
             if (_rootLayer == null && Window.IsInstalled())
             {
-                _rootLayer = new Layer(NDalicPINVOKE.Stage_GetRootLayer(stageCPtr), true);
+                _rootLayer = new Layer(NDalicPINVOKE.Stage_GetRootLayer(stageCPtr), true, _enableLayout);
                 if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
                 LayersChildren.Add(_rootLayer);
             }
@@ -1468,7 +1471,8 @@ namespace Tizen.NUI
         /// </summary>
         /// <param name="transparent">Whether the window is transparent.</param>
         /// <since_tizen> 5 </since_tizen>
-        public void SetTransparency(bool transparent) {
+        public void SetTransparency(bool transparent)
+        {
             NDalicManualPINVOKE.SetTransparency(swigCPtr, transparent);
             if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
         }
@@ -1731,5 +1735,35 @@ namespace Tizen.NUI
             }
         }
 
+        /// <summary>
+        /// Gets/Sets whether to use layout.
+        /// </summary>
+        internal bool EnableLayout
+        {
+            get
+            {
+                return _enableLayout;
+            }
+            set
+            {
+                _enableLayout = value;
+                if (NDalicPINVOKE.Stage_IsInstalled())
+                {
+                    if (_enableLayout && rootLayoutIntPtr == IntPtr.Zero)
+                    {
+                        stageCPtr = new global::System.Runtime.InteropServices.HandleRef(this, NDalicPINVOKE.Stage_GetCurrent());
+                        // Create a root layout (AbsoluteLayout) that is invisible to the user but enables layouts added to the Window
+                        // Enables layouts added to the Window to have a parent layout.  As parent layout is needed to store measure spec properties.
+                        // Currently without these measure specs the new layout added will always be the size of the window.
+                        rootLayoutIntPtr = NDalicManualPINVOKE.Window_NewRootLayout();
+                        // Store HandleRef used by Add()
+                        rootLayoutCPtr = new global::System.Runtime.InteropServices.HandleRef(this, rootLayoutIntPtr);
+                        Layer rootLayer = GetRootLayer();
+                        // Add the root layout created above to the root layer.
+                        NDalicPINVOKE.Actor_Add(Layer.getCPtr(rootLayer), rootLayoutCPtr);
+                    }
+                }
+            }
+        }
     }
 }
