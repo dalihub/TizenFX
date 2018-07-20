@@ -127,16 +127,16 @@ namespace Tizen.NUI
         /// </summary>
         /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public ResourceDictionary XamlResources
+        public ResourceDictionary Resources
         {
             get
             {
-                return Application.Current.XamlResources;
+                return Application.Current.Resources;
             }
 
             set
             {
-                Application.Current.XamlResources = value;
+                Application.Current.Resources = value;
             }
         }
 

@@ -459,7 +459,7 @@ namespace Tizen.NUI
             }
         }
 
-        public ResourceDictionary XamlResources
+        public ResourceDictionary Resources
         {
             get
             {
@@ -578,7 +578,7 @@ namespace Tizen.NUI
 
         internal override void OnParentResourcesChanged(IEnumerable<KeyValuePair<string, object>> values)
         {
-            if (!((IResourcesProvider)this).IsResourcesCreated || XamlResources.Count == 0)
+            if (!((IResourcesProvider)this).IsResourcesCreated || Resources.Count == 0)
             {
                 base.OnParentResourcesChanged(values);
                 return;
@@ -586,7 +586,7 @@ namespace Tizen.NUI
 
             var innerKeys = new HashSet<string>();
             var changedResources = new List<KeyValuePair<string, object>>();
-            foreach (KeyValuePair<string, object> c in XamlResources)
+            foreach (KeyValuePair<string, object> c in Resources)
                 innerKeys.Add(c.Key);
             foreach (KeyValuePair<string, object> value in values)
             {
