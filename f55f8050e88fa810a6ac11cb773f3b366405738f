@@ -22,6 +22,30 @@
       "revId": "f55f8050e88fa810a6ac11cb773f3b366405738f",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e63489e_385c9cdb",
+        "filename": "src/Tizen.NUI/src/public/BaseComponents/View.cs",
+        "patchSetId": 1
+      },
+      "lineNbr": 3180,
+      "author": {
+        "id": 1014323
+      },
+      "writtenOn": "2018-07-20T15:50:27Z",
+      "side": 1,
+      "message": "Hm, potentially if LayoutItem (Layout) is not created yet? But I guess the child property is set on View anyway and can be read later. Seems to be working fine with NUI HQ examples.",
+      "parentUuid": "f9866e59_3c25601c",
+      "range": {
+        "startLine": 3180,
+        "startChar": 28,
+        "endLine": 3180,
+        "endChar": 46
+      },
+      "revId": "f55f8050e88fa810a6ac11cb773f3b366405738f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     }
   ]
 }
