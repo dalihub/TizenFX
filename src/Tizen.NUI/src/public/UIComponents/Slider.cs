@@ -757,11 +757,29 @@ namespace Tizen.NUI.UIComponents
         public Slider() : this(NDalicPINVOKE.Slider_New(), true)
         {
             if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+        }
 
-            this.ValueChanged += (obj, e) => {
-                this.Value = e.SlideValue;
-                return true;
-            };
+        /// <summary>
+        /// Gets/Sets the views whether created by xaml
+        /// </summary>
+        public override bool IsCreateByXaml
+        {
+            get
+            {
+                return base.IsCreateByXaml;
+            }
+            set
+            {
+                base.IsCreateByXaml = value;
+
+                if (value == true)
+                {
+                    this.ValueChanged += (obj, e) => {
+                        this.Value = e.SlideValue;
+                        return true;
+                    };
+                }
+            }
         }
 
         internal Slider(Slider handle) : this(NDalicPINVOKE.new_Slider__SWIG_1(Slider.getCPtr(handle)), true)

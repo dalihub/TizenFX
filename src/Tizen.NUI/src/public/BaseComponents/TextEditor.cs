@@ -1217,10 +1217,29 @@ namespace Tizen.NUI.BaseComponents
         public TextEditor() : this(NDalicPINVOKE.TextEditor_New(), true)
         {
             if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            this.TextChanged += (obj, e) =>
+        }
+
+        /// <summary>
+        /// Gets/Sets the views whether created by xaml
+        /// </summary>
+        public override bool IsCreateByXaml
+        {
+            get
             {
-                this.Text = this.Text;
-            };
+                return base.IsCreateByXaml;
+            }
+            set
+            {
+                base.IsCreateByXaml = value;
+
+                if (value == true)
+                {
+                    this.TextChanged += (obj, e) =>
+                    {
+                        this.Text = this.Text;
+                    };
+                }
+            }
         }
 
         internal TextEditor(TextEditor handle) : this(NDalicPINVOKE.new_TextEditor__SWIG_1(TextEditor.getCPtr(handle)), true)
