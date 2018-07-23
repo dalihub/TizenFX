@@ -3425,6 +3425,7 @@ namespace Tizen.NUI.BaseComponents
             }
         }
 
+        LayoutItem _layoutItem;
         /// <summary>
         /// Set the layout on this control.
         /// </summary>
@@ -3450,6 +3451,7 @@ namespace Tizen.NUI.BaseComponents
             }
             set
             {
+                _layoutItem = value;
                 Tizen.NUI.NDalicManualPINVOKE.SetLayout__SWIG_1(View.getCPtr(this), LayoutItem.getCPtr(value));
                 value.LayoutChildren.Clear();
                 foreach (View view in Children)
