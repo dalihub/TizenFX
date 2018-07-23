@@ -27,6 +27,7 @@ namespace Tizen.NUI.BaseComponents
     /// <since_tizen> 3 </since_tizen>
     public class View : Container, IResourcesProvider
     {
+        LayoutItem _layoutItem;
         /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool IsResourcesCreated
@@ -3450,6 +3451,7 @@ namespace Tizen.NUI.BaseComponents
             }
             set
             {
+                _layoutItem = value;
                 Tizen.NUI.NDalicManualPINVOKE.SetLayout__SWIG_1(View.getCPtr(this), LayoutItem.getCPtr(value));
                 value.LayoutChildren.Clear();
                 foreach (View view in Children)
