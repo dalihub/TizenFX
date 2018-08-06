@@ -622,6 +622,7 @@ namespace Tizen.NUI
 
         public void PlayAnimateTo(View target)
         {
+            Clear();
             if (_properties.Length == _destValue.Length && _startTime.Length == _endTime.Length && _properties.Length == _startTime.Length)
             {
                 int length = _properties.Length;
