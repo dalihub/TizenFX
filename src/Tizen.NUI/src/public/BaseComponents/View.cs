@@ -1267,6 +1267,11 @@ namespace Tizen.NUI.BaseComponents
         /// <since_tizen> 4 </since_tizen>
         public override void Add(View child)
         {
+			if (null == child)
+			{
+				return;
+			}
+			
             Container oldParent = child.Parent;
             if (oldParent != this)
             {
