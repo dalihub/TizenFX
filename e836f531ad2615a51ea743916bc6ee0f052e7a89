@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b174b31b_eaae70d6",
+        "filename": "src/Tizen.NUI/src/public/BaseComponents/View.cs",
+        "patchSetId": 1
+      },
+      "lineNbr": 1278,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2018-08-09T06:53:41Z",
+      "side": 1,
+      "message": "please remove tabs.\nif child is null, no action be done. \nuser might not know about this, so need to give some error messege by using NUILog.Error(), I think...",
+      "revId": "e836f531ad2615a51ea743916bc6ee0f052e7a89",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
