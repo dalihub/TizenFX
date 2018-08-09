@@ -1091,6 +1091,23 @@ namespace Tizen.NUI.BaseComponents
         });
         /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
         [EditorBrowsable(EditorBrowsableState.Never)]
+        public static readonly BindableProperty LayoutPaddingProperty = BindableProperty.Create("LayoutPadding", typeof(PaddingType), typeof(View), new PaddingType(0, 0, 0, 0), propertyChanged: (bindable, oldValue, newValue) =>
+        {
+            var view = (View)bindable;
+            if (newValue != null)
+            {
+                view.SetPadding((PaddingType)newValue);
+            }
+        },
+        defaultValueCreator: (bindable) =>
+        {
+            var view = (View)bindable;
+            PaddingType temp = new PaddingType(0, 0, 0, 0);
+            view.GetPadding(temp);
+            return temp;
+        });
+        /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public static readonly BindableProperty SizeProperty = BindableProperty.Create("Size", typeof(Size), typeof(View), new Size(0,0,0), propertyChanged: (bindable, oldValue, newValue) =>
         {
             var view = (View)bindable;
@@ -4309,6 +4326,8 @@ namespace Tizen.NUI.BaseComponents
         /// </summary>
         /// <param name="padding">Padding for the view.</param>
         /// <since_tizen> 3 </since_tizen>
+        [Obsolete("Please do not use! This will be deprecated! Please use LayoutPadding instead! ")]
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public void SetPadding(PaddingType padding)
         {
             NDalicPINVOKE.Actor_SetPadding(swigCPtr, PaddingType.getCPtr(padding));
@@ -4321,6 +4340,8 @@ namespace Tizen.NUI.BaseComponents
         /// </summary>
         /// <param name="paddingOut">the value of padding for the view</param>
         /// <since_tizen> 3 </since_tizen>
+        [Obsolete("Please do not use! This will be deprecated! Please use LayoutPadding instead! ")]
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public void GetPadding(PaddingType paddingOut)
         {
             NDalicPINVOKE.Actor_GetPadding(swigCPtr, PaddingType.getCPtr(paddingOut));
@@ -5158,7 +5179,7 @@ namespace Tizen.NUI.BaseComponents
         }
 
         /// <summary>
-        /// Gets or sets the padding for use in layout.
+        /// Gets or sets the inner space of the view.
         /// </summary>
         /// <since_tizen> 5 </since_tizen>
         public Extents Padding
@@ -5170,6 +5191,23 @@ namespace Tizen.NUI.BaseComponents
             set
             {
                 SetValue(PaddingProperty, value);
+                NotifyPropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the padding for use in layout.
+        /// </summary>
+        /// <since_tizen> 5 </since_tizen>
+        internal PaddingType LayoutPadding
+        {
+            get
+            {
+                return (PaddingType)GetValue(LayoutPaddingProperty);
+            }
+            set
+            {
+                SetValue(LayoutPaddingProperty, value);
                 NotifyPropertyChanged();
             }
         }
@@ -5396,7 +5434,7 @@ namespace Tizen.NUI.BaseComponents
         }
 
         /// <summary>
-        /// Gets or sets the Margin for use in layout.
+        /// Gets or sets the outer space around the view.
         /// </summary>
         /// <remarks>
         /// Margin property is supported by Layout algorithms and containers.
