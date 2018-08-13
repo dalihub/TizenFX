@@ -16,6 +16,24 @@
       "revId": "e836f531ad2615a51ea743916bc6ee0f052e7a89",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9325be1a_74807f69",
+        "filename": "src/Tizen.NUI/src/public/BaseComponents/View.cs",
+        "patchSetId": 1
+      },
+      "lineNbr": 1278,
+      "author": {
+        "id": 1014618
+      },
+      "writtenOn": "2018-08-13T09:22:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b174b31b_eaae70d6",
+      "revId": "e836f531ad2615a51ea743916bc6ee0f052e7a89",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     }
   ]
 }
