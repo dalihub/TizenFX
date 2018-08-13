@@ -14,15 +14,18 @@
  * limitations under the License.
  *
  */
+using System;
+using System.Runtime.InteropServices;
+using Tizen.NUI.BaseComponents;
 
 namespace Tizen.NUI
 {
 
-    using System;
-    using System.Runtime.InteropServices;
-    using Tizen.NUI.BaseComponents;
-
-    internal class TapGestureDetector : GestureDetector
+    /// <summary>
+    /// This class emits a signal when a tap gesture occurs that meets the requirements set by the application.<br />
+    /// A TapGesture is a discrete gesture, which means it does not have any state information attached.<br />
+    /// </summary>
+    public class TapGestureDetector : GestureDetector
     {
         private global::System.Runtime.InteropServices.HandleRef swigCPtr;
 
@@ -36,6 +39,10 @@ namespace Tizen.NUI
             return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
         }
 
+        /// <summary>
+        /// Dispose.
+        /// </summary>
+        /// <param name="type">The dispose type</param>
         protected override void Dispose(DisposeTypes type)
         {
             if (disposed)
@@ -68,13 +75,18 @@ namespace Tizen.NUI
             base.Dispose(type);
         }
 
-
+        /// <summary>
+        /// Event arguments that passed via the TapGestureEvent signal.
+        /// </summary>
         /// <since_tizen> 3 </since_tizen>
         public class DetectedEventArgs : EventArgs
         {
             private View _view;
             private TapGesture _tapGesture;
 
+            /// <summary>
+            /// The attached view.
+            /// </summary>
             /// <since_tizen> 3 </since_tizen>
             public View View
             {
@@ -88,6 +100,9 @@ namespace Tizen.NUI
                 }
             }
 
+            /// <summary>
+            /// The TapGesture.
+            /// </summary>
             /// <since_tizen> 3 </since_tizen>
             public TapGesture TapGesture
             {
@@ -107,7 +122,9 @@ namespace Tizen.NUI
         private DaliEventHandler<object, DetectedEventArgs> _tapGestureEventHandler;
         private DetectedCallbackDelegate _tapGestureCallbackDelegate;
 
-
+        /// <summary>
+        /// This signal is emitted when the specified tap is detected on the attached view.
+        /// </summary>
         public event DaliEventHandler<object, DetectedEventArgs> Detected
         {
             add
@@ -155,56 +172,81 @@ namespace Tizen.NUI
 
         }
 
-
-        public static TapGestureDetector GetTapGestureDetectorFromPtr(global::System.IntPtr cPtr)
+        internal static TapGestureDetector GetTapGestureDetectorFromPtr(global::System.IntPtr cPtr)
         {
             TapGestureDetector ret = new TapGestureDetector(cPtr, false);
             if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
             return ret;
         }
 
-
+        /// <summary>
+        /// Creates an initialized TapGestureDetector.
+        /// </summary>
         public TapGestureDetector() : this(NDalicPINVOKE.TapGestureDetector_New__SWIG_0(), true)
         {
             if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
 
         }
+
+        /// <summary>
+        /// Creates an initialized TapGestureDetector with the specified parameters.
+        /// </summary>
+        /// <param name="tapsRequired">The minimum & maximum number of taps required</param>
         public TapGestureDetector(uint tapsRequired) : this(NDalicPINVOKE.TapGestureDetector_New__SWIG_1(tapsRequired), true)
         {
             if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
 
         }
-        public new static TapGestureDetector DownCast(BaseHandle handle)
+
+        internal new static TapGestureDetector DownCast(BaseHandle handle)
         {
             TapGestureDetector ret =  Registry.GetManagedBaseHandleFromNativePtr(handle) as TapGestureDetector;
             if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
             return ret;
         }
 
+        /// <summary>
+        /// The copy constructor.
+        /// </summary>
+        /// <param name="handle">A reference to the copied handle</param>
         public TapGestureDetector(TapGestureDetector handle) : this(NDalicPINVOKE.new_TapGestureDetector__SWIG_1(TapGestureDetector.getCPtr(handle)), true)
         {
             if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
         }
 
-        public TapGestureDetector Assign(TapGestureDetector rhs)
+        internal TapGestureDetector Assign(TapGestureDetector rhs)
         {
             TapGestureDetector ret = new TapGestureDetector(NDalicPINVOKE.TapGestureDetector_Assign(swigCPtr, TapGestureDetector.getCPtr(rhs)), false);
             if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
             return ret;
         }
 
+        /// <summary>
+        /// Sets the minimum number of taps required. The tap count is the number of times a user should "tap" the screen.<br />
+        /// The default is 1.<br />
+        /// </summary>
+        /// <param name="minimumTaps">The minimum taps required</param>
         public void SetMinimumTapsRequired(uint minimumTaps)
         {
             NDalicPINVOKE.TapGestureDetector_SetMinimumTapsRequired(swigCPtr, minimumTaps);
             if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
         }
 
+        /// <summary>
+        /// Sets the maximum number of taps required. The tap count is the number of times a user should "tap" the screen.<br />
+        /// The default is 1.<br />
+        /// </summary>
+        /// <param name="maximumTaps">The maximum taps required</param>
         public void SetMaximumTapsRequired(uint maximumTaps)
         {
             NDalicPINVOKE.TapGestureDetector_SetMaximumTapsRequired(swigCPtr, maximumTaps);
             if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
         }
 
+        /// <summary>
+        /// Retrieves the minimum number of taps required.
+        /// </summary>
+        /// <returns>The minimum taps required</returns>
         public uint GetMinimumTapsRequired()
         {
             uint ret = NDalicPINVOKE.TapGestureDetector_GetMinimumTapsRequired(swigCPtr);
@@ -212,6 +254,10 @@ namespace Tizen.NUI
             return ret;
         }
 
+        /// <summary>
+        /// Retrieves the maximum number of taps required.
+        /// </summary>
+        /// <returns>The maximum taps required</returns>
         public uint GetMaximumTapsRequired()
         {
             uint ret = NDalicPINVOKE.TapGestureDetector_GetMaximumTapsRequired(swigCPtr);
