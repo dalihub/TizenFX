@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "58bed0cf_91f7bba9",
+        "filename": "src/Tizen.NUI/src/public/GestureDetector.cs",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2018-08-14T07:18:06Z",
+      "side": 1,
+      "message": "please add this for all public APIs before ACR done \u003d\u003e\n\n/// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.\n[EditorBrowsable(EditorBrowsableState.Never)]",
+      "revId": "10ca47037102929a07a8bc97ac323bf0d5ee5d81",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa105fce_4f6a8873",
+        "filename": "src/Tizen.NUI/src/public/LongPressGestureDetector.cs",
+        "patchSetId": 4
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2018-08-14T07:18:06Z",
+      "side": 1,
+      "message": "this would be since_tizen 5... isn\u0027t it? if this class becomes public, this means it is exposed to public API for the first time at tizen_5.0 \nplease change all as \u003csince_tizen\u003e 5 \u003c/since_tizen\u003e",
+      "revId": "10ca47037102929a07a8bc97ac323bf0d5ee5d81",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
