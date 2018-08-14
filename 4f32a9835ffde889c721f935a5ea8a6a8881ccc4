@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "74db48cd_09e247ce",
+        "filename": "src/Tizen.NUI/src/public/Property.cs",
+        "patchSetId": 3
+      },
+      "lineNbr": 1426,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2018-08-14T07:53:38Z",
+      "side": 1,
+      "message": "please hide this by adding the followings before ACR for all public API. \u003d\u003e\n\n/// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.\n[EditorBrowsable(EditorBrowsableState.Never)]",
+      "revId": "4f32a9835ffde889c721f935a5ea8a6a8881ccc4",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a214787_95a1f334",
+        "filename": "src/Tizen.NUI/src/public/Property.cs",
+        "patchSetId": 3
+      },
+      "lineNbr": 1732,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2018-08-14T07:53:38Z",
+      "side": 1,
+      "message": "please add this before ACR, and is it since_tizen 5 ?\n\u003d\u003e\n/// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.\n[EditorBrowsable(EditorBrowsableState.Never)]",
+      "revId": "4f32a9835ffde889c721f935a5ea8a6a8881ccc4",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53c2375d_58d31eee",
+        "filename": "src/Tizen.NUI/src/public/Property.cs",
+        "patchSetId": 3
+      },
+      "lineNbr": 1758,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2018-08-14T07:53:38Z",
+      "side": 1,
+      "message": "same as above",
+      "revId": "4f32a9835ffde889c721f935a5ea8a6a8881ccc4",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
