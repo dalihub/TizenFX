@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b229ab40_50e935d8",
+        "filename": "src/Tizen.NUI/src/public/GestureDetector.cs",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1014555
+      },
+      "writtenOn": "2018-08-14T09:17:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "58bed0cf_91f7bba9",
+      "revId": "10ca47037102929a07a8bc97ac323bf0d5ee5d81",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fa105fce_4f6a8873",
         "filename": "src/Tizen.NUI/src/public/LongPressGestureDetector.cs",
         "patchSetId": 4
@@ -33,6 +51,24 @@
       "revId": "10ca47037102929a07a8bc97ac323bf0d5ee5d81",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b42ce27e_434830a0",
+        "filename": "src/Tizen.NUI/src/public/LongPressGestureDetector.cs",
+        "patchSetId": 4
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1014555
+      },
+      "writtenOn": "2018-08-14T09:17:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fa105fce_4f6a8873",
+      "revId": "10ca47037102929a07a8bc97ac323bf0d5ee5d81",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     }
   ]
 }
