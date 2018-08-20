@@ -1025,6 +1025,7 @@ namespace Tizen.NUI.BaseComponents
                 if (swigCMemOwn)
                 {
                     swigCMemOwn = false;
+                    GetInputMethodContext()?.DestroyContext();
                     NDalicPINVOKE.delete_TextField(swigCPtr);
                 }
                 swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
