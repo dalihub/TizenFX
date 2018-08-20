@@ -1247,6 +1247,7 @@ namespace Tizen.NUI.BaseComponents
         /// Get the InputMethodContext instance.
         /// </summary>
         /// <returns>The InputMethodContext instance.</returns>
+        /// <since_tizen> 5 </since_tizen>
         public InputMethodContext GetInputMethodContext() {
             InputMethodContext ret = new InputMethodContext(NDalicPINVOKE.TextEditor_GetInputMethodContext(swigCPtr), true);
             if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
