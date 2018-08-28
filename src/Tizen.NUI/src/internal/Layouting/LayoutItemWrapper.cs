@@ -134,11 +134,5 @@ namespace Tizen.NUI
     internal interface ILayoutParent
     {
         ILayoutParent GetParent();
-        /*{
-            global::System.IntPtr cPtr = LayoutPINVOKE.LayoutParent_GetParent(swigCPtr);
-            LayoutParent ret = (cPtr == global::System.IntPtr.Zero) ? null : new LayoutParent(cPtr, false);
-            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }*/
     }
 }
