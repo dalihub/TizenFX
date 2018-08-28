@@ -1282,11 +1282,13 @@ namespace Tizen.NUI.BaseComponents
                 {
                     oldParent.Remove(child);
                 }
-
+                Console.WriteLine("Checking if layout exists for child:" + child.ToString() );
                 if (true == layoutSet && null == child.Layout) // Only give children a layout if parent an explict container
                 {
-                    LayoutItem layoutItem = new LayoutItem();
-                    child.Layout = layoutItem;
+                    string childName = child.Name;
+                    Console.Write("View.cs Add {0}\n",childName );
+                    LayoutGroup layoutGroup = new LayoutGroup();
+                    child.Layout = layoutGroup;
                 }
 
                 if (Layout)
@@ -3440,6 +3442,18 @@ namespace Tizen.NUI.BaseComponents
                 CPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
 
                 if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+
+                // What if this is null, will still return a LayoutItem??
+
+
+                if (  basehandle as LayoutItem != null)
+                {
+                    Console.WriteLine("Layout:" + basehandle.ToString());
+                }
+                else
+                {
+                    Console.WriteLine("No Layout");
+                }
 
                 return basehandle as LayoutItem;
             }

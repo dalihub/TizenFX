@@ -27,6 +27,7 @@ namespace Tizen.NUI
     {
         public LayoutGroup() : base(new LayoutGroupWrapperImpl())
         {
+            System.Console.Write("LayoutGroup Initialize\n");
             // Initialize delegates of LayoutItem
             LayoutItemInitialize(layoutGroupWrapperImpl);
 
@@ -84,8 +85,50 @@ namespace Tizen.NUI
         /// <param name="heightMeasureSpec">vertical space requirements as imposed by the parent.</param>
         protected virtual void OnMeasure(LayoutMeasureSpec widthMeasureSpec, LayoutMeasureSpec heightMeasureSpec)
         {
-            SetMeasuredDimensions(new MeasuredSize(LayoutItemWrapperImpl.GetDefaultSize(layoutItemWrapperImpl.GetSuggestedMinimumWidth(), widthMeasureSpec)),
-                                   new MeasuredSize(LayoutItemWrapperImpl.GetDefaultSize(layoutItemWrapperImpl.GetSuggestedMinimumHeight(), heightMeasureSpec)));
+            System.Console.Write("LayoutGroup.cs OnMeasure\n");
+
+            int width = widthMeasureSpec.Size;
+            int height = heightMeasureSpec.Size;
+            System.Console.Write("LayoutGroup.cs OnMeasure : {0} size width[{1}] size height[{1}]\n" , GetOwner().ToString(), width, height );
+
+            LayoutLength childWidth  = new LayoutLength( 0 );;
+            LayoutLength childHeight =  new LayoutLength( 0 );;
+
+            LayoutLength measuredWidth = childWidth;
+            LayoutLength measuredHeight = childHeight;
+
+            for( uint i = 0; i < ChildCount; ++i )
+            {
+                var childLayout = GetChildAt( i );
+                var view = GetOwner();
+                string ownerName = view.Name;
+                System.Console.Write("Child Count{0} owner{1}\n", ChildCount, ownerName );
+                if( childLayout )
+                {
+                    System.Console.Write("IsLayout\n");
+                    MeasureChild( childLayout, widthMeasureSpec, heightMeasureSpec );
+                    childWidth = childLayout.MeasuredWidth;
+                    childHeight = childLayout.MeasuredHeight;
+                    measuredWidth.Value = System.Math.Max( measuredWidth.Value, childWidth.Value );
+                    measuredHeight.Value = System.Math.Max( measuredHeight.Value, childHeight.Value );
+                }
+                else
+                {
+                    System.Console.Write("NotLayout\n");
+                }
+            }
+
+            if( 0 == ChildCount )
+            {
+                System.Console.Write("Leaf\n");
+                measuredWidth = GetDefaultSize( SuggestedMinimumWidth, widthMeasureSpec );
+                measuredHeight = GetDefaultSize( SuggestedMinimumHeight, heightMeasureSpec );
+            }
+
+            System.Console.Write("LayoutGroup.cs OnMeasure measured width[{0}] measured height[{1}]\n" , measuredWidth.Value, measuredHeight.Value );
+
+            SetMeasuredDimensions( new MeasuredSize( measuredWidth ),
+                                   new MeasuredSize( measuredHeight ) );
         }
 
         /// <summary>
