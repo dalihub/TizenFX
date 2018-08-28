@@ -27,6 +27,7 @@ namespace Tizen.NUI
     {
         public LayoutGroup() : base(new LayoutGroupWrapperImpl())
         {
+            System.Console.Write("LayoutGroup Initialize\n");
             // Initialize delegates of LayoutItem
             LayoutItemInitialize(layoutGroupWrapperImpl);
 
@@ -84,8 +85,22 @@ namespace Tizen.NUI
         /// <param name="heightMeasureSpec">vertical space requirements as imposed by the parent.</param>
         protected virtual void OnMeasure(LayoutMeasureSpec widthMeasureSpec, LayoutMeasureSpec heightMeasureSpec)
         {
-            SetMeasuredDimensions(new MeasuredSize(LayoutItemWrapperImpl.GetDefaultSize(layoutItemWrapperImpl.GetSuggestedMinimumWidth(), widthMeasureSpec)),
-                                   new MeasuredSize(LayoutItemWrapperImpl.GetDefaultSize(layoutItemWrapperImpl.GetSuggestedMinimumHeight(), heightMeasureSpec)));
+            System.Console.Write("LayoutGroup.cs OnMeasure\n");
+
+            int width = widthMeasureSpec.Size;
+            int height = heightMeasureSpec.Size;
+            System.Console.Write("LayoutGroup.cs OnMeasure size width[{0}] size height[{1}]\n" , width, height );
+
+            LayoutLength measuredWidth =  MeasuredWidth;
+            LayoutLength measuredHeigth =  MeasuredHeight;
+
+            System.Console.Write("LayoutGroup.cs OnMeasure measured width[{0}] measured height[{1}]\n" , measuredWidth.Value, measuredHeigth.Value );
+
+            SetMeasuredDimensions( new MeasuredSize( measuredWidth ),
+                                   new MeasuredSize( measuredHeigth ) );
+
+         //   SetMeasuredDimensions(new MeasuredSize(LayoutItemWrapperImpl.GetDefaultSize(layoutItemWrapperImpl.GetSuggestedMinimumWidth(), widthMeasureSpec)),
+         //                          new MeasuredSize(LayoutItemWrapperImpl.GetDefaultSize(layoutItemWrapperImpl.GetSuggestedMinimumHeight(), heightMeasureSpec)));
         }
 
         /// <summary>

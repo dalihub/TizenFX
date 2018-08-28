@@ -1285,8 +1285,10 @@ namespace Tizen.NUI.BaseComponents
 
                 if (true == layoutSet && null == child.Layout) // Only give children a layout if parent an explict container
                 {
-                    LayoutItem layoutItem = new LayoutItem();
-                    child.Layout = layoutItem;
+                    string childName = child.Name;
+                    System.Console.Write("View Add {0}\n",childName );
+                    LayoutGroup layoutGroup = new LayoutGroup();
+                    child.Layout = layoutGroup;
                 }
 
                 if (Layout)
@@ -3441,6 +3443,7 @@ namespace Tizen.NUI.BaseComponents
 
                 if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
 
+                // What if this is null, will still return a LayoutItem??
                 return basehandle as LayoutItem;
             }
             set

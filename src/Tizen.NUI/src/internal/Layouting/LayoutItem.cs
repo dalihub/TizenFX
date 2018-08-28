@@ -28,6 +28,7 @@ namespace Tizen.NUI
     {
         internal LayoutItem(global::System.IntPtr cPtr, bool cMemoryOwn) : base(cPtr, cMemoryOwn)
         {
+            System.Console.Write("LayoutItem\n");
         }
 
         public LayoutItem() : base(new LayoutItemWrapperImpl())
