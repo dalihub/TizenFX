@@ -163,14 +163,6 @@ namespace Tizen.NUI
             return ret;
         }
 
-        /*public LayoutParent GetParent()
-        {
-            global::System.IntPtr cPtr = (SwigDerivedClassHasMethod("GetParent", swigMethodTypes0) ? LayoutPINVOKE.LayoutItemPtr_GetParentSwigExplicitLayoutItemWrapperImpl(swigCPtr) : LayoutPINVOKE.LayoutItemPtr_GetParent(swigCPtr));
-            LayoutParent ret = (cPtr == global::System.IntPtr.Zero) ? null : new LayoutParent(cPtr, false);
-            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }*/
-
         public void RequestLayout()
         {
             LayoutPINVOKE.LayoutItemPtr_RequestLayout(swigCPtr);
