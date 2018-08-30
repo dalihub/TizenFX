@@ -42987,6 +42987,24 @@ namespace Tizen.NUI
             }
         }
 
+        [global::System.Runtime.InteropServices.DllImport(Graphics.GlesCSharpBinder, EntryPoint = "CSharp_Dali_ResourceVisualReadySignal")]
+        public static extern global::System.IntPtr ResourceVisualReadySignal_gl(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+        [global::System.Runtime.InteropServices.DllImport(Graphics.VulkanCSharpBinder, EntryPoint = "CSharp_Dali_ResourceVisualReadySignal")]
+        public static extern global::System.IntPtr ResourceVisualReadySignal_vulkan(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+        public static global::System.IntPtr ResourceVisualReadySignal(global::System.Runtime.InteropServices.HandleRef jarg1)
+        {
+            if (Tizen.NUI.Graphics.Backend == Tizen.NUI.Graphics.BackendType.Vulkan)
+            {
+                return ResourceVisualReadySignal_vulkan(jarg1);
+            }
+            else
+            {
+                return ResourceVisualReadySignal_gl(jarg1);
+            }
+        }
+
         [global::System.Runtime.InteropServices.DllImport(Graphics.GlesCSharpBinder, EntryPoint = "CSharp_Dali_IsResourceReady")]
         public static extern bool IsResourceReady_gl(global::System.Runtime.InteropServices.HandleRef jarg1);
 
@@ -65108,6 +65126,24 @@ namespace Tizen.NUI
             }
         }
 
+        [global::System.Runtime.InteropServices.DllImport(Graphics.GlesCSharpBinder, EntryPoint = "CSharp_Dali_ViewResourceVisualReadySignal_Connect")]
+        public static extern void ViewResourceVisualReadySignal_Connect_gl(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
+        [global::System.Runtime.InteropServices.DllImport(Graphics.VulkanCSharpBinder, EntryPoint = "CSharp_Dali_ViewResourceVisualReadySignal_Connect")]
+        public static extern void ViewResourceVisualReadySignal_Connect_vulkan(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
+        public static void ViewResourceVisualReadySignal_Connect(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2)
+        {
+            if (Tizen.NUI.Graphics.Backend == Tizen.NUI.Graphics.BackendType.Vulkan)
+            {
+                ViewResourceVisualReadySignal_Connect_vulkan(jarg1, jarg2);
+            }
+            else
+            {
+                ViewResourceVisualReadySignal_Connect_gl(jarg1, jarg2);
+            }
+        }
+
         [global::System.Runtime.InteropServices.DllImport(Graphics.GlesCSharpBinder, EntryPoint = "CSharp_Dali_ViewResourceReadySignal_Emit")]
         public static extern void ViewResourceReadySignal_Emit_gl(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
 
@@ -65123,6 +65159,24 @@ namespace Tizen.NUI
             else
             {
                 ViewResourceReadySignal_Emit_gl(jarg1, jarg2);
+            }
+        }
+
+        [global::System.Runtime.InteropServices.DllImport(Graphics.GlesCSharpBinder, EntryPoint = "CSharp_Dali_new_ViewResourceVisualReadySignal")]
+        public static extern global::System.IntPtr new_ViewResourceVisualReadySignal_gl();
+
+        [global::System.Runtime.InteropServices.DllImport(Graphics.VulkanCSharpBinder, EntryPoint = "CSharp_Dali_new_ViewResourceVisualReadySignal")]
+        public static extern global::System.IntPtr new_ViewResourceVisualReadySignal_vulkan();
+
+        public static global::System.IntPtr new_ViewResourceVisualReadySignal()
+        {
+            if (Tizen.NUI.Graphics.Backend == Tizen.NUI.Graphics.BackendType.Vulkan)
+            {
+                return new_ViewResourceVisualReadySignal_vulkan();
+            }
+            else
+            {
+                return new_ViewResourceVisualReadySignal_gl();
             }
         }
 
