@@ -287,6 +287,56 @@ namespace Tizen.NUI.BaseComponents
             }
         }
 
+        public class ResourceVisualReadyEventArgs : EventArgs
+        {
+            private VisualBase _resourceVisual;
+
+            /// <summary>
+            /// The view whose resource is ready.
+            /// </summary>
+            /// <since_tizen> 3 </since_tizen>
+            public VisualBase ResourceVisual
+            {
+                get
+                {
+                    return _resourceVisual;
+                }
+                set
+                {
+                    _resourceVisual = value;
+                }
+            }
+        }
+
+        private EventHandler<ResourceVisualReadyEventArgs> _resourceVisualReadyEventHandler;
+        [UnmanagedFunctionPointer(CallingConvention.StdCall)]
+        private delegate void ResourceVisualReadyEventCallbackType(IntPtr data);
+        private ResourceVisualReadyEventCallbackType _resourceVisualReadyEventCallback;
+
+        public event EventHandler<ResourceVisualReadyEventArgs> ResourceVisualReady
+        {
+            add
+            {
+                if (_resourceVisualReadyEventHandler == null)
+                {
+                    _resourceVisualReadyEventCallback = OnResourceVisualReady;
+                    ResourceVisualReadySignal(this).Connect(_resourceVisualReadyEventCallback);
+                }
+
+                _resourceVisualReadyEventHandler += value;
+            }
+
+            remove
+            {
+                _resourceVisualReadyEventHandler -= value;
+
+                if (_resourceReadyEventHandler == null && ResourceReadySignal(this).Empty() == false)
+                {
+                    ResourceVisualReadySignal(this).Disconnect(_resourceVisualReadyEventCallback);
+                }
+            }
+        }
+
         // Callback for View ResourceReady signal
         private void OnResourceReady(IntPtr data)
         {
@@ -299,6 +349,17 @@ namespace Tizen.NUI.BaseComponents
             if (_resourceReadyEventHandler != null)
             {
                 _resourceReadyEventHandler(this, e);
+            }
+        }
+
+        private void OnResourceVisualReady(IntPtr data)
+        {
+            ResourceVisualReadyEventArgs e = new ResourceVisualReadyEventArgs();
+            e.ResourceVisual = new VisualBase(data, false);
+
+            if (_resourceVisualReadyEventHandler != null)
+            {
+                _resourceVisualReadyEventHandler(this, e);
             }
         }
 
@@ -422,6 +483,13 @@ namespace Tizen.NUI.BaseComponents
         internal ViewResourceReadySignal ResourceReadySignal(View view)
         {
             ViewResourceReadySignal ret = new ViewResourceReadySignal(NDalicPINVOKE.ResourceReadySignal(View.getCPtr(view)), false);
+            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        internal ViewResourceVisualReadySignal ResourceVisualReadySignal(View view)
+        {
+            ViewResourceVisualReadySignal ret = new ViewResourceVisualReadySignal(NDalicPINVOKE.ResourceVisualReadySignal(View.getCPtr(view)), false);
             if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
             return ret;
         }
