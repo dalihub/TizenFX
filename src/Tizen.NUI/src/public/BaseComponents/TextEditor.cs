@@ -922,6 +922,7 @@ namespace Tizen.NUI.BaseComponents
         private string textEditorTextSid = null;
         private string textEditorPlaceHolderTextSid = null;
         private bool systemlangTextFlag = false;
+        private InputMethodContext inputMethodContext = null;
 
         internal TextEditor(global::System.IntPtr cPtr, bool cMemoryOwn) : base(NDalicPINVOKE.TextEditor_SWIGUpcast(cPtr), cMemoryOwn)
         {
@@ -965,8 +966,7 @@ namespace Tizen.NUI.BaseComponents
                 if (swigCMemOwn)
                 {
                     swigCMemOwn = false;
-                    // In order to speed up IME hide, temporarily add
-                    GetInputMethodContext()?.DestroyContext();
+                    inputMethodContext?.Dispose();
                     NDalicPINVOKE.delete_TextEditor(swigCPtr);
                 }
                 swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
@@ -1218,6 +1218,10 @@ namespace Tizen.NUI.BaseComponents
         public TextEditor() : this(NDalicPINVOKE.TextEditor_New(), true)
         {
             if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+
+            /*Avoid raising InputMethodContext reference count.*/
+            inputMethodContext = new InputMethodContext(NDalicPINVOKE.TextEditor_GetInputMethodContext(swigCPtr), true);
+            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
         }
 
         internal override bool IsCreateByXaml
@@ -1250,9 +1254,7 @@ namespace Tizen.NUI.BaseComponents
         /// </summary>
         /// <returns>The InputMethodContext instance.</returns>
         public InputMethodContext GetInputMethodContext() {
-            InputMethodContext ret = new InputMethodContext(NDalicPINVOKE.TextEditor_GetInputMethodContext(swigCPtr), true);
-            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
+            return inputMethodContext;
         }
 
         internal TextEditorSignal TextChangedSignal()
