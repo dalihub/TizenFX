@@ -476,7 +476,6 @@ namespace Tizen.NUI.BaseComponents
             Size temp = new Size(0.0f, 0.0f, 0.0f);
             Tizen.NUI.Object.GetProperty(view.swigCPtr, View.Property.SIZE).Get(temp);
             Size2D size = new Size2D((int)temp.Width, (int)temp.Height);
-            Console.WriteLine($"View Size2DProperty get width: {size.Width} height: {size.Height}");
             return size;
         });
         /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
@@ -522,7 +521,6 @@ namespace Tizen.NUI.BaseComponents
             {
                 Tizen.NUI.Object.SetProperty(view.swigCPtr, View.Property.POSITION_USES_ANCHOR_POINT, new Tizen.NUI.PropertyValue((bool)newValue));
             }
-            Console.WriteLine("View PositionUsesPivotPointProperty changed: oldValue: " + oldValue + ", newValue: " + newValue);
         },
         defaultValueCreator:(bindable) =>
         {
@@ -586,7 +584,6 @@ namespace Tizen.NUI.BaseComponents
             {
                 Tizen.NUI.Object.SetProperty(view.swigCPtr, View.Property.PARENT_ORIGIN, new Tizen.NUI.PropertyValue((Position)newValue));
             }
-            Console.WriteLine("View ParentOriginProperty changed: oldValue: " + oldValue + ", newValue: " + newValue);
         },
         defaultValueCreator:(bindable) =>
         {
@@ -605,7 +602,6 @@ namespace Tizen.NUI.BaseComponents
             {
                 Tizen.NUI.Object.SetProperty(view.swigCPtr, View.Property.ANCHOR_POINT, new Tizen.NUI.PropertyValue((Position)newValue));
             }
-            Console.WriteLine("View PivotPointProperty changed: oldValue: " + oldValue + ", newValue: " + newValue);
         },
         defaultValueCreator:(bindable) =>
         {
@@ -623,14 +619,12 @@ namespace Tizen.NUI.BaseComponents
             {
                 Tizen.NUI.Object.SetProperty(view.swigCPtr, View.Property.SIZE_WIDTH, new Tizen.NUI.PropertyValue((float)newValue));
             }
-            Console.WriteLine("View SizeWidthProperty changed: oldValue: " + oldValue + ", newValue: " + newValue);
         },
         defaultValueCreator:(bindable) =>
         {
             var view = (View)bindable;
             float temp = 0.0f;
             Tizen.NUI.Object.GetProperty(view.swigCPtr, View.Property.SIZE_WIDTH).Get(out temp);
-            Console.WriteLine($"View SizeWidthProperty get Value: {temp}");
             return temp;
         });
         /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
@@ -642,14 +636,12 @@ namespace Tizen.NUI.BaseComponents
             {
                 Tizen.NUI.Object.SetProperty(view.swigCPtr, View.Property.SIZE_HEIGHT, new Tizen.NUI.PropertyValue((float)newValue));
             }
-            Console.WriteLine("View SizeHeightProperty changed: oldValue: " + oldValue + ", newValue: " + newValue);
         },
         defaultValueCreator:(bindable) =>
         {
             var view = (View)bindable;
             float temp = 0.0f;
             Tizen.NUI.Object.GetProperty(view.swigCPtr, View.Property.SIZE_HEIGHT).Get(out temp);
-            Console.WriteLine($"View SizeHeightProperty get Value: {temp}");
             return temp;
         });
         /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
@@ -1160,18 +1152,12 @@ namespace Tizen.NUI.BaseComponents
         defaultValueCreator:(bindable) =>
         {
             var view = (View)bindable;
-            string temp;
+            int temp = 0;
             if (Tizen.NUI.Object.GetProperty(view.swigCPtr, View.Property.CLIPPING_MODE).Get(out temp) == false)
             {
                 NUILog.Error("ClippingMode get error!");
             }
-            switch (temp)
-            {
-                case "DISABLED": return ClippingModeType.Disabled;
-                case "CLIP_CHILDREN": return ClippingModeType.ClipChildren;
-                case "CLIP_TO_BOUNDING_BOX": return ClippingModeType.ClipToBoundingBox;
-                default: return ClippingModeType.Disabled;
-            }
+            return (ClippingModeType)temp;
         });
         /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
         [EditorBrowsable(EditorBrowsableState.Never)]
@@ -1235,6 +1221,8 @@ namespace Tizen.NUI.BaseComponents
 
         private global::System.Runtime.InteropServices.HandleRef swigCPtr;
 
+        private bool layoutSet = false; // Flag to indicate if SetLayout was called or View was automatically given a Layout
+
         internal View(global::System.IntPtr cPtr, bool cMemoryOwn) : base(NDalicPINVOKE.View_SWIGUpcast(cPtr), cMemoryOwn)
         {
             swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
@@ -1281,15 +1269,22 @@ namespace Tizen.NUI.BaseComponents
         /// <since_tizen> 4 </since_tizen>
         public override void Add(View child)
         {
-            Container oldParent = child.Parent;
+            if (null == child)
+            {
+                Tizen.Log.Fatal("NUI", "Child is null");
+                return;
+            }
+
+            Container oldParent = child.GetParent();
             if (oldParent != this)
             {
                 if (oldParent != null)
                 {
                     oldParent.Remove(child);
                 }
+                child.InternalParent = this;
 
-                if (child.Layout == null)
+                if (layoutSet == true && child.Layout == null) // Only give children a layout if parent an explicit container
                 {
                     LayoutItem layoutItem = new LayoutItem();
                     child.Layout = layoutItem;
@@ -1338,7 +1333,7 @@ namespace Tizen.NUI.BaseComponents
         /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
         [EditorBrowsable(EditorBrowsableState.Never)]
         public new event EventHandler<ChildRemovedEventArgs> ChildRemoved;
-        
+
 
         /// <summary>
         /// Removes a child view from this View. If the view was not a child of this view, this is a no-op.
@@ -1352,6 +1347,8 @@ namespace Tizen.NUI.BaseComponents
                 throw NDalicPINVOKE.SWIGPendingException.Retrieve();
 
             Children.Remove(child);
+            child.InternalParent = null;
+
             if (Layout)
             {
                 if(child.Layout)
@@ -1404,17 +1401,7 @@ namespace Tizen.NUI.BaseComponents
         /// <since_tizen> 4 </since_tizen>
         public override Container GetParent()
         {
-            //to fix memory leak issue, match the handle count with native side.
-            IntPtr cPtr = NDalicPINVOKE.Actor_GetParent(swigCPtr);
-            HandleRef CPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
-            BaseHandle basehandle = Registry.GetManagedBaseHandleFromNativePtr(CPtr.Handle);
-            NDalicPINVOKE.delete_BaseHandle(CPtr);
-            CPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
-
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-
-            return basehandle as Container;
+            return this.InternalParent as Container;
         }
 
         internal bool IsTopLevelView()
@@ -1463,6 +1450,11 @@ namespace Tizen.NUI.BaseComponents
                 swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
             }
 
+            foreach (View view in Children)
+            {
+                view.InternalParent = null;
+            }
+            
             base.Dispose(type);
 
         }
@@ -2463,26 +2455,16 @@ namespace Tizen.NUI.BaseComponents
             PageDown
         }
 
-        protected void InitXamlResource()
-        {
-            if (null != Application.Current)
-            {
-                Application.AddResourceChangedCallback(this, OnResourcesChanged);
-            }
-        }
-
         /// <summary>
         /// Creates a new instance of a view.
         /// </summary>
         /// <since_tizen> 3 </since_tizen>
         public View() : this(NDalicPINVOKE.View_New(), true)
         {
-            InitXamlResource();
             if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
         }
         internal View(View uiControl) : this(NDalicPINVOKE.new_View__SWIG_1(View.getCPtr(uiControl)), true)
         {
-            InitXamlResource();
             if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
         }
 
@@ -3451,6 +3433,7 @@ namespace Tizen.NUI.BaseComponents
             {
                 Tizen.NUI.NDalicManualPINVOKE.SetLayout__SWIG_1(View.getCPtr(this), LayoutItem.getCPtr(value));
                 value.LayoutChildren.Clear();
+                layoutSet = true;
                 foreach (View view in Children)
                 {
                     value.LayoutChildren.Add(view.Layout);
