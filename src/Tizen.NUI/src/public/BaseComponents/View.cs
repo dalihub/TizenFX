@@ -5500,6 +5500,24 @@ namespace Tizen.NUI.BaseComponents
             }
         }
 
+        internal float Weight
+        {
+            get
+            {
+                float tmp = 0;
+                if (GetProperty(LinearLayout.ChildProperty.WEIGHT).Get(out tmp) == false)
+                {
+                    NUILog.Error("Weight get error!");
+                }
+                return tmp;
+            }
+            set
+            {
+                SetProperty(LinearLayout.ChildProperty.WEIGHT, new Tizen.NUI.PropertyValue(value));
+                //NotifyPropertyChanged();
+            }
+        }
+
     }
 
     /// <summary>
