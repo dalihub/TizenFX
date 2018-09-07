@@ -244,14 +244,11 @@ namespace Tizen.NUI
 
         /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public Animation CreateAnimation(string animationType)
+        public Transition CreateAnimation(string animationType)
         {
-            Animation ani = null;
             Transition trans = null;
             transDictionary.TryGetValue(animationType, out trans);
-
-            ani = trans?.CreateAnimation();
-            return ani;
+            return trans;
         }
 
         private void CreateAnimationFactory()
@@ -269,10 +266,8 @@ namespace Tizen.NUI
                 {
                     trans = Extensions.LoadTransition(likelyResourcePath);
                 }
-                if (trans)
-                {
-                    transDictionary.Add(trans.Name, trans);
-                }
+
+                transDictionary.Add(trans.Name, trans);
             }
         }
 
