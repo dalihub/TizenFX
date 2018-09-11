@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d4252ccd_54ea19ff",
+        "filename": "src/Tizen.NUI/src/internal/Layouting/LayoutGroup.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1014323
+      },
+      "writtenOn": "2018-09-11T13:21:11Z",
+      "side": 1,
+      "message": "I am not C# guru but why double ; here?",
+      "range": {
+        "startLine": 90,
+        "startChar": 60,
+        "endLine": 90,
+        "endChar": 62
+      },
+      "revId": "db9c13218e55e11c4856be983cd78e0a293587da",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed828663_c150101c",
+        "filename": "src/Tizen.NUI/src/public/BaseComponents/View.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 1288,
+      "author": {
+        "id": 1014323
+      },
+      "writtenOn": "2018-09-11T13:21:11Z",
+      "side": 1,
+      "message": "Should be \u0026\u0026? We set LayoutGroup only if child.LayoutingRequired?",
+      "range": {
+        "startLine": 1288,
+        "startChar": 56,
+        "endLine": 1288,
+        "endChar": 58
+      },
+      "revId": "db9c13218e55e11c4856be983cd78e0a293587da",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
