@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fc55ab46_cd960a1f",
+        "filename": "src/Tizen.NUI/src/internal/Layouting/LayoutGroup.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1011527
+      },
+      "writtenOn": "2018-09-11T14:39:33Z",
+      "side": 1,
+      "message": "my finger was too heavy",
+      "parentUuid": "d4252ccd_54ea19ff",
+      "range": {
+        "startLine": 90,
+        "startChar": 60,
+        "endLine": 90,
+        "endChar": 62
+      },
+      "revId": "db9c13218e55e11c4856be983cd78e0a293587da",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ed828663_c150101c",
         "filename": "src/Tizen.NUI/src/public/BaseComponents/View.cs",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "db9c13218e55e11c4856be983cd78e0a293587da",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78b7bfa4_93fcfa63",
+        "filename": "src/Tizen.NUI/src/public/BaseComponents/View.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 1288,
+      "author": {
+        "id": 1011527
+      },
+      "writtenOn": "2018-09-11T14:39:33Z",
+      "side": 1,
+      "message": "Set LayoutGroup in 2 cases; 1st If the View is a View (not derived) and if child.LayoutingRequired.\nSo either case will need LayoutGroup",
+      "parentUuid": "ed828663_c150101c",
+      "range": {
+        "startLine": 1288,
+        "startChar": 56,
+        "endLine": 1288,
+        "endChar": 58
+      },
+      "revId": "db9c13218e55e11c4856be983cd78e0a293587da",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     }
   ]
 }
