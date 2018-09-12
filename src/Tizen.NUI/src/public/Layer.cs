@@ -59,6 +59,8 @@ namespace Tizen.NUI
         /// <since_tizen> 4 </since_tizen>
         public override void Add(View child)
         {
+            Log.Info("NUI", "Add child:" + child.Name + "\n");
+
             Container oldParent = child.Parent;
             if (oldParent != this)
             {
@@ -66,6 +68,14 @@ namespace Tizen.NUI
                 {
                     oldParent.Remove(child);
                 }
+
+                // If adding a View then set layout required flag
+                if( child.GetType() == typeof(View) )
+                {
+                    Log.Info("NUI", "Add child LayoutingRequired for:" + child.Name + "\n");
+                    child.LayoutingRequired = true;
+                }
+
                 NDalicPINVOKE.Actor_Add( rootLayoutCPtr , View.getCPtr(child));
                 if (NDalicPINVOKE.SWIGPendingException.Pending)
                     throw NDalicPINVOKE.SWIGPendingException.Retrieve();
