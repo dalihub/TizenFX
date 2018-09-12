@@ -117,6 +117,30 @@
       "revId": "db9c13218e55e11c4856be983cd78e0a293587da",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4916f91d_3574f25a",
+        "filename": "src/Tizen.NUI/src/public/BaseComponents/View.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 1288,
+      "author": {
+        "id": 1011527
+      },
+      "writtenOn": "2018-09-12T11:32:29Z",
+      "side": 1,
+      "message": "Phrased it badly, meant either of the cases could be true. So OR.",
+      "parentUuid": "635829f6_6a12ce89",
+      "range": {
+        "startLine": 1288,
+        "startChar": 56,
+        "endLine": 1288,
+        "endChar": 58
+      },
+      "revId": "db9c13218e55e11c4856be983cd78e0a293587da",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     }
   ]
 }
