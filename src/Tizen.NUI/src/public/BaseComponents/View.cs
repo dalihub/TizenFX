@@ -1269,6 +1269,8 @@ namespace Tizen.NUI.BaseComponents
         /// <since_tizen> 4 </since_tizen>
         public override void Add(View child)
         {
+            Log.Info("NUI", "Add child:" + child.Name + "\n");
+
             if (null == child)
             {
                 Tizen.Log.Fatal("NUI", "Child is null");
@@ -1283,15 +1285,19 @@ namespace Tizen.NUI.BaseComponents
                     oldParent.Remove(child);
                 }
 
+                // layoutSet flag true when the View became a layout using the SetLayout API,
+                // meaning it is a layout container.
                 if (true == layoutSet && null == child.Layout) // Only give children a layout if parent an explict container
                 {
+                    Log.Info("NUI", " Add child Parent[" + Name + "] Layout set\n");
                     if( child.GetType() == typeof(View) ||  true == child.LayoutingRequired )
                     {
+                        Log.Info("NUI", " Add child  Creating LayoutGroup\n");
                         child.Layout = new LayoutGroup();
-
                     }
                     else
                     {
+                        Log.Info("NUI", " Add child  Creating LayoutItem\n");
                         child.Layout = new LayoutItem();
                     }
                 }
