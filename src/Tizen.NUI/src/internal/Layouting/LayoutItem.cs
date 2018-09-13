@@ -221,7 +221,7 @@ namespace Tizen.NUI
 
         /// <summary>
         /// Returns the suggested minimum width that the layout should use.<br />
-        /// This returns the maximum of the layout's minimum width and the background's minimum width.<br />
+        /// This returns the maximum of the layout's minimum width and the owner's natural minimum width.<br />
         /// </summary>
         public LayoutLength SuggestedMinimumWidth
         {
@@ -233,7 +233,7 @@ namespace Tizen.NUI
 
         /// <summary>
         /// Returns the suggested minimum width that the layout should use.<br />
-        /// This returns the maximum of the layout's minimum width and the background's minimum width.<br />
+        /// This returns the maximum of the layout's minimum width and the owner's natural minimum width.<br />
         /// </summary>
         /// <returns>The suggested minimum width of the layout.</returns>
         private LayoutLength GetSuggestedMinimumWidth()
@@ -243,7 +243,7 @@ namespace Tizen.NUI
 
         /// <summary>
         /// Returns the suggested minimum height that the layout should use.<br />
-        /// This returns the maximum of the layout's minimum height and the background's minimum height.<br />
+        /// This returns the maximum of the layout's minimum height and the owner's natural minimum height.<br />
         /// </summary>
         public LayoutLength SuggestedMinimumHeight
         {
@@ -255,7 +255,7 @@ namespace Tizen.NUI
 
         /// <summary>
         /// Returns the suggested minimum height that the layout should use.<br />
-        /// This returns the maximum of the layout's minimum height and the background's minimum height.<br />
+        /// This returns the maximum of the layout's minimum height and the owner's natural height.<br />
         /// </summary>
         /// <returns>The suggested minimum height of the layout.</returns>
         private LayoutLength GetSuggestedMinimumHeight()
@@ -267,6 +267,9 @@ namespace Tizen.NUI
         /// Sets the minimum width of the layout.<br />
         /// It is not guaranteed the layout will be able to achieve this minimum width (for example, if its parent
         /// layout constrains it with less available width).<br />
+        /// 1. if the owner's View.LayoutWidthSpecification has exact value then the specification width overrides the minimum width.<br />
+        /// 2. if the owner's View.LayoutWidthSpecification has View.ChildLayoutData.WrapContent then the width is set based on suggested minimum width (@see GetSuggestedMinimumWidth()).<br />
+        /// 3. if the owner's View.LayoutWidthSpecification has View.ChildLayoutData.MatchParent then the parent width limits the minimum width.<br />
         /// </summary>
         public LayoutLength MinimumWidth
         {
@@ -295,6 +298,9 @@ namespace Tizen.NUI
         /// Sets the minimum height of the layout.<br />
         /// It is not guaranteed the layout will be able to achieve this minimum height (for example, if its parent
         /// layout constrains it with less available height).<br />
+        /// 1. if the owner's View.LayoutHeightSpecification has exact value then the specification height overrides the minimum size.<br />
+        /// 2. if the owner's View.LayoutHeightSpecification has View.ChildLayoutData.WrapContent then the height is set based on suggested minimum height (@see GetSuggestedMinimumHeight()).<br />
+        /// 3. if the owner's View.LayoutHeightSpecification has View.ChildLayoutData.MatchParent then the parent height limits the minimum height.<br />
         /// </summary>
         public LayoutLength MinimumHeight
         {
