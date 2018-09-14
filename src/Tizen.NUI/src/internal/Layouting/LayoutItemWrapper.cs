@@ -28,6 +28,8 @@ namespace Tizen.NUI
 
         internal LayoutItemWrapper(global::System.IntPtr cPtr, bool cMemoryOwn) : base(LayoutPINVOKE.LayoutItemWrapper_SWIGUpcast(cPtr), cMemoryOwn)
         {
+            System.IntPtr wrapperImpl_CPtr = LayoutPINVOKE.LayoutItemWrapper_GetImplementation(cPtr);
+            layoutItemWrapperImpl = new LayoutItemWrapperImpl(wrapperImpl_CPtr, true);
             swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
         }
 
