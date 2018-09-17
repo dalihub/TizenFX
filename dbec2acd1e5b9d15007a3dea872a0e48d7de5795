@@ -16,6 +16,52 @@
       "revId": "dbec2acd1e5b9d15007a3dea872a0e48d7de5795",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c2df01d_f4d00b3a",
+        "filename": "src/Tizen.NUI/src/internal/Layouting/LayoutItemWrapper.cs",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1007394
+      },
+      "writtenOn": "2018-09-17T17:56:25Z",
+      "side": 1,
+      "message": "This would be immediately overridden by the main constructor, below. Shouldn\u0027t allocate memory only to immediately destroy it...",
+      "range": {
+        "startLine": 32,
+        "startChar": 40,
+        "endLine": 32,
+        "endChar": 61
+      },
+      "revId": "dbec2acd1e5b9d15007a3dea872a0e48d7de5795",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47d7ffa7_6738ba7d",
+        "filename": "src/Tizen.NUI/src/internal/Layouting/LayoutItemWrapper.cs",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1007394
+      },
+      "writtenOn": "2018-09-17T17:56:25Z",
+      "side": 1,
+      "message": "This constructor uses top most constructor.",
+      "range": {
+        "startLine": 129,
+        "startChar": 17,
+        "endLine": 129,
+        "endChar": 34
+      },
+      "revId": "dbec2acd1e5b9d15007a3dea872a0e48d7de5795",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
     }
   ]
 }
