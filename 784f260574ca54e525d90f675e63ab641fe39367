@@ -1,0 +1,297 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ada6163_6ebae163",
+        "filename": "src/Tizen.NUI/src/internal/Layouting/LayoutItem.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1011527
+      },
+      "writtenOn": "2018-09-17T09:51:52Z",
+      "side": 1,
+      "message": "Returns the suggested minimum width that the layout should try to use",
+      "range": {
+        "startLine": 223,
+        "startChar": 12,
+        "endLine": 223,
+        "endChar": 74
+      },
+      "revId": "784f260574ca54e525d90f675e63ab641fe39367",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57bff86f_dc2e8c76",
+        "filename": "src/Tizen.NUI/src/internal/Layouting/LayoutItem.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1011527
+      },
+      "writtenOn": "2018-09-17T09:51:52Z",
+      "side": 1,
+      "message": "don\u0027t think minimum is needed here",
+      "range": {
+        "startLine": 224,
+        "startChar": 91,
+        "endLine": 224,
+        "endChar": 98
+      },
+      "revId": "784f260574ca54e525d90f675e63ab641fe39367",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf2d52e7_cb5f3e5d",
+        "filename": "src/Tizen.NUI/src/internal/Layouting/LayoutItem.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1011527
+      },
+      "writtenOn": "2018-09-17T09:51:52Z",
+      "side": 1,
+      "message": "Add \"try\" here too?",
+      "range": {
+        "startLine": 235,
+        "startChar": 0,
+        "endLine": 235,
+        "endChar": 2
+      },
+      "revId": "784f260574ca54e525d90f675e63ab641fe39367",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef038155_f90a9298",
+        "filename": "src/Tizen.NUI/src/internal/Layouting/LayoutItem.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1011527
+      },
+      "writtenOn": "2018-09-17T09:51:52Z",
+      "side": 1,
+      "message": "don\u0027t think minimum is needed here",
+      "range": {
+        "startLine": 236,
+        "startChar": 91,
+        "endLine": 236,
+        "endChar": 98
+      },
+      "revId": "784f260574ca54e525d90f675e63ab641fe39367",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25f94ef6_56aabe0f",
+        "filename": "src/Tizen.NUI/src/internal/Layouting/LayoutItem.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1011527
+      },
+      "writtenOn": "2018-09-17T09:51:52Z",
+      "side": 1,
+      "message": "add \"try\" here too",
+      "revId": "784f260574ca54e525d90f675e63ab641fe39367",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c32f7d9_b3d5e0db",
+        "filename": "src/Tizen.NUI/src/internal/Layouting/LayoutItem.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1011527
+      },
+      "writtenOn": "2018-09-17T09:51:52Z",
+      "side": 1,
+      "message": "don\u0027t think minimum is needed here",
+      "range": {
+        "startLine": 246,
+        "startChar": 92,
+        "endLine": 246,
+        "endChar": 99
+      },
+      "revId": "784f260574ca54e525d90f675e63ab641fe39367",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "038048fc_9db77b02",
+        "filename": "src/Tizen.NUI/src/internal/Layouting/LayoutItem.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1011527
+      },
+      "writtenOn": "2018-09-17T09:51:52Z",
+      "side": 1,
+      "message": "If not if in all 3 cases",
+      "range": {
+        "startLine": 270,
+        "startChar": 15,
+        "endLine": 270,
+        "endChar": 17
+      },
+      "revId": "784f260574ca54e525d90f675e63ab641fe39367",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81341a14_35165dcb",
+        "filename": "src/Tizen.NUI/src/internal/Layouting/LayoutItem.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1011527
+      },
+      "writtenOn": "2018-09-17T09:51:52Z",
+      "side": 1,
+      "message": "that ?",
+      "range": {
+        "startLine": 270,
+        "startChar": 81,
+        "endLine": 270,
+        "endChar": 84
+      },
+      "revId": "784f260574ca54e525d90f675e63ab641fe39367",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ec14f2d_332743b1",
+        "filename": "src/Tizen.NUI/src/internal/Layouting/LayoutItem.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1011527
+      },
+      "writtenOn": "2018-09-17T09:51:52Z",
+      "side": 1,
+      "message": "then the width set is based on the suggested minimum width  ??",
+      "range": {
+        "startLine": 271,
+        "startChar": 97,
+        "endLine": 271,
+        "endChar": 124
+      },
+      "revId": "784f260574ca54e525d90f675e63ab641fe39367",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd5c2d3a_7df4feca",
+        "filename": "src/Tizen.NUI/src/internal/Layouting/LayoutItem.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1011527
+      },
+      "writtenOn": "2018-09-17T09:51:52Z",
+      "side": 1,
+      "message": "and the minimum width is larger than the parent, the width is limited by the parent width.  ??",
+      "range": {
+        "startLine": 272,
+        "startChar": 97,
+        "endLine": 272,
+        "endChar": 143
+      },
+      "revId": "784f260574ca54e525d90f675e63ab641fe39367",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "277d5f6f_3e2ec718",
+        "filename": "src/Tizen.NUI/src/internal/Layouting/LayoutItem.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1011527
+      },
+      "writtenOn": "2018-09-17T09:51:52Z",
+      "side": 1,
+      "message": "If the owner\u0027s View.LayoutHeightSpecification has an exact value then that specification height overrides the minimum size",
+      "range": {
+        "startLine": 301,
+        "startChar": 15,
+        "endLine": 301,
+        "endChar": 133
+      },
+      "revId": "784f260574ca54e525d90f675e63ab641fe39367",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "891b0ae3_13f6a5de",
+        "filename": "src/Tizen.NUI/src/internal/Layouting/LayoutItem.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1011527
+      },
+      "writtenOn": "2018-09-17T09:51:52Z",
+      "side": 1,
+      "message": "then the height set is based on suggested minimum height see",
+      "range": {
+        "startLine": 302,
+        "startChar": 98,
+        "endLine": 302,
+        "endChar": 158
+      },
+      "revId": "784f260574ca54e525d90f675e63ab641fe39367",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "354c38b7_59dcfac5",
+        "filename": "src/Tizen.NUI/src/internal/Layouting/LayoutItem.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1011527
+      },
+      "writtenOn": "2018-09-17T09:51:52Z",
+      "side": 1,
+      "message": "and the minimum width is larger than the parent, the width is limited by the parent width.",
+      "range": {
+        "startLine": 303,
+        "startChar": 98,
+        "endLine": 303,
+        "endChar": 146
+      },
+      "revId": "784f260574ca54e525d90f675e63ab641fe39367",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
