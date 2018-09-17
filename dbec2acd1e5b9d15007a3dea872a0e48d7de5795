@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "31570a24_c537a26d",
+        "filename": "src/Tizen.NUI/src/internal/Layouting/LayoutItem.cs",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1007394
+      },
+      "writtenOn": "2018-09-17T17:45:48Z",
+      "side": 1,
+      "message": "What would layoutItemWrapperImpl be initialized to at this point?. I think this needs commenting with the constructor stack, as this constructor is not called from this class.",
+      "revId": "dbec2acd1e5b9d15007a3dea872a0e48d7de5795",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
