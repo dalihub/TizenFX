@@ -25,6 +25,23 @@
     },
     {
       "key": {
+        "uuid": "a5850075_54d943b5",
+        "filename": "src/Tizen.NUI/src/internal/Layouting/LayoutItem.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1007394
+      },
+      "writtenOn": "2018-09-17T12:27:32Z",
+      "side": 1,
+      "message": "Don\u0027t use should and try together - there\u0027s no need to add a tautology! :D",
+      "revId": "784f260574ca54e525d90f675e63ab641fe39367",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "57bff86f_dc2e8c76",
         "filename": "src/Tizen.NUI/src/internal/Layouting/LayoutItem.cs",
         "patchSetId": 2
@@ -180,6 +197,30 @@
     },
     {
       "key": {
+        "uuid": "b3a3dab8_b26679c0",
+        "filename": "src/Tizen.NUI/src/internal/Layouting/LayoutItem.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1007394
+      },
+      "writtenOn": "2018-09-17T12:27:32Z",
+      "side": 1,
+      "message": "\"If the owner\u0027s View.LayoutWidthSpecification has an exact value, then that value overrides the minimum width\"",
+      "parentUuid": "81341a14_35165dcb",
+      "range": {
+        "startLine": 270,
+        "startChar": 81,
+        "endLine": 270,
+        "endChar": 84
+      },
+      "revId": "784f260574ca54e525d90f675e63ab641fe39367",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1ec14f2d_332743b1",
         "filename": "src/Tizen.NUI/src/internal/Layouting/LayoutItem.cs",
         "patchSetId": 2
@@ -203,6 +244,30 @@
     },
     {
       "key": {
+        "uuid": "a63f438d_87ef21cf",
+        "filename": "src/Tizen.NUI/src/internal/Layouting/LayoutItem.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1007394
+      },
+      "writtenOn": "2018-09-17T12:27:32Z",
+      "side": 1,
+      "message": "\"If the owner\u0027s View.LayoutWidthSpecification is set to View.ChildLayoutData.WrapContent, then the view\u0027s width is set based on the suggested minimum width. See...\"",
+      "parentUuid": "1ec14f2d_332743b1",
+      "range": {
+        "startLine": 271,
+        "startChar": 97,
+        "endLine": 271,
+        "endChar": 124
+      },
+      "revId": "784f260574ca54e525d90f675e63ab641fe39367",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dd5c2d3a_7df4feca",
         "filename": "src/Tizen.NUI/src/internal/Layouting/LayoutItem.cs",
         "patchSetId": 2
@@ -214,6 +279,30 @@
       "writtenOn": "2018-09-17T09:51:52Z",
       "side": 1,
       "message": "and the minimum width is larger than the parent, the width is limited by the parent width.  ??",
+      "range": {
+        "startLine": 272,
+        "startChar": 97,
+        "endLine": 272,
+        "endChar": 143
+      },
+      "revId": "784f260574ca54e525d90f675e63ab641fe39367",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c71ba21_81b79c8c",
+        "filename": "src/Tizen.NUI/src/internal/Layouting/LayoutItem.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1007394
+      },
+      "writtenOn": "2018-09-17T12:27:32Z",
+      "side": 1,
+      "message": "\"If the owner\u0027s View.LayoutWidthSpecification is set to View.ChildLayoutData.MatchParent, then the parent width takes precedence over the minimum width\"",
+      "parentUuid": "dd5c2d3a_7df4feca",
       "range": {
         "startLine": 272,
         "startChar": 97,
@@ -272,6 +361,30 @@
     },
     {
       "key": {
+        "uuid": "625ebe91_251f1e0b",
+        "filename": "src/Tizen.NUI/src/internal/Layouting/LayoutItem.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1007394
+      },
+      "writtenOn": "2018-09-17T12:27:32Z",
+      "side": 1,
+      "message": "\"If the owner\u0027s View.LayoutHeightSpecification is set to View.ChildLayoutData.WrapContent, then the View\u0027s height is set based on the suggested minimum height. See...\"",
+      "parentUuid": "891b0ae3_13f6a5de",
+      "range": {
+        "startLine": 302,
+        "startChar": 98,
+        "endLine": 302,
+        "endChar": 158
+      },
+      "revId": "784f260574ca54e525d90f675e63ab641fe39367",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "354c38b7_59dcfac5",
         "filename": "src/Tizen.NUI/src/internal/Layouting/LayoutItem.cs",
         "patchSetId": 2
@@ -283,6 +396,30 @@
       "writtenOn": "2018-09-17T09:51:52Z",
       "side": 1,
       "message": "and the minimum width is larger than the parent, the width is limited by the parent width.",
+      "range": {
+        "startLine": 303,
+        "startChar": 98,
+        "endLine": 303,
+        "endChar": 146
+      },
+      "revId": "784f260574ca54e525d90f675e63ab641fe39367",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73dd4806_6a8334c7",
+        "filename": "src/Tizen.NUI/src/internal/Layouting/LayoutItem.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1007394
+      },
+      "writtenOn": "2018-09-17T12:27:32Z",
+      "side": 1,
+      "message": "\"If the owner\u0027s View.LayoutHeightSpecification is set to View.ChildLayoutData.MatchParent, then the parent height takes precedence over the minimum height",
+      "parentUuid": "354c38b7_59dcfac5",
       "range": {
         "startLine": 303,
         "startChar": 98,
