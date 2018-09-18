@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "15555e83_79d4c930",
+        "filename": "src/Tizen.NUI/src/internal/Layouting/LayoutItem.cs",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1014637
+      },
+      "writtenOn": "2018-09-18T11:07:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "31570a24_c537a26d",
+      "revId": "dbec2acd1e5b9d15007a3dea872a0e48d7de5795",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c2df01d_f4d00b3a",
         "filename": "src/Tizen.NUI/src/internal/Layouting/LayoutItemWrapper.cs",
         "patchSetId": 1
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "0ce100c9_f6215ca1",
+        "filename": "src/Tizen.NUI/src/internal/Layouting/LayoutItemWrapper.cs",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1014637
+      },
+      "writtenOn": "2018-09-18T11:07:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c2df01d_f4d00b3a",
+      "range": {
+        "startLine": 32,
+        "startChar": 40,
+        "endLine": 32,
+        "endChar": 61
+      },
+      "revId": "dbec2acd1e5b9d15007a3dea872a0e48d7de5795",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "47d7ffa7_6738ba7d",
         "filename": "src/Tizen.NUI/src/internal/Layouting/LayoutItemWrapper.cs",
         "patchSetId": 1
@@ -62,6 +104,30 @@
       "revId": "dbec2acd1e5b9d15007a3dea872a0e48d7de5795",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4d4048d_0bdb760b",
+        "filename": "src/Tizen.NUI/src/internal/Layouting/LayoutItemWrapper.cs",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1014637
+      },
+      "writtenOn": "2018-09-18T11:07:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "47d7ffa7_6738ba7d",
+      "range": {
+        "startLine": 129,
+        "startChar": 17,
+        "endLine": 129,
+        "endChar": 34
+      },
+      "revId": "dbec2acd1e5b9d15007a3dea872a0e48d7de5795",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     }
   ]
 }
