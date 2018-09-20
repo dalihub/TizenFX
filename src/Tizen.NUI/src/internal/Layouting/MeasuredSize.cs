@@ -128,6 +128,32 @@ namespace Tizen.NUI
             if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
         }
 
+        /// <summary>
+        /// Determines whether the specified object is equal to the current object.
+        /// </summary>
+        /// <param name="obj">The object to compare with the current object.</param>
+        /// <returns>true if the specified object is equal to the current object; otherwise, false.</returns>
+        public override bool Equals(System.Object obj)
+        {
+            MeasuredSize measuredSize = obj as MeasuredSize;
+            bool equal = false;
+            if (Size == measuredSize?.Size && State == measuredSize?.State)
+            {
+                equal = true;
+            }
+            return equal;
+        }
+
+        /// <summary>
+        /// Gets the the hash code of this MeasuredSize.
+        /// </summary>
+        /// <returns>The Hash Code.</returns>
+        /// <since_tizen> 5 </since_tizen>
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
         private bool EqualTo(MeasuredSize value)
         {
             bool ret = LayoutPINVOKE.MeasuredSize_EqualTo(swigCPtr, MeasuredSize.getCPtr(value));
