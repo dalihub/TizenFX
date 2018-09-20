@@ -28,9 +28,9 @@ namespace Tizen.NUI
     {
         private global::System.Runtime.InteropServices.HandleRef swigCPtr;
 
-        public delegate void OnMeasureDelegate(LayoutMeasureSpec widthMeasureSpec, LayoutMeasureSpec heightMeasureSpec);
-        public delegate void OnLayoutDelegate(bool changed, LayoutLength left, LayoutLength top, LayoutLength right, LayoutLength bottom);
-        public delegate void OnSizeChangedDelegate(LayoutSize newSize, LayoutSize oldSize);
+        public new delegate void OnMeasureDelegate(LayoutMeasureSpec widthMeasureSpec, LayoutMeasureSpec heightMeasureSpec);
+        public new delegate void OnLayoutDelegate(bool changed, LayoutLength left, LayoutLength top, LayoutLength right, LayoutLength bottom);
+        public new delegate void OnSizeChangedDelegate(LayoutSize newSize, LayoutSize oldSize);
         public delegate void OnChildAddDelegate(LayoutItemWrapperImpl child);
         public delegate void OnChildRemoveDelegate(LayoutItemWrapperImpl child);
         public delegate void DoInitializeDelegate();
@@ -39,9 +39,9 @@ namespace Tizen.NUI
         public delegate void MeasureChildDelegate(LayoutItem child, LayoutMeasureSpec parentWidthMeasureSpec, LayoutMeasureSpec parentHeightMeasureSpec);
         public delegate void MeasureChildWithMarginsDelegate(LayoutItem child, LayoutMeasureSpec parentWidthMeasureSpec, LayoutLength widthUsed, LayoutMeasureSpec parentHeightMeasureSpec, LayoutLength heightUsed);
 
-        public OnMeasureDelegate OnMeasure;
-        public OnLayoutDelegate OnLayout;
-        public OnSizeChangedDelegate OnSizeChanged;
+        public new OnMeasureDelegate OnMeasure;
+        public new OnLayoutDelegate OnLayout;
+        public new OnSizeChangedDelegate OnSizeChanged;
         public OnChildAddDelegate OnChildAdd;
         public OnChildRemoveDelegate OnChildRemove;
         public DoInitializeDelegate DoInitialize;
@@ -191,7 +191,7 @@ namespace Tizen.NUI
             if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
         }
 
-        private void SwigDirectorConnect()
+        private new void SwigDirectorConnect()
         {
             base.SwigDirectorConnect();
 

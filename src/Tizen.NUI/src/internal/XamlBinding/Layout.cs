@@ -58,11 +58,11 @@ namespace Tizen.NUI.Binding
         public static readonly BindableProperty CascadeInputTransparentProperty = BindableProperty.Create(
             nameof(CascadeInputTransparent), typeof(bool), typeof(Layout), true);
 
-        public static readonly BindableProperty PaddingProperty = PaddingElement.PaddingProperty;
+        public new static readonly BindableProperty PaddingProperty = PaddingElement.PaddingProperty;
 
         static IList<KeyValuePair<Layout, int>> s_resolutionList = new List<KeyValuePair<Layout, int>>();
         static bool s_relayoutInProgress;
-        bool _allocatedFlag;
+        //bool _allocatedFlag;
 
         bool _hasDoneLayout;
         Size _lastLayoutSize = new Size(-1, -1, 0);
@@ -348,7 +348,7 @@ namespace Tizen.NUI.Binding
                 // }
             }
 
-            _allocatedFlag = false;
+            //_allocatedFlag = false;
             if (trigger == InvalidationTrigger.RendererReady)
             {
                 // InvalidateMeasureInternal(InvalidationTrigger.RendererReady);

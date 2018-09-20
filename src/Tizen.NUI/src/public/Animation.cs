@@ -681,8 +681,6 @@ namespace Tizen.NUI
         {
             Func<object> getConverter = () =>
             {
-                MemberInfo memberInfo;
-
                 string converterTypeName = GetTypeConverterTypeName(toType.GetTypeInfo().CustomAttributes);
                 if (converterTypeName == null)
                     return null;

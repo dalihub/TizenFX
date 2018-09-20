@@ -32,7 +32,7 @@ namespace Tizen.NUI
     /// </summary>
     // [RenderWith(typeof(_PageRenderer))]
     [EditorBrowsable(EditorBrowsableState.Never)]
-    public class Page : /*VisualElement*/BaseHandle, ILayout, IPageController, IElementConfiguration<Page>, IPaddingElement
+    public class Page : BaseHandle, ILayout, IPageController, IElementConfiguration<Page>, IPaddingElement
     {
         /// <summary>
         /// For internal use.
