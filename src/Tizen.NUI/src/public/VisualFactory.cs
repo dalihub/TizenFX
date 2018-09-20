@@ -43,12 +43,7 @@ namespace Tizen.NUI
         /// Please do not use! this will be deprecated, please use VisualFactory.Instance instead.
         /// </summary>
         /// <since_tizen> 3 </since_tizen>
-        [Obsolete("Please do not use! This will be deprecated! Please use VisualFactory.Instance instead! " +
-            "Like: " +
-            "VisualFactory visualFactory = VisualFactory.Instance; " +
-            "visualFactory.CreateVisual(visualMap);")]
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static VisualFactory Get()
+        internal static VisualFactory Get()
         {
             VisualFactory ret = new VisualFactory(NDalicPINVOKE.VisualFactory_Get(), true);
             if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();

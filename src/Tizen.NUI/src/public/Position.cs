@@ -338,6 +338,16 @@ namespace Tizen.NUI
         }
 
         /// <summary>
+        /// Gets the the hash code of this Position.
+        /// </summary>
+        /// <returns>The Hash Code.</returns>
+        /// <since_tizen> 5 </since_tizen>
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
+        /// <summary>
         /// Compares if rhs is equal to.
         /// </summary>
         /// <param name="rhs">The vector to compare.</param>
