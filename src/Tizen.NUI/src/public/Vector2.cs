@@ -498,6 +498,16 @@ namespace Tizen.NUI
         }
 
         /// <summary>
+        /// Gets the the hash code of this Vector2.
+        /// </summary>
+        /// <returns>The Hash Code.</returns>
+        /// <since_tizen> 5 </since_tizen>
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
+        /// <summary>
         /// Returns the length of the vector.
         /// </summary>
         /// <returns>The length of the vector.</returns>

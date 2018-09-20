@@ -731,7 +731,7 @@ namespace Tizen.NUI
             }
         }
 
-        private EventHandler<FocusedViewEnterKeyEventArgs> _focusedViewEnterKeyEventHandler2;
+        private EventHandler<FocusedViewActivatedEventArgs> _focusedViewEnterKeyEventHandler2;
         [UnmanagedFunctionPointer(CallingConvention.StdCall)]
         private delegate void FocusedViewEnterKeyEventCallback2(IntPtr view);
         private FocusedViewEnterKeyEventCallback2 _focusedViewEnterKeyEventCallback2;
@@ -747,7 +747,7 @@ namespace Tizen.NUI
             "FocusManager.Instance.FocusedViewActivated = OnFocusedViewActivated; " +
             "private void OnFocusedViewActivated(object source, FocusManager.FocusedViewActivatedEventArgs args) {...}")]
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public event EventHandler<FocusedViewEnterKeyEventArgs> FocusedViewEnterKeyPressed
+        public event EventHandler<FocusedViewActivatedEventArgs> FocusedViewEnterKeyPressed
         {
             add
             {
