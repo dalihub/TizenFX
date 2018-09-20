@@ -70,7 +70,7 @@ namespace Tizen.NUI
             base.Dispose(type);
         }
 
-        public Tizen.NUI.PropertyArray Layout
+        public new Tizen.NUI.PropertyArray Layout
         {
             get
             {

@@ -347,6 +347,15 @@ namespace Tizen.NUI
             return equal;
         }
 
+        /// <summary>
+        /// Gets the the hash code of this Size.
+        /// </summary>
+        /// <returns>The Hash Code.</returns>
+        /// <since_tizen> 5 </since_tizen>
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
 
         /// <summary>
         /// Checks equality.<br />

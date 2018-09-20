@@ -59,7 +59,7 @@ namespace Tizen.NUI
         /// <since_tizen> 4 </since_tizen>
         public override void Add(View child)
         {
-            Container oldParent = child.Parent;
+            Container oldParent = child.GetParent();
             if (oldParent != this)
             {
                 if (oldParent != null)

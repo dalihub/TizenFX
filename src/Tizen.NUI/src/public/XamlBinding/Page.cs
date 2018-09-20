@@ -451,7 +451,7 @@ namespace Tizen.NUI
 
                 // if (c.Bounds != startingLayout[i])
                 // {
-                // 	LayoutChanged?.Invoke(this, EventArgs.Empty);
+                 	LayoutChanged?.Invoke(this, EventArgs.Empty);
                 // 	return;
                 // }
             }

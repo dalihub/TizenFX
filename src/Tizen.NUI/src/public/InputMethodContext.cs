@@ -524,18 +524,6 @@ namespace Tizen.NUI
         }
 
         /// <summary>
-        /// Destroy the context of the IMF.<br/>
-        /// </summary>
-        /// <since_tizen> 5 </since_tizen>
-        /// Please do not use! This will be deprecated, instead please USE Tizen.NUI.InputMethodContext.Instance.DestroyContext()!
-        [Obsolete("Please do not use! This will be deprecated! Please use InputMethodContext.Instance.DestroyContext() instead!")]
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public void Finalize()
-        {
-            DestroyContext();
-        }
-
-        /// <summary>
         /// Constructor.<br/>
         /// </summary>
         /// <since_tizen> 5 </since_tizen>

@@ -13,7 +13,6 @@ namespace Tizen.NUI.Binding
             if (element.RealParent is Application)
                 return null;
 
-            var skipCount = 0;
             element = await GetRealParentAsync(element);
             while (!Application.IsApplicationOrNull(element))
             {

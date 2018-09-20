@@ -114,17 +114,17 @@ namespace Tizen.NUI.Binding
         /// <summary>
         /// Gets the element which is the closest ancestor of this element that is a BaseHandle.
         /// </summary>
-        [Obsolete("ParentView is obsolete as of version 2.1.0. Please use Parent instead.")]
         /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public /*VisualElement*/BaseHandle ParentView
+        [Obsolete("ParentView is obsolete as of version 2.1.0. Please use Parent instead.")]
+        public BaseHandle ParentView
         {
             get
             {
                 Element parent = Parent;
                 while (parent != null)
                 {
-                    var parentView = parent as /*VisualElement*/BaseHandle;
+                    var parentView = parent as BaseHandle;
                     if (parentView != null)
                         return parentView;
                     parent = parent.RealParent;

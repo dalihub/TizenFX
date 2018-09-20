@@ -1611,7 +1611,7 @@ namespace Tizen.NUI
         private WindowFocusChangedEventCallbackType _windowFocusChangedEventCallback2;
         [UnmanagedFunctionPointer(CallingConvention.StdCall)]
         private delegate void WindowFocusChangedEventCallbackType2(bool focusGained);
-        private event EventHandler<WindowFocusChangedEventArgs> _windowFocusChangedEventHandler2;
+        private event EventHandler<FocusChangedEventArgs> _windowFocusChangedEventHandler2;
 
         /// <summary>
         /// Please do not use! this will be deprecated. Please use 'FocusChanged' event instead.
@@ -1624,7 +1624,7 @@ namespace Tizen.NUI
             "Window.Instance.FocusChanged = OnFocusChanged; " +
             "private void OnFocusChanged(object source, Window.FocusChangedEventArgs args) {...}")]
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public event EventHandler<WindowFocusChangedEventArgs> WindowFocusChanged
+        public event EventHandler<FocusChangedEventArgs> WindowFocusChanged
         {
             add
             {
@@ -1649,7 +1649,7 @@ namespace Tizen.NUI
 
         private void OnWindowFocusedChanged2(bool focusGained)
         {
-            WindowFocusChangedEventArgs e = new WindowFocusChangedEventArgs();
+            FocusChangedEventArgs e = new FocusChangedEventArgs();
 
             e.FocusGained = focusGained;
 
