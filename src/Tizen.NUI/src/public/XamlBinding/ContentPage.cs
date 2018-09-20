@@ -269,7 +269,7 @@ namespace Tizen.NUI
                 {
                     trans = Extensions.LoadTransition(likelyResourcePath);
                 }
-                if (trans)
+                if (trans != null)
                 {
                     transDictionary.Add(trans.Name, trans);
                 }

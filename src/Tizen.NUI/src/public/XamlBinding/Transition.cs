@@ -7,6 +7,11 @@ namespace Tizen.NUI
     [EditorBrowsable(EditorBrowsableState.Never)]
     public class Transition : BaseHandle
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public Transition()
+        {
+        }
+
         private string name;
 
         /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
