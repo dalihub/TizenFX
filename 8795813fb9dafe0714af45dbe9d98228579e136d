@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d62f1ba4_f602c828",
+        "filename": "src/Tizen.NUI/src/internal/XamlBinding/Layout.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2018-09-28T07:32:31Z",
+      "side": 1,
+      "message": "No tap please,\nand remove \"commented out\" codes like \" // { \"",
+      "revId": "8795813fb9dafe0714af45dbe9d98228579e136d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da73c61b_cb42e54b",
+        "filename": "src/Tizen.NUI/src/internal/XamlBinding/Layout.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2018-09-28T07:32:31Z",
+      "side": 1,
+      "message": "please remove all commented out codes...",
+      "revId": "8795813fb9dafe0714af45dbe9d98228579e136d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32ea60f6_b55787b7",
+        "filename": "src/Tizen.NUI/src/public/ImfManager.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2018-09-28T07:32:31Z",
+      "side": 1,
+      "message": "API is removed, could be make build break in VD Cosmos, seems checking is required.",
+      "revId": "8795813fb9dafe0714af45dbe9d98228579e136d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c90897b1_f17b0933",
+        "filename": "src/Tizen.NUI/src/public/VisualFactory.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2018-09-28T07:32:31Z",
+      "side": 1,
+      "message": "the access modifier is changed from \"public\" to \"internal\", if VD uses this API there will be build error in Cosmos. it seems to be check if this Get() is used in VD.",
+      "revId": "8795813fb9dafe0714af45dbe9d98228579e136d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7710ac0f_ef987695",
+        "filename": "src/Tizen.NUI/src/public/XamlBinding/Page.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2018-09-28T07:32:31Z",
+      "side": 1,
+      "message": "No tap please,\nand remove \"commented out\" codes like \" // { \"",
+      "revId": "8795813fb9dafe0714af45dbe9d98228579e136d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
