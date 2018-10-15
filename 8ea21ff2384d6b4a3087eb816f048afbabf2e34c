@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f63cf4d7_68772a28",
+        "filename": "src/Tizen.NUI/src/public/BaseComponents/View.cs",
+        "patchSetId": 5
+      },
+      "lineNbr": 1303,
+      "author": {
+        "id": 1014323
+      },
+      "writtenOn": "2018-10-15T15:24:02Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 1303,
+        "startChar": 107,
+        "endLine": 1303,
+        "endChar": 114
+      },
+      "revId": "8ea21ff2384d6b4a3087eb816f048afbabf2e34c",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
