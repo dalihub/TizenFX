@@ -21,6 +21,8 @@ using Tizen.NUI.BaseComponents;
 using Tizen.NUI.Xaml;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
+using Tizen.NUI.UIComponents;
 
 namespace Tizen.NUI
 {
@@ -246,19 +248,16 @@ namespace Tizen.NUI
 
         /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public Animation CreateAnimation(string animationType)
+        public Transition GetTransition(string transitionName)
         {
-            Animation ani = null;
             Transition trans = null;
-            transDictionary.TryGetValue(animationType, out trans);
-
-            ani = trans?.CreateAnimation();
-            return ani;
+            transDictionary.TryGetValue(transitionName, out trans);
+            return trans;
         }
 
-        private void CreateAnimationFactory()
+        private void LoadTransitions()
         {
-            foreach (string str in transitionType)
+            foreach (string str in transitionNames)
             {
                 string resourceName = str + ".xaml";
                 Transition trans = null;
@@ -269,7 +268,7 @@ namespace Tizen.NUI
 
                 if (File.Exists(likelyResourcePath))
                 {
-                    trans = Extensions.LoadTransition(likelyResourcePath);
+                    trans = Extensions.LoadObject<Transition>(likelyResourcePath);
                 }
                 if (trans)
                 {
@@ -278,20 +277,20 @@ namespace Tizen.NUI
             }
         }
 
-        private string[] transitionType;
+        private string[] transitionNames;
 
         /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public string[] TransitionType
+        public string[] TransitionNames
         {
             get
             {
-                return transitionType;
+                return transitionNames;
             }
             set
             {
-                transitionType = value;
-                CreateAnimationFactory();
+                transitionNames = value;
+                LoadTransitions();
             }
         }
     }

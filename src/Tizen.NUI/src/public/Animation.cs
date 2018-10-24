@@ -637,42 +637,10 @@ namespace Tizen.NUI
             }
         }
 
-        /// <summary>
-        /// Animates one or more properties to a destination value.<br />
-        /// </summary>
-        /// <param name="target">The target object to animate.</param>
-        public void PlayAnimateTo(View target)
-        {
-            Clear();
-            if (_properties.Length == _destValue.Length && _startTime.Length == _endTime.Length && _properties.Length == _startTime.Length)
-            {
-                int length = _properties.Length;
-                for (int index = 0; index < length; index++)
-                {
-                    //object destinationValue = _destValue[index];
-                    var elementType = target.GetType();
-                    PropertyInfo propertyInfo = elementType.GetProperties().FirstOrDefault(fi => fi.Name == _properties[index]);
-                    //var propertyInfo = elementType.GetRuntimeProperties().FirstOrDefault(p => p.Name == localName);
-                    if (propertyInfo != null)
-                    {
-                        object destinationValue = ConvertTo(_destValue[index], propertyInfo.PropertyType);
-
-                        if(destinationValue != null)
-                        {
-                            AnimateTo(target, _properties[index], destinationValue, _startTime[index], _endTime[index]);
-                        }
-                    }
-                }
-                Play();
-            }
-        }
-
         internal object ConvertTo(object value, Type toType)
         {
             Func<object> getConverter = () =>
             {
-                MemberInfo memberInfo;
-
                 string converterTypeName = GetTypeConverterTypeName(toType.GetTypeInfo().CustomAttributes);
                 if (converterTypeName == null)
                     return null;
