@@ -278,7 +278,12 @@ namespace Tizen.NUI.Xaml
 #if NETSTANDARD1_0
             var bindableFieldInfo = elementType.GetFields().FirstOrDefault(fi => fi.Name == localName + "Property");
 #else
-            var bindableFieldInfo = elementType.GetFields(BindingFlags.Static | BindingFlags.Public|BindingFlags.FlattenHierarchy).FirstOrDefault(fi => fi.Name == localName + "Property");
+            var bindableFieldInfo = elementType.GetFields(BindingFlags.Static | BindingFlags.NonPublic|BindingFlags.FlattenHierarchy).FirstOrDefault(fi => fi.Name == localName + "Property");
+
+            if (null == bindableFieldInfo)
+            {
+                bindableFieldInfo = elementType.GetFields(BindingFlags.Static | BindingFlags.Public | BindingFlags.FlattenHierarchy).FirstOrDefault(fi => fi.Name == localName + "Property");
+            }
 #endif
             Exception exception = null;
             if (exception == null && bindableFieldInfo == null) {
