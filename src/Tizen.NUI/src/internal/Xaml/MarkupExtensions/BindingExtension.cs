@@ -24,22 +24,29 @@ namespace Tizen.NUI.Xaml
 
         public string StringFormat { get; set; }
 
-        public object Source { get; set; }
+        public string Source { get; set; }
 
         public string UpdateSourceEventName { get; set; }
 
         public TypedBindingBase TypedBinding { get; set; }
 
+        private object _source;
+
         BindingBase IMarkupExtension<BindingBase>.ProvideValue(IServiceProvider serviceProvider)
         {
+            if (null != Source)
+            {
+                _source = NameScopeExtensions.FindByNameInCurrentNameScope<object>(Source);
+            }
+
             if (TypedBinding == null)
-                return new Tizen.NUI.Binding.Binding(Path, Mode, Converter, ConverterParameter, StringFormat, Source) { UpdateSourceEventName = UpdateSourceEventName };
+                return new Tizen.NUI.Binding.Binding(Path, Mode, Converter, ConverterParameter, StringFormat, _source) { UpdateSourceEventName = UpdateSourceEventName };
 
             TypedBinding.Mode = Mode;
             TypedBinding.Converter = Converter;
             TypedBinding.ConverterParameter = ConverterParameter;
             TypedBinding.StringFormat = StringFormat;
-            TypedBinding.Source = Source;
+            TypedBinding.Source = _source;
             TypedBinding.UpdateSourceEventName = UpdateSourceEventName;
             return TypedBinding;
         }

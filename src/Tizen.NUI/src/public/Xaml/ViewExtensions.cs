@@ -28,6 +28,7 @@
 using System;
 using System.Reflection;
 using System.ComponentModel;
+using Tizen.NUI.Binding;
 
 namespace Tizen.NUI.Xaml
 {
@@ -48,7 +49,10 @@ namespace Tizen.NUI.Xaml
         [EditorBrowsable(EditorBrowsableState.Never)]
         public static TXaml LoadFromXaml<TXaml>(this TXaml view, Type callingType) 
         {
+            NameScopeExtensions.PushElement(view);
             XamlLoader.Load(view, callingType);
+            NameScopeExtensions.PopElement();
+
             return view;
         }
 
@@ -63,7 +67,18 @@ namespace Tizen.NUI.Xaml
         [EditorBrowsable(EditorBrowsableState.Never)]
         public static TXaml LoadFromXaml<TXaml>(this TXaml view, string xaml)
         {
+            if (view is Element)
+            {
+                NameScopeExtensions.PushElement(view);
+            }
+
             XamlLoader.Load(view, xaml);
+
+            if (view is Element)
+            {
+                NameScopeExtensions.PopElement();
+            }
+
             return view;
         }
 

@@ -86,6 +86,8 @@ namespace Tizen.NUI.Xaml
             Type type = typeof(T);
             T ret = (T)type.Assembly.CreateInstance(type.FullName);
 
+            NameScopeExtensions.PushElement(ret);
+
             using (var textReader = new StringReader(xaml))
             using (var reader = XmlReader.Create(textReader))
             {
@@ -115,6 +117,7 @@ namespace Tizen.NUI.Xaml
                 }
             }
 
+            NameScopeExtensions.PopElement();
             return ret;
         }
 
