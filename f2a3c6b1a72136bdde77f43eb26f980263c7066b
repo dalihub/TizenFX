@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "7552a5e4_756199d1",
+        "filename": "src/Tizen.NUI/src/public/PinchGesture.cs",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1014228
+      },
+      "writtenOn": "2018-11-07T03:02:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5171961d_fadccb32",
+      "revId": "f2a3c6b1a72136bdde77f43eb26f980263c7066b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f2882350_0dbad5fe",
         "filename": "src/Tizen.NUI/src/public/ScrollViewPagePathEffect.cs",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2018-11-07T02:15:24Z",
       "side": 1,
       "message": "is this changed as internal? is this right?",
+      "revId": "f2a3c6b1a72136bdde77f43eb26f980263c7066b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa71846c_3abb648b",
+        "filename": "src/Tizen.NUI/src/public/ScrollViewPagePathEffect.cs",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1014228
+      },
+      "writtenOn": "2018-11-07T03:02:09Z",
+      "side": 1,
+      "message": "I think it doesn\u0027t set public like View, VideoView etc.",
+      "parentUuid": "f2882350_0dbad5fe",
       "revId": "f2a3c6b1a72136bdde77f43eb26f980263c7066b",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "e3d4a53f_1cab1065",
+        "filename": "src/Tizen.NUI/src/public/ScrollViewPagePathEffect.cs",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1014228
+      },
+      "writtenOn": "2018-11-07T03:02:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "afe3d5b5_1ad9833f",
+      "revId": "f2a3c6b1a72136bdde77f43eb26f980263c7066b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fd6a9d4d_a20384f4",
         "filename": "src/Tizen.NUI/src/public/TypeRegistry.cs",
         "patchSetId": 1
@@ -67,6 +121,24 @@
       "revId": "f2a3c6b1a72136bdde77f43eb26f980263c7066b",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0196c3b_a9782209",
+        "filename": "src/Tizen.NUI/src/public/TypeRegistry.cs",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1014228
+      },
+      "writtenOn": "2018-11-07T03:02:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd6a9d4d_a20384f4",
+      "revId": "f2a3c6b1a72136bdde77f43eb26f980263c7066b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "d5f017a1_52eec635",
+        "filename": "src/Tizen.NUI/src/public/TypeRegistry.cs",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1014228
+      },
+      "writtenOn": "2018-11-07T03:02:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "10ee5958_b7bd3e6e",
+      "revId": "f2a3c6b1a72136bdde77f43eb26f980263c7066b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6737b986_374051c7",
         "filename": "src/Tizen.NUI/src/public/TypeRegistry.cs",
         "patchSetId": 1
@@ -98,6 +188,24 @@
       "writtenOn": "2018-11-07T02:15:24Z",
       "side": 1,
       "message": "is this changed to internal? is it right?",
+      "revId": "f2a3c6b1a72136bdde77f43eb26f980263c7066b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3ea594b_4d57a150",
+        "filename": "src/Tizen.NUI/src/public/TypeRegistry.cs",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1014228
+      },
+      "writtenOn": "2018-11-07T03:02:09Z",
+      "side": 1,
+      "message": "I think it doesn\u0027t set as public like View, VideoView etc.",
+      "parentUuid": "6737b986_374051c7",
       "revId": "f2a3c6b1a72136bdde77f43eb26f980263c7066b",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "4fae5248_330761fc",
+        "filename": "src/Tizen.NUI/src/public/TypeRegistry.cs",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1014228
+      },
+      "writtenOn": "2018-11-07T03:02:09Z",
+      "side": 1,
+      "message": "I think it doesn\u0027t set as public like View, VideoView etc.",
+      "parentUuid": "564eb379_cca4839e",
+      "revId": "f2a3c6b1a72136bdde77f43eb26f980263c7066b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "00e06a86_84b97be8",
         "filename": "src/Tizen.NUI/src/public/TypeRegistry.cs",
         "patchSetId": 1
@@ -135,6 +261,24 @@
       "revId": "f2a3c6b1a72136bdde77f43eb26f980263c7066b",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a8dd5bd_0ed8063a",
+        "filename": "src/Tizen.NUI/src/public/TypeRegistry.cs",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1014228
+      },
+      "writtenOn": "2018-11-07T03:02:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "00e06a86_84b97be8",
+      "revId": "f2a3c6b1a72136bdde77f43eb26f980263c7066b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     },
     {
       "key": {
@@ -155,6 +299,24 @@
     },
     {
       "key": {
+        "uuid": "d6d535cd_ea9fc103",
+        "filename": "src/Tizen.NUI/src/public/TypeRegistry.cs",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1014228
+      },
+      "writtenOn": "2018-11-07T03:02:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99a5c8dd_dc157f1d",
+      "revId": "f2a3c6b1a72136bdde77f43eb26f980263c7066b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6044ab8f_1a45c89a",
         "filename": "src/Tizen.NUI/src/public/TypeRegistry.cs",
         "patchSetId": 1
@@ -169,6 +331,24 @@
       "revId": "f2a3c6b1a72136bdde77f43eb26f980263c7066b",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4283c8d0_e30ec39f",
+        "filename": "src/Tizen.NUI/src/public/TypeRegistry.cs",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1014228
+      },
+      "writtenOn": "2018-11-07T03:02:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6044ab8f_1a45c89a",
+      "revId": "f2a3c6b1a72136bdde77f43eb26f980263c7066b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     }
   ]
 }
