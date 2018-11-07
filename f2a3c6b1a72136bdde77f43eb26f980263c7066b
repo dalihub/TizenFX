@@ -1,0 +1,174 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5171961d_fadccb32",
+        "filename": "src/Tizen.NUI/src/public/PinchGesture.cs",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2018-11-07T02:15:24Z",
+      "side": 1,
+      "message": "please change the \"tizen_5.0\" as \"next tizen\" in the comment.",
+      "revId": "f2a3c6b1a72136bdde77f43eb26f980263c7066b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2882350_0dbad5fe",
+        "filename": "src/Tizen.NUI/src/public/ScrollViewPagePathEffect.cs",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2018-11-07T02:15:24Z",
+      "side": 1,
+      "message": "is this changed as internal? is this right?",
+      "revId": "f2a3c6b1a72136bdde77f43eb26f980263c7066b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "afe3d5b5_1ad9833f",
+        "filename": "src/Tizen.NUI/src/public/ScrollViewPagePathEffect.cs",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2018-11-07T02:15:24Z",
+      "side": 1,
+      "message": "please change the \"tizen_5.0\" as \"next tizen\" in the comment.",
+      "revId": "f2a3c6b1a72136bdde77f43eb26f980263c7066b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd6a9d4d_a20384f4",
+        "filename": "src/Tizen.NUI/src/public/TypeRegistry.cs",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2018-11-07T02:15:24Z",
+      "side": 1,
+      "message": "please change the \"tizen_5.0\" as \"next tizen\" in the comment.",
+      "revId": "f2a3c6b1a72136bdde77f43eb26f980263c7066b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10ee5958_b7bd3e6e",
+        "filename": "src/Tizen.NUI/src/public/TypeRegistry.cs",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2018-11-07T02:15:24Z",
+      "side": 1,
+      "message": "please change the \"tizen_5.0\" as \"next tizen\" in the comment.",
+      "revId": "f2a3c6b1a72136bdde77f43eb26f980263c7066b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6737b986_374051c7",
+        "filename": "src/Tizen.NUI/src/public/TypeRegistry.cs",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2018-11-07T02:15:24Z",
+      "side": 1,
+      "message": "is this changed to internal? is it right?",
+      "revId": "f2a3c6b1a72136bdde77f43eb26f980263c7066b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "564eb379_cca4839e",
+        "filename": "src/Tizen.NUI/src/public/TypeRegistry.cs",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2018-11-07T02:15:24Z",
+      "side": 1,
+      "message": "changed as \"internal\" is this right?",
+      "revId": "f2a3c6b1a72136bdde77f43eb26f980263c7066b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00e06a86_84b97be8",
+        "filename": "src/Tizen.NUI/src/public/TypeRegistry.cs",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2018-11-07T02:15:24Z",
+      "side": 1,
+      "message": "please change the \"tizen_5.0\" as \"next tizen\" in the comment.",
+      "revId": "f2a3c6b1a72136bdde77f43eb26f980263c7066b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99a5c8dd_dc157f1d",
+        "filename": "src/Tizen.NUI/src/public/TypeRegistry.cs",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2018-11-07T02:15:24Z",
+      "side": 1,
+      "message": "please change the \"tizen_5.0\" as \"next tizen\" in the comment.",
+      "revId": "f2a3c6b1a72136bdde77f43eb26f980263c7066b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6044ab8f_1a45c89a",
+        "filename": "src/Tizen.NUI/src/public/TypeRegistry.cs",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2018-11-07T02:15:24Z",
+      "side": 1,
+      "message": "please change the \"tizen_5.0\" as \"next tizen\" in the comment.",
+      "revId": "f2a3c6b1a72136bdde77f43eb26f980263c7066b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
