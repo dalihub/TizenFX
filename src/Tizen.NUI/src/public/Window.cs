@@ -36,6 +36,11 @@ namespace Tizen.NUI
         private Layer _rootLayer;
         private string _windowTitle;
 
+        /// <summary>
+        // Temporary testing of a flag which should instead have a get / set once proved to work.
+        /// </summary>
+        public static bool layoutingDisabled = true;
+
         private List<Layer> _childLayers = new List<Layer>();
         internal List<Layer> LayersChildren
         {
