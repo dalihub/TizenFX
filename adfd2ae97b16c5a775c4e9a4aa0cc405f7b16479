@@ -52,6 +52,24 @@
       "revId": "adfd2ae97b16c5a775c4e9a4aa0cc405f7b16479",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35e057c1_5ffc13ce",
+        "filename": "src/Tizen.NUI/src/internal/Layouting/LayoutGroup.cs",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1011527
+      },
+      "writtenOn": "2018-11-08T12:03:09Z",
+      "side": 1,
+      "message": "Yes, I\u0027ll update it",
+      "parentUuid": "44d163d4_d4c6ab4c",
+      "revId": "adfd2ae97b16c5a775c4e9a4aa0cc405f7b16479",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
     }
   ]
 }
