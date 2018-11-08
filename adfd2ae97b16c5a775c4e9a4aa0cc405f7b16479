@@ -34,6 +34,24 @@
       "revId": "adfd2ae97b16c5a775c4e9a4aa0cc405f7b16479",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "44d163d4_d4c6ab4c",
+        "filename": "src/Tizen.NUI/src/internal/Layouting/LayoutGroup.cs",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1007416
+      },
+      "writtenOn": "2018-11-08T10:12:45Z",
+      "side": 1,
+      "message": "if we\u0027ve set positionUsePivotpoint to false, then should it also do this?",
+      "parentUuid": "f2350e8f_2beb8e1a",
+      "revId": "adfd2ae97b16c5a775c4e9a4aa0cc405f7b16479",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
     }
   ]
 }
