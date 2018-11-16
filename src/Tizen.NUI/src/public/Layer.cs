@@ -72,11 +72,8 @@ namespace Tizen.NUI
                     child.InternalParent = this;
                 }
                 // If adding a View then set layout required flag
-                if( child.GetType() == typeof(View) )
-                {
-                    Log.Info("NUI", "Add child[" + child.Name + "] LayoutingRequired set as pure view\n");
-                    child.LayoutingRequired = true;
-                }
+                Log.Info("NUI", "Add child[" + child.Name + "] LayoutingRequired\n");
+                child.LayoutingRequired = true;
 
                 NDalicPINVOKE.Actor_Add( rootLayoutCPtr , View.getCPtr(child));
                 if (NDalicPINVOKE.SWIGPendingException.Pending)
