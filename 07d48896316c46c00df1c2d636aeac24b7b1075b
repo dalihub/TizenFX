@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e324a41a_d09d717e",
+        "filename": "src/Tizen.NUI/src/public/Layer.cs",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1011527
+      },
+      "writtenOn": "2018-11-16T11:55:51Z",
+      "side": 1,
+      "message": "This would mean all Views added to the layer would have their LayoutingRequired flag set true. This would mean legacy containers like FlexContainer would become a LayoutGroup/BinLayout and not work",
+      "revId": "07d48896316c46c00df1c2d636aeac24b7b1075b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
