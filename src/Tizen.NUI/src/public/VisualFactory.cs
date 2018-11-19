@@ -81,8 +81,6 @@ namespace Tizen.NUI
             return ret;
         }
 
-        private static readonly VisualFactory instance = VisualFactory.Instance;
-
         /// <summary>
         /// Retrieves the VisualFactory singleton.
         /// </summary>
@@ -91,7 +89,7 @@ namespace Tizen.NUI
         {
             get
             {
-                return instance;
+                return  new VisualFactory(NDalicPINVOKE.VisualFactory_Get(), true);
             }
         }
 
