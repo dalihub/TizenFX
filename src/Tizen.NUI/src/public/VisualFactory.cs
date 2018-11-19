@@ -50,9 +50,7 @@ namespace Tizen.NUI
         [EditorBrowsable(EditorBrowsableState.Never)]
         public static VisualFactory Get()
         {
-            VisualFactory ret = new VisualFactory(NDalicPINVOKE.VisualFactory_Get(), true);
-            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
+            return VisualFactory.Instance;
         }
 
         internal VisualFactory() : this(NDalicPINVOKE.new_VisualFactory__SWIG_0(), true)
@@ -81,8 +79,6 @@ namespace Tizen.NUI
             return ret;
         }
 
-        private static readonly VisualFactory instance = VisualFactory.Instance;
-
         /// <summary>
         /// Retrieves the VisualFactory singleton.
         /// </summary>
@@ -91,7 +87,9 @@ namespace Tizen.NUI
         {
             get
             {
-                return instance;
+                VisualFactory ret = new VisualFactory(NDalicPINVOKE.VisualFactory_Get(), true);
+                if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+                return ret;
             }
         }
 
