@@ -22,6 +22,30 @@
       "revId": "9ae7d6fec4dd8654f0129348ddbe7d39bc514e87",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "711f6fe1_c7c5a63e",
+        "filename": "src/Tizen.NUI/src/public/BaseComponents/View.cs",
+        "patchSetId": 1
+      },
+      "lineNbr": 5113,
+      "author": {
+        "id": 1011527
+      },
+      "writtenOn": "2018-11-29T10:46:06Z",
+      "side": 1,
+      "message": "I\u0027ll move it to match the others. Is there an NUI convention to always use braces {} if not needed?",
+      "parentUuid": "21f37bde_decae81e",
+      "range": {
+        "startLine": 5113,
+        "startChar": 18,
+        "endLine": 5113,
+        "endChar": 24
+      },
+      "revId": "9ae7d6fec4dd8654f0129348ddbe7d39bc514e87",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
     }
   ]
 }
