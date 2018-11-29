@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "21f37bde_decae81e",
+        "filename": "src/Tizen.NUI/src/public/BaseComponents/View.cs",
+        "patchSetId": 1
+      },
+      "lineNbr": 5113,
+      "author": {
+        "id": 1014189
+      },
+      "writtenOn": "2018-11-29T05:15:28Z",
+      "side": 1,
+      "message": "Should this break statement be inside switch case above? :)",
+      "range": {
+        "startLine": 5113,
+        "startChar": 18,
+        "endLine": 5113,
+        "endChar": 24
+      },
+      "revId": "9ae7d6fec4dd8654f0129348ddbe7d39bc514e87",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
