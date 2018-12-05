@@ -5108,7 +5108,7 @@ namespace Tizen.NUI.BaseComponents
                 {
                   case ResizePolicyType.UseNaturalSize :
                   {
-                    SetProperty(LayoutItemWrapper.ChildProperty.WIDTH_SPECIFICATION, new Tizen.NUI.PropertyValue( NaturalSize.Width) );
+                    SetProperty(LayoutItemWrapper.ChildProperty.WIDTH_SPECIFICATION, new Tizen.NUI.PropertyValue( (int)ChildLayoutData.WrapContent ) );
                     break;
                   }
                   case ResizePolicyType.FillToParent :
@@ -5147,7 +5147,7 @@ namespace Tizen.NUI.BaseComponents
                 {
                   case ResizePolicyType.UseNaturalSize :
                   {
-                    SetProperty(LayoutItemWrapper.ChildProperty.HEIGHT_SPECIFICATION, new Tizen.NUI.PropertyValue( NaturalSize.Height) );
+                    SetProperty(LayoutItemWrapper.ChildProperty.HEIGHT_SPECIFICATION, new Tizen.NUI.PropertyValue( (int)ChildLayoutData.WrapContent ) );
                     break;
                   }
                   case ResizePolicyType.FillToParent :
