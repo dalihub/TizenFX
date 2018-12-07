@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "03d2ca0c_d865a3d0",
+        "filename": "src/Tizen.NUI/src/public/XamlBinding/Transition.cs",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2018-12-07T02:14:06Z",
+      "side": 1,
+      "message": "please add \"[EditorBrowsable(EditorBrowsableState.Never)]\" in everywhere if these are not intended for public open API",
+      "revId": "67916d48e80a64c39fbd5602ecf51f32d1f77efd",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
