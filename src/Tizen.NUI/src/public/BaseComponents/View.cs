@@ -22,43 +22,49 @@ using Tizen.NUI.Binding;
 namespace Tizen.NUI.BaseComponents
 {
     /// <summary>
+    /// The View layout Direction type.
+    /// </summary>
+    /// <since_tizen> 4 </since_tizen>
+    public enum ViewLayoutDirectionType
+    {
+        /// <summary>
+        /// Left to right.
+        /// </summary>
+        /// <since_tizen> 4 </since_tizen>
+        LTR,
+        /// <summary>
+        /// Right to left.
+        /// </summary>
+        /// <since_tizen> 4 </since_tizen>
+        RTL
+    }
+
+    internal enum ChildLayoutData
+    {
+        /// <summary>
+        /// Constant which indicates child size should match parent size
+        /// </summary>
+        MatchParent = -1,
+        /// <summary>
+        /// Constant which indicates parent should take the smallest size possible to wrap it's children with their desired size
+        /// </summary>
+        WrapContent = -2,
+    }
+
+    internal enum ResourceLoadingStatusType
+    {
+        Invalid = -1,
+        Preparing = 0,
+        Ready,
+        Failed,
+    }
+
+    /// <summary>
     /// View is the base class for all views.
     /// </summary>
     /// <since_tizen> 3 </since_tizen>
     public class View : Container, IResourcesProvider
     {
-
-        /// <summary>
-        /// Flag to allow Layouting to be disabled for Views.
-        /// Once a View has a Layout set then any children added to Views from then on will receive
-        /// automatic Layouts.
-        /// </summary>
-        private static bool layoutingDisabled = true;
-
-        /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool IsResourcesCreated
-        {
-            get
-            {
-                return Application.Current.IsResourcesCreated;
-            }
-        }
-
-        /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public ResourceDictionary XamlResources
-        {
-            get
-            {
-                return Application.Current.XamlResources;
-            }
-            set
-            {
-                Application.Current.XamlResources = value;
-            }
-        }
-
         /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
         [EditorBrowsable(EditorBrowsableState.Never)]
         public static readonly BindableProperty StyleNameProperty = BindableProperty.Create("StyleName", typeof(string), typeof(View), string.Empty, propertyChanged: (bindable, oldValue, newValue) =>
@@ -69,7 +75,7 @@ namespace Tizen.NUI.BaseComponents
                 Tizen.NUI.Object.SetProperty(view.swigCPtr, View.Property.STYLE_NAME, new Tizen.NUI.PropertyValue((string)newValue));
             }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             string temp;
@@ -86,7 +92,7 @@ namespace Tizen.NUI.BaseComponents
                 Tizen.NUI.Object.SetProperty(view.swigCPtr, View.Property.BACKGROUND, new Tizen.NUI.PropertyValue((Color)newValue));
             }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             Color backgroundColor = new Color(0.0f, 0.0f, 0.0f, 0.0f);
@@ -111,7 +117,7 @@ namespace Tizen.NUI.BaseComponents
                 Tizen.NUI.Object.SetProperty(view.swigCPtr, View.Property.BACKGROUND, new Tizen.NUI.PropertyValue((string)newValue));
             }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             string backgroundImage = "";
@@ -136,7 +142,7 @@ namespace Tizen.NUI.BaseComponents
                 Tizen.NUI.Object.SetProperty(view.swigCPtr, View.Property.BACKGROUND, new Tizen.NUI.PropertyValue((PropertyMap)newValue));
             }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             Tizen.NUI.PropertyMap temp = new Tizen.NUI.PropertyMap();
@@ -153,7 +159,7 @@ namespace Tizen.NUI.BaseComponents
                 Tizen.NUI.Object.SetProperty(view.swigCPtr, View.Property.STATE, new Tizen.NUI.PropertyValue((int)newValue));
             }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             int temp = 0;
@@ -175,13 +181,13 @@ namespace Tizen.NUI.BaseComponents
                 {
                     case States.Normal: { valueToString = "NORMAL"; break; }
                     case States.Focused: { valueToString = "FOCUSED"; break; }
-                    case States.Disabled:   { valueToString = "DISABLED"; break; }
+                    case States.Disabled: { valueToString = "DISABLED"; break; }
                     default: { valueToString = "NORMAL"; break; }
                 }
                 Tizen.NUI.Object.SetProperty(view.swigCPtr, View.Property.SUB_STATE, new Tizen.NUI.PropertyValue(valueToString));
             }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             string temp;
@@ -207,7 +213,7 @@ namespace Tizen.NUI.BaseComponents
                 Tizen.NUI.Object.SetProperty(view.swigCPtr, View.Property.TOOLTIP, new Tizen.NUI.PropertyValue((PropertyMap)newValue));
             }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             Tizen.NUI.PropertyMap temp = new Tizen.NUI.PropertyMap();
@@ -232,7 +238,7 @@ namespace Tizen.NUI.BaseComponents
                 Tizen.NUI.Object.SetProperty(view.swigCPtr, FlexContainer.ChildProperty.FLEX, new Tizen.NUI.PropertyValue((float)newValue));
             }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             float temp = 0.0f;
@@ -249,7 +255,7 @@ namespace Tizen.NUI.BaseComponents
                 Tizen.NUI.Object.SetProperty(view.swigCPtr, FlexContainer.ChildProperty.ALIGN_SELF, new Tizen.NUI.PropertyValue((int)newValue));
             }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             int temp = 0;
@@ -266,7 +272,7 @@ namespace Tizen.NUI.BaseComponents
                 Tizen.NUI.Object.SetProperty(view.swigCPtr, FlexContainer.ChildProperty.FLEX_MARGIN, new Tizen.NUI.PropertyValue((Vector4)newValue));
             }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             Vector4 temp = new Vector4(0.0f, 0.0f, 0.0f, 0.0f);
@@ -283,7 +289,7 @@ namespace Tizen.NUI.BaseComponents
                 Tizen.NUI.Object.SetProperty(view.swigCPtr, TableView.ChildProperty.CELL_INDEX, new Tizen.NUI.PropertyValue((Vector2)newValue));
             }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             Vector2 temp = new Vector2(0.0f, 0.0f);
@@ -300,7 +306,7 @@ namespace Tizen.NUI.BaseComponents
                 Tizen.NUI.Object.SetProperty(view.swigCPtr, TableView.ChildProperty.ROW_SPAN, new Tizen.NUI.PropertyValue((float)newValue));
             }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             float temp = 0.0f;
@@ -317,7 +323,7 @@ namespace Tizen.NUI.BaseComponents
                 Tizen.NUI.Object.SetProperty(view.swigCPtr, TableView.ChildProperty.COLUMN_SPAN, new Tizen.NUI.PropertyValue((float)newValue));
             }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             float temp = 0.0f;
@@ -343,7 +349,7 @@ namespace Tizen.NUI.BaseComponents
                 Tizen.NUI.Object.SetProperty(view.swigCPtr, TableView.ChildProperty.CELL_HORIZONTAL_ALIGNMENT, new Tizen.NUI.PropertyValue(valueToString));
             }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             string temp;
@@ -379,7 +385,7 @@ namespace Tizen.NUI.BaseComponents
                 Tizen.NUI.Object.SetProperty(view.swigCPtr, TableView.ChildProperty.CELL_VERTICAL_ALIGNMENT, new Tizen.NUI.PropertyValue(valueToString));
             }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             string temp;
@@ -392,7 +398,7 @@ namespace Tizen.NUI.BaseComponents
             {
                 case "top": return Tizen.NUI.VerticalAlignmentType.Top;
                 case "center": return Tizen.NUI.VerticalAlignmentType.Center;
-                case "bottom":  return Tizen.NUI.VerticalAlignmentType.Bottom;
+                case "bottom": return Tizen.NUI.VerticalAlignmentType.Bottom;
                 default: return Tizen.NUI.VerticalAlignmentType.Top;
             }
         });
@@ -406,7 +412,7 @@ namespace Tizen.NUI.BaseComponents
                 Tizen.NUI.Object.SetProperty(view.swigCPtr, LinearLayout.ChildProperty.WEIGHT, new Tizen.NUI.PropertyValue((float)newValue));
             }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             float temp = 0.0f;
@@ -421,7 +427,7 @@ namespace Tizen.NUI.BaseComponents
             if (newValue != null) { view.LeftFocusableViewId = (int)(newValue as View).GetId(); }
             else { view.LeftFocusableViewId = -1; }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             if (view.LeftFocusableViewId >= 0) { return view.ConvertIdToView((uint)view.LeftFocusableViewId); }
@@ -435,10 +441,10 @@ namespace Tizen.NUI.BaseComponents
             if (newValue != null) { view.RightFocusableViewId = (int)(newValue as View).GetId(); }
             else { view.RightFocusableViewId = -1; }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
-            if (view.RightFocusableViewId >= 0) { return view.ConvertIdToView((uint)view.RightFocusableViewId);  }
+            if (view.RightFocusableViewId >= 0) { return view.ConvertIdToView((uint)view.RightFocusableViewId); }
             return null;
         });
         /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
@@ -447,9 +453,9 @@ namespace Tizen.NUI.BaseComponents
         {
             var view = (View)bindable;
             if (newValue != null) { view.UpFocusableViewId = (int)(newValue as View).GetId(); }
-            else  { view.UpFocusableViewId = -1; }
+            else { view.UpFocusableViewId = -1; }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             if (view.UpFocusableViewId >= 0) { return view.ConvertIdToView((uint)view.UpFocusableViewId); }
@@ -463,7 +469,7 @@ namespace Tizen.NUI.BaseComponents
             if (newValue != null) { view.DownFocusableViewId = (int)(newValue as View).GetId(); }
             else { view.DownFocusableViewId = -1; }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             if (view.DownFocusableViewId >= 0) { return view.ConvertIdToView((uint)view.DownFocusableViewId); }
@@ -474,24 +480,24 @@ namespace Tizen.NUI.BaseComponents
         public static readonly BindableProperty FocusableProperty = BindableProperty.Create("Focusable", typeof(bool), typeof(View), false, propertyChanged: (bindable, oldValue, newValue) =>
         {
             var view = (View)bindable;
-            if (newValue != null)  { view.SetKeyboardFocusable((bool)newValue); }
+            if (newValue != null) { view.SetKeyboardFocusable((bool)newValue); }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             return view.IsKeyboardFocusable();
         });
         /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public static readonly BindableProperty Size2DProperty = BindableProperty.Create("Size2D", typeof(Size2D), typeof(View), new Size2D(0,0), propertyChanged: (bindable, oldValue, newValue) =>
+        public static readonly BindableProperty Size2DProperty = BindableProperty.Create("Size2D", typeof(Size2D), typeof(View), new Size2D(0, 0), propertyChanged: (bindable, oldValue, newValue) =>
         {
             var view = (View)bindable;
             if (newValue != null)
             {
-                Tizen.NUI.Object.SetProperty(view.swigCPtr, View.Property.SIZE, new Tizen.NUI.PropertyValue( new Size((Size2D)newValue)));
+                Tizen.NUI.Object.SetProperty(view.swigCPtr, View.Property.SIZE, new Tizen.NUI.PropertyValue(new Size((Size2D)newValue)));
             }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             Size temp = new Size(0.0f, 0.0f, 0.0f);
@@ -509,7 +515,7 @@ namespace Tizen.NUI.BaseComponents
                 Tizen.NUI.Object.SetProperty(view.swigCPtr, View.Property.OPACITY, new Tizen.NUI.PropertyValue((float)newValue));
             }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             float temp = 0.0f;
@@ -518,15 +524,15 @@ namespace Tizen.NUI.BaseComponents
         });
         /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public static readonly BindableProperty Position2DProperty = BindableProperty.Create("Position2D", typeof(Position2D), typeof(View), new Position2D(0,0), propertyChanged: (bindable, oldValue, newValue) =>
+        public static readonly BindableProperty Position2DProperty = BindableProperty.Create("Position2D", typeof(Position2D), typeof(View), new Position2D(0, 0), propertyChanged: (bindable, oldValue, newValue) =>
         {
             var view = (View)bindable;
             if (newValue != null)
             {
-                Tizen.NUI.Object.SetProperty(view.swigCPtr, View.Property.POSITION, new Tizen.NUI.PropertyValue( new Position((Position2D)newValue) ));
+                Tizen.NUI.Object.SetProperty(view.swigCPtr, View.Property.POSITION, new Tizen.NUI.PropertyValue(new Position((Position2D)newValue)));
             }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             Position temp = new Position(0.0f, 0.0f, 0.0f);
@@ -543,7 +549,7 @@ namespace Tizen.NUI.BaseComponents
                 Tizen.NUI.Object.SetProperty(view.swigCPtr, View.Property.POSITION_USES_ANCHOR_POINT, new Tizen.NUI.PropertyValue((bool)newValue));
             }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             bool temp = false;
@@ -559,7 +565,7 @@ namespace Tizen.NUI.BaseComponents
             if (newValue != null)
             {
                 value = (int)newValue;
-                if(value < 0)
+                if (value < 0)
                 {
                     NUILog.Error("SiblingOrder should be bigger than 0 or equal to 0.");
                     return;
@@ -581,7 +587,7 @@ namespace Tizen.NUI.BaseComponents
                 }
             }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             var parentChildren = view.GetParent()?.Children;
@@ -606,7 +612,7 @@ namespace Tizen.NUI.BaseComponents
                 Tizen.NUI.Object.SetProperty(view.swigCPtr, View.Property.PARENT_ORIGIN, new Tizen.NUI.PropertyValue((Position)newValue));
             }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             Position temp = new Position(0.0f, 0.0f, 0.0f);
@@ -624,7 +630,7 @@ namespace Tizen.NUI.BaseComponents
                 Tizen.NUI.Object.SetProperty(view.swigCPtr, View.Property.ANCHOR_POINT, new Tizen.NUI.PropertyValue((Position)newValue));
             }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             Position temp = new Position(0.0f, 0.0f, 0.0f);
@@ -641,7 +647,7 @@ namespace Tizen.NUI.BaseComponents
                 Tizen.NUI.Object.SetProperty(view.swigCPtr, View.Property.SIZE_WIDTH, new Tizen.NUI.PropertyValue((float)newValue));
             }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             float temp = 0.0f;
@@ -658,7 +664,7 @@ namespace Tizen.NUI.BaseComponents
                 Tizen.NUI.Object.SetProperty(view.swigCPtr, View.Property.SIZE_HEIGHT, new Tizen.NUI.PropertyValue((float)newValue));
             }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             float temp = 0.0f;
@@ -675,7 +681,7 @@ namespace Tizen.NUI.BaseComponents
                 Tizen.NUI.Object.SetProperty(view.swigCPtr, View.Property.POSITION, new Tizen.NUI.PropertyValue((Position)newValue));
             }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             Position temp = new Position(0.0f, 0.0f, 0.0f);
@@ -692,7 +698,7 @@ namespace Tizen.NUI.BaseComponents
                 Tizen.NUI.Object.SetProperty(view.swigCPtr, View.Property.POSITION_X, new Tizen.NUI.PropertyValue((float)newValue));
             }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             float temp = 0.0f;
@@ -709,7 +715,7 @@ namespace Tizen.NUI.BaseComponents
                 Tizen.NUI.Object.SetProperty(view.swigCPtr, View.Property.POSITION_Y, new Tizen.NUI.PropertyValue((float)newValue));
             }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             float temp = 0.0f;
@@ -726,7 +732,7 @@ namespace Tizen.NUI.BaseComponents
                 Tizen.NUI.Object.SetProperty(view.swigCPtr, View.Property.POSITION_Z, new Tizen.NUI.PropertyValue((float)newValue));
             }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             float temp = 0.0f;
@@ -743,7 +749,7 @@ namespace Tizen.NUI.BaseComponents
                 Tizen.NUI.Object.SetProperty(view.swigCPtr, View.Property.ORIENTATION, new Tizen.NUI.PropertyValue((Rotation)newValue));
             }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             Rotation temp = new Rotation();
@@ -760,7 +766,7 @@ namespace Tizen.NUI.BaseComponents
                 Tizen.NUI.Object.SetProperty(view.swigCPtr, View.Property.SCALE, new Tizen.NUI.PropertyValue((Vector3)newValue));
             }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             Vector3 temp = new Vector3(0.0f, 0.0f, 0.0f);
@@ -777,7 +783,7 @@ namespace Tizen.NUI.BaseComponents
                 Tizen.NUI.Object.SetProperty(view.swigCPtr, View.Property.SCALE_X, new Tizen.NUI.PropertyValue((float)newValue));
             }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             float temp = 0.0f;
@@ -794,7 +800,7 @@ namespace Tizen.NUI.BaseComponents
                 Tizen.NUI.Object.SetProperty(view.swigCPtr, View.Property.SCALE_Y, new Tizen.NUI.PropertyValue((float)newValue));
             }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             float temp = 0.0f;
@@ -811,7 +817,7 @@ namespace Tizen.NUI.BaseComponents
                 Tizen.NUI.Object.SetProperty(view.swigCPtr, View.Property.SCALE_Z, new Tizen.NUI.PropertyValue((float)newValue));
             }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             float temp = 0.0f;
@@ -828,7 +834,7 @@ namespace Tizen.NUI.BaseComponents
                 Tizen.NUI.Object.SetProperty(view.swigCPtr, View.Property.NAME, new Tizen.NUI.PropertyValue((string)newValue));
             }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             string temp;
@@ -845,7 +851,7 @@ namespace Tizen.NUI.BaseComponents
                 Tizen.NUI.Object.SetProperty(view.swigCPtr, View.Property.SENSITIVE, new Tizen.NUI.PropertyValue((bool)newValue));
             }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             bool temp = false;
@@ -862,7 +868,7 @@ namespace Tizen.NUI.BaseComponents
                 Tizen.NUI.Object.SetProperty(view.swigCPtr, View.Property.LEAVE_REQUIRED, new Tizen.NUI.PropertyValue((bool)newValue));
             }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             bool temp = false;
@@ -879,7 +885,7 @@ namespace Tizen.NUI.BaseComponents
                 Tizen.NUI.Object.SetProperty(view.swigCPtr, View.Property.INHERIT_ORIENTATION, new Tizen.NUI.PropertyValue((bool)newValue));
             }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             bool temp = false;
@@ -896,7 +902,7 @@ namespace Tizen.NUI.BaseComponents
                 Tizen.NUI.Object.SetProperty(view.swigCPtr, View.Property.INHERIT_SCALE, new Tizen.NUI.PropertyValue((bool)newValue));
             }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             bool temp = false;
@@ -913,7 +919,7 @@ namespace Tizen.NUI.BaseComponents
                 Tizen.NUI.Object.SetProperty(view.swigCPtr, View.Property.DRAW_MODE, new Tizen.NUI.PropertyValue((int)newValue));
             }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             string temp;
@@ -939,7 +945,7 @@ namespace Tizen.NUI.BaseComponents
                 Tizen.NUI.Object.SetProperty(view.swigCPtr, View.Property.SIZE_MODE_FACTOR, new Tizen.NUI.PropertyValue((Vector3)newValue));
             }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             Vector3 temp = new Vector3(0.0f, 0.0f, 0.0f);
@@ -956,7 +962,7 @@ namespace Tizen.NUI.BaseComponents
                 Tizen.NUI.Object.SetProperty(view.swigCPtr, View.Property.WIDTH_RESIZE_POLICY, new Tizen.NUI.PropertyValue((int)newValue));
             }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             string temp;
@@ -987,7 +993,7 @@ namespace Tizen.NUI.BaseComponents
                 Tizen.NUI.Object.SetProperty(view.swigCPtr, View.Property.HEIGHT_RESIZE_POLICY, new Tizen.NUI.PropertyValue((int)newValue));
             }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             string temp;
@@ -998,7 +1004,7 @@ namespace Tizen.NUI.BaseComponents
             switch (temp)
             {
                 case "FIXED": return ResizePolicyType.Fixed;
-                case "USE_NATURAL_SIZE":  return ResizePolicyType.UseNaturalSize;
+                case "USE_NATURAL_SIZE": return ResizePolicyType.UseNaturalSize;
                 case "FILL_TO_PARENT": return ResizePolicyType.FillToParent;
                 case "SIZE_RELATIVE_TO_PARENT": return ResizePolicyType.SizeRelativeToParent;
                 case "SIZE_FIXED_OFFSET_FROM_PARENT": return ResizePolicyType.SizeFixedOffsetFromParent;
@@ -1026,7 +1032,7 @@ namespace Tizen.NUI.BaseComponents
                 Tizen.NUI.Object.SetProperty(view.swigCPtr, View.Property.SIZE_SCALE_POLICY, new Tizen.NUI.PropertyValue(valueToString));
             }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             string temp;
@@ -1052,7 +1058,7 @@ namespace Tizen.NUI.BaseComponents
                 Tizen.NUI.Object.SetProperty(view.swigCPtr, View.Property.WIDTH_FOR_HEIGHT, new Tizen.NUI.PropertyValue((bool)newValue));
             }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             bool temp = false;
@@ -1069,7 +1075,7 @@ namespace Tizen.NUI.BaseComponents
                 Tizen.NUI.Object.SetProperty(view.swigCPtr, View.Property.HEIGHT_FOR_WIDTH, new Tizen.NUI.PropertyValue((bool)newValue));
             }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             bool temp = false;
@@ -1078,7 +1084,7 @@ namespace Tizen.NUI.BaseComponents
         });
         /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public static readonly BindableProperty PaddingProperty = BindableProperty.Create("Padding", typeof(Extents), typeof(View), new Extents(0,0,0,0), propertyChanged: (bindable, oldValue, newValue) =>
+        public static readonly BindableProperty PaddingProperty = BindableProperty.Create("Padding", typeof(Extents), typeof(View), new Extents(0, 0, 0, 0), propertyChanged: (bindable, oldValue, newValue) =>
         {
             var view = (View)bindable;
             if (newValue != null)
@@ -1086,7 +1092,7 @@ namespace Tizen.NUI.BaseComponents
                 Tizen.NUI.Object.SetProperty(view.swigCPtr, View.Property.PADDING, new Tizen.NUI.PropertyValue((Extents)newValue));
             }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             Extents temp = new Extents(0, 0, 0, 0);
@@ -1095,7 +1101,7 @@ namespace Tizen.NUI.BaseComponents
         });
         /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public static readonly BindableProperty SizeProperty = BindableProperty.Create("Size", typeof(Size), typeof(View), new Size(0,0,0), propertyChanged: (bindable, oldValue, newValue) =>
+        public static readonly BindableProperty SizeProperty = BindableProperty.Create("Size", typeof(Size), typeof(View), new Size(0, 0, 0), propertyChanged: (bindable, oldValue, newValue) =>
         {
             var view = (View)bindable;
             if (newValue != null)
@@ -1111,7 +1117,7 @@ namespace Tizen.NUI.BaseComponents
         });
         /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public static readonly BindableProperty MinimumSizeProperty = BindableProperty.Create("MinimumSize", typeof(Size2D), typeof(View), new Size2D(0,0), propertyChanged: (bindable, oldValue, newValue) =>
+        public static readonly BindableProperty MinimumSizeProperty = BindableProperty.Create("MinimumSize", typeof(Size2D), typeof(View), new Size2D(0, 0), propertyChanged: (bindable, oldValue, newValue) =>
         {
             var view = (View)bindable;
             if (newValue != null)
@@ -1119,7 +1125,7 @@ namespace Tizen.NUI.BaseComponents
                 Tizen.NUI.Object.SetProperty(view.swigCPtr, View.Property.MINIMUM_SIZE, new Tizen.NUI.PropertyValue((Size2D)newValue));
             }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             Size2D temp = new Size2D(0, 0);
@@ -1128,7 +1134,7 @@ namespace Tizen.NUI.BaseComponents
         });
         /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public static readonly BindableProperty MaximumSizeProperty = BindableProperty.Create("MaximumSize", typeof(Size2D), typeof(View), new Size2D(0,0), propertyChanged: (bindable, oldValue, newValue) =>
+        public static readonly BindableProperty MaximumSizeProperty = BindableProperty.Create("MaximumSize", typeof(Size2D), typeof(View), new Size2D(0, 0), propertyChanged: (bindable, oldValue, newValue) =>
         {
             var view = (View)bindable;
             if (newValue != null)
@@ -1136,7 +1142,7 @@ namespace Tizen.NUI.BaseComponents
                 Tizen.NUI.Object.SetProperty(view.swigCPtr, View.Property.MAXIMUM_SIZE, new Tizen.NUI.PropertyValue((Size2D)newValue));
             }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             Size2D temp = new Size2D(0, 0);
@@ -1153,7 +1159,7 @@ namespace Tizen.NUI.BaseComponents
                 Tizen.NUI.Object.SetProperty(view.swigCPtr, View.Property.INHERIT_POSITION, new Tizen.NUI.PropertyValue((bool)newValue));
             }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             bool temp = false;
@@ -1170,7 +1176,7 @@ namespace Tizen.NUI.BaseComponents
                 Tizen.NUI.Object.SetProperty(view.swigCPtr, View.Property.CLIPPING_MODE, new Tizen.NUI.PropertyValue((int)newValue));
             }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             int temp = 0;
@@ -1190,7 +1196,7 @@ namespace Tizen.NUI.BaseComponents
                 Tizen.NUI.Object.SetProperty(view.swigCPtr, View.Property.INHERIT_LAYOUT_DIRECTION, new Tizen.NUI.PropertyValue((bool)newValue));
             }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             bool temp = false;
@@ -1207,7 +1213,7 @@ namespace Tizen.NUI.BaseComponents
                 Tizen.NUI.Object.SetProperty(view.swigCPtr, View.Property.LAYOUT_DIRECTION, new Tizen.NUI.PropertyValue((int)newValue));
             }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             int temp;
@@ -1219,7 +1225,7 @@ namespace Tizen.NUI.BaseComponents
         });
         /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public static readonly BindableProperty MarginProperty = BindableProperty.Create("Margin", typeof(Extents), typeof(View), new Extents(0,0,0,0), propertyChanged: (bindable, oldValue, newValue) =>
+        public static readonly BindableProperty MarginProperty = BindableProperty.Create("Margin", typeof(Extents), typeof(View), new Extents(0, 0, 0, 0), propertyChanged: (bindable, oldValue, newValue) =>
         {
             var view = (View)bindable;
             if (newValue != null)
@@ -1227,7 +1233,7 @@ namespace Tizen.NUI.BaseComponents
                 Tizen.NUI.Object.SetProperty(view.swigCPtr, View.Property.MARGIN, new Tizen.NUI.PropertyValue((Extents)newValue));
             }
         },
-        defaultValueCreator:(bindable) =>
+        defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
             Extents temp = new Extents(0, 0, 0, 0);
@@ -1239,10 +1245,57 @@ namespace Tizen.NUI.BaseComponents
         public static readonly BindableProperty StyleProperty = BindableProperty.Create("Style", typeof(Style), typeof(View), default(Style),
     propertyChanged: (bindable, oldvalue, newvalue) => ((View)bindable)._mergedStyle.Style = (Style)newvalue);
 
-
+        internal readonly MergedStyle _mergedStyle;
+        /// <summary>
+        /// Flag to allow Layouting to be disabled for Views.
+        /// Once a View has a Layout set then any children added to Views from then on will receive
+        /// automatic Layouts.
+        /// </summary>
+        private static bool layoutingDisabled = true;
         private global::System.Runtime.InteropServices.HandleRef swigCPtr;
 
         private bool layoutSet = false; // Flag to indicate if SetLayout was called or View was automatically given a Layout
+        private bool _backgroundImageSynchronosLoading = false;
+        private EventHandler _offWindowEventHandler;
+        private OffWindowEventCallbackType _offWindowEventCallback;
+        private EventHandlerWithReturnType<object, WheelEventArgs, bool> _wheelEventHandler;
+        private WheelEventCallbackType _wheelEventCallback;
+        private EventHandlerWithReturnType<object, KeyEventArgs, bool> _keyEventHandler;
+        private KeyCallbackType _keyCallback;
+        private EventHandlerWithReturnType<object, TouchEventArgs, bool> _touchDataEventHandler;
+        private TouchDataCallbackType _touchDataCallback;
+        private EventHandlerWithReturnType<object, HoverEventArgs, bool> _hoverEventHandler;
+        private HoverEventCallbackType _hoverEventCallback;
+        private EventHandler<VisibilityChangedEventArgs> _visibilityChangedEventHandler;
+        private VisibilityChangedEventCallbackType _visibilityChangedEventCallback;
+        private EventHandler _keyInputFocusGainedEventHandler;
+        private KeyInputFocusGainedCallbackType _keyInputFocusGainedCallback;
+        private EventHandler _keyInputFocusLostEventHandler;
+        private KeyInputFocusLostCallbackType _keyInputFocusLostCallback;
+        private EventHandler _onRelayoutEventHandler;
+        private OnRelayoutEventCallbackType _onRelayoutEventCallback;
+        private EventHandler _onWindowEventHandler;
+        private OnWindowEventCallbackType _onWindowEventCallback;
+        private EventHandler<LayoutDirectionChangedEventArgs> _layoutDirectionChangedEventHandler;
+        private LayoutDirectionChangedEventCallbackType _layoutDirectionChangedEventCallback;
+        // Resource Ready Signal
+        private EventHandler _resourcesLoadedEventHandler;
+        private ResourcesLoadedCallbackType _ResourcesLoadedCallback;
+        private EventHandler<BackgroundResourceLoadedEventArgs> _backgroundResourceLoadedEventHandler;
+        private _backgroundResourceLoadedCallbackType _backgroundResourceLoadedCallback;
+
+        /// <summary>
+        /// Creates a new instance of a view.
+        /// </summary>
+        /// <since_tizen> 3 </since_tizen>
+        public View() : this(NDalicPINVOKE.View_New(), true)
+        {
+            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+        }
+        internal View(View uiControl) : this(NDalicPINVOKE.new_View__SWIG_1(View.getCPtr(uiControl)), true)
+        {
+            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+        }
 
         internal View(global::System.IntPtr cPtr, bool cMemoryOwn) : base(NDalicPINVOKE.View_SWIGUpcast(cPtr), cMemoryOwn)
         {
@@ -1254,345 +1307,48 @@ namespace Tizen.NUI.BaseComponents
             _mergedStyle = new MergedStyle(GetType(), this);
         }
 
-        internal static global::System.Runtime.InteropServices.HandleRef getCPtr(View obj)
+        internal View(ViewImpl implementation) : this(NDalicPINVOKE.new_View__SWIG_2(ViewImpl.getCPtr(implementation)), true)
         {
-            return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
+            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
         }
 
-        /// <summary>
-        /// Event argument passed through the ChildAdded event.
-        /// </summary>
-        /// <since_tizen> 5 </since_tizen>
-        public class ChildAddedEventArgs : EventArgs
-        {
-            /// <summary>
-            /// Added child view at moment.
-            /// </summary>
-            /// <since_tizen> 5 </since_tizen>
-            public View Added { get; set; }
-        }
-
-        /// <summary>
-        /// Event when a child is added.
-        /// </summary>
-        /// <since_tizen> 5 </since_tizen>
-        public new event EventHandler<ChildAddedEventArgs> ChildAdded;
-
-        // From Container Base class
-        /// <summary>
-        /// Adds a child view to this view.
-        /// </summary>
-        /// <seealso cref="Container.Add" />
-        /// <since_tizen> 4 </since_tizen>
-        public override void Add(View child)
-        {
-            if (null == child)
-            {
-                Tizen.Log.Fatal("NUI", "Child is null");
-                return;
-            }
-
-            Log.Info("NUI", "Adding Child:" + child.Name + " to " + Name + "\n");
-
-            Container oldParent = child.GetParent();
-            if (oldParent != this)
-            {
-                if (oldParent != null)
-                {
-                    oldParent.Remove(child);
-                }
-                child.InternalParent = this;
-
-                // Only give children a layout if their parent is an explicit container or a pure View.
-                // Pure View meaning not derived from a View, e.g a Legacy container.
-                // layoutSet flag is true when the View became a layout using the set Layout API opposed to automatically due to it's parent.
-                // First time the set Layout API is used by any View the Window no longer has layoutingDisabled.
-                if ((true == layoutSet || GetType() == typeof(View)) && null == child.Layout && false == layoutingDisabled )
-                {
-                    Log.Info("NUI", "Parent[" + Name + "] Layout set[" + layoutSet.ToString() + "] Pure View[" + (!layoutSet).ToString() + "]\n");
-                    // If child is a View or explicitly set to require layouting then set child as a LayoutGroup.
-                    // If the child is derived from a View then it may be a legacy or existing container hence will do layouting itself.
-                    if( child.GetType() == typeof(View) ||  true == child.LayoutingRequired )
-                    {
-                        Log.Info("NUI", "Creating LayoutGroup for " + child.Name + " LayoutingRequired[" + child.LayoutingRequired.ToString() + "]\n");
-                        child.SetLayout( new LayoutGroup() );
-                    }
-                    else
-                    {
-                        // Adding child as a leaf, layouting will not propagate past this child.
-                        // Legacy containers will be a LayoutItems too and layout their children how they wish.
-                        Log.Info("NUI", "Creating LayoutItem for " + child.Name + "\n");
-                        child.SetLayout( new LayoutItem() );
-                    }
-                }
-
-                if (Layout)
-                {
-                    Layout.LayoutChildren.Add(child.Layout);
-                }
-
-                NDalicPINVOKE.Actor_Add(swigCPtr, View.getCPtr(child));
-                if (NDalicPINVOKE.SWIGPendingException.Pending)
-                    throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-                Children.Add(child);
-
-                if (ChildAdded != null)
-                {
-                    ChildAddedEventArgs e = new ChildAddedEventArgs
-                    {
-                        Added = child
-                    };
-                    ChildAdded(this, e);
-                }
-            }
-        }
-
-        /// <summary>
-        /// Event argument passed through the ChildRemoved event.
-        /// </summary>
-        /// <since_tizen> 5 </since_tizen>
-        public class ChildRemovedEventArgs : EventArgs
-        {
-            /// <summary>
-            /// Removed child view at moment.
-            /// </summary>
-            /// <since_tizen> 5 </since_tizen>
-            public View Removed { get; set; }
-        }
+        [UnmanagedFunctionPointer(CallingConvention.StdCall)]
+        private delegate void OffWindowEventCallbackType(IntPtr control);
+        [UnmanagedFunctionPointer(CallingConvention.StdCall)]
+        private delegate bool WheelEventCallbackType(IntPtr view, IntPtr wheelEvent);
+        [UnmanagedFunctionPointer(CallingConvention.StdCall)]
+        private delegate bool KeyCallbackType(IntPtr control, IntPtr keyEvent);
+        [UnmanagedFunctionPointer(CallingConvention.StdCall)]
+        private delegate bool TouchDataCallbackType(IntPtr view, IntPtr touchData);
+        [UnmanagedFunctionPointer(CallingConvention.StdCall)]
+        private delegate bool HoverEventCallbackType(IntPtr view, IntPtr hoverEvent);
+        [UnmanagedFunctionPointer(CallingConvention.StdCall)]
+        private delegate void VisibilityChangedEventCallbackType(IntPtr data, bool visibility, VisibilityChangeType type);
+        [UnmanagedFunctionPointer(CallingConvention.StdCall)]
+        private delegate void ResourcesLoadedCallbackType(IntPtr control);
+        [UnmanagedFunctionPointer(CallingConvention.StdCall)]
+        private delegate void _backgroundResourceLoadedCallbackType(IntPtr view);
+        [UnmanagedFunctionPointer(CallingConvention.StdCall)]
+        private delegate void KeyInputFocusGainedCallbackType(IntPtr control);
+        [UnmanagedFunctionPointer(CallingConvention.StdCall)]
+        private delegate void KeyInputFocusLostCallbackType(IntPtr control);
+        [UnmanagedFunctionPointer(CallingConvention.StdCall)]
+        private delegate void OnRelayoutEventCallbackType(IntPtr control);
+        [UnmanagedFunctionPointer(CallingConvention.StdCall)]
+        private delegate void OnWindowEventCallbackType(IntPtr control);
+        [UnmanagedFunctionPointer(CallingConvention.StdCall)]
+        private delegate void LayoutDirectionChangedEventCallbackType(IntPtr data, ViewLayoutDirectionType type);
 
         /// <summary>
         /// Event when a child is removed.
         /// </summary>
         /// <since_tizen> 5 </since_tizen>
         public new event EventHandler<ChildRemovedEventArgs> ChildRemoved;
-
-
         /// <summary>
-        /// Removes a child view from this View. If the view was not a child of this view, this is a no-op.
+        /// Event when a child is added.
         /// </summary>
-        /// <seealso cref="Container.Remove" />
-        /// <since_tizen> 4 </since_tizen>
-        public override void Remove(View child)
-        {
-            NDalicPINVOKE.Actor_Remove(swigCPtr, View.getCPtr(child));
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-
-            Children.Remove(child);
-            child.InternalParent = null;
-
-            if (Layout)
-            {
-                if(child.Layout)
-                {
-                    Layout.LayoutChildren.Remove(child.Layout);
-                }
-            }
-
-            if (ChildRemoved != null)
-            {
-                ChildRemovedEventArgs e = new ChildRemovedEventArgs
-                {
-                    Removed = child
-                };
-                ChildRemoved(this, e);
-            }
-        }
-
-        /// <summary>
-        /// Retrieves a child view by index.
-        /// </summary>
-        /// <seealso cref="Container.GetChildAt" />
-        /// <since_tizen> 4 </since_tizen>
-        public override View GetChildAt(uint index)
-        {
-            if (index < Children.Count)
-            {
-                return Children[Convert.ToInt32(index)];
-            }
-            else
-            {
-                return null;
-            }
-        }
-
-        /// <summary>
-        /// Retrieves the number of children held by the view.
-        /// </summary>
-        /// <seealso cref="Container.GetChildCount" />
-        /// <since_tizen> 4 </since_tizen>
-        public override uint GetChildCount()
-        {
-            return Convert.ToUInt32(Children.Count);
-        }
-
-        /// <summary>
-        /// Gets the views parent.
-        /// </summary>
-        /// <seealso cref="Container.GetParent()" />
-        /// <since_tizen> 4 </since_tizen>
-        public override Container GetParent()
-        {
-            return this.InternalParent as Container;
-        }
-
-        internal bool IsTopLevelView()
-        {
-            if (GetParent() is Layer)
-            {
-                return true;
-            }
-            return false;
-        }
-
-        /// <summary>
-        /// you can override it to clean-up your own resources.
-        /// </summary>
-        /// <param name="type">DisposeTypes</param>
-        /// <since_tizen> 3 </since_tizen>
-        protected override void Dispose(DisposeTypes type)
-        {
-            if (disposed)
-            {
-                return;
-            }
-
-            if (type == DisposeTypes.Explicit)
-            {
-                //Called by User
-                //Release your own managed resources here.
-                //You should release all of your own disposable objects here.
-            }
-
-            //Release your own unmanaged resources here.
-            //You should not access any managed member here except static instance.
-            //because the execution order of Finalizes is non-deterministic.
-            if (this != null)
-            {
-                DisConnectFromSignals();
-            }
-
-            if (swigCPtr.Handle != global::System.IntPtr.Zero)
-            {
-                if (swigCMemOwn)
-                {
-                    swigCMemOwn = false;
-                    NDalicPINVOKE.delete_View(swigCPtr);
-                }
-                swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
-            }
-
-            foreach (View view in Children)
-            {
-                view.InternalParent = null;
-            }
-
-            base.Dispose(type);
-
-        }
-
-        private void DisConnectFromSignals()
-        {
-            // Save current CPtr.
-            global::System.Runtime.InteropServices.HandleRef currentCPtr = swigCPtr;
-
-            // Use BaseHandle CPtr as current might have been deleted already in derived classes.
-            swigCPtr = GetBaseHandleCPtrHandleRef;
-
-            if (_onRelayoutEventCallback != null)
-            {
-                this.OnRelayoutSignal().Disconnect(_onRelayoutEventCallback);
-            }
-
-            if (_offWindowEventCallback != null)
-            {
-                this.OffWindowSignal().Disconnect(_offWindowEventCallback);
-            }
-
-            if (_onWindowEventCallback != null)
-            {
-                this.OnWindowSignal().Disconnect(_onWindowEventCallback);
-            }
-
-            if (_wheelEventCallback != null)
-            {
-                this.WheelEventSignal().Disconnect(_wheelEventCallback);
-            }
-
-            if (_hoverEventCallback != null)
-            {
-                this.HoveredSignal().Disconnect(_hoverEventCallback);
-            }
-
-            if (_touchDataCallback != null)
-            {
-                this.TouchSignal().Disconnect(_touchDataCallback);
-            }
-
-            if (_ResourcesLoadedCallback != null)
-            {
-                this.ResourcesLoadedSignal().Disconnect(_ResourcesLoadedCallback);
-            }
-
-            if (_offWindowEventCallback != null)
-            {
-                this.OffWindowSignal().Disconnect(_offWindowEventCallback);
-            }
-
-            if (_onWindowEventCallback != null)
-            {
-                this.OnWindowSignal().Disconnect(_onWindowEventCallback);
-            }
-
-            if (_wheelEventCallback != null)
-            {
-                this.WheelEventSignal().Disconnect(_wheelEventCallback);
-            }
-
-            if (_hoverEventCallback != null)
-            {
-                this.HoveredSignal().Disconnect(_hoverEventCallback);
-            }
-
-            if (_touchDataCallback != null)
-            {
-                this.TouchSignal().Disconnect(_touchDataCallback);
-            }
-
-            if (_onRelayoutEventCallback != null)
-            {
-                this.OnRelayoutSignal().Disconnect(_onRelayoutEventCallback);
-            }
-
-            if (_keyCallback != null)
-            {
-                this.KeyEventSignal().Disconnect(_keyCallback);
-            }
-
-            if (_keyInputFocusLostCallback != null)
-            {
-                this.KeyInputFocusLostSignal().Disconnect(_keyInputFocusLostCallback);
-            }
-
-            if (_keyInputFocusGainedCallback != null)
-            {
-                this.KeyInputFocusGainedSignal().Disconnect(_keyInputFocusGainedCallback);
-            }
-
-            if (_backgroundResourceLoadedCallback != null)
-            {
-                this.ResourcesLoadedSignal().Disconnect(_backgroundResourceLoadedCallback);
-            }
-
-            // BaseHandle CPtr is used in Registry and there is danger of deletion if we keep using it here.
-            // Restore current CPtr.
-            swigCPtr = currentCPtr;
-        }
-
-        private EventHandler _keyInputFocusGainedEventHandler;
-        [UnmanagedFunctionPointer(CallingConvention.StdCall)]
-        private delegate void KeyInputFocusGainedCallbackType(IntPtr control);
-        private KeyInputFocusGainedCallbackType _keyInputFocusGainedCallback;
+        /// <since_tizen> 5 </since_tizen>
+        public new event EventHandler<ChildAddedEventArgs> ChildAdded;
 
         /// <summary>
         /// An event for the KeyInputFocusGained signal which can be used to subscribe or unsubscribe the event handler provided by the user.<br />
@@ -1623,20 +1379,6 @@ namespace Tizen.NUI.BaseComponents
             }
         }
 
-        private void OnKeyInputFocusGained(IntPtr view)
-        {
-            if (_keyInputFocusGainedEventHandler != null)
-            {
-                _keyInputFocusGainedEventHandler(this, null);
-            }
-        }
-
-
-        private EventHandler _keyInputFocusLostEventHandler;
-        [UnmanagedFunctionPointer(CallingConvention.StdCall)]
-        private delegate void KeyInputFocusLostCallbackType(IntPtr control);
-        private KeyInputFocusLostCallbackType _keyInputFocusLostCallback;
-
         /// <summary>
         /// An event for the KeyInputFocusLost signal which can be used to subscribe or unsubscribe the event handler provided by the user.<br />
         /// The KeyInputFocusLost signal is emitted when the control loses the key input focus.<br />
@@ -1666,44 +1408,6 @@ namespace Tizen.NUI.BaseComponents
             }
         }
 
-        private void OnKeyInputFocusLost(IntPtr view)
-        {
-            if (_keyInputFocusLostEventHandler != null)
-            {
-                _keyInputFocusLostEventHandler(this, null);
-            }
-        }
-
-        /// <summary>
-        /// Event arguments that passed via the KeyEvent signal.
-        /// </summary>
-        /// <since_tizen> 3 </since_tizen>
-        public class KeyEventArgs : EventArgs
-        {
-            private Key _key;
-
-            /// <summary>
-            /// Key - is the key sent to the view.
-            /// </summary>
-            /// <since_tizen> 3 </since_tizen>
-            public Key Key
-            {
-                get
-                {
-                    return _key;
-                }
-                set
-                {
-                    _key = value;
-                }
-            }
-        }
-
-        private EventHandlerWithReturnType<object, KeyEventArgs, bool> _keyEventHandler;
-        [UnmanagedFunctionPointer(CallingConvention.StdCall)]
-        private delegate bool KeyCallbackType(IntPtr control, IntPtr keyEvent);
-        private KeyCallbackType _keyCallback;
-
         /// <summary>
         /// An event for the KeyPressed signal which can be used to subscribe or unsubscribe the event handler provided by the user.<br />
         /// The KeyPressed signal is emitted when the key event is received.<br />
@@ -1732,39 +1436,6 @@ namespace Tizen.NUI.BaseComponents
                 }
             }
         }
-
-        private bool OnKeyEvent(IntPtr view, IntPtr keyEvent)
-        {
-            if (keyEvent == global::System.IntPtr.Zero)
-            {
-                NUILog.Error("keyEvent should not be null!");
-                return true;
-            }
-
-            KeyEventArgs e = new KeyEventArgs();
-
-            bool result = false;
-
-            e.Key = Tizen.NUI.Key.GetKeyFromPtr(keyEvent);
-
-            if (_keyEventHandler != null)
-            {
-                Delegate[] delegateList = _keyEventHandler.GetInvocationList();
-
-                // Oring the result of each callback.
-                foreach (EventHandlerWithReturnType<object, KeyEventArgs, bool> del in delegateList)
-                {
-                    result |= del(this, e);
-                }
-            }
-
-            return result;
-        }
-
-        private EventHandler _onRelayoutEventHandler;
-        [UnmanagedFunctionPointer(CallingConvention.StdCall)]
-        private delegate void OnRelayoutEventCallbackType(IntPtr control);
-        private OnRelayoutEventCallbackType _onRelayoutEventCallback;
 
         /// <summary>
         /// An event for the OnRelayout signal which can be used to subscribe or unsubscribe the event handler.<br />
@@ -1796,45 +1467,6 @@ namespace Tizen.NUI.BaseComponents
             }
         }
 
-        // Callback for View OnRelayout signal
-        private void OnRelayout(IntPtr data)
-        {
-            if (_onRelayoutEventHandler != null)
-            {
-                _onRelayoutEventHandler(this, null);
-            }
-        }
-
-        /// <summary>
-        /// Event arguments that passed via the touch signal.
-        /// </summary>
-        /// <since_tizen> 3 </since_tizen>
-        public class TouchEventArgs : EventArgs
-        {
-            private Touch _touch;
-
-            /// <summary>
-            /// Touch - contains the information of touch points.
-            /// </summary>
-            /// <since_tizen> 3 </since_tizen>
-            public Touch Touch
-            {
-                get
-                {
-                    return _touch;
-                }
-                set
-                {
-                    _touch = value;
-                }
-            }
-        }
-
-        private EventHandlerWithReturnType<object, TouchEventArgs, bool> _touchDataEventHandler;
-        [UnmanagedFunctionPointer(CallingConvention.StdCall)]
-        private delegate bool TouchDataCallbackType(IntPtr view, IntPtr touchData);
-        private TouchDataCallbackType _touchDataCallback;
-
         /// <summary>
         /// An event for the touched signal which can be used to subscribe or unsubscribe the event handler provided by the user.<br />
         /// The touched signal is emitted when the touch input is received.<br />
@@ -1864,57 +1496,6 @@ namespace Tizen.NUI.BaseComponents
 
             }
         }
-
-        // Callback for View TouchSignal
-        private bool OnTouch(IntPtr view, IntPtr touchData)
-        {
-            if (touchData == global::System.IntPtr.Zero)
-            {
-                NUILog.Error("touchData should not be null!");
-                return true;
-            }
-
-            TouchEventArgs e = new TouchEventArgs();
-
-            e.Touch = Tizen.NUI.Touch.GetTouchFromPtr(touchData);
-
-            if (_touchDataEventHandler != null)
-            {
-                return _touchDataEventHandler(this, e);
-            }
-            return false;
-        }
-
-
-        /// <summary>
-        /// Event arguments that passed via the hover signal.
-        /// </summary>
-        /// <since_tizen> 3 </since_tizen>
-        public class HoverEventArgs : EventArgs
-        {
-            private Hover _hover;
-
-            /// <summary>
-            /// Hover - contains touch points that represent the points that are currently being hovered or the points where a hover has stopped.
-            /// </summary>
-            /// <since_tizen> 3 </since_tizen>
-            public Hover Hover
-            {
-                get
-                {
-                    return _hover;
-                }
-                set
-                {
-                    _hover = value;
-                }
-            }
-        }
-
-        private EventHandlerWithReturnType<object, HoverEventArgs, bool> _hoverEventHandler;
-        [UnmanagedFunctionPointer(CallingConvention.StdCall)]
-        private delegate bool HoverEventCallbackType(IntPtr view, IntPtr hoverEvent);
-        private HoverEventCallbackType _hoverEventCallback;
 
         /// <summary>
         /// An event for the hovered signal which can be used to subscribe or unsubscribe the event handler provided by the user.<br />
@@ -1946,57 +1527,6 @@ namespace Tizen.NUI.BaseComponents
             }
         }
 
-        // Callback for View Hover signal
-        private bool OnHoverEvent(IntPtr view, IntPtr hoverEvent)
-        {
-            if (hoverEvent == global::System.IntPtr.Zero)
-            {
-                NUILog.Error("hoverEvent should not be null!");
-                return true;
-            }
-
-            HoverEventArgs e = new HoverEventArgs();
-
-            e.Hover = Tizen.NUI.Hover.GetHoverFromPtr(hoverEvent);
-
-            if (_hoverEventHandler != null)
-            {
-                return _hoverEventHandler(this, e);
-            }
-            return false;
-        }
-
-
-        /// <summary>
-        /// Event arguments that passed via the wheel signal.
-        /// </summary>
-        /// <since_tizen> 3 </since_tizen>
-        public class WheelEventArgs : EventArgs
-        {
-            private Wheel _wheel;
-
-            /// <summary>
-            /// WheelEvent - store a wheel rolling type: MOUSE_WHEEL or CUSTOM_WHEEL.
-            /// </summary>
-            /// <since_tizen> 3 </since_tizen>
-            public Wheel Wheel
-            {
-                get
-                {
-                    return _wheel;
-                }
-                set
-                {
-                    _wheel = value;
-                }
-            }
-        }
-
-        private EventHandlerWithReturnType<object, WheelEventArgs, bool> _wheelEventHandler;
-        [UnmanagedFunctionPointer(CallingConvention.StdCall)]
-        private delegate bool WheelEventCallbackType(IntPtr view, IntPtr wheelEvent);
-        private WheelEventCallbackType _wheelEventCallback;
-
         /// <summary>
         /// An event for the WheelMoved signal which can be used to subscribe or unsubscribe the event handler provided by the user.<br />
         /// The WheelMoved signal is emitted when the wheel event is received.<br />
@@ -2027,32 +1557,6 @@ namespace Tizen.NUI.BaseComponents
             }
         }
 
-        // Callback for View Wheel signal
-        private bool OnWheelEvent(IntPtr view, IntPtr wheelEvent)
-        {
-            if (wheelEvent == global::System.IntPtr.Zero)
-            {
-                NUILog.Error("wheelEvent should not be null!");
-                return true;
-            }
-
-            WheelEventArgs e = new WheelEventArgs();
-
-            e.Wheel = Tizen.NUI.Wheel.GetWheelFromPtr(wheelEvent);
-
-            if (_wheelEventHandler != null)
-            {
-                return _wheelEventHandler(this, e);
-            }
-            return false;
-        }
-
-
-        private EventHandler _onWindowEventHandler;
-        [UnmanagedFunctionPointer(CallingConvention.StdCall)]
-        private delegate void OnWindowEventCallbackType(IntPtr control);
-        private OnWindowEventCallbackType _onWindowEventCallback;
-
         /// <summary>
         /// An event for the OnWindow signal which can be used to subscribe or unsubscribe the event handler.<br />
         /// The OnWindow signal is emitted after the view has been connected to the window.<br />
@@ -2081,21 +1585,6 @@ namespace Tizen.NUI.BaseComponents
                 }
             }
         }
-
-        // Callback for View OnWindow signal
-        private void OnWindow(IntPtr data)
-        {
-            if (_onWindowEventHandler != null)
-            {
-                _onWindowEventHandler(this, null);
-            }
-        }
-
-
-        private EventHandler _offWindowEventHandler;
-        [UnmanagedFunctionPointer(CallingConvention.StdCall)]
-        private delegate void OffWindowEventCallbackType(IntPtr control);
-        private OffWindowEventCallbackType _offWindowEventCallback;
 
         /// <summary>
         /// An event for the OffWindow signal, which can be used to subscribe or unsubscribe the event handler.<br />
@@ -2126,79 +1615,6 @@ namespace Tizen.NUI.BaseComponents
             }
         }
 
-        // Callback for View OffWindow signal
-        private void OffWindow(IntPtr data)
-        {
-            if (_offWindowEventHandler != null)
-            {
-                _offWindowEventHandler(this, null);
-            }
-        }
-
-        /// <summary>
-        /// Event arguments of visibility changed.
-        /// </summary>
-        /// <since_tizen> 3 </since_tizen>
-        public class VisibilityChangedEventArgs : EventArgs
-        {
-            private View _view;
-            private bool _visibility;
-            private VisibilityChangeType _type;
-
-            /// <summary>
-            /// The view, or child of view, whose visibility has changed.
-            /// </summary>
-            /// <since_tizen> 3 </since_tizen>
-            public View View
-            {
-                get
-                {
-                    return _view;
-                }
-                set
-                {
-                    _view = value;
-                }
-            }
-
-            /// <summary>
-            /// Whether the view is now visible or not.
-            /// </summary>
-            /// <since_tizen> 3 </since_tizen>
-            public bool Visibility
-            {
-                get
-                {
-                    return _visibility;
-                }
-                set
-                {
-                    _visibility = value;
-                }
-            }
-
-            /// <summary>
-            /// Whether the view's visible property has changed or a parent's.
-            /// </summary>
-            /// <since_tizen> 3 </since_tizen>
-            public VisibilityChangeType Type
-            {
-                get
-                {
-                    return _type;
-                }
-                set
-                {
-                    _type = value;
-                }
-            }
-        }
-
-        private EventHandler<VisibilityChangedEventArgs> _visibilityChangedEventHandler;
-        [UnmanagedFunctionPointer(CallingConvention.StdCall)]
-        private delegate void VisibilityChangedEventCallbackType(IntPtr data, bool visibility, VisibilityChangeType type);
-        private VisibilityChangedEventCallbackType _visibilityChangedEventCallback;
-
         /// <summary>
         /// An event for visibility change which can be used to subscribe or unsubscribe the event handler.<br />
         /// This signal is emitted when the visible property of this or a parent view is changed.<br />
@@ -2227,71 +1643,6 @@ namespace Tizen.NUI.BaseComponents
                 }
             }
         }
-
-        // Callback for View visibility change signal
-        private void OnVisibilityChanged(IntPtr data, bool visibility, VisibilityChangeType type)
-        {
-            VisibilityChangedEventArgs e = new VisibilityChangedEventArgs();
-            if (data != null)
-            {
-                e.View = Registry.GetManagedBaseHandleFromNativePtr(data) as View;
-            }
-            e.Visibility = visibility;
-            e.Type = type;
-
-            if (_visibilityChangedEventHandler != null)
-            {
-                _visibilityChangedEventHandler(this, e);
-            }
-        }
-
-
-        /// <summary>
-        /// Event arguments of layout direction changed.
-        /// </summary>
-        /// <since_tizen> 4 </since_tizen>
-        public class LayoutDirectionChangedEventArgs : EventArgs
-        {
-            private View _view;
-            private ViewLayoutDirectionType _type;
-
-            /// <summary>
-            /// The view, or child of view, whose layout direction has changed.
-            /// </summary>
-            /// <since_tizen> 4 </since_tizen>
-            public View View
-            {
-                get
-                {
-                    return _view;
-                }
-                set
-                {
-                    _view = value;
-                }
-            }
-
-            /// <summary>
-            /// Whether the view's layout direction property has changed or a parent's.
-            /// </summary>
-            /// <since_tizen> 4 </since_tizen>
-            public ViewLayoutDirectionType Type
-            {
-                get
-                {
-                    return _type;
-                }
-                set
-                {
-                    _type = value;
-                }
-            }
-        }
-
-        private EventHandler<LayoutDirectionChangedEventArgs> _layoutDirectionChangedEventHandler;
-        [UnmanagedFunctionPointer(CallingConvention.StdCall)]
-        private delegate void LayoutDirectionChangedEventCallbackType(IntPtr data, ViewLayoutDirectionType type);
-        private LayoutDirectionChangedEventCallbackType _layoutDirectionChangedEventCallback;
 
         /// <summary>
         /// Event for layout direction change which can be used to subscribe/unsubscribe the event handler.<br />
@@ -2322,29 +1673,6 @@ namespace Tizen.NUI.BaseComponents
             }
         }
 
-        // Callback for View layout direction change signal
-        private void OnLayoutDirectionChanged(IntPtr data, ViewLayoutDirectionType type)
-        {
-            LayoutDirectionChangedEventArgs e = new LayoutDirectionChangedEventArgs();
-            if (data != null)
-            {
-                e.View = Registry.GetManagedBaseHandleFromNativePtr(data) as View;
-            }
-            e.Type = type;
-
-            if (_layoutDirectionChangedEventHandler != null)
-            {
-                _layoutDirectionChangedEventHandler(this, e);
-            }
-        }
-
-        // Resource Ready Signal
-
-        private EventHandler _resourcesLoadedEventHandler;
-        [UnmanagedFunctionPointer(CallingConvention.StdCall)]
-        private delegate void ResourcesLoadedCallbackType(IntPtr control);
-        private ResourcesLoadedCallbackType _ResourcesLoadedCallback;
-
         /// <summary>
         /// An event for the ResourcesLoadedSignal signal which can be used to subscribe or unsubscribe the event handler provided by the user.<br />
         /// This signal is emitted after all resources required by a view are loaded and ready.<br />
@@ -2374,84 +1702,47 @@ namespace Tizen.NUI.BaseComponents
             }
         }
 
-        private void OnResourcesLoaded(IntPtr view)
+        internal event EventHandler<BackgroundResourceLoadedEventArgs> BackgroundResourceLoaded
         {
-            if (_resourcesLoadedEventHandler != null)
+            add
             {
-                _resourcesLoadedEventHandler(this, null);
+                if (_backgroundResourceLoadedEventHandler == null)
+                {
+                    _backgroundResourceLoadedCallback = OnBackgroundResourceLoaded;
+                    this.ResourcesLoadedSignal().Connect(_backgroundResourceLoadedCallback);
+                }
+
+                _backgroundResourceLoadedEventHandler += value;
+            }
+            remove
+            {
+                _backgroundResourceLoadedEventHandler -= value;
+
+                if (_backgroundResourceLoadedEventHandler == null && ResourcesLoadedSignal().Empty() == false)
+                {
+                    this.ResourcesLoadedSignal().Disconnect(_backgroundResourceLoadedCallback);
+                }
             }
         }
 
-        internal IntPtr GetPtrfromView()
+        /// <summary>
+        /// Enumeration for describing the states of the view.
+        /// </summary>
+        /// <since_tizen> 3 </since_tizen>
+        public enum States
         {
-            return (IntPtr)swigCPtr;
-        }
-
-        internal class Property
-        {
-            internal static readonly int TOOLTIP = NDalicManualPINVOKE.View_Property_TOOLTIP_get();
-            internal static readonly int STATE = NDalicManualPINVOKE.View_Property_STATE_get();
-            internal static readonly int SUB_STATE = NDalicManualPINVOKE.View_Property_SUB_STATE_get();
-            internal static readonly int LEFT_FOCUSABLE_VIEW_ID = NDalicManualPINVOKE.View_Property_LEFT_FOCUSABLE_ACTOR_ID_get();
-            internal static readonly int RIGHT_FOCUSABLE_VIEW_ID = NDalicManualPINVOKE.View_Property_RIGHT_FOCUSABLE_ACTOR_ID_get();
-            internal static readonly int UP_FOCUSABLE_VIEW_ID = NDalicManualPINVOKE.View_Property_UP_FOCUSABLE_ACTOR_ID_get();
-            internal static readonly int DOWN_FOCUSABLE_VIEW_ID = NDalicManualPINVOKE.View_Property_DOWN_FOCUSABLE_ACTOR_ID_get();
-            internal static readonly int STYLE_NAME = NDalicPINVOKE.View_Property_STYLE_NAME_get();
-            internal static readonly int BACKGROUND = NDalicPINVOKE.View_Property_BACKGROUND_get();
-            internal static readonly int SIBLING_ORDER = NDalicManualPINVOKE.Actor_Property_SIBLING_ORDER_get();
-            internal static readonly int OPACITY = NDalicManualPINVOKE.Actor_Property_OPACITY_get();
-            internal static readonly int SCREEN_POSITION = NDalicManualPINVOKE.Actor_Property_SCREEN_POSITION_get();
-            internal static readonly int POSITION_USES_ANCHOR_POINT = NDalicManualPINVOKE.Actor_Property_POSITION_USES_ANCHOR_POINT_get();
-            internal static readonly int PARENT_ORIGIN = NDalicPINVOKE.Actor_Property_PARENT_ORIGIN_get();
-            internal static readonly int PARENT_ORIGIN_X = NDalicPINVOKE.Actor_Property_PARENT_ORIGIN_X_get();
-            internal static readonly int PARENT_ORIGIN_Y = NDalicPINVOKE.Actor_Property_PARENT_ORIGIN_Y_get();
-            internal static readonly int PARENT_ORIGIN_Z = NDalicPINVOKE.Actor_Property_PARENT_ORIGIN_Z_get();
-            internal static readonly int ANCHOR_POINT = NDalicPINVOKE.Actor_Property_ANCHOR_POINT_get();
-            internal static readonly int ANCHOR_POINT_X = NDalicPINVOKE.Actor_Property_ANCHOR_POINT_X_get();
-            internal static readonly int ANCHOR_POINT_Y = NDalicPINVOKE.Actor_Property_ANCHOR_POINT_Y_get();
-            internal static readonly int ANCHOR_POINT_Z = NDalicPINVOKE.Actor_Property_ANCHOR_POINT_Z_get();
-            internal static readonly int SIZE = NDalicPINVOKE.Actor_Property_SIZE_get();
-            internal static readonly int SIZE_WIDTH = NDalicPINVOKE.Actor_Property_SIZE_WIDTH_get();
-            internal static readonly int SIZE_HEIGHT = NDalicPINVOKE.Actor_Property_SIZE_HEIGHT_get();
-            internal static readonly int SIZE_DEPTH = NDalicPINVOKE.Actor_Property_SIZE_DEPTH_get();
-            internal static readonly int POSITION = NDalicPINVOKE.Actor_Property_POSITION_get();
-            internal static readonly int POSITION_X = NDalicPINVOKE.Actor_Property_POSITION_X_get();
-            internal static readonly int POSITION_Y = NDalicPINVOKE.Actor_Property_POSITION_Y_get();
-            internal static readonly int POSITION_Z = NDalicPINVOKE.Actor_Property_POSITION_Z_get();
-            internal static readonly int WORLD_POSITION = NDalicPINVOKE.Actor_Property_WORLD_POSITION_get();
-            internal static readonly int WORLD_POSITION_X = NDalicPINVOKE.Actor_Property_WORLD_POSITION_X_get();
-            internal static readonly int WORLD_POSITION_Y = NDalicPINVOKE.Actor_Property_WORLD_POSITION_Y_get();
-            internal static readonly int WORLD_POSITION_Z = NDalicPINVOKE.Actor_Property_WORLD_POSITION_Z_get();
-            internal static readonly int ORIENTATION = NDalicPINVOKE.Actor_Property_ORIENTATION_get();
-            internal static readonly int WORLD_ORIENTATION = NDalicPINVOKE.Actor_Property_WORLD_ORIENTATION_get();
-            internal static readonly int SCALE = NDalicPINVOKE.Actor_Property_SCALE_get();
-            internal static readonly int SCALE_X = NDalicPINVOKE.Actor_Property_SCALE_X_get();
-            internal static readonly int SCALE_Y = NDalicPINVOKE.Actor_Property_SCALE_Y_get();
-            internal static readonly int SCALE_Z = NDalicPINVOKE.Actor_Property_SCALE_Z_get();
-            internal static readonly int WORLD_SCALE = NDalicPINVOKE.Actor_Property_WORLD_SCALE_get();
-            internal static readonly int VISIBLE = NDalicPINVOKE.Actor_Property_VISIBLE_get();
-            internal static readonly int WORLD_COLOR = NDalicPINVOKE.Actor_Property_WORLD_COLOR_get();
-            internal static readonly int WORLD_MATRIX = NDalicPINVOKE.Actor_Property_WORLD_MATRIX_get();
-            internal static readonly int NAME = NDalicPINVOKE.Actor_Property_NAME_get();
-            internal static readonly int SENSITIVE = NDalicPINVOKE.Actor_Property_SENSITIVE_get();
-            internal static readonly int LEAVE_REQUIRED = NDalicPINVOKE.Actor_Property_LEAVE_REQUIRED_get();
-            internal static readonly int INHERIT_ORIENTATION = NDalicPINVOKE.Actor_Property_INHERIT_ORIENTATION_get();
-            internal static readonly int INHERIT_SCALE = NDalicPINVOKE.Actor_Property_INHERIT_SCALE_get();
-            internal static readonly int DRAW_MODE = NDalicPINVOKE.Actor_Property_DRAW_MODE_get();
-            internal static readonly int SIZE_MODE_FACTOR = NDalicPINVOKE.Actor_Property_SIZE_MODE_FACTOR_get();
-            internal static readonly int WIDTH_RESIZE_POLICY = NDalicPINVOKE.Actor_Property_WIDTH_RESIZE_POLICY_get();
-            internal static readonly int HEIGHT_RESIZE_POLICY = NDalicPINVOKE.Actor_Property_HEIGHT_RESIZE_POLICY_get();
-            internal static readonly int SIZE_SCALE_POLICY = NDalicPINVOKE.Actor_Property_SIZE_SCALE_POLICY_get();
-            internal static readonly int WIDTH_FOR_HEIGHT = NDalicPINVOKE.Actor_Property_WIDTH_FOR_HEIGHT_get();
-            internal static readonly int HEIGHT_FOR_WIDTH = NDalicPINVOKE.Actor_Property_HEIGHT_FOR_WIDTH_get();
-            internal static readonly int MINIMUM_SIZE = NDalicPINVOKE.Actor_Property_MINIMUM_SIZE_get();
-            internal static readonly int MAXIMUM_SIZE = NDalicPINVOKE.Actor_Property_MAXIMUM_SIZE_get();
-            internal static readonly int INHERIT_POSITION = NDalicPINVOKE.Actor_Property_INHERIT_POSITION_get();
-            internal static readonly int CLIPPING_MODE = NDalicPINVOKE.Actor_Property_CLIPPING_MODE_get();
-            internal static readonly int INHERIT_LAYOUT_DIRECTION = NDalicManualPINVOKE.Actor_Property_INHERIT_LAYOUT_DIRECTION_get();
-            internal static readonly int LAYOUT_DIRECTION = NDalicManualPINVOKE.Actor_Property_LAYOUT_DIRECTION_get();
-            internal static readonly int MARGIN = NDalicPINVOKE.View_Property_MARGIN_get();
-            internal static readonly int PADDING = NDalicPINVOKE.View_Property_PADDING_get();
+            /// <summary>
+            /// The normal state.
+            /// </summary>
+            Normal,
+            /// <summary>
+            /// The focused state.
+            /// </summary>
+            Focused,
+            /// <summary>
+            /// The disabled state.
+            /// </summary>
+            Disabled
         }
 
         /// <summary>
@@ -2492,171 +1783,35 @@ namespace Tizen.NUI.BaseComponents
             PageDown
         }
 
-        /// <summary>
-        /// Creates a new instance of a view.
-        /// </summary>
-        /// <since_tizen> 3 </since_tizen>
-        public View() : this(NDalicPINVOKE.View_New(), true)
-        {
-            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-        }
-        internal View(View uiControl) : this(NDalicPINVOKE.new_View__SWIG_1(View.getCPtr(uiControl)), true)
-        {
-            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-        }
-
-        private View ConvertIdToView(uint id)
-        {
-            View view = null;
-            if (GetParent() is View)
-            {
-                View parentView = GetParent() as View;
-                view = parentView.FindChildById(id);
-            }
-
-            if (!view)
-            {
-                view = Window.Instance.GetRootLayer().FindChildById(id);
-            }
-
-            return view;
-        }
-
-        internal void SetKeyInputFocus()
-        {
-            NDalicPINVOKE.View_SetKeyInputFocus(swigCPtr);
-            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-        }
-
-        /// <summary>
-        /// Queries whether the view has a focus.
-        /// </summary>
-        /// <returns>True if this view has a focus.</returns>
-        /// <since_tizen> 3 </since_tizen>
-        public bool HasFocus()
-        {
-            bool ret = NDalicPINVOKE.View_HasKeyInputFocus(swigCPtr);
-            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        internal void ClearKeyInputFocus()
-        {
-            NDalicPINVOKE.View_ClearKeyInputFocus(swigCPtr);
-            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-        }
-
-        internal PinchGestureDetector GetPinchGestureDetector()
-        {
-            PinchGestureDetector ret = new PinchGestureDetector(NDalicPINVOKE.View_GetPinchGestureDetector(swigCPtr), true);
-            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        internal PanGestureDetector GetPanGestureDetector()
-        {
-            PanGestureDetector ret = new PanGestureDetector(NDalicPINVOKE.View_GetPanGestureDetector(swigCPtr), true);
-            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        internal TapGestureDetector GetTapGestureDetector()
-        {
-            TapGestureDetector ret = new TapGestureDetector(NDalicPINVOKE.View_GetTapGestureDetector(swigCPtr), true);
-            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        internal LongPressGestureDetector GetLongPressGestureDetector()
-        {
-            LongPressGestureDetector ret = new LongPressGestureDetector(NDalicPINVOKE.View_GetLongPressGestureDetector(swigCPtr), true);
-            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        /// <summary>
-        /// Sets the name of the style to be applied to the view.
-        /// </summary>
-        /// <param name="styleName">A string matching a style described in a stylesheet.</param>
-        /// <since_tizen> 3 </since_tizen>
-        public void SetStyleName(string styleName)
-        {
-            NDalicPINVOKE.View_SetStyleName(swigCPtr, styleName);
-            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-        }
-
-        /// <summary>
-        /// Retrieves the name of the style to be applied to the view (if any).
-        /// </summary>
-        /// <returns>A string matching a style, or an empty string.</returns>
-        /// <since_tizen> 3 </since_tizen>
-        public string GetStyleName()
-        {
-            string ret = NDalicPINVOKE.View_GetStyleName(swigCPtr);
-            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        internal void SetBackgroundColor(Vector4 color)
-        {
-            NDalicPINVOKE.View_SetBackgroundColor(swigCPtr, Vector4.getCPtr(color));
-            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-        }
-
-        internal Vector4 GetBackgroundColor()
-        {
-            Vector4 ret = new Vector4(NDalicPINVOKE.View_GetBackgroundColor(swigCPtr), true);
-            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        internal void SetBackgroundImage(Image image)
-        {
-            NDalicPINVOKE.View_SetBackgroundImage(swigCPtr, Image.getCPtr(image));
-            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-        }
-
-        /// <summary>
-        /// Clears the background.
-        /// </summary>
-        /// <since_tizen> 3 </since_tizen>
-        public void ClearBackground()
-        {
-            NDalicPINVOKE.View_ClearBackground(swigCPtr);
-            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-        }
-
-        internal ControlKeySignal KeyEventSignal()
-        {
-            ControlKeySignal ret = new ControlKeySignal(NDalicPINVOKE.View_KeyEventSignal(swigCPtr), false);
-            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        internal KeyInputFocusSignal KeyInputFocusGainedSignal()
-        {
-            KeyInputFocusSignal ret = new KeyInputFocusSignal(NDalicPINVOKE.View_KeyInputFocusGainedSignal(swigCPtr), false);
-            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        internal KeyInputFocusSignal KeyInputFocusLostSignal()
-        {
-            KeyInputFocusSignal ret = new KeyInputFocusSignal(NDalicPINVOKE.View_KeyInputFocusLostSignal(swigCPtr), false);
-            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        internal View(ViewImpl implementation) : this(NDalicPINVOKE.new_View__SWIG_2(ViewImpl.getCPtr(implementation)), true)
-        {
-            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-        }
-
         internal enum PropertyRange
         {
             PROPERTY_START_INDEX = PropertyRanges.PROPERTY_REGISTRATION_START_INDEX,
             CONTROL_PROPERTY_START_INDEX = PROPERTY_START_INDEX,
             CONTROL_PROPERTY_END_INDEX = CONTROL_PROPERTY_START_INDEX + 1000
+        }
+      
+        /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool IsResourcesCreated
+        {
+            get
+            {
+                return Application.Current.IsResourcesCreated;
+            }
+        }
+
+        /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public ResourceDictionary XamlResources
+        {
+            get
+            {
+                return Application.Current.XamlResources;
+            }
+            set
+            {
+                Application.Current.XamlResources = value;
+            }
         }
 
         /// <summary>
@@ -2692,71 +1847,7 @@ namespace Tizen.NUI.BaseComponents
                 NotifyPropertyChanged();
             }
         }
-
-        /// <summary>
-        /// Creates an animation to animate the background color visual. If there is no
-        /// background visual, creates one with transparent black as it's mixColor.
-        /// </summary>
-        /// <since_tizen> 3 </since_tizen>
-        public Animation AnimateBackgroundColor(object destinationValue,
-                                                 int startTime,
-                                                 int endTime,
-                                                 AlphaFunction.BuiltinFunctions? alphaFunction = null,
-                                                 object initialValue = null)
-        {
-            Tizen.NUI.PropertyMap background = Background;
-
-            if (background.Empty())
-            {
-                // If there is no background yet, ensure there is a transparent
-                // color visual
-                BackgroundColor = new Color(0.0f, 0.0f, 0.0f, 0.0f);
-                background = Background;
-            }
-            return AnimateColor("background", destinationValue, startTime, endTime, alphaFunction, initialValue);
-        }
-
-        /// <summary>
-        /// Creates an animation to animate the mixColor of the named visual.
-        /// </summary>
-        /// <since_tizen> 3 </since_tizen>
-        public Animation AnimateColor(string targetVisual, object destinationColor, int startTime, int endTime, AlphaFunction.BuiltinFunctions? alphaFunction = null, object initialColor = null)
-        {
-            Animation animation = null;
-            {
-                PropertyMap _animator = new PropertyMap();
-                if (alphaFunction != null)
-                {
-                    _animator.Add("alphaFunction", new PropertyValue(AlphaFunction.BuiltinToPropertyKey(alphaFunction)));
-                }
-
-                PropertyMap _timePeriod = new PropertyMap();
-                _timePeriod.Add("duration", new PropertyValue((endTime - startTime) / 1000.0f));
-                _timePeriod.Add("delay", new PropertyValue(startTime / 1000.0f));
-                _animator.Add("timePeriod", new PropertyValue(_timePeriod));
-
-                PropertyMap _transition = new PropertyMap();
-                _transition.Add("animator", new PropertyValue(_animator));
-                _transition.Add("target", new PropertyValue(targetVisual));
-                _transition.Add("property", new PropertyValue("mixColor"));
-
-                if (initialColor != null)
-                {
-                    PropertyValue initValue = PropertyValue.CreateFromObject(initialColor);
-                    _transition.Add("initialValue", initValue);
-                }
-
-                PropertyValue destValue = PropertyValue.CreateFromObject(destinationColor);
-                _transition.Add("targetValue", destValue);
-                TransitionData _transitionData = new TransitionData(_transition);
-
-                animation = new Animation(NDalicManualPINVOKE.View_CreateTransition(swigCPtr, TransitionData.getCPtr(_transitionData)), true);
-                if (NDalicPINVOKE.SWIGPendingException.Pending)
-                    throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            }
-            return animation;
-        }
-
+        
         /// <summary>
         /// The mutually exclusive with BACKGROUND_COLOR and BACKGROUND type Map.
         /// </summary>
@@ -2853,62 +1944,6 @@ namespace Tizen.NUI.BaseComponents
             {
                 SetProperty(View.Property.TOOLTIP, new Tizen.NUI.PropertyValue(value));
                 NotifyPropertyChanged();
-            }
-        }
-
-        private int LeftFocusableViewId
-        {
-            get
-            {
-                int temp = 0;
-                GetProperty(View.Property.LEFT_FOCUSABLE_VIEW_ID).Get(out temp);
-                return temp;
-            }
-            set
-            {
-                SetProperty(View.Property.LEFT_FOCUSABLE_VIEW_ID, new Tizen.NUI.PropertyValue(value));
-            }
-        }
-
-        private int RightFocusableViewId
-        {
-            get
-            {
-                int temp = 0;
-                GetProperty(View.Property.RIGHT_FOCUSABLE_VIEW_ID).Get(out temp);
-                return temp;
-            }
-            set
-            {
-                SetProperty(View.Property.RIGHT_FOCUSABLE_VIEW_ID, new Tizen.NUI.PropertyValue(value));
-            }
-        }
-
-        private int UpFocusableViewId
-        {
-            get
-            {
-                int temp = 0;
-                GetProperty(View.Property.UP_FOCUSABLE_VIEW_ID).Get(out temp);
-                return temp;
-            }
-            set
-            {
-                SetProperty(View.Property.UP_FOCUSABLE_VIEW_ID, new Tizen.NUI.PropertyValue(value));
-            }
-        }
-
-        private int DownFocusableViewId
-        {
-            get
-            {
-                int temp = 0;
-                GetProperty(View.Property.DOWN_FOCUSABLE_VIEW_ID).Get(out temp);
-                return temp;
-            }
-            set
-            {
-                SetProperty(View.Property.DOWN_FOCUSABLE_VIEW_ID, new Tizen.NUI.PropertyValue(value));
             }
         }
 
@@ -3150,26 +2185,6 @@ namespace Tizen.NUI.BaseComponents
         }
 
         /// <summary>
-        /// Enumeration for describing the states of the view.
-        /// </summary>
-        /// <since_tizen> 3 </since_tizen>
-        public enum States
-        {
-            /// <summary>
-            /// The normal state.
-            /// </summary>
-            Normal,
-            /// <summary>
-            /// The focused state.
-            /// </summary>
-            Focused,
-            /// <summary>
-            /// The disabled state.
-            /// </summary>
-            Disabled
-        }
-
-        /// <summary>
         ///  Retrieves the position of the view.<br />
         ///  The coordinates are relative to the view's parent.<br />
         /// </summary>
@@ -3214,11 +2229,6 @@ namespace Tizen.NUI.BaseComponents
                 SetProperty(LayoutItemWrapper.ChildProperty.HEIGHT_SPECIFICATION, new Tizen.NUI.PropertyValue(value.Height));
                 NotifyPropertyChanged();
             }
-        }
-
-        private void OnSize2DChanged(int width, int height)
-        {
-            Size2D = new Size2D(width, height);
         }
 
         /// <summary>
@@ -3277,11 +2287,6 @@ namespace Tizen.NUI.BaseComponents
                 SetValue(Position2DProperty, value);
                 NotifyPropertyChanged();
             }
-        }
-
-        private void OnPosition2DChanged(int x, int y)
-        {
-            Position2D = new Position2D(x, y);
         }
 
         /// <summary>
@@ -3343,18 +2348,6 @@ namespace Tizen.NUI.BaseComponents
             {
                 SetProperty(View.Property.POSITION_USES_ANCHOR_POINT, new Tizen.NUI.PropertyValue(value));
                 NotifyPropertyChanged();
-            }
-        }
-
-        internal bool FocusState
-        {
-            get
-            {
-                return IsKeyboardFocusable();
-            }
-            set
-            {
-                SetKeyboardFocusable(value);
             }
         }
 
@@ -3443,1061 +2436,6 @@ namespace Tizen.NUI.BaseComponents
         }
 
         /// <summary>
-        /// Set the layout on this control.
-        /// </summary>
-        /// <remarks>
-        /// </remarks>
-        internal LayoutItem Layout
-        {
-            get
-            {
-                IntPtr cPtr = Tizen.NUI.NDalicManualPINVOKE.GetLayout__SWIG_1(View.getCPtr(this));
-
-                HandleRef CPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
-                BaseHandle basehandle = Registry.GetManagedBaseHandleFromNativePtr(CPtr.Handle);
-                NDalicPINVOKE.delete_BaseHandle(CPtr);
-                CPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
-
-                if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-
-                return basehandle as LayoutItem;
-            }
-            set
-            {
-                Log.Info("NUI", "Set Layout on:" + Name + "\n");
-                layoutingDisabled = false;
-                layoutSet = true;
-                SetLayout( value );
-            }
-        }
-
-        internal void SetLayout( LayoutItem layout )
-        {
-            Tizen.NUI.NDalicManualPINVOKE.SetLayout__SWIG_1(View.getCPtr(this), LayoutItem.getCPtr(layout) );
-            layout.LayoutChildren.Clear();
-            foreach (View view in Children)
-            {
-                layout.LayoutChildren.Add(view.Layout);
-            }
-        }
-
-        /// <summary>
-        /// Set that layouting is required on this View. It will automatically receive a Layout.
-        /// </summary>
-        /// <remarks>
-        /// </remarks>
-        internal bool LayoutingRequired
-        {
-            get
-            {
-                bool result = Tizen.NUI.NDalicManualPINVOKE.View_IsLayoutingRequired(View.getCPtr(this));
-                if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-                return result;
-            }
-            set
-            {
-                Tizen.NUI.NDalicManualPINVOKE.View_SetLayoutingRequired(View.getCPtr(this), value);
-            }
-        }
-
-        /// <summary>
-        /// Shows the view.
-        /// </summary>
-        /// <remarks>
-        /// This is an asynchronous method.
-        /// </remarks>
-        /// <since_tizen> 3 </since_tizen>
-        public void Show()
-        {
-            SetVisible(true);
-        }
-
-        /// <summary>
-        /// Hides the view.
-        /// </summary>
-        /// <remarks>
-        /// This is an asynchronous method.
-        /// If the view is hidden, then the view and its children will not be rendered.
-        /// This is regardless of the individual visibility of the children, i.e., the view will only be rendered if all of its parents are shown.
-        /// </remarks>
-        /// <since_tizen> 3 </since_tizen>
-        public void Hide()
-        {
-            SetVisible(false);
-        }
-
-        internal void Raise()
-        {
-            var parentChildren = GetParent()?.Children;
-
-            if (parentChildren != null)
-            {
-                int currentIndex = parentChildren.IndexOf(this);
-
-                // If the view is not already the last item in the list.
-                if (currentIndex >= 0 && currentIndex < parentChildren.Count - 1)
-                {
-                    View temp = parentChildren[currentIndex + 1];
-                    parentChildren[currentIndex + 1] = this;
-                    parentChildren[currentIndex] = temp;
-
-                    NDalicPINVOKE.Raise(swigCPtr);
-                    if (NDalicPINVOKE.SWIGPendingException.Pending)
-                        throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-                }
-            }
-
-        }
-
-        internal void Lower()
-        {
-            var parentChildren = GetParent()?.Children;
-
-            if (parentChildren != null)
-            {
-                int currentIndex = parentChildren.IndexOf(this);
-
-                // If the view is not already the first item in the list.
-                if (currentIndex > 0 && currentIndex < parentChildren.Count)
-                {
-                    View temp = parentChildren[currentIndex - 1];
-                    parentChildren[currentIndex - 1] = this;
-                    parentChildren[currentIndex] = temp;
-
-                    NDalicPINVOKE.Lower(swigCPtr);
-                    if (NDalicPINVOKE.SWIGPendingException.Pending)
-                        throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-                }
-            }
-        }
-
-        /// <summary>
-        /// Raises the view above all other views.
-        /// </summary>
-        /// <remarks>
-        /// Sibling order of views within the parent will be updated automatically.
-        /// Once a raise or lower API is used, that view will then have an exclusive sibling order independent of insertion.
-        /// </remarks>
-        /// <since_tizen> 3 </since_tizen>
-        public void RaiseToTop()
-        {
-            var parentChildren = GetParent()?.Children;
-
-            if (parentChildren != null)
-            {
-                parentChildren.Remove(this);
-                parentChildren.Add(this);
-
-                NDalicPINVOKE.RaiseToTop(swigCPtr);
-                if (NDalicPINVOKE.SWIGPendingException.Pending)
-                    throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            }
-
-        }
-
-        /// <summary>
-        /// Lowers the view to the bottom of all views.
-        /// </summary>
-        /// <remarks>
-        /// The sibling order of views within the parent will be updated automatically.
-        /// Once a raise or lower API is used that view will then have an exclusive sibling order independent of insertion.
-        /// </remarks>
-        /// <since_tizen> 3 </since_tizen>
-        public void LowerToBottom()
-        {
-            var parentChildren = GetParent()?.Children;
-
-            if (parentChildren != null)
-            {
-                parentChildren.Remove(this);
-                parentChildren.Insert(0, this);
-
-                NDalicPINVOKE.LowerToBottom(swigCPtr);
-                if (NDalicPINVOKE.SWIGPendingException.Pending)
-                    throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            }
-        }
-
-        /// <summary>
-        /// Queries if all resources required by a view are loaded and ready.
-        /// </summary>
-        /// <remarks>Most resources are only loaded when the control is placed on the stage.
-        /// </remarks>
-        /// <since_tizen> 3 </since_tizen>
-        public bool IsResourceReady()
-        {
-            bool ret = NDalicPINVOKE.IsResourceReady(swigCPtr);
-            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        /// <summary>
-        /// Raises the view to above the target view.
-        /// </summary>
-        /// <remarks>The sibling order of views within the parent will be updated automatically.
-        /// Views on the level above the target view will still be shown above this view.
-        /// Raising this view above views with the same sibling order as each other will raise this view above them.
-        /// Once a raise or lower API is used that view will then have an exclusive sibling order independent of insertion.
-        /// </remarks>
-        /// <param name="target">Will be raised above this view.</param>
-        internal void RaiseAbove(View target)
-        {
-            var parentChildren = GetParent()?.Children;
-
-            if (parentChildren != null)
-            {
-                int currentIndex = parentChildren.IndexOf(this);
-                int targetIndex = parentChildren.IndexOf(target);
-
-                if (currentIndex < 0 || targetIndex < 0 ||
-                    currentIndex >= parentChildren.Count || targetIndex >= parentChildren.Count)
-                {
-                    NUILog.Error("index should be bigger than 0 and less than children of layer count");
-                    return;
-                }
-                // If the currentIndex is less than the target index and the target has the same parent.
-                if (currentIndex < targetIndex)
-                {
-                    parentChildren.Remove(this);
-                    parentChildren.Insert(targetIndex, this);
-
-                    NDalicPINVOKE.RaiseAbove(swigCPtr, View.getCPtr(target));
-                    if (NDalicPINVOKE.SWIGPendingException.Pending)
-                        throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-                }
-            }
-
-        }
-
-        /// <summary>
-        /// Lowers the view to below the target view.
-        /// </summary>
-        /// <remarks>The sibling order of views within the parent will be updated automatically.
-        /// Lowering this view below views with the same sibling order as each other will lower this view above them.
-        /// Once a raise or lower API is used that view will then have an exclusive sibling order independent of insertion.
-        /// </remarks>
-        /// <param name="target">Will be lowered below this view.</param>
-        internal void LowerBelow(View target)
-        {
-            var parentChildren = GetParent()?.Children;
-
-            if (parentChildren != null)
-            {
-                int currentIndex = parentChildren.IndexOf(this);
-                int targetIndex = parentChildren.IndexOf(target);
-                if (currentIndex < 0 || targetIndex < 0 ||
-                   currentIndex >= parentChildren.Count || targetIndex >= parentChildren.Count)
-                {
-                    NUILog.Error("index should be bigger than 0 and less than children of layer count");
-                    return;
-                }
-
-                // If the currentIndex is not already the 0th index and the target has the same parent.
-                if ((currentIndex != 0) && (targetIndex != -1) &&
-                    (currentIndex > targetIndex))
-                {
-                    parentChildren.Remove(this);
-                    parentChildren.Insert(targetIndex, this);
-
-                    NDalicPINVOKE.LowerBelow(swigCPtr, View.getCPtr(target));
-                    if (NDalicPINVOKE.SWIGPendingException.Pending)
-                        throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-                }
-            }
-
-        }
-
-        internal string GetName()
-        {
-            string ret = NDalicPINVOKE.Actor_GetName(swigCPtr);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        internal void SetName(string name)
-        {
-            NDalicPINVOKE.Actor_SetName(swigCPtr, name);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-        }
-
-        internal uint GetId()
-        {
-            uint ret = NDalicPINVOKE.Actor_GetId(swigCPtr);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        internal bool IsRoot()
-        {
-            bool ret = NDalicPINVOKE.Actor_IsRoot(swigCPtr);
-            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        internal bool OnWindow()
-        {
-            bool ret = NDalicPINVOKE.Actor_OnStage(swigCPtr);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        /// <summary>
-        /// Gets the parent layer of this view.If a view has no parent, this method does not do anything.
-        /// </summary>
-        /// <pre>The view has been initialized. </pre>
-        /// <returns>The parent layer of view </returns>
-        /// <since_tizen> 5 </since_tizen>
-        public Layer GetLayer()
-        {
-            //to fix memory leak issue, match the handle count with native side.
-            IntPtr cPtr = NDalicPINVOKE.Actor_GetLayer(swigCPtr);
-            HandleRef CPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
-            Layer ret = Registry.GetManagedBaseHandleFromNativePtr(CPtr.Handle) as Layer;
-            NDalicPINVOKE.delete_BaseHandle(CPtr);
-            CPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
-
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        /// <summary>
-        /// Removes a view from its parent view or layer. If a view has no parent, this method does nothing.
-        /// </summary>
-        /// <pre>The (child) view has been initialized. </pre>
-        /// <since_tizen> 4 </since_tizen>
-        public void Unparent()
-        {
-            GetParent()?.Remove(this);
-        }
-
-        /// <summary>
-        /// Search through this view's hierarchy for a view with the given name.
-        /// The view itself is also considered in the search.
-        /// </summary>
-        /// <pre>The view has been initialized.</pre>
-        /// <param name="viewName">The name of the view to find.</param>
-        /// <returns>A handle to the view if found, or an empty handle if not.</returns>
-        /// <since_tizen> 3 </since_tizen>
-        public View FindChildByName(string viewName)
-        {
-            //to fix memory leak issue, match the handle count with native side.
-            IntPtr cPtr = NDalicPINVOKE.Actor_FindChildByName(swigCPtr, viewName);
-            HandleRef CPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
-            View ret = Registry.GetManagedBaseHandleFromNativePtr(CPtr.Handle) as View;
-            NDalicPINVOKE.delete_BaseHandle(CPtr);
-            CPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
-
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        internal View FindChildById(uint id)
-        {
-            //to fix memory leak issue, match the handle count with native side.
-            IntPtr cPtr = NDalicPINVOKE.Actor_FindChildById(swigCPtr, id);
-            HandleRef CPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
-            View ret = Registry.GetManagedBaseHandleFromNativePtr(CPtr.Handle) as View;
-            NDalicPINVOKE.delete_BaseHandle(CPtr);
-            CPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
-
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        internal void SetParentOrigin(Vector3 origin)
-        {
-            NDalicPINVOKE.Actor_SetParentOrigin(swigCPtr, Vector3.getCPtr(origin));
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-        }
-
-        internal Vector3 GetCurrentParentOrigin()
-        {
-            Vector3 ret = new Vector3(NDalicPINVOKE.Actor_GetCurrentParentOrigin(swigCPtr), true);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        internal void SetAnchorPoint(Vector3 anchorPoint)
-        {
-            NDalicPINVOKE.Actor_SetAnchorPoint(swigCPtr, Vector3.getCPtr(anchorPoint));
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-        }
-
-        internal Vector3 GetCurrentAnchorPoint()
-        {
-            Vector3 ret = new Vector3(NDalicPINVOKE.Actor_GetCurrentAnchorPoint(swigCPtr), true);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        internal void SetSize(float width, float height)
-        {
-            NDalicPINVOKE.Actor_SetSize__SWIG_0(swigCPtr, width, height);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-        }
-
-        internal void SetSize(float width, float height, float depth)
-        {
-            NDalicPINVOKE.Actor_SetSize__SWIG_1(swigCPtr, width, height, depth);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-        }
-
-        internal void SetSize(Vector2 size)
-        {
-            NDalicPINVOKE.Actor_SetSize__SWIG_2(swigCPtr, Vector2.getCPtr(size));
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-        }
-
-        internal void SetSize(Vector3 size)
-        {
-            NDalicPINVOKE.Actor_SetSize__SWIG_3(swigCPtr, Vector3.getCPtr(size));
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-        }
-
-        internal Vector3 GetTargetSize()
-        {
-            Vector3 ret = new Vector3(NDalicPINVOKE.Actor_GetTargetSize(swigCPtr), true);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        internal Size2D GetCurrentSize()
-        {
-            Size ret = new Size(NDalicPINVOKE.Actor_GetCurrentSize(swigCPtr), true);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            Size2D size = new Size2D((int)ret.Width, (int)ret.Height);
-            return size;
-        }
-
-        internal Vector3 GetNaturalSize()
-        {
-            Vector3 ret = new Vector3(NDalicPINVOKE.Actor_GetNaturalSize(swigCPtr), true);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        internal void SetPosition(float x, float y)
-        {
-            NDalicPINVOKE.Actor_SetPosition__SWIG_0(swigCPtr, x, y);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-        }
-
-        internal void SetPosition(float x, float y, float z)
-        {
-            NDalicPINVOKE.Actor_SetPosition__SWIG_1(swigCPtr, x, y, z);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-        }
-
-        internal void SetPosition(Vector3 position)
-        {
-            NDalicPINVOKE.Actor_SetPosition__SWIG_2(swigCPtr, Vector3.getCPtr(position));
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-        }
-
-        internal void SetX(float x)
-        {
-            NDalicPINVOKE.Actor_SetX(swigCPtr, x);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-        }
-
-        internal void SetY(float y)
-        {
-            NDalicPINVOKE.Actor_SetY(swigCPtr, y);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-        }
-
-        internal void SetZ(float z)
-        {
-            NDalicPINVOKE.Actor_SetZ(swigCPtr, z);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-        }
-
-        internal void TranslateBy(Vector3 distance)
-        {
-            NDalicPINVOKE.Actor_TranslateBy(swigCPtr, Vector3.getCPtr(distance));
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-        }
-
-        internal Position GetCurrentPosition()
-        {
-            Position ret = new Position(NDalicPINVOKE.Actor_GetCurrentPosition(swigCPtr), true);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        internal Vector3 GetCurrentWorldPosition()
-        {
-            Vector3 ret = new Vector3(NDalicPINVOKE.Actor_GetCurrentWorldPosition(swigCPtr), true);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        internal void SetInheritPosition(bool inherit)
-        {
-            NDalicPINVOKE.Actor_SetInheritPosition(swigCPtr, inherit);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-        }
-
-        internal bool IsPositionInherited()
-        {
-            bool ret = NDalicPINVOKE.Actor_IsPositionInherited(swigCPtr);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        internal void SetOrientation(Degree angle, Vector3 axis)
-        {
-            NDalicPINVOKE.Actor_SetOrientation__SWIG_0(swigCPtr, Degree.getCPtr(angle), Vector3.getCPtr(axis));
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-        }
-
-        internal void SetOrientation(Radian angle, Vector3 axis)
-        {
-            NDalicPINVOKE.Actor_SetOrientation__SWIG_1(swigCPtr, Radian.getCPtr(angle), Vector3.getCPtr(axis));
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-        }
-
-        internal void SetOrientation(Rotation orientation)
-        {
-            NDalicPINVOKE.Actor_SetOrientation__SWIG_2(swigCPtr, Rotation.getCPtr(orientation));
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-        }
-
-        internal void RotateBy(Degree angle, Vector3 axis)
-        {
-            NDalicPINVOKE.Actor_RotateBy__SWIG_0(swigCPtr, Degree.getCPtr(angle), Vector3.getCPtr(axis));
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-        }
-
-        internal void RotateBy(Radian angle, Vector3 axis)
-        {
-            NDalicPINVOKE.Actor_RotateBy__SWIG_1(swigCPtr, Radian.getCPtr(angle), Vector3.getCPtr(axis));
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-        }
-
-        internal void RotateBy(Rotation relativeRotation)
-        {
-            NDalicPINVOKE.Actor_RotateBy__SWIG_2(swigCPtr, Rotation.getCPtr(relativeRotation));
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-        }
-
-        internal Rotation GetCurrentOrientation()
-        {
-            Rotation ret = new Rotation(NDalicPINVOKE.Actor_GetCurrentOrientation(swigCPtr), true);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        internal void SetInheritOrientation(bool inherit)
-        {
-            NDalicPINVOKE.Actor_SetInheritOrientation(swigCPtr, inherit);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-        }
-
-        internal bool IsOrientationInherited()
-        {
-            bool ret = NDalicPINVOKE.Actor_IsOrientationInherited(swigCPtr);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        internal Rotation GetCurrentWorldOrientation()
-        {
-            Rotation ret = new Rotation(NDalicPINVOKE.Actor_GetCurrentWorldOrientation(swigCPtr), true);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        internal void SetScale(float scale)
-        {
-            NDalicPINVOKE.Actor_SetScale__SWIG_0(swigCPtr, scale);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-        }
-
-        internal void SetScale(float scaleX, float scaleY, float scaleZ)
-        {
-            NDalicPINVOKE.Actor_SetScale__SWIG_1(swigCPtr, scaleX, scaleY, scaleZ);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-        }
-
-        internal void SetScale(Vector3 scale)
-        {
-            NDalicPINVOKE.Actor_SetScale__SWIG_2(swigCPtr, Vector3.getCPtr(scale));
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-        }
-
-        internal void ScaleBy(Vector3 relativeScale)
-        {
-            NDalicPINVOKE.Actor_ScaleBy(swigCPtr, Vector3.getCPtr(relativeScale));
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-        }
-
-        internal Vector3 GetCurrentScale()
-        {
-            Vector3 ret = new Vector3(NDalicPINVOKE.Actor_GetCurrentScale(swigCPtr), true);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        internal Vector3 GetCurrentWorldScale()
-        {
-            Vector3 ret = new Vector3(NDalicPINVOKE.Actor_GetCurrentWorldScale(swigCPtr), true);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        internal void SetInheritScale(bool inherit)
-        {
-            NDalicPINVOKE.Actor_SetInheritScale(swigCPtr, inherit);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-        }
-
-        internal bool IsScaleInherited()
-        {
-            bool ret = NDalicPINVOKE.Actor_IsScaleInherited(swigCPtr);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        internal Matrix GetCurrentWorldMatrix()
-        {
-            Matrix ret = new Matrix(NDalicPINVOKE.Actor_GetCurrentWorldMatrix(swigCPtr), true);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        internal void SetVisible(bool visible)
-        {
-            NDalicPINVOKE.Actor_SetVisible(swigCPtr, visible);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-        }
-
-        internal bool IsVisible()
-        {
-            bool ret = NDalicPINVOKE.Actor_IsVisible(swigCPtr);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        internal void SetOpacity(float opacity)
-        {
-            NDalicPINVOKE.Actor_SetOpacity(swigCPtr, opacity);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-        }
-
-        internal float GetCurrentOpacity()
-        {
-            float ret = NDalicPINVOKE.Actor_GetCurrentOpacity(swigCPtr);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        internal void SetColor(Vector4 color)
-        {
-            NDalicPINVOKE.Actor_SetColor(swigCPtr, Vector4.getCPtr(color));
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-        }
-
-        internal Vector4 GetCurrentColor()
-        {
-            Vector4 ret = new Vector4(NDalicPINVOKE.Actor_GetCurrentColor(swigCPtr), true);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        internal void SetColorMode(ColorMode colorMode)
-        {
-            NDalicPINVOKE.Actor_SetColorMode(swigCPtr, (int)colorMode);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-        }
-
-        internal ColorMode GetColorMode()
-        {
-            ColorMode ret = (ColorMode)NDalicPINVOKE.Actor_GetColorMode(swigCPtr);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        internal Vector4 GetCurrentWorldColor()
-        {
-            Vector4 ret = new Vector4(NDalicPINVOKE.Actor_GetCurrentWorldColor(swigCPtr), true);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        internal void SetDrawMode(DrawModeType drawMode)
-        {
-            NDalicPINVOKE.Actor_SetDrawMode(swigCPtr, (int)drawMode);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-        }
-
-        internal DrawModeType GetDrawMode()
-        {
-            DrawModeType ret = (DrawModeType)NDalicPINVOKE.Actor_GetDrawMode(swigCPtr);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        /// <summary>
-        /// Converts screen coordinates into the view's coordinate system using the default camera.
-        /// </summary>
-        /// <pre>The view has been initialized.</pre>
-        /// <remarks>The view coordinates are relative to the top-left(0.0, 0.0, 0.5).</remarks>
-        /// <param name="localX">On return, the X-coordinate relative to the view.</param>
-        /// <param name="localY">On return, the Y-coordinate relative to the view.</param>
-        /// <param name="screenX">The screen X-coordinate.</param>
-        /// <param name="screenY">The screen Y-coordinate.</param>
-        /// <returns>True if the conversion succeeded.</returns>
-        /// <since_tizen> 3 </since_tizen>
-        public bool ScreenToLocal(out float localX, out float localY, float screenX, float screenY)
-        {
-            bool ret = NDalicPINVOKE.Actor_ScreenToLocal(swigCPtr, out localX, out localY, screenX, screenY);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        internal void SetKeyboardFocusable(bool focusable)
-        {
-            NDalicPINVOKE.Actor_SetKeyboardFocusable(swigCPtr, focusable);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-        }
-
-        internal bool IsKeyboardFocusable()
-        {
-            bool ret = NDalicPINVOKE.Actor_IsKeyboardFocusable(swigCPtr);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        internal void SetResizePolicy(ResizePolicyType policy, DimensionType dimension)
-        {
-            NDalicPINVOKE.Actor_SetResizePolicy(swigCPtr, (int)policy, (int)dimension);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-        }
-
-        internal ResizePolicyType GetResizePolicy(DimensionType dimension)
-        {
-            ResizePolicyType ret = (ResizePolicyType)NDalicPINVOKE.Actor_GetResizePolicy(swigCPtr, (int)dimension);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        /// <summary>
-        /// Sets the relative to parent size factor of the view.<br />
-        /// This factor is only used when ResizePolicy is set to either:
-        /// ResizePolicy::SIZE_RELATIVE_TO_PARENT or ResizePolicy::SIZE_FIXED_OFFSET_FROM_PARENT.<br />
-        /// This view's size is set to the view's size multiplied by or added to this factor, depending on ResizePolicy.<br />
-        /// </summary>
-        /// <pre>The view has been initialized.</pre>
-        /// <param name="factor">A Vector3 representing the relative factor to be applied to each axis.</param>
-        /// <since_tizen> 3 </since_tizen>
-        public void SetSizeModeFactor(Vector3 factor)
-        {
-            NDalicPINVOKE.Actor_SetSizeModeFactor(swigCPtr, Vector3.getCPtr(factor));
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-        }
-
-        internal Vector3 GetSizeModeFactor()
-        {
-            Vector3 ret = new Vector3(NDalicPINVOKE.Actor_GetSizeModeFactor(swigCPtr), true);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        /// <summary>
-        /// Calculates the height of the view given a width.<br />
-        /// The natural size is used for default calculation.<br />
-        /// Size 0 is treated as aspect ratio 1:1.<br />
-        /// </summary>
-        /// <param name="width">The width to use.</param>
-        /// <returns>The height based on the width.</returns>
-        /// <since_tizen> 3 </since_tizen>
-        public float GetHeightForWidth(float width)
-        {
-            float ret = NDalicPINVOKE.Actor_GetHeightForWidth(swigCPtr, width);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        /// <summary>
-        /// Calculates the width of the view given a height.<br />
-        /// The natural size is used for default calculation.<br />
-        /// Size 0 is treated as aspect ratio 1:1.<br />
-        /// </summary>
-        /// <param name="height">The height to use.</param>
-        /// <returns>The width based on the height.</returns>
-        /// <since_tizen> 3 </since_tizen>
-        public float GetWidthForHeight(float height)
-        {
-            float ret = NDalicPINVOKE.Actor_GetWidthForHeight(swigCPtr, height);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        /// <summary>
-        /// Return the amount of size allocated for relayout.
-        /// </summary>
-        /// <param name="dimension">The dimension to retrieve.</param>
-        /// <returns>Return the size.</returns>
-        /// <since_tizen> 3 </since_tizen>
-        public float GetRelayoutSize(DimensionType dimension)
-        {
-            float ret = NDalicPINVOKE.Actor_GetRelayoutSize(swigCPtr, (int)dimension);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        /// <summary>
-        /// Set the padding for the view.
-        /// </summary>
-        /// <param name="padding">Padding for the view.</param>
-        /// <since_tizen> 3 </since_tizen>
-        public void SetPadding(PaddingType padding)
-        {
-            NDalicPINVOKE.Actor_SetPadding(swigCPtr, PaddingType.getCPtr(padding));
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-        }
-
-        /// <summary>
-        /// Return the value of padding for the view.
-        /// </summary>
-        /// <param name="paddingOut">the value of padding for the view</param>
-        /// <since_tizen> 3 </since_tizen>
-        public void GetPadding(PaddingType paddingOut)
-        {
-            NDalicPINVOKE.Actor_GetPadding(swigCPtr, PaddingType.getCPtr(paddingOut));
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-        }
-
-        internal void SetMinimumSize(Vector2 size)
-        {
-            NDalicPINVOKE.Actor_SetMinimumSize(swigCPtr, Vector2.getCPtr(size));
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-        }
-
-        internal Vector2 GetMinimumSize()
-        {
-            Vector2 ret = new Vector2(NDalicPINVOKE.Actor_GetMinimumSize(swigCPtr), true);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        internal void SetMaximumSize(Vector2 size)
-        {
-            NDalicPINVOKE.Actor_SetMaximumSize(swigCPtr, Vector2.getCPtr(size));
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-        }
-
-        internal Vector2 GetMaximumSize()
-        {
-            Vector2 ret = new Vector2(NDalicPINVOKE.Actor_GetMaximumSize(swigCPtr), true);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        internal int GetHierarchyDepth()
-        {
-            int ret = NDalicPINVOKE.Actor_GetHierarchyDepth(swigCPtr);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        /// <since_tizen> 3 </since_tizen>
-        public uint AddRenderer(Renderer renderer)
-        {
-            uint ret = NDalicPINVOKE.Actor_AddRenderer(swigCPtr, Renderer.getCPtr(renderer));
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        internal uint GetRendererCount()
-        {
-            uint ret = NDalicPINVOKE.Actor_GetRendererCount(swigCPtr);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        /// <since_tizen> 3 </since_tizen>
-        public Renderer GetRendererAt(uint index)
-        {
-            //to fix memory leak issue, match the handle count with native side.
-            IntPtr cPtr = NDalicPINVOKE.Actor_GetRendererAt(swigCPtr, index);
-            HandleRef CPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
-            Renderer ret = Registry.GetManagedBaseHandleFromNativePtr(CPtr.Handle) as Renderer;
-            NDalicPINVOKE.delete_BaseHandle(CPtr);
-            CPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
-
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        /// <since_tizen> 3 </since_tizen>
-        public void RemoveRenderer(Renderer renderer)
-        {
-            NDalicPINVOKE.Actor_RemoveRenderer__SWIG_0(swigCPtr, Renderer.getCPtr(renderer));
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-        }
-
-        /// <since_tizen> 3 </since_tizen>
-        public void RemoveRenderer(uint index)
-        {
-            NDalicPINVOKE.Actor_RemoveRenderer__SWIG_1(swigCPtr, index);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-        }
-
-        internal TouchDataSignal TouchSignal()
-        {
-            TouchDataSignal ret = new TouchDataSignal(NDalicPINVOKE.Actor_TouchSignal(swigCPtr), false);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        internal HoverSignal HoveredSignal()
-        {
-            HoverSignal ret = new HoverSignal(NDalicPINVOKE.Actor_HoveredSignal(swigCPtr), false);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        internal WheelSignal WheelEventSignal()
-        {
-            WheelSignal ret = new WheelSignal(NDalicPINVOKE.Actor_WheelEventSignal(swigCPtr), false);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        internal ViewSignal OnWindowSignal()
-        {
-            ViewSignal ret = new ViewSignal(NDalicPINVOKE.Actor_OnStageSignal(swigCPtr), false);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        internal ViewSignal OffWindowSignal()
-        {
-            ViewSignal ret = new ViewSignal(NDalicPINVOKE.Actor_OffStageSignal(swigCPtr), false);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        internal ViewSignal OnRelayoutSignal()
-        {
-            ViewSignal ret = new ViewSignal(NDalicPINVOKE.Actor_OnRelayoutSignal(swigCPtr), false);
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        internal ViewVisibilityChangedSignal VisibilityChangedSignal(View view)
-        {
-            ViewVisibilityChangedSignal ret = new ViewVisibilityChangedSignal(NDalicPINVOKE.VisibilityChangedSignal(View.getCPtr(view)), false);
-            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-
-        internal ViewLayoutDirectionChangedSignal LayoutDirectionChangedSignal(View view)
-        {
-            ViewLayoutDirectionChangedSignal ret = new ViewLayoutDirectionChangedSignal(NDalicManualPINVOKE.LayoutDirectionChangedSignal(View.getCPtr(view)), false);
-            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-
-        internal ViewSignal ResourcesLoadedSignal()
-        {
-            ViewSignal ret = new ViewSignal(NDalicPINVOKE.ResourceReadySignal(swigCPtr), false);
-            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
-
-        /// <summary>
         /// Gets or sets the origin of a view within its parent's area.<br />
         /// This is expressed in unit coordinates, such that (0.0, 0.0, 0.5) is the top-left corner of the parent, and (1.0, 1.0, 0.5) is the bottom-right corner.<br />
         /// The default parent-origin is ParentOrigin.TopLeft (0.0, 0.0, 0.5).<br />
@@ -4514,51 +2452,6 @@ namespace Tizen.NUI.BaseComponents
             set
             {
                 SetValue(ParentOriginProperty, value);
-                NotifyPropertyChanged();
-            }
-        }
-
-        internal float ParentOriginX
-        {
-            get
-            {
-                float temp = 0.0f;
-                GetProperty(View.Property.PARENT_ORIGIN_X).Get(out temp);
-                return temp;
-            }
-            set
-            {
-                SetProperty(View.Property.PARENT_ORIGIN_X, new Tizen.NUI.PropertyValue(value));
-                NotifyPropertyChanged();
-            }
-        }
-
-        internal float ParentOriginY
-        {
-            get
-            {
-                float temp = 0.0f;
-                GetProperty(View.Property.PARENT_ORIGIN_Y).Get(out temp);
-                return temp;
-            }
-            set
-            {
-                SetProperty(View.Property.PARENT_ORIGIN_Y, new Tizen.NUI.PropertyValue(value));
-                NotifyPropertyChanged();
-            }
-        }
-
-        internal float ParentOriginZ
-        {
-            get
-            {
-                float temp = 0.0f;
-                GetProperty(View.Property.PARENT_ORIGIN_Z).Get(out temp);
-                return temp;
-            }
-            set
-            {
-                SetProperty(View.Property.PARENT_ORIGIN_Z, new Tizen.NUI.PropertyValue(value));
                 NotifyPropertyChanged();
             }
         }
@@ -4582,48 +2475,6 @@ namespace Tizen.NUI.BaseComponents
             {
                 SetValue(PivotPointProperty, value);
                 NotifyPropertyChanged();
-            }
-        }
-
-        internal float PivotPointX
-        {
-            get
-            {
-                float temp = 0.0f;
-                GetProperty(View.Property.ANCHOR_POINT_X).Get(out temp);
-                return temp;
-            }
-            set
-            {
-                SetProperty(View.Property.ANCHOR_POINT_X, new Tizen.NUI.PropertyValue(value));
-            }
-        }
-
-        internal float PivotPointY
-        {
-            get
-            {
-                float temp = 0.0f;
-                GetProperty(View.Property.ANCHOR_POINT_Y).Get(out temp);
-                return temp;
-            }
-            set
-            {
-                SetProperty(View.Property.ANCHOR_POINT_Y, new Tizen.NUI.PropertyValue(value));
-            }
-        }
-
-        internal float PivotPointZ
-        {
-            get
-            {
-                float temp = 0.0f;
-                GetProperty(View.Property.ANCHOR_POINT_Z).Get(out temp);
-                return temp;
-            }
-            set
-            {
-                SetProperty(View.Property.ANCHOR_POINT_Z, new Tizen.NUI.PropertyValue(value));
             }
         }
 
@@ -4741,36 +2592,6 @@ namespace Tizen.NUI.BaseComponents
             {
                 Vector3 temp = new Vector3(0.0f, 0.0f, 0.0f);
                 GetProperty(View.Property.WORLD_POSITION).Get(temp);
-                return temp;
-            }
-        }
-
-        internal float WorldPositionX
-        {
-            get
-            {
-                float temp = 0.0f;
-                GetProperty(View.Property.WORLD_POSITION_X).Get(out temp);
-                return temp;
-            }
-        }
-
-        internal float WorldPositionY
-        {
-            get
-            {
-                float temp = 0.0f;
-                GetProperty(View.Property.WORLD_POSITION_Y).Get(out temp);
-                return temp;
-            }
-        }
-
-        internal float WorldPositionZ
-        {
-            get
-            {
-                float temp = 0.0f;
-                GetProperty(View.Property.WORLD_POSITION_Z).Get(out temp);
                 return temp;
             }
         }
@@ -4918,16 +2739,6 @@ namespace Tizen.NUI.BaseComponents
             {
                 Vector4 temp = new Vector4(0.0f, 0.0f, 0.0f, 0.0f);
                 GetProperty(View.Property.WORLD_COLOR).Get(temp);
-                return temp;
-            }
-        }
-
-        internal Matrix WorldMatrix
-        {
-            get
-            {
-                Matrix temp = new Matrix();
-                GetProperty(View.Property.WORLD_MATRIX).Get(temp);
                 return temp;
             }
         }
@@ -5471,18 +3282,6 @@ namespace Tizen.NUI.BaseComponents
             }
         }
 
-        internal Style Style
-        {
-            get
-            {
-                return (Style)GetValue(StyleProperty);
-            }
-            set
-            {
-                SetValue(StyleProperty, value);
-            }
-        }
-
         /// <summary>
         /// [Obsolete("Please do not use! this will be deprecated")]
         /// </summary>
@@ -5506,21 +3305,17 @@ namespace Tizen.NUI.BaseComponents
             }
         }
 
-        /// <summary>
-        /// Perform an action on a visual registered to this view. <br />
-        /// Visuals will have actions. This API is used to perform one of these actions with the given attributes.
-        /// </summary>
-        /// <param name="propertyIndexOfVisual">The Property index of the visual.</param>
-        /// <param name="propertyIndexOfActionId">The action to perform. See Visual to find the supported actions.</param>
-        /// <param name="attributes">Optional attributes for the action.</param>
-        /// <since_tizen> 5 </since_tizen>
-        public void DoAction(int propertyIndexOfVisual, int propertyIndexOfActionId, PropertyValue attributes)
+        internal Style Style
         {
-            NDalicManualPINVOKE.View_DoAction(swigCPtr, propertyIndexOfVisual, propertyIndexOfActionId, PropertyValue.getCPtr(attributes));
-            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            get
+            {
+                return (Style)GetValue(StyleProperty);
+            }
+            set
+            {
+                SetValue(StyleProperty, value);
+            }
         }
-
-        internal readonly MergedStyle _mergedStyle;
 
         /// <summary>
         /// Child property to specify desired width
@@ -5615,7 +3410,6 @@ namespace Tizen.NUI.BaseComponents
             }
         }
 
-        private bool _backgroundImageSynchronosLoading = false;
         internal bool BackgroundImageSynchronosLoading
         {
             get
@@ -5644,49 +3438,1959 @@ namespace Tizen.NUI.BaseComponents
             }
         }
 
-        internal class BackgroundResourceLoadedEventArgs : EventArgs
+        internal float WorldPositionX
         {
-            private ResourceLoadingStatusType status = ResourceLoadingStatusType.Invalid;
-            public ResourceLoadingStatusType Status
+            get
             {
-                get
+                float temp = 0.0f;
+                GetProperty(View.Property.WORLD_POSITION_X).Get(out temp);
+                return temp;
+            }
+        }
+
+        internal float WorldPositionY
+        {
+            get
+            {
+                float temp = 0.0f;
+                GetProperty(View.Property.WORLD_POSITION_Y).Get(out temp);
+                return temp;
+            }
+        }
+
+        internal float WorldPositionZ
+        {
+            get
+            {
+                float temp = 0.0f;
+                GetProperty(View.Property.WORLD_POSITION_Z).Get(out temp);
+                return temp;
+            }
+        }
+
+        internal bool FocusState
+        {
+            get
+            {
+                return IsKeyboardFocusable();
+            }
+            set
+            {
+                SetKeyboardFocusable(value);
+            }
+        }
+
+        /// <summary>
+        /// Set the layout on this control.
+        /// </summary>
+        /// <remarks>
+        /// </remarks>
+        internal LayoutItem Layout
+        {
+            get
+            {
+                IntPtr cPtr = Tizen.NUI.NDalicManualPINVOKE.GetLayout__SWIG_1(View.getCPtr(this));
+
+                HandleRef CPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
+                BaseHandle basehandle = Registry.GetManagedBaseHandleFromNativePtr(CPtr.Handle);
+                NDalicPINVOKE.delete_BaseHandle(CPtr);
+                CPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
+
+                if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+
+                return basehandle as LayoutItem;
+            }
+            set
+            {
+                Log.Info("NUI", "Set Layout on:" + Name + "\n");
+                layoutingDisabled = false;
+                layoutSet = true;
+                SetLayout(value);
+            }
+        }
+
+        /// <summary>
+        /// Set that layouting is required on this View. It will automatically receive a Layout.
+        /// </summary>
+        /// <remarks>
+        /// </remarks>
+        internal bool LayoutingRequired
+        {
+            get
+            {
+                bool result = Tizen.NUI.NDalicManualPINVOKE.View_IsLayoutingRequired(View.getCPtr(this));
+                if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+                return result;
+            }
+            set
+            {
+                Tizen.NUI.NDalicManualPINVOKE.View_SetLayoutingRequired(View.getCPtr(this), value);
+            }
+        }
+
+        internal float ParentOriginX
+        {
+            get
+            {
+                float temp = 0.0f;
+                GetProperty(View.Property.PARENT_ORIGIN_X).Get(out temp);
+                return temp;
+            }
+            set
+            {
+                SetProperty(View.Property.PARENT_ORIGIN_X, new Tizen.NUI.PropertyValue(value));
+                NotifyPropertyChanged();
+            }
+        }
+
+        internal float ParentOriginY
+        {
+            get
+            {
+                float temp = 0.0f;
+                GetProperty(View.Property.PARENT_ORIGIN_Y).Get(out temp);
+                return temp;
+            }
+            set
+            {
+                SetProperty(View.Property.PARENT_ORIGIN_Y, new Tizen.NUI.PropertyValue(value));
+                NotifyPropertyChanged();
+            }
+        }
+
+        internal float ParentOriginZ
+        {
+            get
+            {
+                float temp = 0.0f;
+                GetProperty(View.Property.PARENT_ORIGIN_Z).Get(out temp);
+                return temp;
+            }
+            set
+            {
+                SetProperty(View.Property.PARENT_ORIGIN_Z, new Tizen.NUI.PropertyValue(value));
+                NotifyPropertyChanged();
+            }
+        }
+
+        internal float PivotPointX
+        {
+            get
+            {
+                float temp = 0.0f;
+                GetProperty(View.Property.ANCHOR_POINT_X).Get(out temp);
+                return temp;
+            }
+            set
+            {
+                SetProperty(View.Property.ANCHOR_POINT_X, new Tizen.NUI.PropertyValue(value));
+            }
+        }
+
+        internal float PivotPointY
+        {
+            get
+            {
+                float temp = 0.0f;
+                GetProperty(View.Property.ANCHOR_POINT_Y).Get(out temp);
+                return temp;
+            }
+            set
+            {
+                SetProperty(View.Property.ANCHOR_POINT_Y, new Tizen.NUI.PropertyValue(value));
+            }
+        }
+
+        internal float PivotPointZ
+        {
+            get
+            {
+                float temp = 0.0f;
+                GetProperty(View.Property.ANCHOR_POINT_Z).Get(out temp);
+                return temp;
+            }
+            set
+            {
+                SetProperty(View.Property.ANCHOR_POINT_Z, new Tizen.NUI.PropertyValue(value));
+            }
+        }
+
+        internal Matrix WorldMatrix
+        {
+            get
+            {
+                Matrix temp = new Matrix();
+                GetProperty(View.Property.WORLD_MATRIX).Get(temp);
+                return temp;
+            }
+        }
+
+        private int LeftFocusableViewId
+        {
+            get
+            {
+                int temp = 0;
+                GetProperty(View.Property.LEFT_FOCUSABLE_VIEW_ID).Get(out temp);
+                return temp;
+            }
+            set
+            {
+                SetProperty(View.Property.LEFT_FOCUSABLE_VIEW_ID, new Tizen.NUI.PropertyValue(value));
+            }
+        }
+
+        private int RightFocusableViewId
+        {
+            get
+            {
+                int temp = 0;
+                GetProperty(View.Property.RIGHT_FOCUSABLE_VIEW_ID).Get(out temp);
+                return temp;
+            }
+            set
+            {
+                SetProperty(View.Property.RIGHT_FOCUSABLE_VIEW_ID, new Tizen.NUI.PropertyValue(value));
+            }
+        }
+
+        private int UpFocusableViewId
+        {
+            get
+            {
+                int temp = 0;
+                GetProperty(View.Property.UP_FOCUSABLE_VIEW_ID).Get(out temp);
+                return temp;
+            }
+            set
+            {
+                SetProperty(View.Property.UP_FOCUSABLE_VIEW_ID, new Tizen.NUI.PropertyValue(value));
+            }
+        }
+
+        private int DownFocusableViewId
+        {
+            get
+            {
+                int temp = 0;
+                GetProperty(View.Property.DOWN_FOCUSABLE_VIEW_ID).Get(out temp);
+                return temp;
+            }
+            set
+            {
+                SetProperty(View.Property.DOWN_FOCUSABLE_VIEW_ID, new Tizen.NUI.PropertyValue(value));
+            }
+        }
+
+        /// <summary>
+        /// Perform an action on a visual registered to this view. <br />
+        /// Visuals will have actions. This API is used to perform one of these actions with the given attributes.
+        /// </summary>
+        /// <param name="propertyIndexOfVisual">The Property index of the visual.</param>
+        /// <param name="propertyIndexOfActionId">The action to perform. See Visual to find the supported actions.</param>
+        /// <param name="attributes">Optional attributes for the action.</param>
+        /// <since_tizen> 5 </since_tizen>
+        public void DoAction(int propertyIndexOfVisual, int propertyIndexOfActionId, PropertyValue attributes)
+        {
+            NDalicManualPINVOKE.View_DoAction(swigCPtr, propertyIndexOfVisual, propertyIndexOfActionId, PropertyValue.getCPtr(attributes));
+            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+        }
+
+        /// <summary>
+        /// Creates an animation to animate the background color visual. If there is no
+        /// background visual, creates one with transparent black as it's mixColor.
+        /// </summary>
+        /// <since_tizen> 3 </since_tizen>
+        public Animation AnimateBackgroundColor(object destinationValue,
+                                                 int startTime,
+                                                 int endTime,
+                                                 AlphaFunction.BuiltinFunctions? alphaFunction = null,
+                                                 object initialValue = null)
+        {
+            Tizen.NUI.PropertyMap background = Background;
+
+            if (background.Empty())
+            {
+                // If there is no background yet, ensure there is a transparent
+                // color visual
+                BackgroundColor = new Color(0.0f, 0.0f, 0.0f, 0.0f);
+                background = Background;
+            }
+            return AnimateColor("background", destinationValue, startTime, endTime, alphaFunction, initialValue);
+        }
+
+        /// <summary>
+        /// Creates an animation to animate the mixColor of the named visual.
+        /// </summary>
+        /// <since_tizen> 3 </since_tizen>
+        public Animation AnimateColor(string targetVisual, object destinationColor, int startTime, int endTime, AlphaFunction.BuiltinFunctions? alphaFunction = null, object initialColor = null)
+        {
+            Animation animation = null;
+            {
+                PropertyMap _animator = new PropertyMap();
+                if (alphaFunction != null)
                 {
-                    return status;
+                    _animator.Add("alphaFunction", new PropertyValue(AlphaFunction.BuiltinToPropertyKey(alphaFunction)));
                 }
-                set
+
+                PropertyMap _timePeriod = new PropertyMap();
+                _timePeriod.Add("duration", new PropertyValue((endTime - startTime) / 1000.0f));
+                _timePeriod.Add("delay", new PropertyValue(startTime / 1000.0f));
+                _animator.Add("timePeriod", new PropertyValue(_timePeriod));
+
+                PropertyMap _transition = new PropertyMap();
+                _transition.Add("animator", new PropertyValue(_animator));
+                _transition.Add("target", new PropertyValue(targetVisual));
+                _transition.Add("property", new PropertyValue("mixColor"));
+
+                if (initialColor != null)
                 {
-                    status = value;
+                    PropertyValue initValue = PropertyValue.CreateFromObject(initialColor);
+                    _transition.Add("initialValue", initValue);
+                }
+
+                PropertyValue destValue = PropertyValue.CreateFromObject(destinationColor);
+                _transition.Add("targetValue", destValue);
+                TransitionData _transitionData = new TransitionData(_transition);
+
+                animation = new Animation(NDalicManualPINVOKE.View_CreateTransition(swigCPtr, TransitionData.getCPtr(_transitionData)), true);
+                if (NDalicPINVOKE.SWIGPendingException.Pending)
+                    throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            }
+            return animation;
+        }
+
+        // From Container Base class
+        /// <summary>
+        /// Adds a child view to this view.
+        /// </summary>
+        /// <seealso cref="Container.Add" />
+        /// <since_tizen> 4 </since_tizen>
+        public override void Add(View child)
+        {
+            if (null == child)
+            {
+                Tizen.Log.Fatal("NUI", "Child is null");
+                return;
+            }
+
+            Log.Info("NUI", "Adding Child:" + child.Name + " to " + Name + "\n");
+
+            Container oldParent = child.GetParent();
+            if (oldParent != this)
+            {
+                if (oldParent != null)
+                {
+                    oldParent.Remove(child);
+                }
+                child.InternalParent = this;
+
+                // Only give children a layout if their parent is an explicit container or a pure View.
+                // Pure View meaning not derived from a View, e.g a Legacy container.
+                // layoutSet flag is true when the View became a layout using the set Layout API opposed to automatically due to it's parent.
+                // First time the set Layout API is used by any View the Window no longer has layoutingDisabled.
+                if ((true == layoutSet || GetType() == typeof(View)) && null == child.Layout && false == layoutingDisabled )
+                {
+                    Log.Info("NUI", "Parent[" + Name + "] Layout set[" + layoutSet.ToString() + "] Pure View[" + (!layoutSet).ToString() + "]\n");
+                    // If child is a View or explicitly set to require layouting then set child as a LayoutGroup.
+                    // If the child is derived from a View then it may be a legacy or existing container hence will do layouting itself.
+                    if( child.GetType() == typeof(View) ||  true == child.LayoutingRequired )
+                    {
+                        Log.Info("NUI", "Creating LayoutGroup for " + child.Name + " LayoutingRequired[" + child.LayoutingRequired.ToString() + "]\n");
+                        child.SetLayout( new LayoutGroup() );
+                    }
+                    else
+                    {
+                        // Adding child as a leaf, layouting will not propagate past this child.
+                        // Legacy containers will be a LayoutItems too and layout their children how they wish.
+                        Log.Info("NUI", "Creating LayoutItem for " + child.Name + "\n");
+                        child.SetLayout( new LayoutItem() );
+                    }
+                }
+
+                if (Layout)
+                {
+                    Layout.LayoutChildren.Add(child.Layout);
+                }
+
+                NDalicPINVOKE.Actor_Add(swigCPtr, View.getCPtr(child));
+                if (NDalicPINVOKE.SWIGPendingException.Pending)
+                    throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+                Children.Add(child);
+
+                if (ChildAdded != null)
+                {
+                    ChildAddedEventArgs e = new ChildAddedEventArgs
+                    {
+                        Added = child
+                    };
+                    ChildAdded(this, e);
                 }
             }
         }
 
-        private EventHandler<BackgroundResourceLoadedEventArgs> _backgroundResourceLoadedEventHandler;
-        [UnmanagedFunctionPointer(CallingConvention.StdCall)]
-        private delegate void _backgroundResourceLoadedCallbackType(IntPtr view);
-        private _backgroundResourceLoadedCallbackType _backgroundResourceLoadedCallback;
-
-        internal event EventHandler<BackgroundResourceLoadedEventArgs> BackgroundResourceLoaded
+        /// <summary>
+        /// Removes a child view from this View. If the view was not a child of this view, this is a no-op.
+        /// </summary>
+        /// <seealso cref="Container.Remove" />
+        /// <since_tizen> 4 </since_tizen>
+        public override void Remove(View child)
         {
-            add
+            NDalicPINVOKE.Actor_Remove(swigCPtr, View.getCPtr(child));
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+
+            Children.Remove(child);
+            child.InternalParent = null;
+
+            if (Layout)
             {
-                if (_backgroundResourceLoadedEventHandler == null)
+                if(child.Layout)
                 {
-                    _backgroundResourceLoadedCallback = OnBackgroundResourceLoaded;
-                    this.ResourcesLoadedSignal().Connect(_backgroundResourceLoadedCallback);
+                    Layout.LayoutChildren.Remove(child.Layout);
                 }
-
-                _backgroundResourceLoadedEventHandler += value;
             }
-            remove
-            {
-                _backgroundResourceLoadedEventHandler -= value;
 
-                if (_backgroundResourceLoadedEventHandler == null && ResourcesLoadedSignal().Empty() == false)
+            if (ChildRemoved != null)
+            {
+                ChildRemovedEventArgs e = new ChildRemovedEventArgs
                 {
-                    this.ResourcesLoadedSignal().Disconnect(_backgroundResourceLoadedCallback);
+                    Removed = child
+                };
+                ChildRemoved(this, e);
+            }
+        }
+
+        /// <summary>
+        /// Retrieves a child view by index.
+        /// </summary>
+        /// <seealso cref="Container.GetChildAt" />
+        /// <since_tizen> 4 </since_tizen>
+        public override View GetChildAt(uint index)
+        {
+            if (index < Children.Count)
+            {
+                return Children[Convert.ToInt32(index)];
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Retrieves the number of children held by the view.
+        /// </summary>
+        /// <seealso cref="Container.GetChildCount" />
+        /// <since_tizen> 4 </since_tizen>
+        public override uint GetChildCount()
+        {
+            return Convert.ToUInt32(Children.Count);
+        }
+
+        /// <summary>
+        /// Gets the views parent.
+        /// </summary>
+        /// <seealso cref="Container.GetParent()" />
+        /// <since_tizen> 4 </since_tizen>
+        public override Container GetParent()
+        {
+            return this.InternalParent as Container;
+        }
+
+        /// <summary>
+        /// Queries whether the view has a focus.
+        /// </summary>
+        /// <returns>True if this view has a focus.</returns>
+        /// <since_tizen> 3 </since_tizen>
+        public bool HasFocus()
+        {
+            bool ret = NDalicPINVOKE.View_HasKeyInputFocus(swigCPtr);
+            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        /// <summary>
+        /// Sets the name of the style to be applied to the view.
+        /// </summary>
+        /// <param name="styleName">A string matching a style described in a stylesheet.</param>
+        /// <since_tizen> 3 </since_tizen>
+        public void SetStyleName(string styleName)
+        {
+            NDalicPINVOKE.View_SetStyleName(swigCPtr, styleName);
+            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+        }
+
+        /// <summary>
+        /// Retrieves the name of the style to be applied to the view (if any).
+        /// </summary>
+        /// <returns>A string matching a style, or an empty string.</returns>
+        /// <since_tizen> 3 </since_tizen>
+        public string GetStyleName()
+        {
+            string ret = NDalicPINVOKE.View_GetStyleName(swigCPtr);
+            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        /// <summary>
+        /// Clears the background.
+        /// </summary>
+        /// <since_tizen> 3 </since_tizen>
+        public void ClearBackground()
+        {
+            NDalicPINVOKE.View_ClearBackground(swigCPtr);
+            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+        }
+
+        /// <summary>
+        /// Shows the view.
+        /// </summary>
+        /// <remarks>
+        /// This is an asynchronous method.
+        /// </remarks>
+        /// <since_tizen> 3 </since_tizen>
+        public void Show()
+        {
+            SetVisible(true);
+        }
+
+        /// <summary>
+        /// Hides the view.
+        /// </summary>
+        /// <remarks>
+        /// This is an asynchronous method.
+        /// If the view is hidden, then the view and its children will not be rendered.
+        /// This is regardless of the individual visibility of the children, i.e., the view will only be rendered if all of its parents are shown.
+        /// </remarks>
+        /// <since_tizen> 3 </since_tizen>
+        public void Hide()
+        {
+            SetVisible(false);
+        }
+
+        /// <summary>
+        /// Raises the view above all other views.
+        /// </summary>
+        /// <remarks>
+        /// Sibling order of views within the parent will be updated automatically.
+        /// Once a raise or lower API is used, that view will then have an exclusive sibling order independent of insertion.
+        /// </remarks>
+        /// <since_tizen> 3 </since_tizen>
+        public void RaiseToTop()
+        {
+            var parentChildren = GetParent()?.Children;
+
+            if (parentChildren != null)
+            {
+                parentChildren.Remove(this);
+                parentChildren.Add(this);
+
+                NDalicPINVOKE.RaiseToTop(swigCPtr);
+                if (NDalicPINVOKE.SWIGPendingException.Pending)
+                    throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            }
+
+        }
+
+        /// <summary>
+        /// Lowers the view to the bottom of all views.
+        /// </summary>
+        /// <remarks>
+        /// The sibling order of views within the parent will be updated automatically.
+        /// Once a raise or lower API is used that view will then have an exclusive sibling order independent of insertion.
+        /// </remarks>
+        /// <since_tizen> 3 </since_tizen>
+        public void LowerToBottom()
+        {
+            var parentChildren = GetParent()?.Children;
+
+            if (parentChildren != null)
+            {
+                parentChildren.Remove(this);
+                parentChildren.Insert(0, this);
+
+                NDalicPINVOKE.LowerToBottom(swigCPtr);
+                if (NDalicPINVOKE.SWIGPendingException.Pending)
+                    throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            }
+        }
+
+        /// <summary>
+        /// Queries if all resources required by a view are loaded and ready.
+        /// </summary>
+        /// <remarks>Most resources are only loaded when the control is placed on the stage.
+        /// </remarks>
+        /// <since_tizen> 3 </since_tizen>
+        public bool IsResourceReady()
+        {
+            bool ret = NDalicPINVOKE.IsResourceReady(swigCPtr);
+            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        /// <summary>
+        /// Gets the parent layer of this view.If a view has no parent, this method does not do anything.
+        /// </summary>
+        /// <pre>The view has been initialized. </pre>
+        /// <returns>The parent layer of view </returns>
+        /// <since_tizen> 5 </since_tizen>
+        public Layer GetLayer()
+        {
+            //to fix memory leak issue, match the handle count with native side.
+            IntPtr cPtr = NDalicPINVOKE.Actor_GetLayer(swigCPtr);
+            HandleRef CPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
+            Layer ret = Registry.GetManagedBaseHandleFromNativePtr(CPtr.Handle) as Layer;
+            NDalicPINVOKE.delete_BaseHandle(CPtr);
+            CPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
+
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        /// <summary>
+        /// Removes a view from its parent view or layer. If a view has no parent, this method does nothing.
+        /// </summary>
+        /// <pre>The (child) view has been initialized. </pre>
+        /// <since_tizen> 4 </since_tizen>
+        public void Unparent()
+        {
+            GetParent()?.Remove(this);
+        }
+
+        /// <summary>
+        /// Search through this view's hierarchy for a view with the given name.
+        /// The view itself is also considered in the search.
+        /// </summary>
+        /// <pre>The view has been initialized.</pre>
+        /// <param name="viewName">The name of the view to find.</param>
+        /// <returns>A handle to the view if found, or an empty handle if not.</returns>
+        /// <since_tizen> 3 </since_tizen>
+        public View FindChildByName(string viewName)
+        {
+            //to fix memory leak issue, match the handle count with native side.
+            IntPtr cPtr = NDalicPINVOKE.Actor_FindChildByName(swigCPtr, viewName);
+            HandleRef CPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
+            View ret = Registry.GetManagedBaseHandleFromNativePtr(CPtr.Handle) as View;
+            NDalicPINVOKE.delete_BaseHandle(CPtr);
+            CPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
+
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        /// <summary>
+        /// Converts screen coordinates into the view's coordinate system using the default camera.
+        /// </summary>
+        /// <pre>The view has been initialized.</pre>
+        /// <remarks>The view coordinates are relative to the top-left(0.0, 0.0, 0.5).</remarks>
+        /// <param name="localX">On return, the X-coordinate relative to the view.</param>
+        /// <param name="localY">On return, the Y-coordinate relative to the view.</param>
+        /// <param name="screenX">The screen X-coordinate.</param>
+        /// <param name="screenY">The screen Y-coordinate.</param>
+        /// <returns>True if the conversion succeeded.</returns>
+        /// <since_tizen> 3 </since_tizen>
+        public bool ScreenToLocal(out float localX, out float localY, float screenX, float screenY)
+        {
+            bool ret = NDalicPINVOKE.Actor_ScreenToLocal(swigCPtr, out localX, out localY, screenX, screenY);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        /// <summary>
+        /// Sets the relative to parent size factor of the view.<br />
+        /// This factor is only used when ResizePolicy is set to either:
+        /// ResizePolicy::SIZE_RELATIVE_TO_PARENT or ResizePolicy::SIZE_FIXED_OFFSET_FROM_PARENT.<br />
+        /// This view's size is set to the view's size multiplied by or added to this factor, depending on ResizePolicy.<br />
+        /// </summary>
+        /// <pre>The view has been initialized.</pre>
+        /// <param name="factor">A Vector3 representing the relative factor to be applied to each axis.</param>
+        /// <since_tizen> 3 </since_tizen>
+        public void SetSizeModeFactor(Vector3 factor)
+        {
+            NDalicPINVOKE.Actor_SetSizeModeFactor(swigCPtr, Vector3.getCPtr(factor));
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+        }
+        /// <summary>
+        /// Calculates the height of the view given a width.<br />
+        /// The natural size is used for default calculation.<br />
+        /// Size 0 is treated as aspect ratio 1:1.<br />
+        /// </summary>
+        /// <param name="width">The width to use.</param>
+        /// <returns>The height based on the width.</returns>
+        /// <since_tizen> 3 </since_tizen>
+        public float GetHeightForWidth(float width)
+        {
+            float ret = NDalicPINVOKE.Actor_GetHeightForWidth(swigCPtr, width);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        /// <summary>
+        /// Calculates the width of the view given a height.<br />
+        /// The natural size is used for default calculation.<br />
+        /// Size 0 is treated as aspect ratio 1:1.<br />
+        /// </summary>
+        /// <param name="height">The height to use.</param>
+        /// <returns>The width based on the height.</returns>
+        /// <since_tizen> 3 </since_tizen>
+        public float GetWidthForHeight(float height)
+        {
+            float ret = NDalicPINVOKE.Actor_GetWidthForHeight(swigCPtr, height);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        /// <summary>
+        /// Return the amount of size allocated for relayout.
+        /// </summary>
+        /// <param name="dimension">The dimension to retrieve.</param>
+        /// <returns>Return the size.</returns>
+        /// <since_tizen> 3 </since_tizen>
+        public float GetRelayoutSize(DimensionType dimension)
+        {
+            float ret = NDalicPINVOKE.Actor_GetRelayoutSize(swigCPtr, (int)dimension);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        /// <summary>
+        /// Set the padding for the view.
+        /// </summary>
+        /// <param name="padding">Padding for the view.</param>
+        /// <since_tizen> 3 </since_tizen>
+        public void SetPadding(PaddingType padding)
+        {
+            NDalicPINVOKE.Actor_SetPadding(swigCPtr, PaddingType.getCPtr(padding));
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+        }
+
+        /// <summary>
+        /// Return the value of padding for the view.
+        /// </summary>
+        /// <param name="paddingOut">the value of padding for the view</param>
+        /// <since_tizen> 3 </since_tizen>
+        public void GetPadding(PaddingType paddingOut)
+        {
+            NDalicPINVOKE.Actor_GetPadding(swigCPtr, PaddingType.getCPtr(paddingOut));
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+        }
+
+        /// <since_tizen> 3 </since_tizen>
+        public uint AddRenderer(Renderer renderer)
+        {
+            uint ret = NDalicPINVOKE.Actor_AddRenderer(swigCPtr, Renderer.getCPtr(renderer));
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        /// <since_tizen> 3 </since_tizen>
+        public Renderer GetRendererAt(uint index)
+        {
+            //to fix memory leak issue, match the handle count with native side.
+            IntPtr cPtr = NDalicPINVOKE.Actor_GetRendererAt(swigCPtr, index);
+            HandleRef CPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
+            Renderer ret = Registry.GetManagedBaseHandleFromNativePtr(CPtr.Handle) as Renderer;
+            NDalicPINVOKE.delete_BaseHandle(CPtr);
+            CPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
+
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        /// <since_tizen> 3 </since_tizen>
+        public void RemoveRenderer(Renderer renderer)
+        {
+            NDalicPINVOKE.Actor_RemoveRenderer__SWIG_0(swigCPtr, Renderer.getCPtr(renderer));
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+        }
+
+        /// <since_tizen> 3 </since_tizen>
+        public void RemoveRenderer(uint index)
+        {
+            NDalicPINVOKE.Actor_RemoveRenderer__SWIG_1(swigCPtr, index);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+        }
+
+        internal void Raise()
+        {
+            var parentChildren = GetParent()?.Children;
+
+            if (parentChildren != null)
+            {
+                int currentIndex = parentChildren.IndexOf(this);
+
+                // If the view is not already the last item in the list.
+                if (currentIndex >= 0 && currentIndex < parentChildren.Count - 1)
+                {
+                    View temp = parentChildren[currentIndex + 1];
+                    parentChildren[currentIndex + 1] = this;
+                    parentChildren[currentIndex] = temp;
+
+                    NDalicPINVOKE.Raise(swigCPtr);
+                    if (NDalicPINVOKE.SWIGPendingException.Pending)
+                        throw NDalicPINVOKE.SWIGPendingException.Retrieve();
                 }
             }
         }
+
+        internal void Lower()
+        {
+            var parentChildren = GetParent()?.Children;
+
+            if (parentChildren != null)
+            {
+                int currentIndex = parentChildren.IndexOf(this);
+
+                // If the view is not already the first item in the list.
+                if (currentIndex > 0 && currentIndex < parentChildren.Count)
+                {
+                    View temp = parentChildren[currentIndex - 1];
+                    parentChildren[currentIndex - 1] = this;
+                    parentChildren[currentIndex] = temp;
+
+                    NDalicPINVOKE.Lower(swigCPtr);
+                    if (NDalicPINVOKE.SWIGPendingException.Pending)
+                        throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Raises the view to above the target view.
+        /// </summary>
+        /// <remarks>The sibling order of views within the parent will be updated automatically.
+        /// Views on the level above the target view will still be shown above this view.
+        /// Raising this view above views with the same sibling order as each other will raise this view above them.
+        /// Once a raise or lower API is used that view will then have an exclusive sibling order independent of insertion.
+        /// </remarks>
+        /// <param name="target">Will be raised above this view.</param>
+        internal void RaiseAbove(View target)
+        {
+            var parentChildren = GetParent()?.Children;
+
+            if (parentChildren != null)
+            {
+                int currentIndex = parentChildren.IndexOf(this);
+                int targetIndex = parentChildren.IndexOf(target);
+
+                if (currentIndex < 0 || targetIndex < 0 ||
+                    currentIndex >= parentChildren.Count || targetIndex >= parentChildren.Count)
+                {
+                    NUILog.Error("index should be bigger than 0 and less than children of layer count");
+                    return;
+                }
+                // If the currentIndex is less than the target index and the target has the same parent.
+                if (currentIndex < targetIndex)
+                {
+                    parentChildren.Remove(this);
+                    parentChildren.Insert(targetIndex, this);
+
+                    NDalicPINVOKE.RaiseAbove(swigCPtr, View.getCPtr(target));
+                    if (NDalicPINVOKE.SWIGPendingException.Pending)
+                        throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+                }
+            }
+
+        }
+
+        /// <summary>
+        /// Lowers the view to below the target view.
+        /// </summary>
+        /// <remarks>The sibling order of views within the parent will be updated automatically.
+        /// Lowering this view below views with the same sibling order as each other will lower this view above them.
+        /// Once a raise or lower API is used that view will then have an exclusive sibling order independent of insertion.
+        /// </remarks>
+        /// <param name="target">Will be lowered below this view.</param>
+        internal void LowerBelow(View target)
+        {
+            var parentChildren = GetParent()?.Children;
+
+            if (parentChildren != null)
+            {
+                int currentIndex = parentChildren.IndexOf(this);
+                int targetIndex = parentChildren.IndexOf(target);
+                if (currentIndex < 0 || targetIndex < 0 ||
+                   currentIndex >= parentChildren.Count || targetIndex >= parentChildren.Count)
+                {
+                    NUILog.Error("index should be bigger than 0 and less than children of layer count");
+                    return;
+                }
+
+                // If the currentIndex is not already the 0th index and the target has the same parent.
+                if ((currentIndex != 0) && (targetIndex != -1) &&
+                    (currentIndex > targetIndex))
+                {
+                    parentChildren.Remove(this);
+                    parentChildren.Insert(targetIndex, this);
+
+                    NDalicPINVOKE.LowerBelow(swigCPtr, View.getCPtr(target));
+                    if (NDalicPINVOKE.SWIGPendingException.Pending)
+                        throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+                }
+            }
+
+        }
+
+        internal string GetName()
+        {
+            string ret = NDalicPINVOKE.Actor_GetName(swigCPtr);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        internal void SetName(string name)
+        {
+            NDalicPINVOKE.Actor_SetName(swigCPtr, name);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+        }
+
+        internal uint GetId()
+        {
+            uint ret = NDalicPINVOKE.Actor_GetId(swigCPtr);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        internal bool IsRoot()
+        {
+            bool ret = NDalicPINVOKE.Actor_IsRoot(swigCPtr);
+            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        internal bool OnWindow()
+        {
+            bool ret = NDalicPINVOKE.Actor_OnStage(swigCPtr);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        internal View FindChildById(uint id)
+        {
+            //to fix memory leak issue, match the handle count with native side.
+            IntPtr cPtr = NDalicPINVOKE.Actor_FindChildById(swigCPtr, id);
+            HandleRef CPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
+            View ret = Registry.GetManagedBaseHandleFromNativePtr(CPtr.Handle) as View;
+            NDalicPINVOKE.delete_BaseHandle(CPtr);
+            CPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
+
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        internal void SetParentOrigin(Vector3 origin)
+        {
+            NDalicPINVOKE.Actor_SetParentOrigin(swigCPtr, Vector3.getCPtr(origin));
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+        }
+
+        internal Vector3 GetCurrentParentOrigin()
+        {
+            Vector3 ret = new Vector3(NDalicPINVOKE.Actor_GetCurrentParentOrigin(swigCPtr), true);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        internal void SetAnchorPoint(Vector3 anchorPoint)
+        {
+            NDalicPINVOKE.Actor_SetAnchorPoint(swigCPtr, Vector3.getCPtr(anchorPoint));
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+        }
+
+        internal Vector3 GetCurrentAnchorPoint()
+        {
+            Vector3 ret = new Vector3(NDalicPINVOKE.Actor_GetCurrentAnchorPoint(swigCPtr), true);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        internal void SetSize(float width, float height)
+        {
+            NDalicPINVOKE.Actor_SetSize__SWIG_0(swigCPtr, width, height);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+        }
+
+        internal void SetSize(float width, float height, float depth)
+        {
+            NDalicPINVOKE.Actor_SetSize__SWIG_1(swigCPtr, width, height, depth);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+        }
+
+        internal void SetSize(Vector2 size)
+        {
+            NDalicPINVOKE.Actor_SetSize__SWIG_2(swigCPtr, Vector2.getCPtr(size));
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+        }
+
+        internal void SetSize(Vector3 size)
+        {
+            NDalicPINVOKE.Actor_SetSize__SWIG_3(swigCPtr, Vector3.getCPtr(size));
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+        }
+
+        internal Vector3 GetTargetSize()
+        {
+            Vector3 ret = new Vector3(NDalicPINVOKE.Actor_GetTargetSize(swigCPtr), true);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        internal Size2D GetCurrentSize()
+        {
+            Size ret = new Size(NDalicPINVOKE.Actor_GetCurrentSize(swigCPtr), true);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            Size2D size = new Size2D((int)ret.Width, (int)ret.Height);
+            return size;
+        }
+
+        internal Vector3 GetNaturalSize()
+        {
+            Vector3 ret = new Vector3(NDalicPINVOKE.Actor_GetNaturalSize(swigCPtr), true);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        internal void SetPosition(float x, float y)
+        {
+            NDalicPINVOKE.Actor_SetPosition__SWIG_0(swigCPtr, x, y);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+        }
+
+        internal void SetPosition(float x, float y, float z)
+        {
+            NDalicPINVOKE.Actor_SetPosition__SWIG_1(swigCPtr, x, y, z);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+        }
+
+        internal void SetPosition(Vector3 position)
+        {
+            NDalicPINVOKE.Actor_SetPosition__SWIG_2(swigCPtr, Vector3.getCPtr(position));
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+        }
+
+        internal void SetX(float x)
+        {
+            NDalicPINVOKE.Actor_SetX(swigCPtr, x);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+        }
+
+        internal void SetY(float y)
+        {
+            NDalicPINVOKE.Actor_SetY(swigCPtr, y);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+        }
+
+        internal void SetZ(float z)
+        {
+            NDalicPINVOKE.Actor_SetZ(swigCPtr, z);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+        }
+
+        internal void TranslateBy(Vector3 distance)
+        {
+            NDalicPINVOKE.Actor_TranslateBy(swigCPtr, Vector3.getCPtr(distance));
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+        }
+
+        internal Position GetCurrentPosition()
+        {
+            Position ret = new Position(NDalicPINVOKE.Actor_GetCurrentPosition(swigCPtr), true);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        internal Vector3 GetCurrentWorldPosition()
+        {
+            Vector3 ret = new Vector3(NDalicPINVOKE.Actor_GetCurrentWorldPosition(swigCPtr), true);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        internal void SetInheritPosition(bool inherit)
+        {
+            NDalicPINVOKE.Actor_SetInheritPosition(swigCPtr, inherit);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+        }
+
+        internal bool IsPositionInherited()
+        {
+            bool ret = NDalicPINVOKE.Actor_IsPositionInherited(swigCPtr);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        internal void SetOrientation(Degree angle, Vector3 axis)
+        {
+            NDalicPINVOKE.Actor_SetOrientation__SWIG_0(swigCPtr, Degree.getCPtr(angle), Vector3.getCPtr(axis));
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+        }
+
+        internal void SetOrientation(Radian angle, Vector3 axis)
+        {
+            NDalicPINVOKE.Actor_SetOrientation__SWIG_1(swigCPtr, Radian.getCPtr(angle), Vector3.getCPtr(axis));
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+        }
+
+        internal void SetOrientation(Rotation orientation)
+        {
+            NDalicPINVOKE.Actor_SetOrientation__SWIG_2(swigCPtr, Rotation.getCPtr(orientation));
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+        }
+
+        internal void RotateBy(Degree angle, Vector3 axis)
+        {
+            NDalicPINVOKE.Actor_RotateBy__SWIG_0(swigCPtr, Degree.getCPtr(angle), Vector3.getCPtr(axis));
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+        }
+
+        internal void RotateBy(Radian angle, Vector3 axis)
+        {
+            NDalicPINVOKE.Actor_RotateBy__SWIG_1(swigCPtr, Radian.getCPtr(angle), Vector3.getCPtr(axis));
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+        }
+
+        internal void RotateBy(Rotation relativeRotation)
+        {
+            NDalicPINVOKE.Actor_RotateBy__SWIG_2(swigCPtr, Rotation.getCPtr(relativeRotation));
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+        }
+
+        internal Rotation GetCurrentOrientation()
+        {
+            Rotation ret = new Rotation(NDalicPINVOKE.Actor_GetCurrentOrientation(swigCPtr), true);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        internal void SetInheritOrientation(bool inherit)
+        {
+            NDalicPINVOKE.Actor_SetInheritOrientation(swigCPtr, inherit);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+        }
+
+        internal bool IsOrientationInherited()
+        {
+            bool ret = NDalicPINVOKE.Actor_IsOrientationInherited(swigCPtr);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        internal Rotation GetCurrentWorldOrientation()
+        {
+            Rotation ret = new Rotation(NDalicPINVOKE.Actor_GetCurrentWorldOrientation(swigCPtr), true);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        internal void SetScale(float scale)
+        {
+            NDalicPINVOKE.Actor_SetScale__SWIG_0(swigCPtr, scale);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+        }
+
+        internal void SetScale(float scaleX, float scaleY, float scaleZ)
+        {
+            NDalicPINVOKE.Actor_SetScale__SWIG_1(swigCPtr, scaleX, scaleY, scaleZ);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+        }
+
+        internal void SetScale(Vector3 scale)
+        {
+            NDalicPINVOKE.Actor_SetScale__SWIG_2(swigCPtr, Vector3.getCPtr(scale));
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+        }
+
+        internal void ScaleBy(Vector3 relativeScale)
+        {
+            NDalicPINVOKE.Actor_ScaleBy(swigCPtr, Vector3.getCPtr(relativeScale));
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+        }
+
+        internal Vector3 GetCurrentScale()
+        {
+            Vector3 ret = new Vector3(NDalicPINVOKE.Actor_GetCurrentScale(swigCPtr), true);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        internal Vector3 GetCurrentWorldScale()
+        {
+            Vector3 ret = new Vector3(NDalicPINVOKE.Actor_GetCurrentWorldScale(swigCPtr), true);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        internal void SetInheritScale(bool inherit)
+        {
+            NDalicPINVOKE.Actor_SetInheritScale(swigCPtr, inherit);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+        }
+
+        internal bool IsScaleInherited()
+        {
+            bool ret = NDalicPINVOKE.Actor_IsScaleInherited(swigCPtr);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        internal Matrix GetCurrentWorldMatrix()
+        {
+            Matrix ret = new Matrix(NDalicPINVOKE.Actor_GetCurrentWorldMatrix(swigCPtr), true);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        internal void SetVisible(bool visible)
+        {
+            NDalicPINVOKE.Actor_SetVisible(swigCPtr, visible);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+        }
+
+        internal bool IsVisible()
+        {
+            bool ret = NDalicPINVOKE.Actor_IsVisible(swigCPtr);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        internal void SetOpacity(float opacity)
+        {
+            NDalicPINVOKE.Actor_SetOpacity(swigCPtr, opacity);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+        }
+
+        internal float GetCurrentOpacity()
+        {
+            float ret = NDalicPINVOKE.Actor_GetCurrentOpacity(swigCPtr);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        internal void SetColor(Vector4 color)
+        {
+            NDalicPINVOKE.Actor_SetColor(swigCPtr, Vector4.getCPtr(color));
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+        }
+
+        internal Vector4 GetCurrentColor()
+        {
+            Vector4 ret = new Vector4(NDalicPINVOKE.Actor_GetCurrentColor(swigCPtr), true);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        internal void SetColorMode(ColorMode colorMode)
+        {
+            NDalicPINVOKE.Actor_SetColorMode(swigCPtr, (int)colorMode);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+        }
+
+        internal ColorMode GetColorMode()
+        {
+            ColorMode ret = (ColorMode)NDalicPINVOKE.Actor_GetColorMode(swigCPtr);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        internal Vector4 GetCurrentWorldColor()
+        {
+            Vector4 ret = new Vector4(NDalicPINVOKE.Actor_GetCurrentWorldColor(swigCPtr), true);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        internal void SetDrawMode(DrawModeType drawMode)
+        {
+            NDalicPINVOKE.Actor_SetDrawMode(swigCPtr, (int)drawMode);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+        }
+
+        internal DrawModeType GetDrawMode()
+        {
+            DrawModeType ret = (DrawModeType)NDalicPINVOKE.Actor_GetDrawMode(swigCPtr);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        internal void SetKeyboardFocusable(bool focusable)
+        {
+            NDalicPINVOKE.Actor_SetKeyboardFocusable(swigCPtr, focusable);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+        }
+
+        internal bool IsKeyboardFocusable()
+        {
+            bool ret = NDalicPINVOKE.Actor_IsKeyboardFocusable(swigCPtr);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        internal void SetResizePolicy(ResizePolicyType policy, DimensionType dimension)
+        {
+            NDalicPINVOKE.Actor_SetResizePolicy(swigCPtr, (int)policy, (int)dimension);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+        }
+
+        internal ResizePolicyType GetResizePolicy(DimensionType dimension)
+        {
+            ResizePolicyType ret = (ResizePolicyType)NDalicPINVOKE.Actor_GetResizePolicy(swigCPtr, (int)dimension);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        internal Vector3 GetSizeModeFactor()
+        {
+            Vector3 ret = new Vector3(NDalicPINVOKE.Actor_GetSizeModeFactor(swigCPtr), true);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        internal void SetMinimumSize(Vector2 size)
+        {
+            NDalicPINVOKE.Actor_SetMinimumSize(swigCPtr, Vector2.getCPtr(size));
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+        }
+
+        internal Vector2 GetMinimumSize()
+        {
+            Vector2 ret = new Vector2(NDalicPINVOKE.Actor_GetMinimumSize(swigCPtr), true);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        internal void SetMaximumSize(Vector2 size)
+        {
+            NDalicPINVOKE.Actor_SetMaximumSize(swigCPtr, Vector2.getCPtr(size));
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+        }
+
+        internal Vector2 GetMaximumSize()
+        {
+            Vector2 ret = new Vector2(NDalicPINVOKE.Actor_GetMaximumSize(swigCPtr), true);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        internal int GetHierarchyDepth()
+        {
+            int ret = NDalicPINVOKE.Actor_GetHierarchyDepth(swigCPtr);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }   
+
+        internal uint GetRendererCount()
+        {
+            uint ret = NDalicPINVOKE.Actor_GetRendererCount(swigCPtr);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        internal TouchDataSignal TouchSignal()
+        {
+            TouchDataSignal ret = new TouchDataSignal(NDalicPINVOKE.Actor_TouchSignal(swigCPtr), false);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        internal HoverSignal HoveredSignal()
+        {
+            HoverSignal ret = new HoverSignal(NDalicPINVOKE.Actor_HoveredSignal(swigCPtr), false);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        internal WheelSignal WheelEventSignal()
+        {
+            WheelSignal ret = new WheelSignal(NDalicPINVOKE.Actor_WheelEventSignal(swigCPtr), false);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        internal ViewSignal OnWindowSignal()
+        {
+            ViewSignal ret = new ViewSignal(NDalicPINVOKE.Actor_OnStageSignal(swigCPtr), false);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        internal ViewSignal OffWindowSignal()
+        {
+            ViewSignal ret = new ViewSignal(NDalicPINVOKE.Actor_OffStageSignal(swigCPtr), false);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        internal ViewSignal OnRelayoutSignal()
+        {
+            ViewSignal ret = new ViewSignal(NDalicPINVOKE.Actor_OnRelayoutSignal(swigCPtr), false);
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        internal ViewVisibilityChangedSignal VisibilityChangedSignal(View view)
+        {
+            ViewVisibilityChangedSignal ret = new ViewVisibilityChangedSignal(NDalicPINVOKE.VisibilityChangedSignal(View.getCPtr(view)), false);
+            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        internal ViewLayoutDirectionChangedSignal LayoutDirectionChangedSignal(View view)
+        {
+            ViewLayoutDirectionChangedSignal ret = new ViewLayoutDirectionChangedSignal(NDalicManualPINVOKE.LayoutDirectionChangedSignal(View.getCPtr(view)), false);
+            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        internal ViewSignal ResourcesLoadedSignal()
+        {
+            ViewSignal ret = new ViewSignal(NDalicPINVOKE.ResourceReadySignal(swigCPtr), false);
+            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        internal static global::System.Runtime.InteropServices.HandleRef getCPtr(View obj)
+        {
+            return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
+        }
+
+        internal bool IsTopLevelView()
+        {
+            if (GetParent() is Layer)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        internal void SetKeyInputFocus()
+        {
+            NDalicPINVOKE.View_SetKeyInputFocus(swigCPtr);
+            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+        }
+
+        internal void ClearKeyInputFocus()
+        {
+            NDalicPINVOKE.View_ClearKeyInputFocus(swigCPtr);
+            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+        }
+
+        internal PinchGestureDetector GetPinchGestureDetector()
+        {
+            PinchGestureDetector ret = new PinchGestureDetector(NDalicPINVOKE.View_GetPinchGestureDetector(swigCPtr), true);
+            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        internal PanGestureDetector GetPanGestureDetector()
+        {
+            PanGestureDetector ret = new PanGestureDetector(NDalicPINVOKE.View_GetPanGestureDetector(swigCPtr), true);
+            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        internal TapGestureDetector GetTapGestureDetector()
+        {
+            TapGestureDetector ret = new TapGestureDetector(NDalicPINVOKE.View_GetTapGestureDetector(swigCPtr), true);
+            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        internal LongPressGestureDetector GetLongPressGestureDetector()
+        {
+            LongPressGestureDetector ret = new LongPressGestureDetector(NDalicPINVOKE.View_GetLongPressGestureDetector(swigCPtr), true);
+            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        internal void SetBackgroundColor(Vector4 color)
+        {
+            NDalicPINVOKE.View_SetBackgroundColor(swigCPtr, Vector4.getCPtr(color));
+            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+        }
+
+        internal Vector4 GetBackgroundColor()
+        {
+            Vector4 ret = new Vector4(NDalicPINVOKE.View_GetBackgroundColor(swigCPtr), true);
+            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        internal void SetBackgroundImage(Image image)
+        {
+            NDalicPINVOKE.View_SetBackgroundImage(swigCPtr, Image.getCPtr(image));
+            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+        }
+
+        internal ControlKeySignal KeyEventSignal()
+        {
+            ControlKeySignal ret = new ControlKeySignal(NDalicPINVOKE.View_KeyEventSignal(swigCPtr), false);
+            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        internal KeyInputFocusSignal KeyInputFocusGainedSignal()
+        {
+            KeyInputFocusSignal ret = new KeyInputFocusSignal(NDalicPINVOKE.View_KeyInputFocusGainedSignal(swigCPtr), false);
+            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        internal KeyInputFocusSignal KeyInputFocusLostSignal()
+        {
+            KeyInputFocusSignal ret = new KeyInputFocusSignal(NDalicPINVOKE.View_KeyInputFocusLostSignal(swigCPtr), false);
+            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
+        internal IntPtr GetPtrfromView()
+        {
+            return (IntPtr)swigCPtr;
+        }
+
+        internal void SetLayout(LayoutItem layout)
+        {
+            Tizen.NUI.NDalicManualPINVOKE.SetLayout__SWIG_1(View.getCPtr(this), LayoutItem.getCPtr(layout));
+            layout.LayoutChildren.Clear();
+            foreach (View view in Children)
+            {
+                layout.LayoutChildren.Add(view.Layout);
+            }
+        }
+
+        internal ResourceLoadingStatusType GetBackgroundResourceStatus()
+        {
+            return (ResourceLoadingStatusType)NDalicManualPINVOKE.View_GetVisualResourceStatus(this.swigCPtr, Property.BACKGROUND);
+        }
+
+        /// <summary>
+        /// you can override it to clean-up your own resources.
+        /// </summary>
+        /// <param name="type">DisposeTypes</param>
+        /// <since_tizen> 3 </since_tizen>
+        protected override void Dispose(DisposeTypes type)
+        {
+            if (disposed)
+            {
+                return;
+            }
+
+            if (type == DisposeTypes.Explicit)
+            {
+                //Called by User
+                //Release your own managed resources here.
+                //You should release all of your own disposable objects here.
+            }
+
+            //Release your own unmanaged resources here.
+            //You should not access any managed member here except static instance.
+            //because the execution order of Finalizes is non-deterministic.
+            if (this != null)
+            {
+                DisConnectFromSignals();
+            }
+
+            if (swigCPtr.Handle != global::System.IntPtr.Zero)
+            {
+                if (swigCMemOwn)
+                {
+                    swigCMemOwn = false;
+                    NDalicPINVOKE.delete_View(swigCPtr);
+                }
+                swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
+            }
+
+            foreach (View view in Children)
+            {
+                view.InternalParent = null;
+            }
+
+            base.Dispose(type);
+
+        }
+
+        private void OnSize2DChanged(int width, int height)
+        {
+            Size2D = new Size2D(width, height);
+        }
+
+        private void OnPosition2DChanged(int x, int y)
+        {
+            Position2D = new Position2D(x, y);
+        }
+
+        private void DisConnectFromSignals()
+        {
+            // Save current CPtr.
+            global::System.Runtime.InteropServices.HandleRef currentCPtr = swigCPtr;
+
+            // Use BaseHandle CPtr as current might have been deleted already in derived classes.
+            swigCPtr = GetBaseHandleCPtrHandleRef;
+
+            if (_onRelayoutEventCallback != null)
+            {
+                this.OnRelayoutSignal().Disconnect(_onRelayoutEventCallback);
+            }
+
+            if (_offWindowEventCallback != null)
+            {
+                this.OffWindowSignal().Disconnect(_offWindowEventCallback);
+            }
+
+            if (_onWindowEventCallback != null)
+            {
+                this.OnWindowSignal().Disconnect(_onWindowEventCallback);
+            }
+
+            if (_wheelEventCallback != null)
+            {
+                this.WheelEventSignal().Disconnect(_wheelEventCallback);
+            }
+
+            if (_hoverEventCallback != null)
+            {
+                this.HoveredSignal().Disconnect(_hoverEventCallback);
+            }
+
+            if (_touchDataCallback != null)
+            {
+                this.TouchSignal().Disconnect(_touchDataCallback);
+            }
+
+            if (_ResourcesLoadedCallback != null)
+            {
+                this.ResourcesLoadedSignal().Disconnect(_ResourcesLoadedCallback);
+            }
+
+            if (_offWindowEventCallback != null)
+            {
+                this.OffWindowSignal().Disconnect(_offWindowEventCallback);
+            }
+
+            if (_onWindowEventCallback != null)
+            {
+                this.OnWindowSignal().Disconnect(_onWindowEventCallback);
+            }
+
+            if (_wheelEventCallback != null)
+            {
+                this.WheelEventSignal().Disconnect(_wheelEventCallback);
+            }
+
+            if (_hoverEventCallback != null)
+            {
+                this.HoveredSignal().Disconnect(_hoverEventCallback);
+            }
+
+            if (_touchDataCallback != null)
+            {
+                this.TouchSignal().Disconnect(_touchDataCallback);
+            }
+
+            if (_onRelayoutEventCallback != null)
+            {
+                this.OnRelayoutSignal().Disconnect(_onRelayoutEventCallback);
+            }
+
+            if (_keyCallback != null)
+            {
+                this.KeyEventSignal().Disconnect(_keyCallback);
+            }
+
+            if (_keyInputFocusLostCallback != null)
+            {
+                this.KeyInputFocusLostSignal().Disconnect(_keyInputFocusLostCallback);
+            }
+
+            if (_keyInputFocusGainedCallback != null)
+            {
+                this.KeyInputFocusGainedSignal().Disconnect(_keyInputFocusGainedCallback);
+            }
+
+            if (_backgroundResourceLoadedCallback != null)
+            {
+                this.ResourcesLoadedSignal().Disconnect(_backgroundResourceLoadedCallback);
+            }
+
+            // BaseHandle CPtr is used in Registry and there is danger of deletion if we keep using it here.
+            // Restore current CPtr.
+            swigCPtr = currentCPtr;
+        }
+
+        private void OnKeyInputFocusGained(IntPtr view)
+        {
+            if (_keyInputFocusGainedEventHandler != null)
+            {
+                _keyInputFocusGainedEventHandler(this, null);
+            }
+        }
+
+        private void OnKeyInputFocusLost(IntPtr view)
+        {
+            if (_keyInputFocusLostEventHandler != null)
+            {
+                _keyInputFocusLostEventHandler(this, null);
+            }
+        }
+
+        private bool OnKeyEvent(IntPtr view, IntPtr keyEvent)
+        {
+            if (keyEvent == global::System.IntPtr.Zero)
+            {
+                NUILog.Error("keyEvent should not be null!");
+                return true;
+            }
+
+            KeyEventArgs e = new KeyEventArgs();
+
+            bool result = false;
+
+            e.Key = Tizen.NUI.Key.GetKeyFromPtr(keyEvent);
+
+            if (_keyEventHandler != null)
+            {
+                Delegate[] delegateList = _keyEventHandler.GetInvocationList();
+
+                // Oring the result of each callback.
+                foreach (EventHandlerWithReturnType<object, KeyEventArgs, bool> del in delegateList)
+                {
+                    result |= del(this, e);
+                }
+            }
+
+            return result;
+        }
+
+        // Callback for View OnRelayout signal
+        private void OnRelayout(IntPtr data)
+        {
+            if (_onRelayoutEventHandler != null)
+            {
+                _onRelayoutEventHandler(this, null);
+            }
+        }
+
+        // Callback for View TouchSignal
+        private bool OnTouch(IntPtr view, IntPtr touchData)
+        {
+            if (touchData == global::System.IntPtr.Zero)
+            {
+                NUILog.Error("touchData should not be null!");
+                return true;
+            }
+
+            TouchEventArgs e = new TouchEventArgs();
+
+            e.Touch = Tizen.NUI.Touch.GetTouchFromPtr(touchData);
+
+            if (_touchDataEventHandler != null)
+            {
+                return _touchDataEventHandler(this, e);
+            }
+            return false;
+        }
+
+        // Callback for View Hover signal
+        private bool OnHoverEvent(IntPtr view, IntPtr hoverEvent)
+        {
+            if (hoverEvent == global::System.IntPtr.Zero)
+            {
+                NUILog.Error("hoverEvent should not be null!");
+                return true;
+            }
+
+            HoverEventArgs e = new HoverEventArgs();
+
+            e.Hover = Tizen.NUI.Hover.GetHoverFromPtr(hoverEvent);
+
+            if (_hoverEventHandler != null)
+            {
+                return _hoverEventHandler(this, e);
+            }
+            return false;
+        }
+
+        // Callback for View Wheel signal
+        private bool OnWheelEvent(IntPtr view, IntPtr wheelEvent)
+        {
+            if (wheelEvent == global::System.IntPtr.Zero)
+            {
+                NUILog.Error("wheelEvent should not be null!");
+                return true;
+            }
+
+            WheelEventArgs e = new WheelEventArgs();
+
+            e.Wheel = Tizen.NUI.Wheel.GetWheelFromPtr(wheelEvent);
+
+            if (_wheelEventHandler != null)
+            {
+                return _wheelEventHandler(this, e);
+            }
+            return false;
+        }
+
+        // Callback for View OnWindow signal
+        private void OnWindow(IntPtr data)
+        {
+            if (_onWindowEventHandler != null)
+            {
+                _onWindowEventHandler(this, null);
+            }
+        }
+
+        // Callback for View OffWindow signal
+        private void OffWindow(IntPtr data)
+        {
+            if (_offWindowEventHandler != null)
+            {
+                _offWindowEventHandler(this, null);
+            }
+        }
+
+        // Callback for View visibility change signal
+        private void OnVisibilityChanged(IntPtr data, bool visibility, VisibilityChangeType type)
+        {
+            VisibilityChangedEventArgs e = new VisibilityChangedEventArgs();
+            if (data != null)
+            {
+                e.View = Registry.GetManagedBaseHandleFromNativePtr(data) as View;
+            }
+            e.Visibility = visibility;
+            e.Type = type;
+
+            if (_visibilityChangedEventHandler != null)
+            {
+                _visibilityChangedEventHandler(this, e);
+            }
+        }
+
+        // Callback for View layout direction change signal
+        private void OnLayoutDirectionChanged(IntPtr data, ViewLayoutDirectionType type)
+        {
+            LayoutDirectionChangedEventArgs e = new LayoutDirectionChangedEventArgs();
+            if (data != null)
+            {
+                e.View = Registry.GetManagedBaseHandleFromNativePtr(data) as View;
+            }
+            e.Type = type;
+
+            if (_layoutDirectionChangedEventHandler != null)
+            {
+                _layoutDirectionChangedEventHandler(this, e);
+            }
+        }
+
+        private void OnResourcesLoaded(IntPtr view)
+        {
+            if (_resourcesLoadedEventHandler != null)
+            {
+                _resourcesLoadedEventHandler(this, null);
+            }
+        }
+
+        private View ConvertIdToView(uint id)
+        {
+            View view = null;
+            if (GetParent() is View)
+            {
+                View parentView = GetParent() as View;
+                view = parentView.FindChildById(id);
+            }
+
+            if (!view)
+            {
+                view = Window.Instance.GetRootLayer().FindChildById(id);
+            }
+
+            return view;
+        }   
 
         private void OnBackgroundResourceLoaded(IntPtr view)
         {
@@ -5699,50 +5403,315 @@ namespace Tizen.NUI.BaseComponents
             }
         }
 
-        internal ResourceLoadingStatusType GetBackgroundResourceStatus()
+        internal class Property
         {
-            return (ResourceLoadingStatusType)NDalicManualPINVOKE.View_GetVisualResourceStatus(this.swigCPtr, Property.BACKGROUND);
+            internal static readonly int TOOLTIP = NDalicManualPINVOKE.View_Property_TOOLTIP_get();
+            internal static readonly int STATE = NDalicManualPINVOKE.View_Property_STATE_get();
+            internal static readonly int SUB_STATE = NDalicManualPINVOKE.View_Property_SUB_STATE_get();
+            internal static readonly int LEFT_FOCUSABLE_VIEW_ID = NDalicManualPINVOKE.View_Property_LEFT_FOCUSABLE_ACTOR_ID_get();
+            internal static readonly int RIGHT_FOCUSABLE_VIEW_ID = NDalicManualPINVOKE.View_Property_RIGHT_FOCUSABLE_ACTOR_ID_get();
+            internal static readonly int UP_FOCUSABLE_VIEW_ID = NDalicManualPINVOKE.View_Property_UP_FOCUSABLE_ACTOR_ID_get();
+            internal static readonly int DOWN_FOCUSABLE_VIEW_ID = NDalicManualPINVOKE.View_Property_DOWN_FOCUSABLE_ACTOR_ID_get();
+            internal static readonly int STYLE_NAME = NDalicPINVOKE.View_Property_STYLE_NAME_get();
+            internal static readonly int BACKGROUND = NDalicPINVOKE.View_Property_BACKGROUND_get();
+            internal static readonly int SIBLING_ORDER = NDalicManualPINVOKE.Actor_Property_SIBLING_ORDER_get();
+            internal static readonly int OPACITY = NDalicManualPINVOKE.Actor_Property_OPACITY_get();
+            internal static readonly int SCREEN_POSITION = NDalicManualPINVOKE.Actor_Property_SCREEN_POSITION_get();
+            internal static readonly int POSITION_USES_ANCHOR_POINT = NDalicManualPINVOKE.Actor_Property_POSITION_USES_ANCHOR_POINT_get();
+            internal static readonly int PARENT_ORIGIN = NDalicPINVOKE.Actor_Property_PARENT_ORIGIN_get();
+            internal static readonly int PARENT_ORIGIN_X = NDalicPINVOKE.Actor_Property_PARENT_ORIGIN_X_get();
+            internal static readonly int PARENT_ORIGIN_Y = NDalicPINVOKE.Actor_Property_PARENT_ORIGIN_Y_get();
+            internal static readonly int PARENT_ORIGIN_Z = NDalicPINVOKE.Actor_Property_PARENT_ORIGIN_Z_get();
+            internal static readonly int ANCHOR_POINT = NDalicPINVOKE.Actor_Property_ANCHOR_POINT_get();
+            internal static readonly int ANCHOR_POINT_X = NDalicPINVOKE.Actor_Property_ANCHOR_POINT_X_get();
+            internal static readonly int ANCHOR_POINT_Y = NDalicPINVOKE.Actor_Property_ANCHOR_POINT_Y_get();
+            internal static readonly int ANCHOR_POINT_Z = NDalicPINVOKE.Actor_Property_ANCHOR_POINT_Z_get();
+            internal static readonly int SIZE = NDalicPINVOKE.Actor_Property_SIZE_get();
+            internal static readonly int SIZE_WIDTH = NDalicPINVOKE.Actor_Property_SIZE_WIDTH_get();
+            internal static readonly int SIZE_HEIGHT = NDalicPINVOKE.Actor_Property_SIZE_HEIGHT_get();
+            internal static readonly int SIZE_DEPTH = NDalicPINVOKE.Actor_Property_SIZE_DEPTH_get();
+            internal static readonly int POSITION = NDalicPINVOKE.Actor_Property_POSITION_get();
+            internal static readonly int POSITION_X = NDalicPINVOKE.Actor_Property_POSITION_X_get();
+            internal static readonly int POSITION_Y = NDalicPINVOKE.Actor_Property_POSITION_Y_get();
+            internal static readonly int POSITION_Z = NDalicPINVOKE.Actor_Property_POSITION_Z_get();
+            internal static readonly int WORLD_POSITION = NDalicPINVOKE.Actor_Property_WORLD_POSITION_get();
+            internal static readonly int WORLD_POSITION_X = NDalicPINVOKE.Actor_Property_WORLD_POSITION_X_get();
+            internal static readonly int WORLD_POSITION_Y = NDalicPINVOKE.Actor_Property_WORLD_POSITION_Y_get();
+            internal static readonly int WORLD_POSITION_Z = NDalicPINVOKE.Actor_Property_WORLD_POSITION_Z_get();
+            internal static readonly int ORIENTATION = NDalicPINVOKE.Actor_Property_ORIENTATION_get();
+            internal static readonly int WORLD_ORIENTATION = NDalicPINVOKE.Actor_Property_WORLD_ORIENTATION_get();
+            internal static readonly int SCALE = NDalicPINVOKE.Actor_Property_SCALE_get();
+            internal static readonly int SCALE_X = NDalicPINVOKE.Actor_Property_SCALE_X_get();
+            internal static readonly int SCALE_Y = NDalicPINVOKE.Actor_Property_SCALE_Y_get();
+            internal static readonly int SCALE_Z = NDalicPINVOKE.Actor_Property_SCALE_Z_get();
+            internal static readonly int WORLD_SCALE = NDalicPINVOKE.Actor_Property_WORLD_SCALE_get();
+            internal static readonly int VISIBLE = NDalicPINVOKE.Actor_Property_VISIBLE_get();
+            internal static readonly int WORLD_COLOR = NDalicPINVOKE.Actor_Property_WORLD_COLOR_get();
+            internal static readonly int WORLD_MATRIX = NDalicPINVOKE.Actor_Property_WORLD_MATRIX_get();
+            internal static readonly int NAME = NDalicPINVOKE.Actor_Property_NAME_get();
+            internal static readonly int SENSITIVE = NDalicPINVOKE.Actor_Property_SENSITIVE_get();
+            internal static readonly int LEAVE_REQUIRED = NDalicPINVOKE.Actor_Property_LEAVE_REQUIRED_get();
+            internal static readonly int INHERIT_ORIENTATION = NDalicPINVOKE.Actor_Property_INHERIT_ORIENTATION_get();
+            internal static readonly int INHERIT_SCALE = NDalicPINVOKE.Actor_Property_INHERIT_SCALE_get();
+            internal static readonly int DRAW_MODE = NDalicPINVOKE.Actor_Property_DRAW_MODE_get();
+            internal static readonly int SIZE_MODE_FACTOR = NDalicPINVOKE.Actor_Property_SIZE_MODE_FACTOR_get();
+            internal static readonly int WIDTH_RESIZE_POLICY = NDalicPINVOKE.Actor_Property_WIDTH_RESIZE_POLICY_get();
+            internal static readonly int HEIGHT_RESIZE_POLICY = NDalicPINVOKE.Actor_Property_HEIGHT_RESIZE_POLICY_get();
+            internal static readonly int SIZE_SCALE_POLICY = NDalicPINVOKE.Actor_Property_SIZE_SCALE_POLICY_get();
+            internal static readonly int WIDTH_FOR_HEIGHT = NDalicPINVOKE.Actor_Property_WIDTH_FOR_HEIGHT_get();
+            internal static readonly int HEIGHT_FOR_WIDTH = NDalicPINVOKE.Actor_Property_HEIGHT_FOR_WIDTH_get();
+            internal static readonly int MINIMUM_SIZE = NDalicPINVOKE.Actor_Property_MINIMUM_SIZE_get();
+            internal static readonly int MAXIMUM_SIZE = NDalicPINVOKE.Actor_Property_MAXIMUM_SIZE_get();
+            internal static readonly int INHERIT_POSITION = NDalicPINVOKE.Actor_Property_INHERIT_POSITION_get();
+            internal static readonly int CLIPPING_MODE = NDalicPINVOKE.Actor_Property_CLIPPING_MODE_get();
+            internal static readonly int INHERIT_LAYOUT_DIRECTION = NDalicManualPINVOKE.Actor_Property_INHERIT_LAYOUT_DIRECTION_get();
+            internal static readonly int LAYOUT_DIRECTION = NDalicManualPINVOKE.Actor_Property_LAYOUT_DIRECTION_get();
+            internal static readonly int MARGIN = NDalicPINVOKE.View_Property_MARGIN_get();
+            internal static readonly int PADDING = NDalicPINVOKE.View_Property_PADDING_get();
         }
-
-
     }
 
     /// <summary>
-    /// The View layout Direction type.
+    /// Event argument passed through the ChildRemoved event.
+    /// </summary>
+    /// <since_tizen> 5 </since_tizen>
+    public class ChildRemovedEventArgs : EventArgs
+    {
+        /// <summary>
+        /// Removed child view at moment.
+        /// </summary>
+        /// <since_tizen> 5 </since_tizen>
+        public View Removed { get; set; }
+    }
+
+    /// <summary>
+    /// Event arguments that passed via the KeyEvent signal.
+    /// </summary>
+    /// <since_tizen> 3 </since_tizen>
+    public class KeyEventArgs : EventArgs
+    {
+        private Key _key;
+
+        /// <summary>
+        /// Key - is the key sent to the view.
+        /// </summary>
+        /// <since_tizen> 3 </since_tizen>
+        public Key Key
+        {
+            get
+            {
+                return _key;
+            }
+            set
+            {
+                _key = value;
+            }
+        }
+    }
+
+    /// <summary>
+    /// Event arguments that passed via the touch signal.
+    /// </summary>
+    /// <since_tizen> 3 </since_tizen>
+    public class TouchEventArgs : EventArgs
+    {
+        private Touch _touch;
+
+        /// <summary>
+        /// Touch - contains the information of touch points.
+        /// </summary>
+        /// <since_tizen> 3 </since_tizen>
+        public Touch Touch
+        {
+            get
+            {
+                return _touch;
+            }
+            set
+            {
+                _touch = value;
+            }
+        }
+    }
+
+    /// <summary>
+    /// Event arguments that passed via the hover signal.
+    /// </summary>
+    /// <since_tizen> 3 </since_tizen>
+    public class HoverEventArgs : EventArgs
+    {
+        private Hover _hover;
+
+        /// <summary>
+        /// Hover - contains touch points that represent the points that are currently being hovered or the points where a hover has stopped.
+        /// </summary>
+        /// <since_tizen> 3 </since_tizen>
+        public Hover Hover
+        {
+            get
+            {
+                return _hover;
+            }
+            set
+            {
+                _hover = value;
+            }
+        }
+    }
+
+    /// <summary>
+    /// Event arguments that passed via the wheel signal.
+    /// </summary>
+    /// <since_tizen> 3 </since_tizen>
+    public class WheelEventArgs : EventArgs
+    {
+        private Wheel _wheel;
+
+        /// <summary>
+        /// WheelEvent - store a wheel rolling type: MOUSE_WHEEL or CUSTOM_WHEEL.
+        /// </summary>
+        /// <since_tizen> 3 </since_tizen>
+        public Wheel Wheel
+        {
+            get
+            {
+                return _wheel;
+            }
+            set
+            {
+                _wheel = value;
+            }
+        }
+    }
+
+    /// <summary>
+    /// Event arguments of visibility changed.
+    /// </summary>
+    /// <since_tizen> 3 </since_tizen>
+    public class VisibilityChangedEventArgs : EventArgs
+    {
+        private View _view;
+        private bool _visibility;
+        private VisibilityChangeType _type;
+
+        /// <summary>
+        /// The view, or child of view, whose visibility has changed.
+        /// </summary>
+        /// <since_tizen> 3 </since_tizen>
+        public View View
+        {
+            get
+            {
+                return _view;
+            }
+            set
+            {
+                _view = value;
+            }
+        }
+
+        /// <summary>
+        /// Whether the view is now visible or not.
+        /// </summary>
+        /// <since_tizen> 3 </since_tizen>
+        public bool Visibility
+        {
+            get
+            {
+                return _visibility;
+            }
+            set
+            {
+                _visibility = value;
+            }
+        }
+
+        /// <summary>
+        /// Whether the view's visible property has changed or a parent's.
+        /// </summary>
+        /// <since_tizen> 3 </since_tizen>
+        public VisibilityChangeType Type
+        {
+            get
+            {
+                return _type;
+            }
+            set
+            {
+                _type = value;
+            }
+        }
+    }
+
+
+    /// <summary>
+    /// Event arguments of layout direction changed.
     /// </summary>
     /// <since_tizen> 4 </since_tizen>
-    public enum ViewLayoutDirectionType
+    public class LayoutDirectionChangedEventArgs : EventArgs
     {
+        private View _view;
+        private ViewLayoutDirectionType _type;
+
         /// <summary>
-        /// Left to right.
+        /// The view, or child of view, whose layout direction has changed.
         /// </summary>
         /// <since_tizen> 4 </since_tizen>
-        LTR,
+        public View View
+        {
+            get
+            {
+                return _view;
+            }
+            set
+            {
+                _view = value;
+            }
+        }
+
         /// <summary>
-        /// Right to left.
+        /// Whether the view's layout direction property has changed or a parent's.
         /// </summary>
         /// <since_tizen> 4 </since_tizen>
-        RTL
+        public ViewLayoutDirectionType Type
+        {
+            get
+            {
+                return _type;
+            }
+            set
+            {
+                _type = value;
+            }
+        }
     }
 
-    internal enum ChildLayoutData
+    /// <summary>
+    /// Event argument passed through the ChildAdded event.
+    /// </summary>
+    /// <since_tizen> 5 </since_tizen>
+    public class ChildAddedEventArgs : EventArgs
     {
         /// <summary>
-        /// Constant which indicates child size should match parent size
+        /// Added child view at moment.
         /// </summary>
-        MatchParent = -1,
-        /// <summary>
-        /// Constant which indicates parent should take the smallest size possible to wrap it's children with their desired size
-        /// </summary>
-        WrapContent = -2,
+        /// <since_tizen> 5 </since_tizen>
+        public View Added { get; set; }
     }
 
-    internal enum ResourceLoadingStatusType
+    internal class BackgroundResourceLoadedEventArgs : EventArgs
     {
-        Invalid = -1,
-        Preparing = 0,
-        Ready,
-        Failed,
+        private ResourceLoadingStatusType status = ResourceLoadingStatusType.Invalid;
+        public ResourceLoadingStatusType Status
+        {
+            get
+            {
+                return status;
+            }
+            set
+            {
+                status = value;
+            }
+        }
     }
-
 }

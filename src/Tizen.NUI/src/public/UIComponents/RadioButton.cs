@@ -36,6 +36,27 @@ namespace Tizen.NUI.UIComponents
     {
         private global::System.Runtime.InteropServices.HandleRef swigCPtr;
 
+        /// <summary>
+        /// Creates an uninitialized RadioButton.
+        /// </summary>
+        /// <since_tizen> 3 </since_tizen>
+        public RadioButton() : this(NDalicPINVOKE.RadioButton_New__SWIG_0(), true)
+        {
+            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+
+        }
+
+        /// <summary>
+        /// Creates an uninitialized RadioButton with the label.
+        /// </summary>
+        /// <param name="label">The label text.</param>
+        /// <since_tizen> 3 </since_tizen>
+        public RadioButton(string label) : this(NDalicPINVOKE.RadioButton_New__SWIG_1(label), true)
+        {
+            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+
+        }
+
         internal RadioButton(global::System.IntPtr cPtr, bool cMemoryOwn) : base(NDalicPINVOKE.RadioButton_SWIGUpcast(cPtr), cMemoryOwn)
         {
             swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
@@ -80,26 +101,6 @@ namespace Tizen.NUI.UIComponents
             }
 
             base.Dispose(type);
-        }
-        /// <summary>
-        /// Creates an uninitialized RadioButton.
-        /// </summary>
-        /// <since_tizen> 3 </since_tizen>
-        public RadioButton() : this(NDalicPINVOKE.RadioButton_New__SWIG_0(), true)
-        {
-            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-
-        }
-
-        /// <summary>
-        /// Creates an uninitialized RadioButton with the label.
-        /// </summary>
-        /// <param name="label">The label text.</param>
-        /// <since_tizen> 3 </since_tizen>
-        public RadioButton(string label) : this(NDalicPINVOKE.RadioButton_New__SWIG_1(label), true)
-        {
-            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-
         }
     }
 }
