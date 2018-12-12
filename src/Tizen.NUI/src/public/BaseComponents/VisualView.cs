@@ -13,14 +13,14 @@
 // limitations under the License.
 //
 
+using System;
+using System.Text;
+using System.Runtime.InteropServices;
+using System.Collections.Generic;
+using System.Linq;
+
 namespace Tizen.NUI.BaseComponents
 {
-    using System;
-    using System.Text;
-    using System.Runtime.InteropServices;
-    using System.Collections.Generic;
-    using System.Linq;
-
     /// <summary>
     /// A visual view control if a user adds any visual to it.
     /// </summary>
@@ -46,9 +46,12 @@ namespace Tizen.NUI.BaseComponents
         private Dictionary<int, PropertyMap> _tranformDictionary = null;
         private PropertyArray _animateArray = null;
 
-        static CustomView CreateInstance()
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        /// <since_tizen> 3 </since_tizen>
+        public VisualView() : base(typeof(VisualView).FullName, CustomViewBehaviour.ViewBehaviourDefault)
         {
-            return new VisualView();
         }
 
         // static constructor registers the control type (for user can add kinds of visuals to it)
@@ -60,11 +63,15 @@ namespace Tizen.NUI.BaseComponents
         }
 
         /// <summary>
-        /// Constructor.
+        /// Gets the total number of visuals which are added by users.
         /// </summary>
         /// <since_tizen> 3 </since_tizen>
-        public VisualView() : base(typeof(VisualView).FullName, CustomViewBehaviour.ViewBehaviourDefault)
+        public int NumberOfVisuals
         {
+            get
+            {
+                return _visualDictionary.Count;
+            }
         }
 
         /// <summary>
@@ -152,18 +159,6 @@ namespace Tizen.NUI.BaseComponents
         }
 
         /// <summary>
-        /// Gets the total number of visuals which are added by users.
-        /// </summary>
-        /// <since_tizen> 3 </since_tizen>
-        public int NumberOfVisuals
-        {
-            get
-            {
-                return _visualDictionary.Count;
-            }
-        }
-
-        /// <summary>
         /// Removes all visuals of the visual view.
         /// </summary>
         /// <since_tizen> 3 </since_tizen>
@@ -196,23 +191,6 @@ namespace Tizen.NUI.BaseComponents
                 item.Value.SetTransformAndSize(_tranformDictionary[item.Key], size);
                 EnableVisual(item.Key, true);
             }
-        }
-
-        internal void UpdateVisual(int visualIndex, string visualName, VisualMap visualMap)
-        {
-            VisualBase visual = null;
-
-            visual = VisualFactory.Instance.CreateVisual(visualMap.OutputVisualMap);
-            visual.Name = visualName;
-            visual.DepthIndex = visualMap.DepthIndex;
-
-            RegisterVisual(visualIndex, visual);
-
-            _visualDictionary[visualIndex] = visual;
-            _tranformDictionary[visualIndex] = visualMap.OutputTransformMap;
-
-            RelayoutRequest();
-            NUILog.Debug("UpdateVisual() name=" + visualName);
         }
 
         /// <summary>
@@ -505,5 +483,26 @@ namespace Tizen.NUI.BaseComponents
         }
         //temporary fix to pass TCT
 
+        internal void UpdateVisual(int visualIndex, string visualName, VisualMap visualMap)
+        {
+            VisualBase visual = null;
+
+            visual = VisualFactory.Instance.CreateVisual(visualMap.OutputVisualMap);
+            visual.Name = visualName;
+            visual.DepthIndex = visualMap.DepthIndex;
+
+            RegisterVisual(visualIndex, visual);
+
+            _visualDictionary[visualIndex] = visual;
+            _tranformDictionary[visualIndex] = visualMap.OutputTransformMap;
+
+            RelayoutRequest();
+            NUILog.Debug("UpdateVisual() name=" + visualName);
+        }
+
+        static CustomView CreateInstance()
+        {
+            return new VisualView();
+        }
     }
 }
