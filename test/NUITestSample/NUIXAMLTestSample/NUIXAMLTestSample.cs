@@ -1,4 +1,5 @@
 using System;
+using Tizen.NUI.Examples;
 
 namespace NUIXAMLTestSample
 {

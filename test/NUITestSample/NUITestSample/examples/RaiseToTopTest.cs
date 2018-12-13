@@ -111,11 +111,11 @@ namespace MyRaiseToTopTest
                 }
                 else if (e.Key.KeyPressedName == "2")
                 {
-                    layer1Views[0].Raise();
+                    layer1Views[0].RaiseToTop();
                 }
                 else if (e.Key.KeyPressedName == "3")
                 {
-                    layer1Views[0].Lower();
+                    layer1Views[0].LowerToBottom();
                 }
                 else if (e.Key.KeyPressedName == "4")
                 {
