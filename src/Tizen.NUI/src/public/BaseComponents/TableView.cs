@@ -119,6 +119,7 @@ namespace Tizen.NUI.BaseComponents
         });
 
         private global::System.Runtime.InteropServices.HandleRef swigCPtr;
+        private List<View> childViews = new List<View>();
 
         /// <summary>
         /// Creates the default TableView view.
@@ -277,6 +278,18 @@ namespace Tizen.NUI.BaseComponents
         /// <since_tizen> 3 </since_tizen>
         public bool AddChild(View child, TableView.CellPosition position)
         {
+            if (null == child)
+            {
+                Tizen.Log.Fatal("NUI", "Child is null");
+                return false;
+            }
+
+            Container oldParent = child.GetParent();
+            if (oldParent != null)
+            {
+                oldParent.Remove(child);
+            }
+            childViews.Add(child);
             bool ret = NDalicPINVOKE.TableView_AddChild(swigCPtr, View.getCPtr(child), TableView.CellPosition.getCPtr(position));
             if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
             return ret;
@@ -315,7 +328,7 @@ namespace Tizen.NUI.BaseComponents
             View ret = Registry.GetManagedBaseHandleFromNativePtr(CPtr.Handle) as View;
             NDalicPINVOKE.delete_BaseHandle(CPtr);
             CPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
-
+            childViews.Remove(ret);
             if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
             return ret;
         }
