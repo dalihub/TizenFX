@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "46ea0c3b_72204e30",
+        "filename": "src/Tizen.NUI/src/internal/XamlBinding/SynchronizedList.cs",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1007416
+      },
+      "writtenOn": "2019-01-02T14:23:09Z",
+      "side": 1,
+      "message": "Erroneous whitespace",
+      "range": {
+        "startLine": 45,
+        "startChar": 15,
+        "endLine": 45,
+        "endChar": 16
+      },
+      "revId": "64a60393ad9d3ca82dbf8b2b0c207f60ceb18bb6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24e541c7_1793a940",
+        "filename": "src/Tizen.NUI/src/internal/XamlBinding/SynchronizedList.cs",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1007416
+      },
+      "writtenOn": "2019-01-02T14:23:09Z",
+      "side": 1,
+      "message": "Erroneous whitespace",
+      "range": {
+        "startLine": 48,
+        "startChar": 39,
+        "endLine": 48,
+        "endChar": 40
+      },
+      "revId": "64a60393ad9d3ca82dbf8b2b0c207f60ceb18bb6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2072b3ec_d546efd6",
+        "filename": "src/Tizen.NUI/src/public/Window.cs",
+        "patchSetId": 1
+      },
+      "lineNbr": 1809,
+      "author": {
+        "id": 1007416
+      },
+      "writtenOn": "2019-01-02T14:23:09Z",
+      "side": 1,
+      "message": "Erroneous whitespace",
+      "range": {
+        "startLine": 1809,
+        "startChar": 47,
+        "endLine": 1809,
+        "endChar": 48
+      },
+      "revId": "64a60393ad9d3ca82dbf8b2b0c207f60ceb18bb6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
