@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba6cca29_c336ac75",
+        "filename": "src/Tizen.NUI/src/public/BaseComponents/TextField.cs",
+        "patchSetId": 6
+      },
+      "lineNbr": 1566,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2019-01-04T00:44:53Z",
+      "side": 0,
+      "message": "This was added in previous patch. This should be maintained in your patch. please be careful to remove valid changes in previous patches. please update your git base as latest base when you do code-clean work.",
+      "revId": "d010e7bfd10bba55944091db139b16f231ebce35",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e22c8168_7b41c1dd",
+        "filename": "src/Tizen.NUI/src/public/BaseComponents/TextField.cs",
+        "patchSetId": 6
+      },
+      "lineNbr": 1596,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2019-01-04T00:44:53Z",
+      "side": 0,
+      "message": "This was added in previous patch. This should be maintained in your patch. please be careful to remove valid changes in previous patches. please update your git base as latest base when you do code-clean work.",
+      "revId": "d010e7bfd10bba55944091db139b16f231ebce35",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
