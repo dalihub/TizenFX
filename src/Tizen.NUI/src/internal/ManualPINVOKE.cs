@@ -7546,6 +7546,25 @@ namespace Tizen.NUI
             }
         }
 
+        [global::System.Runtime.InteropServices.DllImport(Graphics.GlesCSharpBinder, EntryPoint = "CSharp_Dali_LayoutController_Register")]
+        public static extern global::System.IntPtr Window_NewLayoutController_gl();
+
+        [global::System.Runtime.InteropServices.DllImport(Graphics.VulkanCSharpBinder, EntryPoint = "CSharp_Dali_LayoutController_Register")]
+        public static extern global::System.IntPtr Window_NewLayoutController_vulkan();
+
+        public static global::System.IntPtr Window_NewLayoutController()
+        {
+            if (Tizen.NUI.Graphics.Backend == Tizen.NUI.Graphics.BackendType.Vulkan)
+            {
+                return Window_NewLayoutController_vulkan();
+            }
+            else
+            {
+                return Window_NewLayoutController_gl();
+            }
+        }
+
+
         //for watch
         [global::System.Runtime.InteropServices.DllImport(Graphics.GlesCSharpBinder, EntryPoint = "CSharp_Dali_new_WatchTime")]
         public static extern global::System.IntPtr new_WatchTime_gl();
