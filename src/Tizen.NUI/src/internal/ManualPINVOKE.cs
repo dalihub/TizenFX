@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018 Samsung Electronics Co., Ltd.
+ * Copyright (c) 2019 Samsung Electronics Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -7543,6 +7543,59 @@ namespace Tizen.NUI
             else
             {
                 return Window_NewRootLayout_gl();
+            }
+        }
+
+        [global::System.Runtime.InteropServices.DllImport(Graphics.GlesCSharpBinder, EntryPoint = "CSharp_Dali_new_LayoutController")]
+        public static extern global::System.IntPtr NewLayoutController_gl();
+
+        [global::System.Runtime.InteropServices.DllImport(Graphics.VulkanCSharpBinder, EntryPoint = "CSharp_Dali_new_LayoutController")]
+        public static extern global::System.IntPtr NewLayoutController_vulkan();
+        public static global::System.IntPtr NewLayoutController()
+        {
+            if (Tizen.NUI.Graphics.Backend == Tizen.NUI.Graphics.BackendType.Vulkan)
+            {
+                return NewLayoutController_vulkan();
+            }
+            else
+            {
+                return NewLayoutController_gl();
+            }
+        }
+
+        [global::System.Runtime.InteropServices.DllImport(Graphics.GlesCSharpBinder, EntryPoint = "CSharp_Dali_delete_LayoutController")]
+        public static extern global::System.IntPtr delete_LayoutController_gl(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+        [global::System.Runtime.InteropServices.DllImport(Graphics.VulkanCSharpBinder, EntryPoint = "CSharp_Dali_delete_LayoutController")]
+        public static extern global::System.IntPtr delete_LayoutController_vulkan(global::System.Runtime.InteropServices.HandleRef jarg1);
+        public static global::System.IntPtr delete_LayoutController(global::System.Runtime.InteropServices.HandleRef jarg1)
+        {
+            if (Tizen.NUI.Graphics.Backend == Tizen.NUI.Graphics.BackendType.Vulkan)
+            {
+                return delete_LayoutController_vulkan(jarg1);
+            }
+            else
+            {
+                return delete_LayoutController_gl(jarg1);
+            }
+        }
+
+
+        [global::System.Runtime.InteropServices.DllImport(Graphics.GlesCSharpBinder, EntryPoint = "CSharp_Dali_LayoutController_SetCallback")]
+        private static extern void LayoutController_SetCallback_gl(global::System.Runtime.InteropServices.HandleRef jarg1, LayoutController.Callback jarg2);
+
+        [global::System.Runtime.InteropServices.DllImport(Graphics.VulkanCSharpBinder, EntryPoint = "CSharp_Dali_LayoutController_SetCallback")]
+        private static extern void LayoutController_SetCallback_vulkan(global::System.Runtime.InteropServices.HandleRef jarg1, LayoutController.Callback jarg2);
+
+        public static void LayoutController_SetCallback(global::System.Runtime.InteropServices.HandleRef jarg1, LayoutController.Callback jarg2)
+        {
+            if (Tizen.NUI.Graphics.Backend == Tizen.NUI.Graphics.BackendType.Vulkan)
+            {
+                LayoutController_SetCallback_vulkan(jarg1, jarg2);
+            }
+            else
+            {
+                LayoutController_SetCallback_gl( jarg1, jarg2 );
             }
         }
 
