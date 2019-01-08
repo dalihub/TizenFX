@@ -1085,5 +1085,16 @@ namespace Tizen.NUI
         [global::System.Runtime.InteropServices.DllImport("libdali-csharp-binder.so", EntryPoint="CSharp_Dali_GridLayout__GetColumns")]
         public static extern int GridLayout_GetColumns(global::System.Runtime.InteropServices.HandleRef jarg1);
 
+        // LayoutingEX
+
+        [global::System.Runtime.InteropServices.DllImport("libdali-csharp-binder.so", EntryPoint = "CSharp_Dali_new_LayoutController")]
+        public static extern global::System.IntPtr LayoutController_New();
+
+        [global::System.Runtime.InteropServices.DllImport("libdali-csharp-binder.so", EntryPoint = "CSharp_Dali_delete_LayoutController")]
+        public static extern global::System.IntPtr delete_LayoutController(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+        [global::System.Runtime.InteropServices.DllImport("libdali-csharp-binder.so", EntryPoint = "CSharp_Dali_LayoutController_SetCallback")]
+        public static extern void LayoutController_SetCallback(global::System.Runtime.InteropServices.HandleRef jarg1, LayoutController.Callback jarg2);
+
     }
 }
