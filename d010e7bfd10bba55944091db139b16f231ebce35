@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "53c470c2_be5aa16c",
+        "filename": "src/Tizen.NUI/src/public/BaseComponents/TextField.cs",
+        "patchSetId": 6
+      },
+      "lineNbr": 1566,
+      "author": {
+        "id": 1014228
+      },
+      "writtenOn": "2019-01-10T03:06:11Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "ba6cca29_c336ac75",
+      "revId": "d010e7bfd10bba55944091db139b16f231ebce35",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e22c8168_7b41c1dd",
         "filename": "src/Tizen.NUI/src/public/BaseComponents/TextField.cs",
         "patchSetId": 6
@@ -33,6 +51,24 @@
       "revId": "d010e7bfd10bba55944091db139b16f231ebce35",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73b7d30b_4267d55e",
+        "filename": "src/Tizen.NUI/src/public/BaseComponents/TextField.cs",
+        "patchSetId": 6
+      },
+      "lineNbr": 1596,
+      "author": {
+        "id": 1014228
+      },
+      "writtenOn": "2019-01-10T03:06:11Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "e22c8168_7b41c1dd",
+      "revId": "d010e7bfd10bba55944091db139b16f231ebce35",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     }
   ]
 }
