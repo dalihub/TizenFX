@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "87399567_39512aaa",
+        "filename": "src/Tizen.NUI/src/internal/XamlBinding/TemplateUtilities.cs",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2019-01-16T04:37:26Z",
+      "side": 1,
+      "message": "could you check whether this is really removed? if so, please remove code itself. (No /* */ )",
+      "revId": "2a80b98c83857bed738ac3f40da7b19368f2bdfb",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "09d0cd8b_7390ec2f",
+        "filename": "src/Tizen.NUI/src/public/Adaptor.cs",
+        "patchSetId": 1
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2019-01-16T04:37:26Z",
+      "side": 1,
+      "message": "could you check whether this is really erased?",
+      "revId": "2a80b98c83857bed738ac3f40da7b19368f2bdfb",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ecc9331_1d5bea9d",
+        "filename": "src/Tizen.NUI/src/public/Window.cs",
+        "patchSetId": 1
+      },
+      "lineNbr": 1534,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2019-01-16T04:37:26Z",
+      "side": 1,
+      "message": "could you check if this is really removed? and no tab please.",
+      "revId": "2a80b98c83857bed738ac3f40da7b19368f2bdfb",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b8c6558_3248314f",
+        "filename": "src/Tizen.NUI/src/public/XamlBinding/Element.cs",
+        "patchSetId": 1
+      },
+      "lineNbr": 609,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2019-01-16T04:37:26Z",
+      "side": 1,
+      "message": "could you check if this is really removed? and no use of /* */",
+      "revId": "2a80b98c83857bed738ac3f40da7b19368f2bdfb",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
