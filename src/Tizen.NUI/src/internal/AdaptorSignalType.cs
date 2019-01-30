@@ -14,6 +14,7 @@
  * limitations under the License.
  *
  */
+using System.ComponentModel;
 
 namespace Tizen.NUI
 {
@@ -21,6 +22,8 @@ namespace Tizen.NUI
     /// public class AdaptorSignalType : global::System.IDisposable
     /// </summary>
     /// <since_tizen> 4 </since_tizen>
+    /// This will be changed internal API after ACR done. Before ACR, need to be hidden as inhouse API.
+    [EditorBrowsable(EditorBrowsableState.Never)]
     public class AdaptorSignalType : global::System.IDisposable
     {
         private global::System.Runtime.InteropServices.HandleRef swigCPtr;
@@ -45,6 +48,8 @@ namespace Tizen.NUI
         /// Dispose
         /// </summary>
         /// <since_tizen> 3 </since_tizen>
+        /// This will be changed internal API after ACR done. Before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         ~AdaptorSignalType()
         {
             Dispose();
@@ -54,6 +59,8 @@ namespace Tizen.NUI
         /// Dispose
         /// </summary>
         /// <since_tizen> 4 </since_tizen>
+        /// This will be changed internal API after ACR done. Before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public virtual void Dispose()
         {
             lock (this)
@@ -76,6 +83,8 @@ namespace Tizen.NUI
         /// </summary>
         /// <returns>True if there are any slots connected to the signal</returns>
         /// <since_tizen> 4 </since_tizen>
+        /// This will be changed internal API after ACR done. Before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public bool Empty()
         {
             bool ret = NDalicManualPINVOKE.AdaptorSignalType_Empty(swigCPtr);
@@ -88,6 +97,8 @@ namespace Tizen.NUI
         /// </summary>
         /// <returns>The number of slots connected to this signal</returns>
         /// <since_tizen> 4 </since_tizen>
+        /// This will be changed internal API after ACR done. Before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public uint GetConnectionCount()
         {
             uint ret = NDalicManualPINVOKE.AdaptorSignalType_GetConnectionCount(swigCPtr);
@@ -100,6 +111,8 @@ namespace Tizen.NUI
         /// </summary>
         /// <param name="func">The function to connect</param>
         /// <since_tizen> 4 </since_tizen>
+        /// This will be changed internal API after ACR done. Before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public void Connect(System.Delegate func)
         {
             System.IntPtr ip = System.Runtime.InteropServices.Marshal.GetFunctionPointerForDelegate<System.Delegate>(func);
@@ -114,6 +127,8 @@ namespace Tizen.NUI
         /// </summary>
         /// <param name="func">The function to disconnect</param>
         /// <since_tizen> 4 </since_tizen>
+        /// This will be changed internal API after ACR done. Before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public void Disconnect(System.Delegate func)
         {
             System.IntPtr ip = System.Runtime.InteropServices.Marshal.GetFunctionPointerForDelegate<System.Delegate>(func);
@@ -128,6 +143,8 @@ namespace Tizen.NUI
         /// </summary>
         /// <param name="arg">The first value to pass to callbacks</param>
         /// <since_tizen> 4 </since_tizen>
+        /// This will be changed internal API after ACR done. Before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public void Emit(Adaptor arg)
         {
             NDalicManualPINVOKE.AdaptorSignalType_Emit(swigCPtr, Adaptor.getCPtr(arg));
@@ -138,6 +155,8 @@ namespace Tizen.NUI
         /// The contructor.
         /// </summary>
         /// <since_tizen> 4 </since_tizen>
+        /// This will be changed internal API after ACR done. Before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public AdaptorSignalType() : this(NDalicManualPINVOKE.new_AdaptorSignalType(), true)
         {
             if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
