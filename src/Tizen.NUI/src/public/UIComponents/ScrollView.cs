@@ -1393,11 +1393,7 @@ namespace Tizen.NUI
             }
         }
 
-        /// <summary>
-        /// This should be internal, please do not use.
-        /// </summary>
-        /// <since_tizen> 3 </since_tizen>
-        public new class Property
+        internal new class Property
         {
             /// <summary>
             /// This should be internal, please do not use.

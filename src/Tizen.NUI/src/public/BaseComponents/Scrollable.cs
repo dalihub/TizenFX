@@ -760,11 +760,7 @@ namespace Tizen.NUI.BaseComponents
             }
         }
 
-        /// <summary>
-        /// Enumeration for the instance of properties belonging to the Scrollable class.
-        /// </summary>
-        /// <since_tizen> 3 </since_tizen>
-        public new class Property
+        internal new class Property
         {
             /// <summary>
             /// The color of the overshoot effect.

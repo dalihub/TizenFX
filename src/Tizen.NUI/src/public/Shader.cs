@@ -146,11 +146,7 @@ namespace Tizen.NUI
             }
         }
 
-        /// <summary>
-        /// Enumeration for instances of properties belonging to the Shader class.
-        /// </summary>
-        /// <since_tizen> 3 </since_tizen>
-        public class Property
+        internal class Property
         {
             /// <summary>
             /// The default value is empty.

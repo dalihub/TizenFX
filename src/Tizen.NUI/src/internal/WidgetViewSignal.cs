@@ -10,11 +10,7 @@
 
 namespace Tizen.NUI
 {
-    /// <summary>
-    /// WidgetViewSignal
-    /// </summary>
-    /// <since_tizen> 3 </since_tizen>
-    public class WidgetViewSignal : global::System.IDisposable
+    internal class WidgetViewSignal : global::System.IDisposable
     {
         private global::System.Runtime.InteropServices.HandleRef swigCPtr;
         /// <summary>

@@ -17,11 +17,7 @@
 
 namespace Tizen.NUI
 {
-    /// <summary>
-    /// This should be internal, please do not use.
-    /// </summary>
-    /// <since_tizen> 4 </since_tizen>
-    public class SWIGTYPE_p_bundle
+    internal class SWIGTYPE_p_bundle
     {
         private global::System.Runtime.InteropServices.HandleRef swigCPtr;
 

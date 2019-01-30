@@ -17,11 +17,7 @@
 
 namespace Tizen.NUI
 {
-    /// <summary>
-    /// public class AdaptorSignalType : global::System.IDisposable
-    /// </summary>
-    /// <since_tizen> 4 </since_tizen>
-    public class AdaptorSignalType : global::System.IDisposable
+    internal class AdaptorSignalType : global::System.IDisposable
     {
         private global::System.Runtime.InteropServices.HandleRef swigCPtr;
         /// <summary>

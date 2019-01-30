@@ -615,11 +615,7 @@ namespace Tizen.NUI
             base.Dispose(type);
         }
 
-        /// <summary>
-        /// Enumeration for instances of properties belonging to the Renderer class.
-        /// </summary>
-        /// <since_tizen> 3 </since_tizen>
-        public class Property
+        internal class Property
         {
             /// <summary>
             /// This should be internal, please do not use.

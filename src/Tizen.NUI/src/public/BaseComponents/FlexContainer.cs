@@ -431,11 +431,7 @@ namespace Tizen.NUI.BaseComponents
             base.Dispose(type);
         }
 
-        /// <summary>
-        /// Enumeration for the instance of child properties belonging to the FlexContainer class.
-        /// </summary>
-        /// <since_tizen> 3 </since_tizen>
-        public class ChildProperty
+        internal class ChildProperty
         {
             internal static readonly int FLEX = NDalicPINVOKE.FlexContainer_ChildProperty_FLEX_get();
             internal static readonly int ALIGN_SELF = NDalicPINVOKE.FlexContainer_ChildProperty_ALIGN_SELF_get();

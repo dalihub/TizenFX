@@ -17,12 +17,7 @@
 
 namespace Tizen.NUI
 {
-
-    /// <summary>
-    /// KeyboardTypeSignalType
-    /// </summary>
-    /// <since_tizen> 4 </since_tizen>
-    public class KeyboardTypeSignalType : global::System.IDisposable
+    internal class KeyboardTypeSignalType : global::System.IDisposable
     {
         private global::System.Runtime.InteropServices.HandleRef swigCPtr;
         /// <summary>

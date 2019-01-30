@@ -238,7 +238,7 @@ namespace Tizen.NUI
         /// </summary>
         /// <returns>A signal object to Connect() with</returns>
         /// <since_tizen> 4 </since_tizen>
-        public PropertyNotifySignal NotifySignal()
+        internal PropertyNotifySignal NotifySignal()
         {
             PropertyNotifySignal ret = new PropertyNotifySignal(NDalicPINVOKE.PropertyNotification_NotifySignal(swigCPtr), false);
             if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
