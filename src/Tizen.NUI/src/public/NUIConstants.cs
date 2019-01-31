@@ -253,6 +253,18 @@ namespace Tizen.NUI
         /// True if the control does not need size negotiation, i.e., it can be skipped in the algorithm.
         /// </summary>
         DisableSizeNegotiation = 1 << 0,
+		/// <summary>
+        /// True if OnTouch() callback is required.
+        /// </summary>
+        RequiresTouchEventsSupport = 1 << 1,
+        /// <summary>
+        /// True if OnHover() callback is required.
+        /// </summary>
+        RequiresHoverEventsSupport = 1 << 2,
+        /// <summary>
+        /// True if OnWheel() callback is required.
+        /// </summary>
+        RequiresWheelEventsSupport = 1 << 3,
         /// <summary>
         /// Use to provide key navigation support.
         /// </summary>
