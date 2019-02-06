@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "302c4fbd_55fe6ec9",
+        "filename": "src/Tizen.NUI/src/internal/Layouting/LayoutController.cs",
+        "patchSetId": 10
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1007416
+      },
+      "writtenOn": "2019-02-06T17:57:58Z",
+      "side": 1,
+      "message": "Missing documentation.",
+      "revId": "586e77a950e6efe4f07e3cf86076e51de33cf77a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "922b6cb8_d5371eff",
+        "filename": "src/Tizen.NUI/src/public/Window.cs",
+        "patchSetId": 10
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1007416
+      },
+      "writtenOn": "2019-02-06T17:57:58Z",
+      "side": 1,
+      "message": "Commented out? Why?\nSame for the one below.",
+      "revId": "586e77a950e6efe4f07e3cf86076e51de33cf77a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
