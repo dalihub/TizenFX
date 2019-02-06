@@ -1,0 +1,77 @@
+/*
+ * Copyright (c) 2019 Samsung Electronics Co., Ltd.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+
+using System.ComponentModel;
+using Tizen.NUI.BaseComponents;
+
+namespace Tizen.NUI
+{
+    /// <summary>
+    /// [Draft] A MeasureSpec is used during the Measure pass by a LayoutGroup to inform it's children how to be measured.
+    /// For instance, it may measure a child with an exact width and an unspecified height in order to determine height for width.
+    /// </summary>
+    internal class MeasureSpec
+    {
+        public LayoutLengthEx Size { get; set; }
+        public MeasureSpec.ModeType Mode { get; set; } = ModeType.Unspecified;
+
+        public MeasureSpec()
+        {
+        }
+
+        public MeasureSpec(LayoutLengthEx size, MeasureSpec.ModeType mode)
+        {
+            Size = size;
+            Mode = mode;
+        }
+
+        // /// <summary>
+        // /// Determines whether the specified object is equal to the current object.
+        // /// </summary>
+        // /// <param name="obj">The object to compare with the current object.</param>
+        // /// <returns>true if the specified object is equal to the current object; otherwise, false.</returns>
+        // public override bool Equals(object obj)
+        // {
+        //     MeasureSpec MeasureSpec = obj as MeasureSpec;
+        //     bool equal = false;
+        //     if (Size == MeasureSpec?.Size && Mode == MeasureSpec?.Mode)
+        //     {
+        //         equal = true;
+        //     }
+        //     return equal;
+        // }
+
+
+        public enum ModeType
+        {
+            /// <summary>
+            /// This is used by a parent to determine the desired dimension of a child layout.
+            /// </summary>
+            Unspecified,
+            /// <summary>
+            /// This is used by a parent to impose an exact size on the child.
+            /// The child must use this size, and guarantee that all of its descendants will fit within this size.
+            /// </summary>
+            Exactly,
+            /// <summary>
+            /// This is used by the parent to impose a maximum size on the child.
+            /// The child must guarantee that it and all of it's descendants will fit within this size.
+            /// </summary>
+            AtMost
+        }
+    }
+}
