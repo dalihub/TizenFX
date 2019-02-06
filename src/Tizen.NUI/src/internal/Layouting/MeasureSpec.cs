@@ -26,7 +26,7 @@ namespace Tizen.NUI
     /// </summary>
     internal class MeasureSpec
     {
-        private LayoutLength Size { get; set; }
+        private LayoutLengthEx Size { get; set; }
         private MeasureSpec.ModeType Mode { get; set; } = ModeType.Unspecified;
 
         public MeasureSpec()
@@ -39,21 +39,21 @@ namespace Tizen.NUI
             Mode = mode;
         }
 
-        /// <summary>
-        /// Determines whether the specified object is equal to the current object.
-        /// </summary>
-        /// <param name="obj">The object to compare with the current object.</param>
-        /// <returns>true if the specified object is equal to the current object; otherwise, false.</returns>
-        public override bool Equals(object obj)
-        {
-            MeasureSpec MeasureSpec = obj as MeasureSpec;
-            bool equal = false;
-            if (Size == MeasureSpec?.Size && Mode == MeasureSpec?.Mode)
-            {
-                equal = true;
-            }
-            return equal;
-        }
+        // /// <summary>
+        // /// Determines whether the specified object is equal to the current object.
+        // /// </summary>
+        // /// <param name="obj">The object to compare with the current object.</param>
+        // /// <returns>true if the specified object is equal to the current object; otherwise, false.</returns>
+        // public override bool Equals(object obj)
+        // {
+        //     MeasureSpec MeasureSpec = obj as MeasureSpec;
+        //     bool equal = false;
+        //     if (Size == MeasureSpec?.Size && Mode == MeasureSpec?.Mode)
+        //     {
+        //         equal = true;
+        //     }
+        //     return equal;
+        // }
 
 
         public enum ModeType
