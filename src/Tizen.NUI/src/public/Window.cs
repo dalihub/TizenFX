@@ -961,6 +961,17 @@ namespace Tizen.NUI
         /// <since_tizen> 3 </since_tizen>
         public void Add(View view)
         {
+            Log.Info("NUI", "Window Add:" + view.Name + "]\n" );
+            // Automatically give added View a layout  a pure View.
+            // Pure View meaning not derived from a View, e.g a Legacy container.
+            // layoutSet flag is true when the View became a layout using the set Layout API opposed to automatically due to it's parent.
+            // First time the set Layout API is used by any View the Window no longer has layoutingDisabled.
+            if(( view.GetType() == typeof(View)) && null == view.Layout )
+            {
+                Log.Info("NUI", "Window Add Setting LayoutGroup to:" + view.Name + "]\n");
+                view.SetLayout(new LayoutGroup());
+            }
+
             NDalicPINVOKE.Actor_Add(rootLayoutCPtr, View.getCPtr(view));
             if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
             this.GetRootLayer().AddViewToLayerList(view); // Maintain the children list in the Layer
