@@ -33,6 +33,7 @@ namespace Tizen.NUI.BaseComponents
         [EditorBrowsable(EditorBrowsableState.Never)]
         public static readonly BindableProperty ResourceUrlProperty = BindableProperty.Create(nameof(ImageView.ResourceUrl), typeof(string), typeof(ImageView), string.Empty, propertyChanged: (bindable, oldValue, newValue) =>
         {
+            _nativeImagePropertySetFlag = false;
             var imageView = (ImageView)bindable;
             if (newValue != null)
             {
@@ -49,7 +50,10 @@ namespace Tizen.NUI.BaseComponents
         defaultValueCreator: (bindable) =>
         {
             var imageView = (ImageView)bindable;
-            Tizen.NUI.Object.GetProperty(imageView.swigCPtr, ImageView.Property.IMAGE).Get(out imageView._url);
+            if (!_nativeImagePropertySetFlag)
+            {
+                Tizen.NUI.Object.GetProperty(imageView.swigCPtr, ImageView.Property.IMAGE).Get(out imageView._url);
+            }
             return imageView._url;
         });
         /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
@@ -226,6 +230,7 @@ namespace Tizen.NUI.BaseComponents
         private bool? _borderOnly = null;
         private string _url = null;
         private bool? _orientationCorrection = null;
+        private static bool _nativeImagePropertySetFlag = false;
 
 
         /// <summary>
@@ -705,7 +710,7 @@ namespace Tizen.NUI.BaseComponents
 
         private void UpdateImage()
         {
-            if (_url != null)
+            if (_url != null && _url != "")
             {
                 if (_border != null)
                 { // for nine-patch image
@@ -716,7 +721,10 @@ namespace Tizen.NUI.BaseComponents
                     if (_borderOnly != null) { _nPatchMap.Add(NpatchImageVisualProperty.BorderOnly, new PropertyValue((bool)_borderOnly)); }
                     if (_synchronousLoading != null) { _nPatchMap.Add(NpatchImageVisualProperty.SynchronousLoading, new PropertyValue((bool)_synchronousLoading)); }
                     if (_orientationCorrection != null) { _nPatchMap.Add(ImageVisualProperty.OrientationCorrection, new PropertyValue((bool)_orientationCorrection)); }
+                    string url = _url;
                     SetProperty(ImageView.Property.IMAGE, new PropertyValue(_nPatchMap));
+                    _url = url;
+                    _nativeImagePropertySetFlag = true;
                 }
                 else if (_synchronousLoading != null || _orientationCorrection != null)
                 { // for normal image, with synchronous loading property
@@ -731,6 +739,10 @@ namespace Tizen.NUI.BaseComponents
                 { // just for normal image
                     SetProperty(ImageView.Property.IMAGE, new PropertyValue(_url));
                 }
+            }
+            else
+            {
+                SetProperty(ImageView.Property.IMAGE, new PropertyValue(""));
             }
         }
 
