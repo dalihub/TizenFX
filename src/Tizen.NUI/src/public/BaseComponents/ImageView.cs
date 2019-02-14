@@ -52,9 +52,10 @@ namespace Tizen.NUI.BaseComponents
             Tizen.NUI.Object.GetProperty(imageView.swigCPtr, ImageView.Property.IMAGE).Get(out imageView._url);
             return imageView._url;
         });
+
         /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public static readonly BindableProperty ImageProperty = BindableProperty.Create("Image", typeof(PropertyMap), typeof(ImageView), null, propertyChanged: (bindable, oldValue, newValue) =>
+        public static readonly BindableProperty ImageProperty = BindableProperty.Create(nameof(ImageView.Image), typeof(PropertyMap), typeof(ImageView), null, propertyChanged: (bindable, oldValue, newValue) =>
         {
             var imageView = (ImageView)bindable;
             if (newValue != null)
@@ -96,7 +97,8 @@ namespace Tizen.NUI.BaseComponents
                 }
                 if (imageView._border == null)
                 {
-                    Tizen.NUI.Object.SetProperty(imageView.swigCPtr, ImageView.Property.IMAGE, new Tizen.NUI.PropertyValue(map));
+                    imageView._image = map;
+                    imageView.UpdateImage();
                 }
             }
         },
@@ -114,6 +116,7 @@ namespace Tizen.NUI.BaseComponents
                 return null;
             }
         });
+
         /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
         [EditorBrowsable(EditorBrowsableState.Never)]
         public static readonly BindableProperty PreMultipliedAlphaProperty = BindableProperty.Create("PreMultipliedAlpha", typeof(bool), typeof(ImageView), false, propertyChanged: (bindable, oldValue, newValue) =>
@@ -131,6 +134,7 @@ namespace Tizen.NUI.BaseComponents
             Tizen.NUI.Object.GetProperty(imageView.swigCPtr, ImageView.Property.PRE_MULTIPLIED_ALPHA).Get(out temp);
             return temp;
         });
+
         /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
         [EditorBrowsable(EditorBrowsableState.Never)]
         public static readonly BindableProperty PixelAreaProperty = BindableProperty.Create("PixelArea", typeof(RelativeVector4), typeof(ImageView), null, propertyChanged: (bindable, oldValue, newValue) =>
@@ -149,6 +153,7 @@ namespace Tizen.NUI.BaseComponents
             RelativeVector4 relativeTemp = new RelativeVector4(temp.X, temp.Y, temp.Z, temp.W);
             return relativeTemp;
         });
+
         /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
         [EditorBrowsable(EditorBrowsableState.Never)]
         public static readonly BindableProperty BorderProperty = BindableProperty.Create("Border", typeof(Rectangle), typeof(ImageView), null, propertyChanged: (bindable, oldValue, newValue) =>
@@ -165,6 +170,7 @@ namespace Tizen.NUI.BaseComponents
             var imageView = (ImageView)bindable;
             return imageView._border;
         });
+
         /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
         [EditorBrowsable(EditorBrowsableState.Never)]
         public static readonly BindableProperty BorderOnlyProperty = BindableProperty.Create("BorderOnly", typeof(bool), typeof(ImageView), false, propertyChanged: (bindable, oldValue, newValue) =>
@@ -181,6 +187,7 @@ namespace Tizen.NUI.BaseComponents
             var imageView = (ImageView)bindable;
             return imageView._borderOnly ?? false;
         });
+
         /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
         [EditorBrowsable(EditorBrowsableState.Never)]
         public static readonly BindableProperty SynchronosLoadingProperty = BindableProperty.Create("SynchronosLoading", typeof(bool), typeof(ImageView), false, propertyChanged: (bindable, oldValue, newValue) =>
@@ -197,6 +204,7 @@ namespace Tizen.NUI.BaseComponents
             var imageView = (ImageView)bindable;
             return imageView._synchronousLoading ?? false;
         });
+
         /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
         [EditorBrowsable(EditorBrowsableState.Never)]
         public static readonly BindableProperty OrientationCorrectionProperty = BindableProperty.Create("OrientationCorrection", typeof(bool), typeof(ImageView), false, propertyChanged: (bindable, oldValue, newValue) =>
@@ -226,7 +234,7 @@ namespace Tizen.NUI.BaseComponents
         private bool? _borderOnly = null;
         private string _url = null;
         private bool? _orientationCorrection = null;
-
+        private PropertyMap _image = null;
 
         /// <summary>
         /// Creates an initialized ImageView.
@@ -669,6 +677,8 @@ namespace Tizen.NUI.BaseComponents
                 _border = null;
                 _nPatchMap?.Dispose();
                 _nPatchMap = null;
+                _image?.Dispose();
+                _image = null;
             }
 
             //Release your own unmanaged resources here.
@@ -731,6 +741,25 @@ namespace Tizen.NUI.BaseComponents
                 { // just for normal image
                     SetProperty(ImageView.Property.IMAGE, new PropertyValue(_url));
                 }
+            }
+            else
+            {
+                //Image property is set and used
+                PropertyMap map = new PropertyMap();
+                map.Insert(ImageVisualProperty.URL, new PropertyValue(""));
+                if (_synchronousLoading != null)
+                {
+                    map.Insert(ImageVisualProperty.SynchronousLoading, new PropertyValue((bool)_synchronousLoading));
+                }
+                if (_orientationCorrection != null)
+                {
+                    map.Insert(ImageVisualProperty.OrientationCorrection, new PropertyValue((bool)_orientationCorrection));
+                }
+                if (_image != null)
+                {
+                    map.Merge(_image);
+                }
+                SetProperty(ImageView.Property.IMAGE, new PropertyValue(map));
             }
         }
 
