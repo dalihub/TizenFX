@@ -1263,6 +1263,9 @@ namespace Tizen.NUI.BaseComponents
         private global::System.Runtime.InteropServices.HandleRef swigCPtr;
 
         private bool layoutSet = false; // Flag to indicate if SetLayout was called or View was automatically given a Layout
+        private LayoutItemEx _layout; // Exclusive layout assigned to this View.
+        private MeasureSpecification _measureSpecificationWidth;
+        private MeasureSpecification _measureSpecificationHeight;
         private bool _backgroundImageSynchronosLoading = false;
         private EventHandler _offWindowEventHandler;
         private OffWindowEventCallbackType _offWindowEventCallback;
@@ -3491,7 +3494,7 @@ namespace Tizen.NUI.BaseComponents
         }
 
         /// <summary>
-        /// Set the layout on this control.
+        /// Set the layout on this control.  Replaced by LayoutEx.
         /// </summary>
         /// <remarks>
         /// </remarks>
@@ -3516,6 +3519,42 @@ namespace Tizen.NUI.BaseComponents
                 layoutingDisabled = false;
                 layoutSet = true;
                 SetLayout(value);
+            }
+        }
+
+
+        /// <summary>
+        /// Set the layout on this control. Replaces Layout.
+        /// </summary>
+        /// <remarks>
+        /// </remarks>
+        internal LayoutItemEx LayoutEx
+        {
+            get
+            {
+                return _layout;
+            }
+            set
+            {
+                layoutingDisabled = true;
+                layoutSet = true;
+                _layout = value;
+            }
+        }
+
+        internal MeasureSpecification MeasureSpecificationWidth
+        {
+            get
+            {
+                return _measureSpecificationWidth;
+            }
+        }
+
+        internal MeasureSpecification MeasureSpecificationHeight
+        {
+            get
+            {
+                return _measureSpecificationHeight;
             }
         }
 
@@ -5052,6 +5091,14 @@ namespace Tizen.NUI.BaseComponents
             {
                 layout.LayoutChildren.Add(view.Layout);
             }
+        }
+
+        /// <summary>
+        /// Removes the layout from this View.
+        /// </summary>
+        internal void ResetLayout()
+        {
+            _layout = null;
         }
 
         internal ResourceLoadingStatusType GetBackgroundResourceStatus()
