@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b5178b85_3f9d0ac8",
+        "filename": "src/Tizen.NUI/src/internal/Layouting/LayoutLengthEx.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1011527
+      },
+      "writtenOn": "2019-02-18T15:45:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e50328a_88419e8c",
+      "revId": "9972b71ba346047ba401e96051315ff48dca2356",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0fbcaf4d_d8fe5a83",
         "filename": "src/Tizen.NUI/src/internal/Layouting/LayoutLengthEx.cs",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2019-02-18T15:30:51Z",
       "side": 1,
       "message": "\u003d 0;",
+      "revId": "9972b71ba346047ba401e96051315ff48dca2356",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7e36442e_169e0d5a",
+        "filename": "src/Tizen.NUI/src/internal/Layouting/LayoutLengthEx.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1011527
+      },
+      "writtenOn": "2019-02-18T15:45:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0fbcaf4d_d8fe5a83",
       "revId": "9972b71ba346047ba401e96051315ff48dca2356",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": false
