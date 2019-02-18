@@ -16,6 +16,24 @@
       "revId": "8fbf6d05518ad17bd3336e22f01811611908bc6d",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "41aa70b5_3176f2e0",
+        "filename": "src/Tizen.NUI/src/internal/Layouting/ILayoutParent.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1011527
+      },
+      "writtenOn": "2019-02-18T14:33:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e9399720_77bfcc1d",
+      "revId": "8fbf6d05518ad17bd3336e22f01811611908bc6d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     }
   ]
 }
