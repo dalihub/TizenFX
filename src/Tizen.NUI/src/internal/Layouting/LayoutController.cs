@@ -155,14 +155,14 @@ namespace Tizen.NUI
             }
         }
 
-        private void RequestLayout(LayoutItemEx layoutItem)
+        public void RequestLayout(LayoutItemEx layoutItem)
         {
             // Go up the tree and mark all parents to relayout
             ILayoutParentEx layoutParent = layoutItem.GetParent();
             if( layoutParent != null )
             {
                 //todo
-                //  LayourGroupEx layoutGroup =  layoutParent as LayoutGroup
+                //  LayourGroupEx layoutGroup =  layoutParent as LayoutGroupEx
                 //  if( ! layoutGroup?.LayoutRequested  )
                 //  {
                 //      layoutGroup.RequestLayout();

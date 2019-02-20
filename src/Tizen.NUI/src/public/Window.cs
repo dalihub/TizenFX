@@ -627,6 +627,14 @@ namespace Tizen.NUI
             }
         }
 
+        internal LayoutController LayoutController
+        {
+            get
+            {
+                return localController;
+            }
+        }
+
         /// <summary>
         /// Feed a key-event into the window.
         /// </summary>
