@@ -62,7 +62,7 @@ namespace Tizen.NUI
             {
                 stageCPtr = new global::System.Runtime.InteropServices.HandleRef(this, NDalicPINVOKE.Stage_GetCurrent());
 
-                localController = new LayoutController();
+                localController = new LayoutController(this);
                 NUILog.Debug("layoutController id:" + localController.GetId() );
 
                 // Create a root layout (AbsoluteLayout) that is invisible to the user but enables layouts added to the Window
@@ -624,6 +624,14 @@ namespace Tizen.NUI
             get
             {
                 return _childLayers;
+            }
+        }
+
+        internal LayoutController LayoutController
+        {
+            get
+            {
+                return localController;
             }
         }
 
