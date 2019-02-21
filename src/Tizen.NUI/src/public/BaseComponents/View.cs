@@ -39,7 +39,7 @@ namespace Tizen.NUI.BaseComponents
         RTL
     }
 
-    internal enum ChildLayoutData
+    public enum ChildLayoutData
     {
         /// <summary>
         /// Constant which indicates child size should match parent size
@@ -1259,8 +1259,17 @@ namespace Tizen.NUI.BaseComponents
         /// Once a View has a Layout set then any children added to Views from then on will receive
         /// automatic Layouts.
         /// </summary>
-        private static bool layoutingDisabled = true;
+        private static bool layoutingDisabled{get; set;} = true;
         private global::System.Runtime.InteropServices.HandleRef swigCPtr;
+
+        ///<summary>
+        /// The required policy for this dimension
+        ///</summary>
+        public int WidthSpecification;
+        ///<summary>
+        /// The required policy for this dimension
+        ///</summary>
+        public int HeightSpecification; /// The required policy for this dimension
 
         private bool layoutSet = false; // Flag to indicate if SetLayout was called or View was automatically given a Layout
         private LayoutItemEx _layout; // Exclusive layout assigned to this View.
@@ -3536,7 +3545,8 @@ namespace Tizen.NUI.BaseComponents
             }
             set
             {
-                layoutingDisabled = true;
+                Log.Info("NUI", "Setting Layout on:" + Name + "\n");
+                layoutingDisabled = false;
                 layoutSet = true;
                 _layout = value;
             }
@@ -3837,7 +3847,7 @@ namespace Tizen.NUI.BaseComponents
                 // Pure View meaning not derived from a View, e.g a Legacy container.
                 // layoutSet flag is true when the View became a layout using the set Layout API opposed to automatically due to it's parent.
                 // First time the set Layout API is used by any View the Window no longer has layoutingDisabled.
-                if ((true == layoutSet || GetType() == typeof(View)) && null == child.Layout && false == layoutingDisabled)
+                if ((true == layoutSet || GetType() == typeof(View)) && null == child.LayoutEx && false == layoutingDisabled )
                 {
                     Log.Info("NUI", "Parent[" + Name + "] Layout set[" + layoutSet.ToString() + "] Pure View[" + (!layoutSet).ToString() + "]\n");
                     // If child is a View or explicitly set to require layouting then set child as a LayoutGroup.
@@ -3845,20 +3855,21 @@ namespace Tizen.NUI.BaseComponents
                     if (child.GetType() == typeof(View) || true == child.LayoutingRequired)
                     {
                         Log.Info("NUI", "Creating LayoutGroup for " + child.Name + " LayoutingRequired[" + child.LayoutingRequired.ToString() + "]\n");
-                        child.SetLayout(new LayoutGroup());
+                        child.LayoutEx = new LayoutGroupEx();
                     }
                     else
                     {
                         // Adding child as a leaf, layouting will not propagate past this child.
                         // Legacy containers will be a LayoutItems too and layout their children how they wish.
                         Log.Info("NUI", "Creating LayoutItem for " + child.Name + "\n");
-                        child.SetLayout(new LayoutItem());
+                        child.LayoutEx = new LayoutItemEx();
                     }
                 }
 
-                if (Layout)
+                LayoutGroupEx layout = LayoutEx as LayoutGroupEx;
+                if(layout !=null)
                 {
-                    Layout.LayoutChildren.Add(child.Layout);
+                    layout.Add(child.LayoutEx);  // Add child layout to this Views layout group list.
                 }
 
                 NDalicPINVOKE.Actor_Add(swigCPtr, View.getCPtr(child));
