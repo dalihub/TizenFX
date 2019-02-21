@@ -119,12 +119,15 @@ namespace Tizen.NUI
             // root, currently is the Window, needs to be View or derive from a class that
             // is implemented by View, Layer and Window.
 
-            // Start at root with it's widthSpec and heightSpec
-            MeasureHierarchy( root, root.MeasureSpecificationWidth, root.MeasureSpecificationHeight );
+            if(root !=null)
+            {
+                // Start at root with it's widthSpec and heightSpec
+                MeasureHierarchy( root, root.MeasureSpecificationWidth, root.MeasureSpecificationHeight );
 
-            // Start at root with it's widthSpec and heightSpec
-            PerformLayout( root, new LayoutLengthEx(0), new LayoutLengthEx(0),
-                           root.MeasureSpecificationWidth.Size, root.MeasureSpecificationHeight.Size );
+                // Start at root with it's widthSpec and heightSpec
+                PerformLayout( root, new LayoutLengthEx(0), new LayoutLengthEx(0),
+                              root.MeasureSpecificationWidth.Size, root.MeasureSpecificationHeight.Size );
+            }
         }
 
         /// <summary>
@@ -155,14 +158,14 @@ namespace Tizen.NUI
             }
         }
 
-        private void RequestLayout(LayoutItemEx layoutItem)
+        public void RequestLayout(LayoutItemEx layoutItem)
         {
             // Go up the tree and mark all parents to relayout
             ILayoutParentEx layoutParent = layoutItem.GetParent();
             if( layoutParent != null )
             {
                 //todo
-                //  LayourGroupEx layoutGroup =  layoutParent as LayoutGroup
+                //  LayourGroupEx layoutGroup =  layoutParent as LayoutGroupEx
                 //  if( ! layoutGroup?.LayoutRequested  )
                 //  {
                 //      layoutGroup.RequestLayout();
