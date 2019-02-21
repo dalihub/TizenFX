@@ -39,7 +39,7 @@ namespace Tizen.NUI.BaseComponents
         RTL
     }
 
-    internal enum ChildLayoutData
+    public enum ChildLayoutData
     {
         /// <summary>
         /// Constant which indicates child size should match parent size
@@ -1261,6 +1261,15 @@ namespace Tizen.NUI.BaseComponents
         /// </summary>
         private static bool layoutingDisabled = true;
         private global::System.Runtime.InteropServices.HandleRef swigCPtr;
+
+        ///<summary>
+        /// The required policy for this dimension
+        ///</summary>
+        public int WidthSpecification;
+        ///<summary>
+        /// The required policy for this dimension
+        ///</summary>
+        public int HeightSpecification; /// The required policy for this dimension
 
         private bool layoutSet = false; // Flag to indicate if SetLayout was called or View was automatically given a Layout
         private bool _backgroundImageSynchronosLoading = false;
