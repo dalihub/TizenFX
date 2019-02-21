@@ -38,16 +38,16 @@ namespace Tizen.NUI
         //A Flat to check if it is already disposed.
         protected bool disposed = false;
 
-        View root;
-
+        private View _root;
+        private Window _window;
         /// <summary>
         /// Constructs a LayoutController which controls the measuring and layouting.<br />
         /// </summary>
 
-        public LayoutController()
+        public LayoutController(Window window)
         {
             global::System.IntPtr cPtr = LayoutPINVOKE.LayoutController_New();
-
+            _window = window;
             // Wrap cPtr in a managed handle.
             unmanagedLayoutController = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
 
@@ -110,6 +110,24 @@ namespace Tizen.NUI
             disposed = true;
         }
 
+        private View FindRootLayout()
+        {
+            View result = null;
+            Layer defaultLayer = _window.GetDefaultLayer();
+            for( uint i = 0; i < defaultLayer.ChildCount; i++)
+            {
+                View view = defaultLayer.GetChildAt(i);
+                // Search first level of tree for a View with a layout
+                // todo Improve search for multiple layers and breath search of Views.
+                if (view.LayoutEx != null)
+                {
+                    result = view;
+                    return result;
+                }
+            }
+            return result;
+        }
+
         /// <summary>
         /// Entry point into the C# Layouting that starts the Processing
         /// </summary>
@@ -119,14 +137,19 @@ namespace Tizen.NUI
             // root, currently is the Window, needs to be View or derive from a class that
             // is implemented by View, Layer and Window.
 
-            if(root !=null)
+            if(null == _root)
+            {
+                _root = FindRootLayout();
+            }
+
+            if(_root !=null)
             {
                 // Start at root with it's widthSpec and heightSpec
-                MeasureHierarchy( root, root.MeasureSpecificationWidth, root.MeasureSpecificationHeight );
+                MeasureHierarchy( _root, _root.MeasureSpecificationWidth, _root.MeasureSpecificationHeight );
 
                 // Start at root with it's widthSpec and heightSpec
-                PerformLayout( root, new LayoutLengthEx(0), new LayoutLengthEx(0),
-                              root.MeasureSpecificationWidth.Size, root.MeasureSpecificationHeight.Size );
+                PerformLayout( _root, new LayoutLengthEx(0), new LayoutLengthEx(0),
+                               _root.MeasureSpecificationWidth.Size, _root.MeasureSpecificationHeight.Size );
             }
         }
 
@@ -164,12 +187,11 @@ namespace Tizen.NUI
             ILayoutParentEx layoutParent = layoutItem.GetParent();
             if( layoutParent != null )
             {
-                //todo
-                //  LayourGroupEx layoutGroup =  layoutParent as LayoutGroupEx
-                //  if( ! layoutGroup?.LayoutRequested  )
-                //  {
-                //      layoutGroup.RequestLayout();
-                //  }
+                 LayoutGroupEx layoutGroup =  layoutParent as LayoutGroupEx;
+                 if( ! layoutGroup.LayoutRequested  )
+                 {
+                     layoutGroup.RequestLayout();
+                 }
             }
         }
 
