@@ -76,6 +76,14 @@ namespace Tizen.NUI
         }
 
         /// <summary>
+        /// Get the View owning this LayoutItem
+        /// </summary>
+        internal View GetOwner()
+        {
+            return Owner;
+        }
+
+        /// <summary>
         /// This is called to find out how big a layout should be. <br />
         /// The parent supplies constraint information in the width and height parameters. <br />
         /// The actual measurement work of a layout is performed in OnMeasure called by this
@@ -147,7 +155,7 @@ namespace Tizen.NUI
                     // Another container could provide a default size of 0.
 
                     // Do not set size to 0, use specSize in this case as could be a legacy container
-                    if( size < specSize && size >  0 )
+                    if( ( size.AsDecimal() < specSize.AsDecimal()) && ( size.AsDecimal() >  0) )
                     {
                         result = size;
                     }
@@ -177,7 +185,7 @@ namespace Tizen.NUI
         /// </summary>
         public void RequestLayout()
         {
-            Window.Instance.GetLayoutController().RequestLayout(this);
+            Window.Instance.LayoutController.RequestLayout(this);
         }
 
         /// <summary>
