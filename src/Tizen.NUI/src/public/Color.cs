@@ -617,6 +617,22 @@ namespace Tizen.NUI
             return ret;
         }
 
+        /// <summary>
+        /// Determines whether the specified object is equal to the current object.
+        /// </summary>
+        /// <param name="obj">The object to compare with the current object.</param>
+        /// <returns>true if the specified object is equal to the current object; otherwise, false.</returns>
+        public override bool Equals(System.Object obj)
+        {
+            Color color = obj as Color;
+            bool equal = false;
+            if (R == color?.R && G == color?.G && B == color?.B && A == color?.A)
+            {
+                equal = true;
+            }
+            return equal;
+        }
+
         private float ValueOfIndex(uint index)
         {
             float ret = NDalicPINVOKE.Vector4_ValueOfIndex__SWIG_0(swigCPtr, index);
