@@ -300,6 +300,44 @@ namespace Tizen.NUI
             }
         }
 
+        ///<summary>
+        /// Utility to reconcile a desired size and state, with constraints imposed by a MeasureSpec.
+        ///</summary>
+        /// <param name="size"> How big the layout wants to be.</param>
+        /// <param name="measureSpecification"> Constraints imposed by the parent.</param>
+        /// <param name="childMeasuredState"> Size information bit mask for the layout's children.</param>
+        /// <returns> A measured size, which may indicate that it is too small. </returns>
+        protected MeasuredSizeEx ResolveSizeAndState( LayoutLengthEx size, MeasureSpecification measureSpecification, MeasuredSizeEx.StateType childMeasuredState )
+        {
+            var specMode = measureSpecification.Mode;
+            LayoutLengthEx specSize = measureSpecification.Size;
+            MeasuredSizeEx result = new MeasuredSizeEx( size, childMeasuredState);
+
+            switch( specMode )
+            {
+                case MeasureSpecification.ModeType.AtMost:
+                {
+                    if (specSize.AsRoundedValue() < size.AsRoundedValue())
+                    {
+                        result = new MeasuredSizeEx( specSize, MeasuredSizeEx.StateType.MeasuredSizeTooSmall);
+                    }
+                    break;
+                }
+
+                case MeasureSpecification.ModeType.Exactly:
+                {
+                    result.Size = specSize;
+                    break;
+                }
+
+                case MeasureSpecification.ModeType.Unspecified:
+                default:
+                {
+                    break;
+                }
+            }
+            return result;
+        }
 
         /// <summary>
         /// This method must be called by OnMeasure(MeasureSpec,MeasureSpec) to store the measured width and measured height.

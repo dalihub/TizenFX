@@ -26,11 +26,11 @@ namespace Tizen.NUI
     /// </summary>
     internal class LayoutGroupEx : LayoutItemEx
     {
-        List<View> _children; // Children of this LayoutGroup
+        protected List<LayoutItemEx> _children{ get;} // Children of this LayoutGroup
 
         public LayoutGroupEx()
         {
-            _children = new List<View>();
+            _children = new List<LayoutItemEx>();
         }
 
         /// <summary>
@@ -38,9 +38,9 @@ namespace Tizen.NUI
         /// </summary>
         public void RemoveAll()
         {
-            foreach( View view in _children )
+            foreach( LayoutItemEx childLayout in _children )
             {
-                view.LayoutEx.Owner = null;
+                childLayout.Owner = null;
             }
             _children.Clear();
             // todo ensure child LayoutItems are still not parented to this group.
@@ -157,13 +157,13 @@ namespace Tizen.NUI
             LayoutLengthEx measuredWidth = childWidth;
             LayoutLengthEx measuredHeight = childHeight;
 
-            foreach( View view in _children )
+            foreach( LayoutItemEx childLayout in _children )
             {
-                if( view.LayoutEx != null )
+                if( childLayout != null )
                 {
-                    MeasureChild( view.LayoutEx, widthMeasureSpec, heightMeasureSpec );
-                    childWidth = view.LayoutEx.MeasuredWidth;
-                    childHeight = view.LayoutEx.MeasuredHeight;
+                    MeasureChild( childLayout, widthMeasureSpec, heightMeasureSpec );
+                    childWidth = childLayout.MeasuredWidth;
+                    childHeight = childLayout.MeasuredHeight;
                     // Layout takes size of largest width and height dimension of children
                     measuredWidth = new LayoutLengthEx(Math.Max( measuredWidth.AsDecimal(), childWidth.AsDecimal() ));
                     measuredHeight = new LayoutLengthEx(Math.Max( measuredHeight.AsDecimal(), childHeight.AsDecimal() ));
@@ -193,13 +193,13 @@ namespace Tizen.NUI
         protected override void OnLayout(bool changed, LayoutLengthEx left, LayoutLengthEx top, LayoutLengthEx right, LayoutLengthEx bottom)
         {
             Log.Info("NUI", "OnLayout\n");
-            foreach( View view in _children )
+            foreach( LayoutItemEx childLayout in _children )
             {
-                if( view.LayoutEx !=null )
+                if( childLayout !=null )
                 {
                     // Use position if explicitly set to child otherwise will be top left.
-                    var childLeft = new LayoutLengthEx( view.Position2D.X );
-                    var childTop = new LayoutLengthEx( view.Position2D.Y );
+                    var childLeft = new LayoutLengthEx( childLayout.Owner.Position2D.X );
+                    var childTop = new LayoutLengthEx( childLayout.Owner.Position2D.Y );
 
                     View owner = Owner;
 
@@ -208,11 +208,11 @@ namespace Tizen.NUI
                         // Margin and Padding only supported when child anchor point is TOP_LEFT.
                         if ( owner.PivotPoint == PivotPoint.TopLeft || ( owner.PositionUsesPivotPoint == false ) )
                         {
-                          childLeft = childLeft + owner.Padding.Start + view.Margin.Start;
-                          childTop = childTop + owner.Padding.Top + view.Margin.Top;
+                          childLeft = childLeft + owner.Padding.Start + childLayout.Owner.Margin.Start;
+                          childTop = childTop + owner.Padding.Top + childLayout.Owner.Margin.Top;
                         }
                     }
-                    view.LayoutEx.Layout( childLeft, childTop, childLeft + view.LayoutEx.MeasuredWidth, childTop + view.LayoutEx.MeasuredHeight );
+                    childLayout.Layout( childLeft, childTop, childLeft + childLayout.MeasuredWidth, childTop + childLayout.MeasuredHeight );
                 }
             }
         }
@@ -253,9 +253,9 @@ namespace Tizen.NUI
         /// <param name="heightMeasureSpec">The height requirements for this view.</param>
         protected virtual void MeasureChildren(MeasureSpecification widthMeasureSpec, MeasureSpecification heightMeasureSpec)
         {
-            foreach( View view in _children )
+            foreach( LayoutItemEx childLayout in _children )
             {
-                MeasureChild( view.LayoutEx, widthMeasureSpec, heightMeasureSpec );
+                MeasureChild( childLayout, widthMeasureSpec, heightMeasureSpec );
             }
         }
 
