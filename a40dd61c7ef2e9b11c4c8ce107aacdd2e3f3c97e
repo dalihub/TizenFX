@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ec3f69c3_6b3224c1",
+        "filename": "src/Tizen.NUI/src/public/Color.cs",
+        "patchSetId": 1
+      },
+      "lineNbr": 625,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2019-02-25T01:36:10Z",
+      "side": 1,
+      "message": "please add this first before ACR \u003d\u003e /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.\n        [EditorBrowsable(EditorBrowsableState.Never)]",
+      "revId": "a40dd61c7ef2e9b11c4c8ce107aacdd2e3f3c97e",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
