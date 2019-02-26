@@ -122,6 +122,7 @@ namespace Tizen.NUI
                 if (view.LayoutEx != null)
                 {
                     result = view;
+                    Log.Info("NUI", "LayoutController Found Root layout:" + result.Name + "\n");
                     return result;
                 }
             }
@@ -144,8 +145,13 @@ namespace Tizen.NUI
 
             if(_root !=null)
             {
+                // Get root MeasureSpecification, this could be the Window with an exact size.
+                MeasureSpecification rootWidthSpecification =
+                    new MeasureSpecification( new LayoutLengthEx(_window.Size.Width), MeasureSpecification.ModeType.Exactly);
+                MeasureSpecification rootHeightSpecification =
+                    new MeasureSpecification( new LayoutLengthEx(_window.Size.Height), MeasureSpecification.ModeType.Exactly );
                 // Start at root with it's widthSpec and heightSpec
-                MeasureHierarchy( _root, _root.MeasureSpecificationWidth, _root.MeasureSpecificationHeight );
+                MeasureHierarchy( _root, rootWidthSpecification, rootHeightSpecification );
 
                 // Start at root with it's widthSpec and heightSpec
                 PerformLayout( _root, new LayoutLengthEx(0), new LayoutLengthEx(0),
