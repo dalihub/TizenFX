@@ -33,6 +33,15 @@ namespace Tizen.NUI
             _children = new List<LayoutItemEx>();
         }
 
+
+        /// <summary>
+        /// Add a layout child to this group.<br />
+        /// </summary>
+        public void Add(LayoutItemEx childLayout)
+        {
+            _children.Add(childLayout);
+        }
+
         /// <summary>
         /// Remove all layout children.<br />
         /// </summary>
