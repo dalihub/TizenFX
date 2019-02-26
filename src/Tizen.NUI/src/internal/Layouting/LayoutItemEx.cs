@@ -301,7 +301,7 @@ namespace Tizen.NUI
         }
 
         ///<summary>
-        /// Utility to reconcile a desired size and state, with constraints imposed by a MeasureSpec.
+        /// Utility to reconcile a desired size and state, with constraints imposed by a MeasureSpecification.
         ///</summary>
         /// <param name="size"> How big the layout wants to be.</param>
         /// <param name="measureSpecification"> Constraints imposed by the parent.</param>

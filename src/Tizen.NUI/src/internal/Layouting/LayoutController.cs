@@ -144,6 +144,9 @@ namespace Tizen.NUI
 
             if(_root !=null)
             {
+
+    MeasureSpecification widthSpec( stageWidth, MeasureSpec::Mode::EXACTLY );
+    MeasureSpecification heightSpec( stageHeight, MeasureSpec::Mode::EXACTLY );
                 // Start at root with it's widthSpec and heightSpec
                 MeasureHierarchy( _root, _root.MeasureSpecificationWidth, _root.MeasureSpecificationHeight );
 
