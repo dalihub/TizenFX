@@ -610,6 +610,18 @@ namespace Tizen.NUI
             return ret;
         }
 
+        /// <summary>
+        /// Gets whether the input layout type is Password or not.
+        /// </summary>
+        /// <returns>True if the panel layout type is Password, false otherwise.</returns>
+        /// <since_tizen> 5.5 </since_tizen>
+        public bool IsPasswordLayout()
+        {
+            bool ret = NDalicManualPINVOKE.InputMethodContext_IsPasswordLayout(swigCPtr);
+            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
+        }
+
         internal static global::System.Runtime.InteropServices.HandleRef getCPtr(InputMethodContext obj)
         {
             return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, IntPtr.Zero) : obj.swigCPtr;

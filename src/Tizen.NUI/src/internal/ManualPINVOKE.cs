@@ -630,6 +630,10 @@ namespace Tizen.NUI
         public static extern bool InputMethodContext_IsTextPredictionAllowed(global::System.Runtime.InteropServices.HandleRef jarg1);
 
 
+        [global::System.Runtime.InteropServices.DllImport("libdali-csharp-binder.so", EntryPoint = "CSharp_Dali_InputMethodContext_IsPasswordLayout")]
+        public static extern bool InputMethodContext_IsPasswordLayout(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+
         [global::System.Runtime.InteropServices.DllImport("libdali-csharp-binder.so", EntryPoint = "CSharp_Dali_InputMethodContext_ActivatedSignal")]
         public static extern global::System.IntPtr InputMethodContext_ActivatedSignal(global::System.Runtime.InteropServices.HandleRef jarg1);
 
