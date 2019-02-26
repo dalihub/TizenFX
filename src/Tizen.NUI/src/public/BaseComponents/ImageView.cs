@@ -43,13 +43,28 @@ namespace Tizen.NUI.BaseComponents
                     url = url.Replace("*Resource*", resource);
                 }
                 imageView._url = url;
-                imageView.UpdateImage();
+                if(_imageType == ImageType.Npatch)
+                {
+                    imageView.UpdateNpatchImage();
+                }
+                else if(_imageType == ImageType.Specific)
+                {
+                    imageView.UpdateSpecificImage();
+                }
+                else
+                {
+                    imageView.UpdateNormalImage();
+                }
+
             }
         },
         defaultValueCreator: (bindable) =>
         {
             var imageView = (ImageView)bindable;
-            Tizen.NUI.Object.GetProperty(imageView.swigCPtr, ImageView.Property.IMAGE).Get(out imageView._url);
+            if(_imageType == ImageType.Normal)
+            {
+                Tizen.NUI.Object.GetProperty(imageView.swigCPtr, ImageView.Property.IMAGE).Get(out imageView._url);
+            }
             return imageView._url;
         });
         /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
@@ -157,7 +172,8 @@ namespace Tizen.NUI.BaseComponents
             if (newValue != null)
             {
                 imageView._border = (Rectangle)newValue;
-                imageView.UpdateImage();
+                _imageType = ImageType.Npatch;
+                imageView.UpdateNpatchImage();
             }
         },
         defaultValueCreator: (bindable) =>
@@ -173,7 +189,8 @@ namespace Tizen.NUI.BaseComponents
             if (newValue != null)
             {
                 imageView._borderOnly = (bool)newValue;
-                imageView.UpdateImage();
+                _imageType = ImageType.Npatch;
+                imageView.UpdateNpatchImage();
             }
         },
         defaultValueCreator: (bindable) =>
@@ -189,7 +206,15 @@ namespace Tizen.NUI.BaseComponents
             if (newValue != null)
             {
                 imageView._synchronousLoading = (bool)newValue;
-                imageView.UpdateImage();
+                if(_imageType == ImageType.Npatch)
+                {
+                    imageView.UpdateNpatchImage();
+                }
+                else
+                {
+                    _imageType = ImageType.Specific;
+                    imageView.UpdateSpecificImage();
+                }
             }
         },
         defaultValueCreator: (bindable) =>
@@ -205,7 +230,15 @@ namespace Tizen.NUI.BaseComponents
             if (newValue != null)
             {
                 imageView._orientationCorrection = (bool)newValue;
-                imageView.UpdateImage();
+                if (_imageType == ImageType.Npatch)
+                {
+                    imageView.UpdateNpatchImage();
+                }
+                else
+                {
+                    _imageType = ImageType.Specific;
+                    imageView.UpdateSpecificImage();
+                }
             }
         },
         defaultValueCreator: (bindable) =>
@@ -222,10 +255,12 @@ namespace Tizen.NUI.BaseComponents
 
         private Rectangle _border = null;
         private PropertyMap _nPatchMap = null;
+        private PropertyMap _specificMap = null;
         private bool? _synchronousLoading = null;
         private bool? _borderOnly = null;
         private string _url = null;
         private bool? _orientationCorrection = null;
+        private static ImageType _imageType = ImageType.Normal;
 
 
         /// <summary>
@@ -703,36 +738,58 @@ namespace Tizen.NUI.BaseComponents
             }
         }
 
-        private void UpdateImage()
+        private void UpdateNpatchImage()
         {
-            if (_url != null)
+            if (_url != null && _url != "")
             {
-                if (_border != null)
-                { // for nine-patch image
-                    _nPatchMap = new PropertyMap();
-                    _nPatchMap.Add(Visual.Property.Type, new PropertyValue((int)Visual.Type.NPatch));
-                    _nPatchMap.Add(NpatchImageVisualProperty.URL, new PropertyValue(_url));
-                    _nPatchMap.Add(NpatchImageVisualProperty.Border, new PropertyValue(_border));
-                    if (_borderOnly != null) { _nPatchMap.Add(NpatchImageVisualProperty.BorderOnly, new PropertyValue((bool)_borderOnly)); }
-                    if (_synchronousLoading != null) { _nPatchMap.Add(NpatchImageVisualProperty.SynchronousLoading, new PropertyValue((bool)_synchronousLoading)); }
-                    if (_orientationCorrection != null) { _nPatchMap.Add(ImageVisualProperty.OrientationCorrection, new PropertyValue((bool)_orientationCorrection)); }
-                    SetProperty(ImageView.Property.IMAGE, new PropertyValue(_nPatchMap));
+                _nPatchMap = new PropertyMap();
+                _nPatchMap.Add(Visual.Property.Type, new PropertyValue((int)Visual.Type.NPatch));
+                _nPatchMap.Add(NpatchImageVisualProperty.URL, new PropertyValue(_url));
+                _nPatchMap.Add(NpatchImageVisualProperty.Border, new PropertyValue(_border));
+                if (_borderOnly != null)
+                {
+                    _nPatchMap.Add(NpatchImageVisualProperty.BorderOnly, new PropertyValue((bool)_borderOnly));
                 }
-                else if (_synchronousLoading != null || _orientationCorrection != null)
-                { // for normal image, with synchronous loading property
-                    PropertyMap imageMap = new PropertyMap();
-                    imageMap.Add(Visual.Property.Type, new PropertyValue((int)Visual.Type.Image));
-                    imageMap.Add(ImageVisualProperty.URL, new PropertyValue(_url));
-                    if (_synchronousLoading != null) { imageMap.Add(ImageVisualProperty.SynchronousLoading, new PropertyValue((bool)_synchronousLoading)); }
-                    if (_orientationCorrection != null) { imageMap.Add(ImageVisualProperty.OrientationCorrection, new PropertyValue((bool)_orientationCorrection)); }
-                    SetProperty(ImageView.Property.IMAGE, new PropertyValue(imageMap));
+                if (_synchronousLoading != null)
+                {
+                    _nPatchMap.Add(NpatchImageVisualProperty.SynchronousLoading, new PropertyValue((bool)_synchronousLoading));
                 }
-                else
-                { // just for normal image
-                    SetProperty(ImageView.Property.IMAGE, new PropertyValue(_url));
+                if (_orientationCorrection != null)
+                {
+                    _nPatchMap.Add(ImageVisualProperty.OrientationCorrection, new PropertyValue((bool)_orientationCorrection));
                 }
+                SetProperty(ImageView.Property.IMAGE, new PropertyValue(_nPatchMap));
             }
         }
+
+        private void UpdateSpecificImage()
+        {
+            if(_url != null && _url != "")
+            {
+                _specificMap = new PropertyMap();
+                _specificMap.Add(Visual.Property.Type, new PropertyValue((int)Visual.Type.Image));
+                _specificMap.Add(ImageVisualProperty.URL, new PropertyValue(_url));
+                if (_synchronousLoading != null)
+                {
+                    _specificMap.Add(ImageVisualProperty.SynchronousLoading, new PropertyValue((bool)_synchronousLoading));
+                }
+                if (_orientationCorrection != null)
+                {
+                    _specificMap.Add(ImageVisualProperty.OrientationCorrection, new PropertyValue((bool)_orientationCorrection));
+                }
+
+                SetProperty(ImageView.Property.IMAGE, new PropertyValue(_specificMap));
+            }
+        }
+
+        private void UpdateNormalImage()
+        {
+            if(_url != null)
+            {
+                SetProperty(ImageView.Property.IMAGE, new PropertyValue(_url));
+            }
+        }
+
 
         private void OnResourceLoaded(IntPtr view)
         {
@@ -796,6 +853,24 @@ namespace Tizen.NUI.BaseComponents
             internal static readonly int ACTION_PLAY = NDalicManualPINVOKE.ImageView_IMAGE_VISUAL_ACTION_PLAY_get();
             internal static readonly int ACTION_PAUSE = NDalicManualPINVOKE.ImageView_IMAGE_VISUAL_ACTION_PAUSE_get();
             internal static readonly int ACTION_STOP = NDalicManualPINVOKE.ImageView_IMAGE_VISUAL_ACTION_STOP_get();
+        }
+
+        internal enum ImageType
+        {
+            /// <summary>
+            /// For Normal Image.
+            /// </summary>
+            Normal = 0,
+
+            /// <summary>
+            /// For normal image, with synchronous loading and orientation correction property
+            /// </summary>
+            Specific = 1,
+
+            /// <summary>
+            /// For nine-patch image
+            /// </summary>
+            Npatch = 2,
         }
     }
 }
