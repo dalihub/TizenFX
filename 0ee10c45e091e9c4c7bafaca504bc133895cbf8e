@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "53830aab_f2189d52",
+        "filename": "src/Tizen.NUI/src/public/BaseComponents/ImageView.cs",
+        "patchSetId": 1
+      },
+      "lineNbr": 814,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2019-02-27T10:07:22Z",
+      "side": 1,
+      "message": "please change this as private because this will be used only in ImageView class.",
+      "revId": "0ee10c45e091e9c4c7bafaca504bc133895cbf8e",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
