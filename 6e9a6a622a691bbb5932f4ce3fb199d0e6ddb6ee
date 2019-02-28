@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b37e6130_5bc8e81e",
+        "filename": "src/Tizen.NUI/src/public/NUIConstants.cs",
+        "patchSetId": 1
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1013547
+      },
+      "writtenOn": "2019-02-28T05:07:22Z",
+      "side": 1,
+      "message": "no tab please. \nafter fix this I will merge this.",
+      "revId": "6e9a6a622a691bbb5932f4ce3fb199d0e6ddb6ee",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
