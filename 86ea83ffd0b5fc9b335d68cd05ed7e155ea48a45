@@ -39,6 +39,48 @@
       "revId": "86ea83ffd0b5fc9b335d68cd05ed7e155ea48a45",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8209470_dde19fbe",
+        "filename": "src/Tizen.NUI/src/internal/Layouting/LayoutSizeEx.cs",
+        "patchSetId": 6
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1011527
+      },
+      "writtenOn": "2019-03-01T11:37:30Z",
+      "side": 1,
+      "message": "I\u0027ve added these and Removed IsEqualTo as Equals, !\u003d and \u003d\u003d tests are passing",
+      "parentUuid": "57ff2fd1_90e1f437",
+      "revId": "86ea83ffd0b5fc9b335d68cd05ed7e155ea48a45",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "28c55372_9932d534",
+        "filename": "src/Tizen.NUI/src/internal/Layouting/LayoutSizeEx.cs",
+        "patchSetId": 6
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1011527
+      },
+      "writtenOn": "2019-03-01T11:37:30Z",
+      "side": 1,
+      "message": "Default Equals is passing tests currently",
+      "parentUuid": "53d2852b_60d79af1",
+      "range": {
+        "startLine": 44,
+        "startChar": 20,
+        "endLine": 44,
+        "endChar": 29
+      },
+      "revId": "86ea83ffd0b5fc9b335d68cd05ed7e155ea48a45",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     }
   ]
 }
