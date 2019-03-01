@@ -22,6 +22,30 @@
       "revId": "2419a5cb6d974079b0375e908e0b757ba48aede2",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5fa3d4dd_22f90b23",
+        "filename": "src/Tizen.NUI/src/internal/Layouting/LayoutLengthEx.cs",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1011527
+      },
+      "writtenOn": "2019-03-01T10:15:21Z",
+      "side": 1,
+      "message": "Microsoft don\u0027t specify coding convention for private members only public (should not use _).\nExisting code in NUI uses _.",
+      "parentUuid": "14525c8a_49adcae2",
+      "range": {
+        "startLine": 29,
+        "startChar": 22,
+        "endLine": 29,
+        "endChar": 28
+      },
+      "revId": "2419a5cb6d974079b0375e908e0b757ba48aede2",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     }
   ]
 }
