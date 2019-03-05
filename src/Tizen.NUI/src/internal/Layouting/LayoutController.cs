@@ -38,15 +38,15 @@ namespace Tizen.NUI
         //A Flat to check if it is already disposed.
         protected bool disposed = false;
 
-
+        private View _root;
+        private Window _window;
         /// <summary>
         /// Constructs a LayoutController which controls the measuring and layouting.<br />
         /// </summary>
-
-        public LayoutController()
+        public LayoutController(Window window)
         {
             global::System.IntPtr cPtr = LayoutPINVOKE.LayoutController_New();
-
+            _window = window;
             // Wrap cPtr in a managed handle.
             unmanagedLayoutController = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
 
@@ -73,7 +73,6 @@ namespace Tizen.NUI
         /// <summary>
         /// Explict Dispose.
         /// </summary>
-
         public void Dispose()
         {
            Dispose(DisposeTypes.Explicit);
@@ -110,12 +109,126 @@ namespace Tizen.NUI
             disposed = true;
         }
 
+        private View FindRootLayout()
+        {
+            View result = null;
+            Layer defaultLayer = _window.GetDefaultLayer();
+            for (uint i = 0; i < defaultLayer.ChildCount; i++)
+            {
+                View view = defaultLayer.GetChildAt(i);
+                // Search first level of tree for a View with a layout
+                // todo Improve search for multiple layers and breath search of Views.
+                if (view.LayoutEx != null)
+                {
+                    result = view;
+                    Log.Info("NUI", "LayoutController Found Root layout:" + result.Name + "\n");
+                    return result;
+                }
+            }
+            return result;
+        }
+
         /// <summary>
         /// Entry point into the C# Layouting that starts the Processing
         /// </summary>
         private void Process(int id)
         {
-            NUILog.Debug("layoutController Process id:" + id );
+            Log.Info("NUI", "LayoutController Process id:" + id + "\n");
+            // root, currently is the Window, needs to be View or derive from a class that
+            // is implemented by View, Layer and Window.
+
+            if (null == _root)
+            {
+                _root = FindRootLayout();
+            }
+
+            if (_root !=null)
+            {
+                // Get root MeasureSpecification, this could be the Window with an exact size.
+                MeasureSpecification rootWidthSpecification =
+                    new MeasureSpecification( new LayoutLengthEx(_window.Size.Width), MeasureSpecification.ModeType.Exactly);
+                MeasureSpecification rootHeightSpecification =
+                    new MeasureSpecification( new LayoutLengthEx(_window.Size.Height), MeasureSpecification.ModeType.Exactly );
+                // Start at root with it's widthSpec and heightSpec
+                MeasureHierarchy( _root, rootWidthSpecification, rootHeightSpecification );
+
+                // Start at root with it's widthSpec and heightSpec
+                PerformLayout( _root, new LayoutLengthEx(0), new LayoutLengthEx(0),
+                               _root.MeasureSpecificationWidth.Size, _root.MeasureSpecificationHeight.Size );
+            }
+        }
+
+        /// <summary>
+        /// Starts measuring the tree, starting from the root layout.
+        /// </summary>
+        private void MeasureHierarchy(View root, MeasureSpecification widthSpec, MeasureSpecification heightSpec)
+        {
+            // Does this View have a layout?
+            // Yes - measure the layout. It will call this method again for each of it's children.
+            // No -  reached leaf or no layouts set
+            //
+            // If in a leaf View with no layout, it's natural size is bubbled back up.
+
+            if (root.LayoutEx != null)
+            {
+                root.LayoutEx.Measure(widthSpec, heightSpec);
+            }
+        }
+
+        /// <summary>
+        /// Performs the layouting positioning
+        /// </summary>
+        private void PerformLayout(View root, LayoutLengthEx left, LayoutLengthEx top, LayoutLengthEx right, LayoutLengthEx bottom)
+        {
+            if(root.LayoutEx != null)
+            {
+                root.LayoutEx.Layout(left, top, right, bottom);
+            }
+        }
+
+        /// <summary>
+        /// Performs actual positioning using the stored calculated values.
+        /// </summary>
+        // private void PerformLayoutPositioning( LayoutPositionDataArray layoutPositionDataArray )
+        // {
+        //     Log.Info( "NUI", "LayoutController::PerformLayoutPositioning\n");
+
+        //     for( auto layoutPositionData : layoutPositionDataArray )
+        //     {
+        //         if (Owner)
+        //         {
+        //             if (!layoutPositionData.animated)
+        //             {
+        //                 Owner.SetX( layoutPositionData.left );
+        //                 Owner.SetY( layoutPositionData.top );
+
+        //                 actor.SetProperty( Actor::Property::SIZE_WIDTH, layoutPositionData.right - layoutPositionData.left );
+        //                 Owner.SetProperty( Actor::Property::SIZE_HEIGHT, layoutPositionData.bottom - layoutPositionData.top );
+        //             }
+        //             // else
+        //             // {
+        //             //     actor.SetX( actor.GetCurrentPosition().x );
+        //             //     actor.SetY( actor.GetCurrentPosition().y );
+
+        //             //     actor.SetProperty( Actor::Property::SIZE_WIDTH, actor.GetCurrentSize().x );
+        //             //     actor.SetProperty( Actor::Property::SIZE_HEIGHT, actor.GetCurrentSize().y );
+        //             // }
+        //         }
+        //     }
+        // }
+
+        public void RequestLayout(LayoutItemEx layoutItem)
+        {
+            // Go up the tree and mark all parents to relayout
+            ILayoutParentEx layoutParent = layoutItem.GetParent();
+            if (layoutParent != null)
+            {
+                 LayoutGroupEx layoutGroup =  layoutParent as LayoutGroupEx;
+                 if( ! layoutGroup.LayoutRequested  )
+                 {
+                    layoutGroup.RequestLayout();
+                 }
+            }
         }
 
     } // class LayoutController
