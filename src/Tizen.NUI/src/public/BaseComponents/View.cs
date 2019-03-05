@@ -39,7 +39,7 @@ namespace Tizen.NUI.BaseComponents
         RTL
     }
 
-    internal enum ChildLayoutData
+    public enum ChildLayoutData
     {
         /// <summary>
         /// Constant which indicates child size should match parent size
@@ -1259,10 +1259,56 @@ namespace Tizen.NUI.BaseComponents
         /// Once a View has a Layout set then any children added to Views from then on will receive
         /// automatic Layouts.
         /// </summary>
-        private static bool layoutingDisabled = true;
+        private static bool layoutingDisabled{get; set;} = true;
         private global::System.Runtime.InteropServices.HandleRef swigCPtr;
 
+        ///<summary>
+        /// The required policy for this dimension
+        ///</summary>
+        public int WidthSpecification
+        {
+            get
+            {
+                return _widthSpecification;
+            }
+            set
+            {
+                _widthSpecification = value;
+                if (_widthSpecification >= 0)
+                {
+                    _measureSpecificationWidth = new MeasureSpecification( new LayoutLengthEx(value), MeasureSpecification.ModeType.Exactly );
+                }
+
+            }
+        }
+
+        ///<summary>
+        /// The required policy for this dimension
+        ///</summary>
+        public int HeightSpecification /// The required policy for this dimension
+        {
+            get
+            {
+                return _heightSpecification;
+            }
+            set
+            {
+                _heightSpecification = value;
+                if (_heightSpecification >= 0)
+                {
+                    _measureSpecificationHeight = new MeasureSpecification( new LayoutLengthEx(value), MeasureSpecification.ModeType.Exactly );
+                }
+            }
+        }
+
         private bool layoutSet = false; // Flag to indicate if SetLayout was called or View was automatically given a Layout
+        private LayoutItemEx _layout; // Exclusive layout assigned to this View.
+
+
+        private int _widthSpecification;
+        private int _heightSpecification;
+        private MeasureSpecification _measureSpecificationWidth;
+        private MeasureSpecification _measureSpecificationHeight;
         private bool _backgroundImageSynchronosLoading = false;
         private EventHandler _offWindowEventHandler;
         private OffWindowEventCallbackType _offWindowEventCallback;
@@ -2233,8 +2279,8 @@ namespace Tizen.NUI.BaseComponents
                 SetValue(Size2DProperty, value);
                 // Set Specification so when layouts measure this View it matches the value set here.
                 // All Views are currently Layouts.
-                SetProperty(LayoutItemWrapper.ChildProperty.WIDTH_SPECIFICATION, new Tizen.NUI.PropertyValue(value.Width));
-                SetProperty(LayoutItemWrapper.ChildProperty.HEIGHT_SPECIFICATION, new Tizen.NUI.PropertyValue(value.Height));
+                MeasureSpecificationWidth = new MeasureSpecification(new LayoutLengthEx(value.Width), MeasureSpecification.ModeType.Unspecified);
+                MeasureSpecificationHeight = new MeasureSpecification(new LayoutLengthEx(value.Height), MeasureSpecification.ModeType.Unspecified);
                 NotifyPropertyChanged();
             }
         }
@@ -3491,7 +3537,7 @@ namespace Tizen.NUI.BaseComponents
         }
 
         /// <summary>
-        /// Set the layout on this control.
+        /// Set the layout on this control.  Replaced by LayoutEx.
         /// </summary>
         /// <remarks>
         /// </remarks>
@@ -3516,6 +3562,69 @@ namespace Tizen.NUI.BaseComponents
                 layoutingDisabled = false;
                 layoutSet = true;
                 SetLayout(value);
+            }
+        }
+
+
+        /// <summary>
+        /// Set the layout on this View. Replaces any existing Layout.
+        /// </summary>
+        /// <remarks>
+        /// </remarks>
+        internal LayoutItemEx LayoutEx
+        {
+            get
+            {
+                return _layout;
+            }
+            set
+            {
+                Log.Info("NUI", "Setting Layout on:" + Name + "\n");
+                layoutingDisabled = false;
+                layoutSet = true;
+
+                // If new layout being set already has a owner then that owner receives a replacement default layout.
+                // First check if the new layout has a owner.
+                if ( value.Owner != null )
+                {
+                    // If the owner is not this View then the owning control can no longer own it.
+                    if( value.Owner != LayoutEx.Owner )
+                    {
+                        Log.Info("NUI", "SetLayout Layout already in use by another View: " + value.Owner.Name + "will get a LayoutGroup \n");
+                        // Previous owner of the layout gets a BinLayout instead of the layout.
+                        value.Owner.LayoutEx = new LayoutGroupEx();
+                        //todo Children will need to be added to this new LayoutGroup.
+                    }
+                }
+
+                // Set layout to this view
+                _layout = value;
+                // Assigned the new layout's owner.
+                _layout.Owner = this;
+            }
+        }
+
+        internal MeasureSpecification MeasureSpecificationWidth
+        {
+            set
+            {
+                _measureSpecificationWidth = value;
+            }
+            get
+            {
+                return _measureSpecificationWidth;
+            }
+        }
+
+        internal MeasureSpecification MeasureSpecificationHeight
+        {
+            set
+            {
+                _measureSpecificationHeight = value;
+            }
+            get
+            {
+                return _measureSpecificationHeight;
             }
         }
 
@@ -3798,7 +3907,7 @@ namespace Tizen.NUI.BaseComponents
                 // Pure View meaning not derived from a View, e.g a Legacy container.
                 // layoutSet flag is true when the View became a layout using the set Layout API opposed to automatically due to it's parent.
                 // First time the set Layout API is used by any View the Window no longer has layoutingDisabled.
-                if ((true == layoutSet || GetType() == typeof(View)) && null == child.Layout && false == layoutingDisabled)
+                if ((true == layoutSet || GetType() == typeof(View)) && null == child.LayoutEx && false == layoutingDisabled )
                 {
                     Log.Info("NUI", "Parent[" + Name + "] Layout set[" + layoutSet.ToString() + "] Pure View[" + (!layoutSet).ToString() + "]\n");
                     // If child is a View or explicitly set to require layouting then set child as a LayoutGroup.
@@ -3806,20 +3915,21 @@ namespace Tizen.NUI.BaseComponents
                     if (child.GetType() == typeof(View) || true == child.LayoutingRequired)
                     {
                         Log.Info("NUI", "Creating LayoutGroup for " + child.Name + " LayoutingRequired[" + child.LayoutingRequired.ToString() + "]\n");
-                        child.SetLayout(new LayoutGroup());
+                        child.LayoutEx = new LayoutGroupEx();
                     }
                     else
                     {
                         // Adding child as a leaf, layouting will not propagate past this child.
                         // Legacy containers will be a LayoutItems too and layout their children how they wish.
                         Log.Info("NUI", "Creating LayoutItem for " + child.Name + "\n");
-                        child.SetLayout(new LayoutItem());
+                        child.LayoutEx = new LayoutItemEx();
                     }
                 }
 
-                if (Layout)
+                LayoutGroupEx layout = LayoutEx as LayoutGroupEx;
+                if(layout !=null)
                 {
-                    Layout.LayoutChildren.Add(child.Layout);
+                    layout.Add(child.LayoutEx);  // Add child layout to this Views layout group list.
                 }
 
                 NDalicPINVOKE.Actor_Add(swigCPtr, View.getCPtr(child));
@@ -5052,6 +5162,14 @@ namespace Tizen.NUI.BaseComponents
             {
                 layout.LayoutChildren.Add(view.Layout);
             }
+        }
+
+        /// <summary>
+        /// Removes the layout from this View.
+        /// </summary>
+        internal void ResetLayout()
+        {
+            _layout = null;
         }
 
         internal ResourceLoadingStatusType GetBackgroundResourceStatus()
