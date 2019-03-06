@@ -157,6 +157,8 @@ namespace Tizen.NUI
                 }
             } // switch
 
+            Log.Info("NUI", "MeasureSpecification resultSize:" + resultSize.AsRoundedValue()
+                            + " resultMode:" + resultMode + "\n");
             return new MeasureSpecification( resultSize, resultMode );
         }
 
@@ -290,6 +292,9 @@ namespace Tizen.NUI
         protected virtual void MeasureChild(LayoutItemEx child, MeasureSpecification parentWidthMeasureSpec, MeasureSpecification parentHeightMeasureSpec)
         {
             View childOwner = child.Owner;
+            Log.Info("NUI", "LayourtGroup MeasureChild:" + childOwner.Name
+                          + " widthSpecification:" + childOwner.WidthSpecification
+                          + " heightSpecification:" + childOwner.HeightSpecification + "\n");
 
             // Get last stored width and height specifications for the child
             int desiredWidth = childOwner.WidthSpecification;

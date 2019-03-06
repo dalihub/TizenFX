@@ -123,10 +123,24 @@ namespace Tizen.NUI
         internal void Measure(MeasureSpecification widthMeasureSpec, MeasureSpecification heightMeasureSpec)
         {
             // Check if relayouting is required.
-            // todo
+            bool specChanged = (widthMeasureSpec.Size != OldWidthMeasureSpec.Size) ||
+                               (heightMeasureSpec.Size != OldHeightMeasureSpec.Size) ||
+                               (widthMeasureSpec.Mode != OldWidthMeasureSpec.Mode) ||
+                               (heightMeasureSpec.Mode != OldHeightMeasureSpec.Mode);
 
-            OnMeasure(widthMeasureSpec, heightMeasureSpec);
+            bool isSpecExactly = (widthMeasureSpec.Mode == MeasureSpecification.ModeType.Exactly) &&
+                                 (heightMeasureSpec.Mode == MeasureSpecification.ModeType.Exactly);
 
+            bool matchesSpecSize = (MeasuredWidth == widthMeasureSpec.Size) &&
+                                  ( MeasuredHeight == heightMeasureSpec.Size);
+
+            bool needsLayout = specChanged && ( !isSpecExactly || !matchesSpecSize );
+
+            if (needsLayout || ((Flags & LayoutFlags.ForceLayout) == LayoutFlags.ForceLayout) )
+            {
+                OnMeasure(widthMeasureSpec, heightMeasureSpec);
+                Flags = Flags | LayoutFlags.LayoutRequired;
+            }
             OldWidthMeasureSpec = widthMeasureSpec;
             OldHeightMeasureSpec = heightMeasureSpec;
 
@@ -377,6 +391,8 @@ namespace Tizen.NUI
         protected void SetMeasuredDimensions( MeasuredSizeEx measuredWidth, MeasuredSizeEx measuredHeight )
         {
             Flags = Flags | LayoutFlags.MeasuredDimensionSet;
+            Log.Info("NUI", "For " + Owner.Name + " MeasuredWidth:" + measuredWidth.Size.AsRoundedValue()
+                                   + " MeasureHeight:" + measuredHeight.Size.AsRoundedValue() + "\n");
             MeasuredWidth = measuredWidth.Size;
             MeasuredHeight = measuredHeight.Size;
         }
@@ -450,12 +466,16 @@ namespace Tizen.NUI
             _right = right;
             _bottom = bottom;
 
-           // _layoutData.layoutPositionDataList.Add( new LayoutPositionData( _left.AsRoundedValue(),_top.AsRoundedValue(),
-             //                                                               _right.AsRoundedValue(), _bottom.AsRoundedValue(), false) );
+            // _layoutData.layoutPositionDataList.Add( new LayoutPositionData( _left.AsRoundedValue(),_top.AsRoundedValue(),
+            //                                                                 _right.AsRoundedValue(), _bottom.AsRoundedValue(), false) );
 
             Owner.SetX(_left.AsRoundedValue());
             Owner.SetY(_top.AsRoundedValue());
             Owner.Size2D = new Size2D((int)newWidth.AsRoundedValue(), (int)newHeight.AsRoundedValue());
+
+            Log.Info("NUI", "Frame set for " + Owner.Name + " to left:" + _left.AsRoundedValue() + " top:"
+                            + _top.AsRoundedValue() + " width: " + newWidth.AsRoundedValue() + " height: "
+                            + newHeight.AsRoundedValue() + "\n");
 
             return changed;
         }
