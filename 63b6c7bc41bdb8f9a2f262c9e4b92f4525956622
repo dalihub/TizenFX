@@ -16,6 +16,24 @@
       "revId": "63b6c7bc41bdb8f9a2f262c9e4b92f4525956622",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a5d5570a_8693ef69",
+        "filename": "src/Tizen.NUI/src/internal/Layouting/LayoutController.cs",
+        "patchSetId": 4
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1011527
+      },
+      "writtenOn": "2019-03-08T11:00:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b26da870_54b16e43",
+      "revId": "63b6c7bc41bdb8f9a2f262c9e4b92f4525956622",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     }
   ]
 }
