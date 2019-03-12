@@ -139,6 +139,8 @@ namespace Tizen.NUI
 
             bool needsLayout = specChanged && ( !isSpecExactly || !matchesSpecSize);
 
+            Log.Info("NUI", "Measuring:" + Owner.Name + " needsLayout[" + needsLayout.ToString() + "]\n");
+
             if (needsLayout || ((Flags & LayoutFlags.ForceLayout) == LayoutFlags.ForceLayout))
             {
                 OnMeasure(widthMeasureSpec, heightMeasureSpec);
