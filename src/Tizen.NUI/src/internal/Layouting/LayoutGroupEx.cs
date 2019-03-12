@@ -51,6 +51,7 @@ namespace Tizen.NUI
         public void Add(LayoutItemEx childLayout)
         {
             _children.Add(childLayout);
+            RequestLayout();
         }
 
         /// <summary>

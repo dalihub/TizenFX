@@ -37,8 +37,6 @@ namespace Tizen.NUI
     /// </summary>
     internal class LayoutItemEx
     {
-        LayoutSizeEx MinimumSize;  // todo remove if redundant due to View storing a minimumSize
-
         private MeasureSpecification OldWidthMeasureSpec; // Store measure specification to compare against later
         private MeasureSpecification OldHeightMeasureSpec;// Store measure specification to compare against later
 
@@ -50,7 +48,6 @@ namespace Tizen.NUI
         private LayoutLengthEx _right;
         private LayoutLengthEx _top;
         private LayoutLengthEx _bottom;
-
         private LayoutData _layoutData;
 
         /// <summary>
@@ -299,7 +296,7 @@ namespace Tizen.NUI
             {
                 int naturalWidth = Owner.NaturalSize2D.Width;
                 Log.Info("NUI", "NaturalWidth for: " + Owner.Name + " :" + naturalWidth +"\n");
-                return new LayoutLengthEx(Math.Max( MinimumSize.Width, naturalWidth ));
+                return new LayoutLengthEx(Math.Max( MinimumWidth.AsDecimal(), naturalWidth ));
             }
         }
 
@@ -313,7 +310,7 @@ namespace Tizen.NUI
             {
                 int naturalHeight = Owner.NaturalSize2D.Height;
                 Log.Info("NUI", "NaturalWidth for: " + Owner.Name + " :" + naturalHeight +"\n");
-                return new LayoutLengthEx(Math.Max( MinimumSize.Height, naturalHeight ));
+                return new LayoutLengthEx(Math.Max( MinimumHeight.AsDecimal(), naturalHeight ));
             }
         }
 
@@ -325,17 +322,7 @@ namespace Tizen.NUI
         /// 2. If the owner's View.LayoutWidthSpecification is set to View.LayoutParamPolicies.WrapContent, then the view's width is set based on the suggested minimum width. (@see GetSuggestedMinimumWidth()).<br />
         /// 3. If the owner's View.LayoutWidthSpecification is set to View.LayoutParamPolicies.MatchParent, then the parent width takes precedence over the minimum width.<br />
         /// </summary>
-        public LayoutLengthEx MinimumWidth
-        {
-            get
-            {
-                return new LayoutLengthEx(0);
-            }
-            set
-            {
-            }
-        }
-
+        public LayoutLengthEx MinimumWidth {get; set;}
 
         /// <summary>
         /// Sets the minimum height of the layout.<br />
@@ -345,16 +332,7 @@ namespace Tizen.NUI
         /// 2. If the owner's View.LayoutHeightSpecification is set to View.LayoutParamPolicies.WrapContent, then the view's height is set based on the suggested minimum height. (@see GetSuggestedMinimumHeight()).<br />
         /// 3. If the owner's View.LayoutHeightSpecification is set to View.LayoutParamPolicies.MatchParent, then the parent height takes precedence over the minimum height.<br />
         /// </summary>
-        public LayoutLengthEx MinimumHeight
-        {
-            get
-            {
-                return new LayoutLengthEx(0);
-            }
-            set
-            {
-            }
-        }
+        public LayoutLengthEx MinimumHeight {get; set;}
 
         ///<summary>
         /// Utility to reconcile a desired size and state, with constraints imposed by a MeasureSpecification.

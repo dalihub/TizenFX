@@ -91,7 +91,19 @@ namespace Tizen.NUI
         /// <summary>
         /// [Draft] Get/Set the padding between cells in the layout
         /// </summary>
-        public Size2D CellPadding{ get; set; } = new Size2D(0,0);
+        public Size2D CellPadding
+        {
+            get
+            {
+                return _cellPadding;
+            }
+            set
+            {
+                _cellPadding = value;
+                RequestLayout();
+            }
+        }
+
 
         /// <summary>
         /// [Draft] Get/Set the alignment in the layout
@@ -99,6 +111,7 @@ namespace Tizen.NUI
         public LinearLayoutEx.Alignment LinearAlignment{ get; set; } = Alignment.CenterVertical;
 
         private float _totalLength = 0.0f;
+        private Size2D _cellPadding  = new Size2D(0,0);
 
         /// <summary>
         /// [Draft] Constructor
