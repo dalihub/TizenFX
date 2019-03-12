@@ -40,18 +40,18 @@ namespace Tizen.NUI.BaseComponents
     }
 
     /// <summary>
-    /// [Draft] vailable policies for layout parameters
+    /// [Draft] Available policies for layout parameters
     /// </summary>
-    internal enum LayoutParamPolicies
+    public static class LayoutParamPolicies
     {
         /// <summary>
         /// Constant which indicates child size should match parent size
         /// </summary>
-        MatchParent = -1,
+        public const int MatchParent = -1;
         /// <summary>
         /// Constant which indicates parent should take the smallest size possible to wrap it's children with their desired size
         /// </summary>
-        WrapContent = -2,
+        public const int WrapContent = -2;
     }
 
     /// <summary>
@@ -1284,8 +1284,8 @@ namespace Tizen.NUI.BaseComponents
 
         private bool layoutSet = false; // Flag to indicate if SetLayout was called or View was automatically given a Layout
         private LayoutItemEx _layout; // Exclusive layout assigned to this View.
-        private int _widthPolicy; // Layout width policy
-        private int _heightPolicy; // Layout height policy
+        private int _widthPolicy = LayoutParamPolicies.WrapContent; // Layout width policy
+        private int _heightPolicy = LayoutParamPolicies.WrapContent; // Layout height policy
         private MeasureSpecification _measureSpecificationWidth; // Layout width and internal Mode
         private MeasureSpecification _measureSpecificationHeight; // Layout height and internal Mode
         private bool _backgroundImageSynchronosLoading = false;
@@ -2948,18 +2948,17 @@ namespace Tizen.NUI.BaseComponents
                 {
                     case ResizePolicyType.UseNaturalSize:
                     {
-
-                        WidthSpecification = (int)LayoutParamPolicies.WrapContent;
+                        WidthSpecification = LayoutParamPolicies.WrapContent;
                         break;
                     }
                     case ResizePolicyType.FillToParent:
                     {
-                        WidthSpecification = (int)LayoutParamPolicies.MatchParent;
+                        WidthSpecification = LayoutParamPolicies.MatchParent;
                         break;
                     }
                     case ResizePolicyType.FitToChildren:
                     {
-                        WidthSpecification = (int)LayoutParamPolicies.WrapContent;
+                        WidthSpecification = LayoutParamPolicies.WrapContent;
                         break;
                     }
                     default:
@@ -2987,14 +2986,20 @@ namespace Tizen.NUI.BaseComponents
                 switch (value)
                 {
                     case ResizePolicyType.UseNaturalSize:
-                        HeightSpecification = (int)LayoutParamPolicies.WrapContent;
+                    {
+                        HeightSpecification = LayoutParamPolicies.WrapContent;
                         break;
+                    }
                     case ResizePolicyType.FillToParent:
-                        HeightSpecification = (int)LayoutParamPolicies.MatchParent;
+                    {
+                        HeightSpecification = LayoutParamPolicies.MatchParent;
                         break;
+                    }
                     case ResizePolicyType.FitToChildren:
-                        HeightSpecification = (int)LayoutParamPolicies.WrapContent;
+                    {
+                        HeightSpecification = LayoutParamPolicies.WrapContent;
                         break;
+                    }
                     default:
                         break;
                 }
@@ -3974,6 +3979,9 @@ namespace Tizen.NUI.BaseComponents
         /// <since_tizen> 4 </since_tizen>
         public override void Remove(View child)
         {
+            bool hasLayout = (LayoutEx != null);
+            Log.Info("NUI","Removing View:" + child.Name + "layout[" + hasLayout.ToString() +"]\n");
+
             NDalicPINVOKE.Actor_Remove(swigCPtr, View.getCPtr(child));
             if (NDalicPINVOKE.SWIGPendingException.Pending)
                 throw NDalicPINVOKE.SWIGPendingException.Retrieve();
@@ -3981,12 +3989,10 @@ namespace Tizen.NUI.BaseComponents
             Children.Remove(child);
             child.InternalParent = null;
 
-            if (Layout)
+            if (hasLayout)
             {
-                if (child.Layout)
-                {
-                    Layout.LayoutChildren.Remove(child.Layout);
-                }
+                LayoutGroupEx layoutGroup = LayoutEx as LayoutGroupEx;
+                layoutGroup?.RemoveAll();
             }
 
             if (ChildRemoved != null)
