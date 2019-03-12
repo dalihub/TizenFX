@@ -3083,12 +3083,13 @@ namespace Tizen.NUI.BaseComponents
             }
             set
             {
-                if (Layout != null)
+                if (LayoutEx != null)
                 {
                     // Note: it only works if minimum size is >= than natural size.
                     // To force the size it should be done through the width&height spec or Size2D.
-                    Layout.MinimumWidth = new Tizen.NUI.LayoutLength(value.Width);
-                    Layout.MinimumHeight = new Tizen.NUI.LayoutLength(value.Height);
+                    LayoutEx.MinimumWidth = new Tizen.NUI.LayoutLengthEx(value.Width);
+                    LayoutEx.MinimumHeight = new Tizen.NUI.LayoutLengthEx(value.Height);
+                    LayoutEx.RequestLayout();
                 }
                 SetValue(MinimumSizeProperty, value);
                 NotifyPropertyChanged();
