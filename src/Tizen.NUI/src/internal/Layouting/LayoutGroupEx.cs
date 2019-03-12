@@ -58,6 +58,7 @@ namespace Tizen.NUI
         /// </summary>
         public void RemoveAll()
         {
+            Log.Info("NUI","Removing:" + _children.Count + " children from "+ Owner.Name + "\n");
             foreach( LayoutItemEx childLayout in _children )
             {
                 childLayout.Owner = null;
@@ -87,12 +88,12 @@ namespace Tizen.NUI
                 // Parent has imposed an exact size on us
                 case MeasureSpecification.ModeType.Exactly:
                 {
-                if ((int)childDimension.AsRoundedValue() == (int)LayoutParamPolicies.MatchParent)
+                if ((int)childDimension.AsRoundedValue() == LayoutParamPolicies.MatchParent)
                 {
                     // Child wants to be our size. So be it.
                     resultMode = MeasureSpecification.ModeType.Exactly;
                 }
-                else if ((int)childDimension.AsRoundedValue() == (int)LayoutParamPolicies.WrapContent)
+                else if ((int)childDimension.AsRoundedValue() == LayoutParamPolicies.WrapContent)
                 {
                     // Child wants to determine its own size. It can't be
                     // bigger than us.
@@ -110,13 +111,13 @@ namespace Tizen.NUI
                 // Parent has imposed a maximum size on us
                 case MeasureSpecification.ModeType.AtMost:
                 {
-                if (childDimension.AsRoundedValue() == (int)LayoutParamPolicies.MatchParent)
+                if (childDimension.AsRoundedValue() == LayoutParamPolicies.MatchParent)
                 {
                     // Child wants to be our size, but our size is not fixed.
                     // Constrain child to not be bigger than us.
                     resultMode = MeasureSpecification.ModeType.AtMost;
                 }
-                else if (childDimension.AsRoundedValue() == (int)LayoutParamPolicies.WrapContent)
+                else if (childDimension.AsRoundedValue() == LayoutParamPolicies.WrapContent)
                 {
                     // Child wants to determine its own size. It can't be
                     // bigger than us.
@@ -136,12 +137,12 @@ namespace Tizen.NUI
                 case MeasureSpecification.ModeType.Unspecified:
                 {
 
-                if ((childDimension.AsRoundedValue() == (int)LayoutParamPolicies.MatchParent))
+                if ((childDimension.AsRoundedValue() == LayoutParamPolicies.MatchParent))
                 {
                     // Child wants to be our size... find out how big it should be
                     resultMode = MeasureSpecification.ModeType.Unspecified;
                 }
-                else if (childDimension.AsRoundedValue() == ((int)LayoutParamPolicies.WrapContent))
+                else if (childDimension.AsRoundedValue() == (LayoutParamPolicies.WrapContent))
                 {
                     // Child wants to determine its own size.... find out how big
                     // it should be

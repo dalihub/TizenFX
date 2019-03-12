@@ -188,7 +188,7 @@ namespace Tizen.NUI
                         // using WRAP_CONTENT so that we can find out the view's
                         // optimal width.
                         MeasureSpecification childWidthMeasureSpec = GetChildMeasureSpecification(widthMeasureSpec, new LayoutLengthEx(childLayout.Owner.Padding.Start + childLayout.Owner.Padding.End),
-                                                                    new LayoutLengthEx((int)LayoutParamPolicies.WrapContent) );
+                                                                    new LayoutLengthEx(LayoutParamPolicies.WrapContent) );
                         MeasureSpecification childHeightMeasureSpec = GetChildMeasureSpecification(heightMeasureSpec, new LayoutLengthEx(childLayout.Owner.Padding.Top + childLayout.Owner.Padding.Bottom),
                                                                     childDesiredHeight);
                         childLayout.Measure( childWidthMeasureSpec, childHeightMeasureSpec);
@@ -211,7 +211,7 @@ namespace Tizen.NUI
                 }
 
                 bool matchHeightLocally = false;
-                if(heightMode != MeasureSpecification.ModeType.Exactly && (LayoutParamPolicies)childDesiredHeight.AsRoundedValue() == LayoutParamPolicies.WrapContent)
+                if(heightMode != MeasureSpecification.ModeType.Exactly && (int)childDesiredHeight.AsRoundedValue() == LayoutParamPolicies.WrapContent)
                 {
                     // Will have to re-measure at least this child when we know exact height.
                     matchHeight = true;
@@ -231,7 +231,7 @@ namespace Tizen.NUI
                 }
 
                 maxHeight = new LayoutLengthEx(Math.Max( maxHeight.AsDecimal(), childHeight.AsDecimal()));
-                allFillParent = ( allFillParent && childDesiredHeight.AsRoundedValue() == (int)LayoutParamPolicies.MatchParent );
+                allFillParent = ( allFillParent && childDesiredHeight.AsRoundedValue() == LayoutParamPolicies.MatchParent );
 
                 float weightedHeight = childHeight.AsDecimal();
                 if (matchHeightLocally)
@@ -343,7 +343,7 @@ namespace Tizen.NUI
                                                                     childDesiredWidth);
                         MeasureSpecification childHeightMeasureSpec = GetChildMeasureSpecification( heightMeasureSpec,
                                                                       new LayoutLengthEx(childLayout.Owner.Padding.Top + childLayout.Owner.Padding.Bottom),
-                                                                      new LayoutLengthEx((int)LayoutParamPolicies.WrapContent) );
+                                                                      new LayoutLengthEx(LayoutParamPolicies.WrapContent) );
                         childLayout.Measure( childWidthMeasureSpec, childHeightMeasureSpec );
                         childHeight = childLayout.MeasuredHeight.Size;
                         usedExcessSpace += childHeight;
@@ -365,7 +365,7 @@ namespace Tizen.NUI
                 }
 
                 bool matchWidthLocally = false;
-                if( widthMode != MeasureSpecification.ModeType.Exactly && childDesiredWidth ==  new LayoutLengthEx((int)LayoutParamPolicies.MatchParent) )
+                if( widthMode != MeasureSpecification.ModeType.Exactly && childDesiredWidth ==  new LayoutLengthEx(LayoutParamPolicies.MatchParent) )
                 {
                     // Will have to re-measure at least this child when we know exact height.
                     matchWidth = true;
@@ -386,7 +386,7 @@ namespace Tizen.NUI
                 }
 
                 maxWidth = (Math.Max( maxWidth, childWidth.AsDecimal()));
-                allFillParent = (allFillParent && (childDesiredWidth == new LayoutLengthEx((int)LayoutParamPolicies.MatchParent)));
+                allFillParent = (allFillParent && (childDesiredWidth == new LayoutLengthEx(LayoutParamPolicies.MatchParent)));
 
                 float widthforWeight = childWidth.AsDecimal();
                 if (matchWidthLocally)
@@ -701,7 +701,7 @@ namespace Tizen.NUI
                 LayoutLengthEx desiredWidth = new LayoutLengthEx(childLayout.Owner.WidthSpecification);
                 LayoutLengthEx desiredHeight = new LayoutLengthEx(Owner.WidthSpecification );
 
-                if (desiredHeight.AsRoundedValue() == (int)LayoutParamPolicies.MatchParent)
+                if (desiredHeight.AsRoundedValue() == LayoutParamPolicies.MatchParent)
                 {
                   // Temporarily force children to reuse their old measured width
                   LayoutLengthEx oldWidth = desiredWidth;
@@ -728,7 +728,7 @@ namespace Tizen.NUI
                     LayoutLengthEx desiredWidth = new LayoutLengthEx(childLayout.Owner.WidthSpecification);
                     LayoutLengthEx desiredHeight = new LayoutLengthEx(Owner.WidthSpecification );
 
-                    if( desiredWidth.AsRoundedValue()  == (int)LayoutParamPolicies.MatchParent)
+                    if( desiredWidth.AsRoundedValue()  == LayoutParamPolicies.MatchParent)
                     {
                         // Temporarily force children to reuse their old measured height
                         LayoutLengthEx oldHeight = desiredHeight;
