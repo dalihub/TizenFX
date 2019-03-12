@@ -333,6 +333,7 @@ namespace Tizen.NUI
             }
             set
             {
+                RequestLayout();
             }
         }
 
@@ -353,6 +354,7 @@ namespace Tizen.NUI
             }
             set
             {
+                RequestLayout();
             }
         }
 
