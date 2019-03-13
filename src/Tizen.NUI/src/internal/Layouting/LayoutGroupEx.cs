@@ -51,6 +51,7 @@ namespace Tizen.NUI
         public void Add(LayoutItemEx childLayout)
         {
             _children.Add(childLayout);
+            OnChildAdd(childLayout);
             RequestLayout();
         }
 
@@ -66,6 +67,7 @@ namespace Tizen.NUI
             }
             _children.Clear();
             // todo ensure child LayoutItems are still not parented to this group.
+            RequestLayout();
         }
 
         /// <summary>
@@ -253,7 +255,7 @@ namespace Tizen.NUI
         /// Derived classes can use this to set their own child properties on the child layout's owner.<br />
         /// </summary>
         /// <param name="child">The Layout child.</param>
-        internal virtual void OnChildAdd(LayoutItemEx child)
+        protected virtual void OnChildAdd(LayoutItemEx child)
         {
         }
 
@@ -261,7 +263,7 @@ namespace Tizen.NUI
         /// Callback when child is removed from container.<br />
         /// </summary>
         /// <param name="child">The Layout child.</param>
-        internal virtual void OnChildRemove(LayoutItemEx child)
+        protected virtual void OnChildRemove(LayoutItemEx child)
         {
         }
 
