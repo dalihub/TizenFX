@@ -1,4 +1,4 @@
-/* Copyright (c) 2018 Samsung Electronics Co., Ltd.
+/* Copyright (c) 2019 Samsung Electronics Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,7 +13,10 @@
  * limitations under the License.
  *
  */
+
+using System;
 using System.ComponentModel;
+using Tizen.NUI.BaseComponents;
 
 namespace Tizen.NUI
 {
@@ -23,138 +26,132 @@ namespace Tizen.NUI
     /// For more information about the flex layout API and how to use it please refer to https://yogalayout.com/docs/
     /// We implement the subset of the API in the class below.
     /// </summary>
-    internal class FlexLayout : LayoutGroupWrapper
+    internal class FlexLayout : LayoutGroupEx
     {
-        private global::System.Runtime.InteropServices.HandleRef swigCPtr;
+        float Flex{ get; set;}
+        int AlignSelf{get; set;}
 
-        internal FlexLayout(global::System.IntPtr cPtr, bool cMemoryOwn) : base(LayoutPINVOKE.FlexLayout_SWIGUpcast(cPtr), cMemoryOwn)
-        {
-            swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
-        }
+        private global::System.Runtime.InteropServices.HandleRef _cPtr;
 
-        internal static global::System.Runtime.InteropServices.HandleRef getCPtr(FlexLayout obj)
-        {
-            return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
-        }
+        private bool disposed;
+        private IntPtr _yogaRoot;  // Pointer to the unmanged FlexLayout root.
 
-        protected override void Dispose(DisposeTypes type)
-        {
-            if (disposed)
-            {
-                return;
-            }
+        // Delete Type definition
+        public delegate int Comparison(int a, int b );
 
-            if (type == DisposeTypes.Explicit)
-            {
-                //Called by User
-                //Release your own managed resources here.
-                //You should release all of your own disposable objects here.
+        // Delegate for Child Measure callback
+        public Comparison comparator;
 
-            }
-
-            //Release your own unmanaged resources here.
-            //You should not access any managed member here except static instance.
-            //because the execution order of Finalizes is non-deterministic.
-            if (swigCPtr.Handle != global::System.IntPtr.Zero)
-            {
-                if (swigCMemOwn)
-                {
-                    swigCMemOwn = false;
-                    LayoutPINVOKE.delete_FlexLayout(swigCPtr);
-                }
-                swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
-            }
-            base.Dispose(type);
+        int GetNumber(int n, int m) {
+          Console.WriteLine("[managed] callback!");
+          return n + m;
         }
 
         /// <summary>
-        /// [Draft] Creates a FlexLayout object.
+        /// [Draft] Constructor
         /// </summary>
-        public FlexLayout() : this(LayoutPINVOKE.FlexLayout_New(), true)
+        public FlexLayout()
         {
-            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            _yogaRoot = LayoutPINVOKE.FlexLayout_New();
+            // Initializes a new instance of the HandleRef class with the object to wrap and a handle to the resource used by unmanaged code.
+            _cPtr = new global::System.Runtime.InteropServices.HandleRef(this, _yogaRoot);
         }
 
-        internal static FlexLayout DownCast(BaseHandle handle)
+        /// <summary>
+        /// [Draft] Constructor setting the owner of this LayoutGroup.
+        /// </summary>
+        /// <param name="owner">Owning View of this layout, currently a View but may be extending for Windows/Layers.</param>
+        public FlexLayout(View owner) : base(owner)
         {
-            FlexLayout ret = new FlexLayout(LayoutPINVOKE.FlexLayout_DownCast(BaseHandle.getCPtr(handle)), true);
-            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
+            _yogaRoot = LayoutPINVOKE.FlexLayout_New();
+            _cPtr = new global::System.Runtime.InteropServices.HandleRef(this, _yogaRoot);
+
         }
 
-        internal FlexLayout(FlexLayout other) : this(LayoutPINVOKE.new_FlexLayout__SWIG_1(FlexLayout.getCPtr(other)), true)
-        {
-            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-        }
+        // protected override void Dispose(DisposeTypes type)
+        // {
+        //     if (disposed)
+        //     {
+        //         return;
+        //     }
 
-        internal FlexLayout Assign(FlexLayout other)
-        {
-            FlexLayout ret = new FlexLayout(LayoutPINVOKE.FlexLayout_Assign(swigCPtr, FlexLayout.getCPtr(other)), false);
-            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
-        }
+        //     if (type == DisposeTypes.Explicit)
+        //     {
+        //         //Called by User
+        //         //Release your own managed resources here.
+        //         //You should release all of your own disposable objects here.
+
+        //     }
+
+        //     //Release your own unmanaged resources here.
+        //     //You should not access any managed member here except static instance.
+        //     //because the execution order of Finalizes is non-deterministic.
+        //     if (swigCPtr.Handle != global::System.IntPtr.Zero)
+        //     {
+        //         if (swigCMemOwn)
+        //         {
+        //             swigCMemOwn = false;
+        //             LayoutPINVOKE.delete_FlexLayout(swigCPtr);
+        //         }
+        //         swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
+        //     }
+        //     base.Dispose(type);
+        // }
 
         internal void SetFlexDirection(FlexLayout.FlexDirection flexDirection)
         {
-            LayoutPINVOKE.FlexLayout_SetFlexDirection(swigCPtr, (int)flexDirection);
-            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            LayoutPINVOKE.FlexLayout_SetFlexDirection(_cPtr, (int)flexDirection);
         }
 
         internal FlexLayout.FlexDirection GetFlexDirection()
         {
-            FlexLayout.FlexDirection ret = (FlexLayout.FlexDirection)LayoutPINVOKE.FlexLayout_GetFlexDirection(swigCPtr);
-            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            FlexLayout.FlexDirection ret = (FlexLayout.FlexDirection)LayoutPINVOKE.FlexLayout_GetFlexDirection(_cPtr);
             return ret;
+
         }
 
         internal void SetFlexJustification(FlexLayout.FlexJustification flexJustification)
         {
-            LayoutPINVOKE.FlexLayout_SetFlexJustification(swigCPtr, (int)flexJustification);
-            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            LayoutPINVOKE.FlexLayout_SetFlexJustification(_cPtr, (int)flexJustification);
         }
 
         internal FlexLayout.FlexJustification GetFlexJustification()
         {
-            FlexLayout.FlexJustification ret = (FlexLayout.FlexJustification)LayoutPINVOKE.FlexLayout_GetFlexJustification(swigCPtr);
-            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            FlexLayout.FlexJustification ret = (FlexLayout.FlexJustification)LayoutPINVOKE.FlexLayout_GetFlexJustification(_cPtr);
             return ret;
         }
 
         internal void SetFlexWrap(FlexLayout.FlexWrapType flexWrap)
         {
-            LayoutPINVOKE.FlexLayout_SetFlexWrap(swigCPtr, (int)flexWrap);
-            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            LayoutPINVOKE.FlexLayout_SetFlexWrap(_cPtr, (int)flexWrap);
         }
 
         internal FlexLayout.FlexWrapType GetFlexWrap()
         {
-            FlexLayout.FlexWrapType ret = (FlexLayout.FlexWrapType)LayoutPINVOKE.FlexLayout_GetFlexWrap(swigCPtr);
-            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            FlexLayout.FlexWrapType ret = (FlexLayout.FlexWrapType)LayoutPINVOKE.FlexLayout_GetFlexWrap(_cPtr);
             return ret;
         }
 
         internal void SetFlexAlignment(FlexLayout.AlignmentType flexAlignment)
         {
-            LayoutPINVOKE.FlexLayout_SetFlexAlignment(swigCPtr, (int)flexAlignment);
-            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            LayoutPINVOKE.FlexLayout_SetFlexAlignment(_cPtr, (int)flexAlignment);
         }
 
         internal FlexLayout.AlignmentType GetFlexAlignment()
         {
-            FlexLayout.AlignmentType ret = (FlexLayout.AlignmentType)LayoutPINVOKE.FlexLayout_GetFlexAlignment(swigCPtr);
+            FlexLayout.AlignmentType ret = (FlexLayout.AlignmentType)LayoutPINVOKE.FlexLayout_GetFlexAlignment(_cPtr);
             if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
             return ret;
         }
 
         internal void SetFlexItemsAlignment(FlexLayout.AlignmentType flexAlignment)
         {
-            LayoutPINVOKE.FlexLayout_SetFlexItemsAlignment(swigCPtr, (int)flexAlignment);
-            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            LayoutPINVOKE.FlexLayout_SetFlexItemsAlignment(_cPtr, (int)flexAlignment);
         }
 
         internal FlexLayout.AlignmentType GetFlexItemsAlignment()
         {
-            FlexLayout.AlignmentType ret = (FlexLayout.AlignmentType)LayoutPINVOKE.FlexLayout_GetFlexItemsAlignment(swigCPtr);
+            FlexLayout.AlignmentType ret = (FlexLayout.AlignmentType)LayoutPINVOKE.FlexLayout_GetFlexItemsAlignment(_cPtr);
             if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
             return ret;
         }
@@ -165,7 +162,7 @@ namespace Tizen.NUI
             CHILD_PROPERTY_END_INDEX = PropertyRanges.CHILD_PROPERTY_REGISTRATION_START_INDEX + 1000
         }
 
-        internal new class ChildProperty
+        internal class ChildProperty
         {
             internal static readonly int FLEX = LayoutPINVOKE.FlexLayout_ChildProperty_FLEX_get();
             internal static readonly int ALIGN_SELF = LayoutPINVOKE.FlexLayout_ChildProperty_ALIGN_SELF_get();
@@ -339,5 +336,206 @@ namespace Tizen.NUI
             /// </summary>
             Stretch
         }
-    }
-}
+
+        void InsertChild( LayoutItemEx child )
+        {
+            global::System.IntPtr node = LayoutPINVOKE.FlexLayout_New();
+            int result = comparator(1,4);
+        }
+
+        void OnChildRemove(LayoutItemEx child)
+        {
+            var count = _children.Count;
+            for( int childIndex = 0; childIndex < count; childIndex++)
+            {
+                LayoutItemEx childLayout = _children[childIndex];
+                if( child == childLayout )
+                {
+                    LayoutPINVOKE.FlexLayout_RemoveChildAt( _cPtr, childIndex );
+                    break;
+                }
+            }
+        }
+
+        protected override void OnMeasure( MeasureSpecification widthMeasureSpec, MeasureSpecification heightMeasureSpec )
+        {
+            // Setup parameters for parent FlexLayout
+
+            bool isLayoutRtl = Owner.LayoutDirection == ViewLayoutDirectionType.RTL;
+            Extents padding = Owner.Padding;
+            Extents margin = Owner.Margin;
+
+            //LayoutPINVOKE.FlexLayout_SetMargin(node, margin);
+
+            // YGNodeStyleSetPadding( _yogaRoot, YGEdgeLeft, padding.Start );
+            // YGNodeStyleSetPadding( _yogaRoot, YGEdgeTop, padding.Top );
+            // YGNodeStyleSetPadding( _yogaRoot, YGEdgeRight, padding.End );
+            // YGNodeStyleSetPadding( _yogaRoot, YGEdgeBottom, padding.Bottom );
+
+            // float width = YGUndefined;
+            // float height = YGUndefined;
+
+            // YGNodeStyleSetWidth( _yogaRoot, YGUndefined );
+            // YGNodeStyleSetHeight( _yogaRoot, YGUndefined );
+            // YGNodeStyleSetMinWidth( _yogaRoot, YGUndefined );
+            // YGNodeStyleSetMinHeight( _yogaRoot, YGUndefined );
+            // YGNodeStyleSetMaxWidth( _yogaRoot, YGUndefined );
+            // YGNodeStyleSetMaxHeight( _yogaRoot, YGUndefined );
+
+            // if( widthMeasureSpec.Mode == MeasureSpecification.ModeType.Exactly )
+            // {
+            //     width = widthMeasureSpec.Size.AsDecimal();
+            //     YGNodeStyleSetWidth( _yogaRoot, width );
+            // }
+            // else if( widthMeasureSpec.Mode == MeasureSpecification.ModeType.AtMost )
+            // {
+            //     width = widthMeasureSpec.Size.AsDecimal();
+            //     YGNodeStyleSetMaxWidth( _yogaRoot, width );
+            // }
+
+            // if ( heightMeasureSpec.Mode == MeasureSpecification.ModeType.Exactly )
+            // {
+            //     height = heightMeasureSpec.Size.AsDecimal();
+            //     YGNodeStyleSetHeight( _yogaRoot, height );
+            // }
+            // else if ( heightMeasureSpec.Mode == MeasureSpecification.ModeType.AtMost )
+            // {
+            //     height = heightMeasureSpec.Size.AsDecimal();
+            //     YGNodeStyleSetMaxHeight( _yogaRoot, height );
+            // }
+
+          //  SetChildrenStyle();
+
+            // Start Measuring, OnChildMeasure callback will be used to measure children.
+         //   CalculateLayout( _yogaRoot, width, height, isLayoutRtl ? YGDirectionRTL : YGDirectionLTR );
+         //   SetMeasuredDimensions( GetDefaultSize( YGNodeLayoutGetWidth(_yogaRoot), widthMeasureSpec ),
+          //                          GetDefaultSize( YGNodeLayoutGetHeight(_yogaRoot), heightMeasureSpec ) );
+        }
+
+        //YGSize OnChildMeasure( YGNodeRef node, float innerWidth, YGMeasureMode widthMode, float innerHeight, YGMeasureMode heightMode )
+        Size2D OnChildMeasure( IntPtr node, float innerWidth, int widthMode, float innerHeight, int heightMode )
+        {
+            // LayoutItemEx childLayout = static_cast<LayoutItemEx*>(node->getContext());
+            // int desiredWidth = childLayout.Owner.WidthSpecification;
+            // int desiredHeight = childLayout.Owner.HeightSpecification;
+            // MeasureSpecification parentWidthMeasureSpec = new MeasureSpecification();
+            // if ( innerWidth != YGUndefined )
+            // {
+            //     parentWidthMeasureSpec = new MeasureSpecification( new LayoutLengthEx(innerWidth), static_cast<MeasureSpec::Mode>(widthMode) );
+            // }
+            // MeasureSpecification parentHeightMeasureSpec = new MeasureSpecification();
+            // if (innerHeight != YGUndefined)
+            // {
+            //     parentHeightMeasureSpec = new MeasureSpecification( new LayoutLengthEx(innerHeight), static_cast<MeasureSpec::Mode>(heightMode) );
+            // }
+            // MeasureSpecification childWidthMeasureSpec = LayoutGroupEx.GetChildMeasureSpecification( parentWidthMeasureSpec,
+            //                                                            new LayoutLengthEx(0), new LayoutLengthEx(desiredWidth));
+            // MeasureSpecification childHeightMeasureSpec = LayoutGroupEx.GetChildMeasureSpecification( parentHeightMeasureSpec,
+            //                                                             new LayoutLengthEx(0), new LayoutLengthEx(desiredHeight));
+
+            // // Force to fill parent if a child wants to match parent even if GetChildMeasureSpec sets otherwise
+            // if( desiredWidth == LayoutParamPolicies.MatchParent && innerWidth != YGUndefined )
+            // {
+            //     childWidthMeasureSpec = new MeasureSpecification( new LayoutLengthEx(innerWidth), MeasureSpecification.ModeType.Exactly );
+            // }
+            // if( desiredHeight == LayoutParamPolicies.MatchParent && innerHeight != YGUndefined )
+            // {
+            //     childHeightMeasureSpec = new MeasureSpecification( new LayoutLengthEx(innerHeight), MeasureSpecification.ModeType.Exactly);
+            // }
+
+            // childLayout.Measure( childWidthMeasureSpec, childHeightMeasureSpec );
+
+            // // Remove padding here since Yoga doesn't consider it as a part of the node size
+            // Extents padding = childLayout.Owner.Padding;
+            // LayoutLengthEx measuredWidth = new LayoutLengthEx(childLayout.MeasuredWidth.Size.AsDecimal() - padding.End - padding.Start);
+            // LayoutLengthEx measuredHeight = new LayoutLengthEx(childLayout.MeasuredHeight.Size.AsDecimal() - padding.Bottom - padding.Top);
+
+            // return YGSize{
+            //     .width = measuredWidth.AsDecimal(),
+            //     .height = measuredHeight.AsDecimal(),
+            // };
+            return new Size2D(10, 10);
+        }
+
+        void SetChildrenStyle()
+        {
+            if( _yogaRoot != null )
+            {
+                int count = _children.Count;
+                for( int childIndex = 0; childIndex < count; childIndex++)
+                {
+                    LayoutItemEx childLayout = _children[childIndex];
+                    if( childLayout != null )
+                    {
+                        Extents padding = childLayout.Owner.Padding;
+                        Extents margin = childLayout.Owner.Margin;
+                        var childOwner = childLayout.Owner;
+
+                        // var flex = childOwner.GetProperty<float>( Toolkit::FlexLayout::ChildProperty::FLEX );
+                        // var alignSelf = static_cast<YGAlign>( childOwner.GetProperty<int>( Toolkit::FlexLayout::ChildProperty::ALIGN_SELF ));
+
+                        // YGNodeRef childNode = YGNodeGetChild( _yogaRoot, childIndex );
+                        // // Initialise the style of the child.
+
+                        // LayoutPINVOKE.FlexLayout_SetMargin(node, margin);
+                        // LayoutPINVOKE.FlexLayout_SetPadding(node, margin);
+
+                        // YGNodeStyleSetWidth( childNode, YGUndefined );
+                        // YGNodeStyleSetHeight( childNode, YGUndefined );
+                        // // TODO: check if we are supposed to use actor properties here, max/min is needed for stretch
+                        // YGNodeStyleSetMinWidth( childNode, childLayout.Owner.MinimumSize.Width);
+                        // YGNodeStyleSetMinHeight( childNode, childLayout.Owner.MinimumSize.Height);
+                        // if( childActor.GetMaximumSize().x == FLT_MAX )
+                        // {
+                        // YGNodeStyleSetMaxWidth( childNode, YGUndefined );
+                        // }
+                        // else
+                        // {
+                        // YGNodeStyleSetMaxWidth( childNode, childLayout.Owner.MaximumSize.Width);
+                        // }
+                        // if( childActor.GetMaximumSize().y == FLT_MAX )
+                        // {
+                        // YGNodeStyleSetMaxHeight( childNode, YGUndefined );
+                        // }
+                        // else
+                        // {
+                        // YGNodeStyleSetMaxHeight( childNode, childLayout.Owner.MaximumSize.Height);
+                        // }
+
+                        // YGNodeStyleSetFlex( childNode, flex );
+                        // YGNodeStyleSetAlignSelf( childNode, alignSelf );
+
+                        // Have to do manually for nodes with custom measure function
+                        // TODO: check the style is changed before marking the node
+                        //LayoutPINVOKE.FlexLayout_MarkDirty( childNode );
+                    }
+                }
+            }
+        }
+        protected override void OnLayout( bool changed, LayoutLengthEx left, LayoutLengthEx top, LayoutLengthEx right, LayoutLengthEx bottom )
+        {
+
+            bool isLayoutRtl = Owner.LayoutDirection == ViewLayoutDirectionType.RTL;
+            LayoutLengthEx width = right - left;
+            LayoutLengthEx height = bottom - top;
+
+            // YGNodeCalculateLayout( _yogaRoot, width.AsDecimal(), height.AsDecimal(), isLayoutRtl ? YGDirectionRTL : YGDirectionLTR );
+
+            // int count = _children.Count;
+            // for( int childIndex = 0; childIndex < count; childIndex++)
+            // {
+            //     LayoutItemEx childLayout = _children[childIndex];
+            //     if( childLayout != null )
+            //     {
+            //     YGNodeRef node = YGNodeGetChild(_yogaRoot, childIndex);
+            //     LayoutLengthEx childLeft = LayoutLengthEx( YGNodeLayoutGetLeft( node ) )+ left;
+            //     LayoutLengthEx childTop = LayoutLengthEx( YGNodeLayoutGetTop( node ) ) + top;
+            //     LayoutLengthEx childWidth = LayoutLengthExLayoutLength( YGNodeLayoutGetWidth( node ) );
+            //     LayoutLengthEx childHeight = LayoutLengthEx( YGNodeLayoutGetHeight( node ) );
+            //     childLayout.Layout( childLeft, childTop, childLeft + childWidth, childTop + childHeight );
+            //     }
+            // }
+        }
+
+    } // FLexlayout
+} // namesspace Tizen.NUI
