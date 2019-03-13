@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3a3f776d_54de3945",
+        "filename": "src/Tizen.NUI/src/internal/Layouting/LinearLayoutEx.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1007416
+      },
+      "writtenOn": "2019-03-13T09:04:32Z",
+      "side": 1,
+      "message": "I assume you\u0027ve checked whether there\u0027s a C# native one for this?\n\ne.g can we use Tuple\u003cint, int\u003e and have that defined as Size2D. What extra does Size2D give us that we don\u0027t get from some native classes?",
+      "range": {
+        "startLine": 114,
+        "startChar": 16,
+        "endLine": 114,
+        "endChar": 22
+      },
+      "revId": "221feec2f10b78e4c59c4f9a091a083b413d0a2f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3b5a52ba_911c9ced",
+        "filename": "src/Tizen.NUI/src/public/BaseComponents/View.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 3086,
+      "author": {
+        "id": 1007416
+      },
+      "writtenOn": "2019-03-13T09:04:32Z",
+      "side": 1,
+      "message": "Do we still need the parameter Layout?",
+      "revId": "221feec2f10b78e4c59c4f9a091a083b413d0a2f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
