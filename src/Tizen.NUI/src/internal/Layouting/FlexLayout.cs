@@ -1,4 +1,4 @@
-/* Copyright (c) 2018 Samsung Electronics Co., Ltd.
+/* Copyright (c) 2019 Samsung Electronics Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,6 +14,7 @@
  *
  */
 using System.ComponentModel;
+using Tizen.NUI.BaseComponents;
 
 namespace Tizen.NUI
 {
@@ -23,13 +24,24 @@ namespace Tizen.NUI
     /// For more information about the flex layout API and how to use it please refer to https://yogalayout.com/docs/
     /// We implement the subset of the API in the class below.
     /// </summary>
-    internal class FlexLayout : LayoutGroupWrapper
+    internal class FlexLayout : LayoutGroupEx
     {
         private global::System.Runtime.InteropServices.HandleRef swigCPtr;
+        YGNodeRef _yogaRoot;  // todo SwigCPtr?
 
-        internal FlexLayout(global::System.IntPtr cPtr, bool cMemoryOwn) : base(LayoutPINVOKE.FlexLayout_SWIGUpcast(cPtr), cMemoryOwn)
+        internal FlexLayout(global::System.IntPtr cPtr, bool cMemoryOwn)
         {
-            swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
+            swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr); // not this but _yogaRoot
+
+            _yogaRoot = YGNodeNew();
+            YGNodeSetContext( _yogaRoot, this );
+
+            // Set default style
+            YGNodeStyleSetFlexDirection( _yogaRoot, YGFlexDirectionColumn );
+            YGNodeStyleSetFlexWrap( _yogaRoot, YGWrapNoWrap );
+            YGNodeStyleSetJustifyContent( _yogaRoot, YGJustifyFlexStart );
+            YGNodeStyleSetAlignContent( _yogaRoot, YGAlignFlexStart );
+            YGNodeStyleSetAlignItems( _yogaRoot, YGAlignFlexStart );
         }
 
         internal static global::System.Runtime.InteropServices.HandleRef getCPtr(FlexLayout obj)
@@ -97,46 +109,46 @@ namespace Tizen.NUI
         internal void SetFlexDirection(FlexLayout.FlexDirection flexDirection)
         {
             LayoutPINVOKE.FlexLayout_SetFlexDirection(swigCPtr, (int)flexDirection);
-            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+
+            YGNodeStyleSetFlexDirection( _yogaRoot, static_cast<YGFlexDirection>(flexDirection) );
         }
+
 
         internal FlexLayout.FlexDirection GetFlexDirection()
         {
             FlexLayout.FlexDirection ret = (FlexLayout.FlexDirection)LayoutPINVOKE.FlexLayout_GetFlexDirection(swigCPtr);
-            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
+            return static_cast<Dali::Toolkit::FlexLayout::FlexDirection>(YGNodeStyleGetFlexDirection( _yogaRoot ));
+
         }
 
         internal void SetFlexJustification(FlexLayout.FlexJustification flexJustification)
         {
             LayoutPINVOKE.FlexLayout_SetFlexJustification(swigCPtr, (int)flexJustification);
-            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            YGNodeStyleSetJustifyContent( _yogaRoot, static_cast<YGJustify>(flexJustification) );
         }
 
         internal FlexLayout.FlexJustification GetFlexJustification()
         {
             FlexLayout.FlexJustification ret = (FlexLayout.FlexJustification)LayoutPINVOKE.FlexLayout_GetFlexJustification(swigCPtr);
-            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
+            return static_cast<Dali::Toolkit::FlexLayout::Justification>(YGNodeStyleGetJustifyContent( _yogaRoot ));
         }
 
         internal void SetFlexWrap(FlexLayout.FlexWrapType flexWrap)
         {
             LayoutPINVOKE.FlexLayout_SetFlexWrap(swigCPtr, (int)flexWrap);
-            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            YGNodeStyleSetFlexWrap( _yogaRoot, static_cast<YGWrap>(wrapType) );
         }
 
         internal FlexLayout.FlexWrapType GetFlexWrap()
         {
             FlexLayout.FlexWrapType ret = (FlexLayout.FlexWrapType)LayoutPINVOKE.FlexLayout_GetFlexWrap(swigCPtr);
-            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
+            return static_cast<Dali::Toolkit::FlexLayout::WrapType>(YGNodeStyleGetFlexWrap( _yogaRoot ));
         }
 
         internal void SetFlexAlignment(FlexLayout.AlignmentType flexAlignment)
         {
             LayoutPINVOKE.FlexLayout_SetFlexAlignment(swigCPtr, (int)flexAlignment);
-            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            YGNodeStyleSetAlignContent( _yogaRoot, static_cast<YGAlign>(flexAlignment) );
         }
 
         internal FlexLayout.AlignmentType GetFlexAlignment()
@@ -149,14 +161,13 @@ namespace Tizen.NUI
         internal void SetFlexItemsAlignment(FlexLayout.AlignmentType flexAlignment)
         {
             LayoutPINVOKE.FlexLayout_SetFlexItemsAlignment(swigCPtr, (int)flexAlignment);
-            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            YGNodeStyleSetAlignItems( _yogaRoot, static_cast<YGAlign>(flexAlignment) );
         }
 
         internal FlexLayout.AlignmentType GetFlexItemsAlignment()
         {
             FlexLayout.AlignmentType ret = (FlexLayout.AlignmentType)LayoutPINVOKE.FlexLayout_GetFlexItemsAlignment(swigCPtr);
-            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            return ret;
+            return static_cast<Dali::Toolkit::FlexLayout::Alignment::Type>(YGNodeStyleGetAlignContent( _yogaRoot ));
         }
 
         internal enum PropertyRange
@@ -339,5 +350,228 @@ namespace Tizen.NUI
             /// </summary>
             Stretch
         }
-    }
-}
+
+        void OnChildAdd( LayoutItemEx child )
+        {
+            YGNodeRef node = YGNodeNew();
+            YGNodeSetContext( node, &child );
+            YGNodeSetMeasureFunc( node, OnChildMeasure );
+            YGNodeMarkDirty( node );
+            YGNodeInsertChild( _yogaRoot, node, GetChildCount()-1 );
+        }
+
+        void OnChildRemove(LayoutItemEx child)
+        {
+            var count = GetChildCount();
+            for( uint childIndex = 0; childIndex < count; childIndex++)
+            {
+                LayoutItemPtr childLayout = GetChildAt( childIndex );
+                if( &child == childLayout.Get() )
+                {
+                YGNodeRef node = YGNodeGetChild( _yogaRoot, childIndex );
+                YGNodeRemoveChild( _yogaRoot, node );
+                break;
+                }
+            }
+        }
+
+        protected override void OnMeasure( MeasureSpecification widthMeasureSpec, MeasureSpecification heightMeasureSpec )
+        {
+            bool isLayoutRtl = Owner.LayoutDirection == ViewLayoutDirectionType.RTL;
+            Extents padding = Owner.Padding;
+            Extents margin = Owner.Margin;
+
+            YGNodeStyleSetMargin( _yogaRoot, YGEdgeLeft, margin.Start );
+            YGNodeStyleSetMargin( _yogaRoot, YGEdgeTop, margin.Top);
+            YGNodeStyleSetMargin( _yogaRoot, YGEdgeRight, margin.End );
+            YGNodeStyleSetMargin( _yogaRoot, YGEdgeBottom, margin.Bottom );
+            YGNodeStyleSetPadding( _yogaRoot, YGEdgeLeft, padding.Start );
+            YGNodeStyleSetPadding( _yogaRoot, YGEdgeTop, padding.Top );
+            YGNodeStyleSetPadding( _yogaRoot, YGEdgeRight, padding.End );
+            YGNodeStyleSetPadding( _yogaRoot, YGEdgeBottom, padding.Bottom );
+
+            float width = YGUndefined;
+            float height = YGUndefined;
+
+            YGNodeStyleSetWidth( _yogaRoot, YGUndefined );
+            YGNodeStyleSetHeight( _yogaRoot, YGUndefined );
+            YGNodeStyleSetMinWidth( _yogaRoot, YGUndefined );
+            YGNodeStyleSetMinHeight( _yogaRoot, YGUndefined );
+            YGNodeStyleSetMaxWidth( _yogaRoot, YGUndefined );
+            YGNodeStyleSetMaxHeight( _yogaRoot, YGUndefined );
+
+            if( widthMeasureSpec.Mode == MeasureSpecification.ModeType.Exactly )
+            {
+                width = widthMeasureSpec.Size.AsDecimal();
+                YGNodeStyleSetWidth( _yogaRoot, width );
+            }
+            else if( widthMeasureSpec.Mode == MeasureSpecification.ModeType.AtMost )
+            {
+                width = widthMeasureSpec.Size.AsDecimal();
+                YGNodeStyleSetMaxWidth( _yogaRoot, width );
+            }
+
+            if ( heightMeasureSpec.Mode == MeasureSpecification.ModeType.Exactly )
+            {
+                height = heightMeasureSpec.Size.AsDecimal();
+                YGNodeStyleSetHeight( _yogaRoot, height );
+            }
+            else if ( heightMeasureSpec.Mode == MeasureSpecification.ModeType.AtMost )
+            {
+                height = heightMeasureSpec.Size.AsDecimal();
+                YGNodeStyleSetMaxHeight( _yogaRoot, height );
+            }
+
+            SetChildrenStyle();
+
+            YGNodeCalculateLayout( _yogaRoot, width, height, isLayoutRtl ? YGDirectionRTL : YGDirectionLTR );
+            SetMeasuredDimensions( GetDefaultSize( YGNodeLayoutGetWidth(_yogaRoot), widthMeasureSpec ),
+                                    GetDefaultSize( YGNodeLayoutGetHeight(_yogaRoot), heightMeasureSpec ) );
+        }
+
+        YGSize OnChildMeasure( YGNodeRef node, float innerWidth, YGMeasureMode widthMode, float innerHeight, YGMeasureMode heightMode )
+        {
+            LayoutItemEx childLayout = static_cast<LayoutItemEx*>(node->getContext());
+            int desiredWidth = childLayout.Owner.WidthSpecification;
+            int desiredHeight = childLayout.Owner.HeightSpecification;
+            MeasureSpecification parentWidthMeasureSpec = new MeasureSpecification();
+            if ( innerWidth != YGUndefined )
+            {
+                parentWidthMeasureSpec = new MeasureSpecification( new LayoutLengthEx(innerWidth), static_cast<MeasureSpec::Mode>(widthMode) );
+            }
+            MeasureSpecification parentHeightMeasureSpec = new MeasureSpecification();
+            if ( innerHeight != YGUndefined )
+            {
+                parentHeightMeasureSpec = new MeasureSpecification( new LayoutLengthEx(innerHeight), static_cast<MeasureSpec::Mode>(heightMode) );
+            }
+            MeasureSpecification childWidthMeasureSpec = LayoutGroupEx.GetChildMeasureSpecification( parentWidthMeasureSpec,
+                                                                       new LayoutLengthEx(0), new LayoutLengthEx(desiredWidth));
+            MeasureSpecification childHeightMeasureSpec = LayoutGroupEx.GetChildMeasureSpecification( parentHeightMeasureSpec,
+                                                                        new LayoutLengthEx(0), new LayoutLengthEx(desiredHeight));
+
+            // Force to fill parent if a child wants to match parent even if GetChildMeasureSpec sets otherwise
+            if( desiredWidth == LayoutParamPolicies.MatchParent && innerWidth != YGUndefined )
+            {
+                childWidthMeasureSpec = new MeasureSpecification( new LayoutLengthEx(innerWidth), MeasureSpecification.ModeType.Exactly );
+            }
+            if( desiredHeight == LayoutParamPolicies.MatchParent && innerHeight != YGUndefined )
+            {
+                childHeightMeasureSpec = new MeasureSpecification( new LayoutLengthEx(innerHeight), MeasureSpecification.ModeType.Exactly);
+            }
+
+            #if defined(DEBUG_ENABLED)
+            auto actor = Actor::DownCast(childOwner);
+            std::ostringstream oss;
+            oss << "FlexLayout::OnChildMeasure  ";
+            if( actor )
+            {
+                oss << "Actor Id:" << actor.GetId() << " Name:" << actor.GetName() << " ";
+            }
+            oss << "innerWidth:" << ( ( innerWidth == YGUndefined ) ? "YGUndefined " : "" ) << innerWidth <<
+                    " innerHeight:" << ( ( innerHeight == YGUndefined ) ? "YGUndefined " : "" ) << innerHeight <<
+                    " desiredWidth:" << desiredWidth << " desiredHeight:" << desiredHeight <<
+                    " childWidthMeasureSpec:" << childWidthMeasureSpec << " childHeightMeasureSpec:" << childHeightMeasureSpec << std::endl;
+            DALI_LOG_INFO( gLogFilter, Debug::Concise, oss.str().c_str() );
+            #endif
+
+            childLayout->Measure( childWidthMeasureSpec, childHeightMeasureSpec );
+
+            // Remove padding here since Yoga doesn't consider it as a part of the node size
+            Extents padding = childLayout.Owner.Padding;
+            LayoutLengthEx measuredWidth = new LayoutLengthEx(childLayout.MeasuredWidth.Size.AsDecimal() - padding.End - padding.Start);
+            LayoutLengthEx measuredHeight = new LayoutLengthEx(childLayout.MeasuredHeight.Size.AsDecimal() - padding.Bottom - padding.Top);
+
+            return YGSize{
+                .width = measuredWidth.AsDecimal(),
+                .height = measuredHeight.AsDecimal(),
+            };
+        }
+
+        void SetChildrenStyle()
+        {
+            if( _yogaRoot )
+            {
+                int count = _children.Count;
+                for( int childIndex = 0; childIndex < count; childIndex++)
+                {
+                    LayoutItemEx childLayout = _children[childIndex];
+                    if( childLayout != null )
+                    {
+                        Extents padding = childLayout.Owner.Padding;
+                        Extents margin = childLayout.Owner.Margin;
+                        auto childOwner = childLayout.Owner;
+
+                        auto flex = childOwner.GetProperty<float>( Toolkit::FlexLayout::ChildProperty::FLEX );
+                        auto alignSelf = static_cast<YGAlign>( childOwner.GetProperty<int>( Toolkit::FlexLayout::ChildProperty::ALIGN_SELF ));
+
+                        YGNodeRef childNode = YGNodeGetChild( _yogaRoot, childIndex );
+                        // Initialise the style of the child.
+                        YGNodeStyleSetMargin( childNode, YGEdgeLeft, margin.Start );
+                        YGNodeStyleSetMargin( childNode, YGEdgeTop, margin.Top );
+                        YGNodeStyleSetMargin( childNode, YGEdgeRight, margin.End );
+                        YGNodeStyleSetMargin( childNode, YGEdgeBottom, margin.Bottom );
+
+                        YGNodeStyleSetPadding( childNode, YGEdgeLeft, padding.Start );
+                        YGNodeStyleSetPadding( childNode, YGEdgeTop, padding.Top );
+                        YGNodeStyleSetPadding( childNode, YGEdgeRight, padding.End );
+                        YGNodeStyleSetPadding( childNode, YGEdgeBottom, padding.Bottom );
+
+                        YGNodeStyleSetWidth( childNode, YGUndefined );
+                        YGNodeStyleSetHeight( childNode, YGUndefined );
+                        // TODO: check if we are supposed to use actor properties here, max/min is needed for stretch
+                        YGNodeStyleSetMinWidth( childNode, childLayout.Owner.MinimumSize.Width);
+                        YGNodeStyleSetMinHeight( childNode, childLayout.Owner.MinimumSize.Height);
+                        if( childActor.GetMaximumSize().x == FLT_MAX )
+                        {
+                        YGNodeStyleSetMaxWidth( childNode, YGUndefined );
+                        }
+                        else
+                        {
+                        YGNodeStyleSetMaxWidth( childNode, childLayout.Owner.MaximumSize.Width);
+                        }
+                        if( childActor.GetMaximumSize().y == FLT_MAX )
+                        {
+                        YGNodeStyleSetMaxHeight( childNode, YGUndefined );
+                        }
+                        else
+                        {
+                        YGNodeStyleSetMaxHeight( childNode, childLayout.Owner.MaximumSize.Height);
+                        }
+
+                        YGNodeStyleSetFlex( childNode, flex );
+                        YGNodeStyleSetAlignSelf( childNode, alignSelf );
+
+                        // Have to do manually for nodes with custom measure function
+                        // TODO: check the style is changed before marking the node
+                        YGNodeMarkDirty( childNode );
+                    }
+                }
+            }
+        }
+        protected override void OnLayout( bool changed, LayoutLengthEx left, LayoutLengthEx top, LayoutLengthEx right, LayoutLengthEx bottom )
+        {
+
+            bool isLayoutRtl = Owner.LayoutDirection == ViewLayoutDirectionType.RTL;
+            LayoutLengthEx width = right - left;
+            LayoutLengthEx height = bottom - top;
+
+            YGNodeCalculateLayout( _yogaRoot, width.AsDecimal(), height.AsDecimal(), isLayoutRtl ? YGDirectionRTL : YGDirectionLTR );
+
+            int count = _children.Count;
+            for( int childIndex = 0; childIndex < count; childIndex++)
+            {
+                LayoutItemEx childLayout = _children[childIndex];
+                if( childLayout != null )
+                {
+                YGNodeRef node = YGNodeGetChild(_yogaRoot, childIndex);
+                LayoutLengthEx childLeft = LayoutLengthEx( YGNodeLayoutGetLeft( node ) )+ left;
+                LayoutLengthEx childTop = LayoutLengthEx( YGNodeLayoutGetTop( node ) ) + top;
+                LayoutLengthEx childWidth = LayoutLengthExLayoutLength( YGNodeLayoutGetWidth( node ) );
+                LayoutLengthEx childHeight = LayoutLengthEx( YGNodeLayoutGetHeight( node ) );
+                childLayout.Layout( childLeft, childTop, childLeft + childWidth, childTop + childHeight );
+                }
+            }
+        }
+
+    } // FLexlayout
+} // namesspace Tizen.NUI
