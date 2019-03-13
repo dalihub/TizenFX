@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "43886ada_ee1b1369",
+        "filename": "src/Tizen.NUI/src/internal/Layouting/LinearLayoutEx.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1011527
+      },
+      "writtenOn": "2019-03-13T11:43:41Z",
+      "side": 1,
+      "message": "Afraid not, see extract below from : https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/int\n\nint x \u003d 3.0;         // Error: no implicit conversion from double.  \nint y \u003d (int)3.0;    // OK: explicit conversion.",
+      "parentUuid": "a0f39856_a6c60b7e",
+      "range": {
+        "startLine": 214,
+        "startChar": 75,
+        "endLine": 214,
+        "endChar": 78
+      },
+      "revId": "a986e7dcad396bea893e0dc4d1f310cdd7415414",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "492f76a5_98dba812",
         "filename": "src/Tizen.NUI/src/public/BaseComponents/View.cs",
         "patchSetId": 2
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "ee240202_cfd10fe6",
+        "filename": "src/Tizen.NUI/src/public/BaseComponents/View.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 2951,
+      "author": {
+        "id": 1011527
+      },
+      "writtenOn": "2019-03-13T11:43:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "492f76a5_98dba812",
+      "revId": "a986e7dcad396bea893e0dc4d1f310cdd7415414",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "28eb3077_25e91f58",
         "filename": "src/Tizen.NUI/src/public/BaseComponents/View.cs",
         "patchSetId": 2
@@ -53,6 +95,24 @@
       "writtenOn": "2019-03-13T09:34:12Z",
       "side": 1,
       "message": "We really should have braces here.",
+      "revId": "a986e7dcad396bea893e0dc4d1f310cdd7415414",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e77af8b7_9dd9faa1",
+        "filename": "src/Tizen.NUI/src/public/BaseComponents/View.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 2990,
+      "author": {
+        "id": 1011527
+      },
+      "writtenOn": "2019-03-13T11:43:41Z",
+      "side": 1,
+      "message": "Other classes in C# don\u0027t tend to use braces unless declaring variables. But there is inconsistency already so can add them in.",
+      "parentUuid": "28eb3077_25e91f58",
       "revId": "a986e7dcad396bea893e0dc4d1f310cdd7415414",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": false
