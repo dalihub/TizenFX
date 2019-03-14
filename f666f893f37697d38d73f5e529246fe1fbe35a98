@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6ea835d8_b8488595",
+        "filename": "src/Tizen.NUI/src/internal/Layouting/GridLocations.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1011527
+      },
+      "writtenOn": "2019-03-14T19:40:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d23e3d60_cabb71ba",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 32
+      },
+      "revId": "f666f893f37697d38d73f5e529246fe1fbe35a98",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5875ff96_347c3634",
         "filename": "src/Tizen.NUI/src/internal/Layouting/GridLocations.cs",
         "patchSetId": 2
@@ -36,6 +60,24 @@
       "writtenOn": "2019-03-14T19:03:02Z",
       "side": 1,
       "message": "Missing space better \u003e and _",
+      "revId": "f666f893f37697d38d73f5e529246fe1fbe35a98",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fdc2d408_0c914511",
+        "filename": "src/Tizen.NUI/src/internal/Layouting/GridLocations.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1011527
+      },
+      "writtenOn": "2019-03-14T19:40:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5875ff96_347c3634",
       "revId": "f666f893f37697d38d73f5e529246fe1fbe35a98",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": false
