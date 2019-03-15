@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bf8c0f90_7acd35b4",
+        "filename": "src/Tizen.NUI/src/internal/Layouting/GridLocations.cs",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1007416
+      },
+      "writtenOn": "2019-03-15T10:57:26Z",
+      "side": 1,
+      "message": "Why x1, x2 etc.?  It\u0027s a bit confusing... why not just start, end, top, bottom?  I have to look at the implementation to understand which value represents which member!",
+      "revId": "7e71a45933540147907991bef24e396dd1580518",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
