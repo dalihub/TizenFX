@@ -16,6 +16,24 @@
       "revId": "7e71a45933540147907991bef24e396dd1580518",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aade4269_ad51c34c",
+        "filename": "src/Tizen.NUI/src/internal/Layouting/GridLocations.cs",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1011527
+      },
+      "writtenOn": "2019-03-15T14:16:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf8c0f90_7acd35b4",
+      "revId": "7e71a45933540147907991bef24e396dd1580518",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     }
   ]
 }
