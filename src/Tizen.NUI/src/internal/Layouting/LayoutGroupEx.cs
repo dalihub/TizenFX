@@ -18,13 +18,14 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using Tizen.NUI.BaseComponents;
+using System.Linq;
 
 namespace Tizen.NUI
 {
     /// <summary>
     /// [Draft] LayoutGroup class providing container functionality.
     /// </summary>
-    internal class LayoutGroupEx : LayoutItemEx
+    internal class LayoutGroupEx : LayoutItemEx, ILayoutParentEx
     {
         protected List<LayoutItemEx> _children{ get;} // Children of this LayoutGroup
 
@@ -46,11 +47,14 @@ namespace Tizen.NUI
         }
 
         /// <summary>
-        /// Add a layout child to this group.<br />
+        /// From ILayoutParent.<br />
         /// </summary>
-        public void Add(LayoutItemEx childLayout)
+        public virtual void Add(LayoutItemEx childLayout)
         {
+            Log.Info("NUI","Add:" + childLayout.Owner.Name + " to:" + Owner.Name + "\n");
             _children.Add(childLayout);
+            childLayout.SetParent(this);
+            OnChildAdd(childLayout);
             RequestLayout();
         }
 
@@ -66,6 +70,78 @@ namespace Tizen.NUI
             }
             _children.Clear();
             // todo ensure child LayoutItems are still not parented to this group.
+            RequestLayout();
+        }
+
+        /// <summary>
+        /// From ILayoutParent
+        /// </summary>
+        public virtual void Remove(LayoutItemEx layoutItem)
+        {
+            foreach( LayoutItemEx childLayout in _children.ToList() )
+            {
+                if( childLayout == layoutItem )
+                {
+                    childLayout.SetParent(null);
+                    _children.Remove(childLayout);
+                }
+            }
+            RequestLayout();
+        }
+
+        private void AddChildToLayoutGroup(View child)
+        {
+            Log.Info("NUI", "AddChildToLayoutGroup:" + child.Name + " to " + Owner.Name + "\n");
+
+            Container oldParent = child.GetParent();
+            if (oldParent != Owner)
+            {
+                if (oldParent != null)
+                {
+                    oldParent.Remove(child);
+                }
+                child.InternalParent = Owner;
+
+                // Only give children a layout if their parent is an explicit container or a pure View.
+                // Pure View meaning not derived from a View, e.g a Legacy container.
+                // layoutSet flag is true when the View became a layout using the set Layout API opposed to automatically due to it's parent.
+                // First time the set Layout API is used by any View the Window no longer has layoutingDisabled.
+
+                // If child already has a Layout then don't change it.
+                if( ! View.layoutingDisabled && null == child.LayoutEx )
+                {
+                    // Only wrap View with a Layout if a child a pure View or Layout explicitly set on this Layout
+                    if ((true == Owner.layoutSet || GetType() == typeof(View)))
+                    {
+                        Log.Info("NUI", "Parent[" + Owner.Name + "] Layout set[" + Owner.layoutSet.ToString() + "] Pure View[" + (!Owner.layoutSet).ToString() + "]\n");
+                        // If child is a View or explicitly set to require layouting then set child as a LayoutGroup.
+                        // If the child is derived from a View then it may be a legacy or existing container hence will do layouting itself.
+                        if (child.GetType() == typeof(View) || true == child.LayoutingRequired)
+                        {
+                            Log.Info("NUI", "Creating LayoutGroup for " + child.Name + " LayoutingRequired[" + child.LayoutingRequired.ToString() + "]\n");
+                            child.LayoutEx = new LayoutGroupEx();
+                        }
+                        else
+                        {
+                            // Adding child as a leaf, layouting will not propagate past this child.
+                            // Legacy containers will be a LayoutItems too and layout their children how they wish.
+                            Log.Info("NUI", "Creating LayoutItem for " + child.Name + "\n");
+                            child.LayoutEx = new LayoutItemEx();
+                        }
+                    }
+                }
+            }
+
+            // Add child layout to this LayoutGroup
+            Add(child.LayoutEx);
+        }
+
+        /// <summary>
+        /// Callback for ChildAddedEvent
+        /// </summary>
+        void OnChildAddedToOwner(object sender, View.ChildAddedEventArgs childAddedEvent)
+        {
+            AddChildToLayoutGroup(childAddedEvent.Added);
         }
 
         /// <summary>
@@ -239,7 +315,7 @@ namespace Tizen.NUI
         }
 
         /// <summary>
-        /// Virtual method to inform derived classes when the layout size changed.<br />
+        /// Overridden method called when the layout size changes.<br />
         /// </summary>
         /// <param name="newSize">The new size of the layout.</param>
         /// <param name="oldSize">The old size of the layout.</param>
@@ -249,11 +325,31 @@ namespace Tizen.NUI
         }
 
         /// <summary>
+        /// Overridden method called when the layout is attached to an owner.<br />
+        /// </summary>
+        protected override void OnAttachedToOwner()
+        {
+            // Layout takes ownership of it's owner's children.
+            foreach (View view in Owner.Children)
+            {
+                AddChildToLayoutGroup(view);
+            }
+
+            // Layout attached to owner so connect to ChildAdded signal.
+            Owner.ChildAdded += OnChildAddedToOwner;
+
+            // Add layout to parent layout
+            View parent = Owner.GetParent() as View;
+            (parent?.LayoutEx as LayoutGroupEx)?.Add( this );
+        }
+        // Virtual Methods that can be overridden by derived classes.
+
+        /// <summary>
         /// Callback when child is added to container.<br />
         /// Derived classes can use this to set their own child properties on the child layout's owner.<br />
         /// </summary>
         /// <param name="child">The Layout child.</param>
-        internal virtual void OnChildAdd(LayoutItemEx child)
+        protected virtual void OnChildAdd(LayoutItemEx child)
         {
         }
 
@@ -261,7 +357,7 @@ namespace Tizen.NUI
         /// Callback when child is removed from container.<br />
         /// </summary>
         /// <param name="child">The Layout child.</param>
-        internal virtual void OnChildRemove(LayoutItemEx child)
+        protected virtual void OnChildRemove(LayoutItemEx child)
         {
         }
 
