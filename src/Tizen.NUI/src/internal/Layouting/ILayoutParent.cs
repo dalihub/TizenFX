@@ -35,5 +35,6 @@ namespace Tizen.NUI
         /// </summary>
         /// <param name="layoutItem">The layout child to add.</param>
         void Remove(LayoutItemEx layoutItem);
+
     }
 }
