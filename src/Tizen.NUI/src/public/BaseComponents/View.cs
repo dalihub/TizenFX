@@ -1271,18 +1271,20 @@ namespace Tizen.NUI.BaseComponents
         [EditorBrowsable(EditorBrowsableState.Never)]
         public static readonly BindableProperty StyleProperty = BindableProperty.Create("Style", typeof(Style), typeof(View), default(Style), propertyChanged: (bindable, oldvalue, newvalue) => ((View)bindable)._mergedStyle.Style = (Style)newvalue);
 
-        internal readonly MergedStyle _mergedStyle;
+        /// <summary>
+        /// Flag to indicate if layout set explicitly via API call or View was automatically given a Layout.
+        /// </summary>
+        public bool layoutSet = false;
+
         /// <summary>
         /// Flag to allow Layouting to be disabled for Views.
         /// Once a View has a Layout set then any children added to Views from then on will receive
         /// automatic Layouts.
         /// </summary>
-        private static bool layoutingDisabled{get; set;} = true;
+        public static bool layoutingDisabled{get; set;} = true;
+
+        internal readonly MergedStyle _mergedStyle;
         private global::System.Runtime.InteropServices.HandleRef swigCPtr;
-
-
-
-        private bool layoutSet = false; // Flag to indicate if SetLayout was called or View was automatically given a Layout
         private LayoutItemEx _layout; // Exclusive layout assigned to this View.
         private int _widthPolicy = LayoutParamPolicies.WrapContent; // Layout width policy
         private int _heightPolicy = LayoutParamPolicies.WrapContent; // Layout height policy
@@ -3598,28 +3600,30 @@ namespace Tizen.NUI.BaseComponents
             }
             set
             {
+                // Do nothing if layout provided is already set on this View.
+                if (value == _layout)
+                  return;
+
                 Log.Info("NUI", "Setting Layout on:" + Name + "\n");
                 layoutingDisabled = false;
                 layoutSet = true;
 
                 // If new layout being set already has a owner then that owner receives a replacement default layout.
-                // First check if the new layout has a owner.
+                // First check if the layout to be set already has a owner.
                 if ( value.Owner != null )
                 {
-                    // If the owner is not this View then the owning control can no longer own it.
-                    if( value.Owner != LayoutEx.Owner )
-                    {
-                        Log.Info("NUI", "SetLayout Layout already in use by another View: " + value.Owner.Name + "will get a LayoutGroup \n");
-                        // Previous owner of the layout gets a BinLayout instead of the layout.
-                        value.Owner.LayoutEx = new LayoutGroupEx();
-                        //todo Children will need to be added to this new LayoutGroup.
-                    }
+                    Log.Info("NUI", "Set layout already in use by another View: " + value.Owner.Name + "will get a LayoutGroup\n");
+                    // Previous owner of the layout gets a default layout as a replacement.
+                    value.Owner.LayoutEx = new LayoutGroupEx();
                 }
+
+                // Remove existing layout from it's parent layout group.
+                _layout?.Unparent();
 
                 // Set layout to this view
                 _layout = value;
-                // Assigned the new layout's owner.
-                _layout.Owner = this;
+                _layout.AttachToOwner(this);
+                _layout.RequestLayout();
             }
         }
 
@@ -3631,6 +3635,7 @@ namespace Tizen.NUI.BaseComponents
             set
             {
                 _measureSpecificationWidth = value;
+                _layout?.RequestLayout();
             }
             get
             {
@@ -3646,6 +3651,7 @@ namespace Tizen.NUI.BaseComponents
             set
             {
                 _measureSpecificationHeight = value;
+                _layout?.RequestLayout();
             }
             get
             {
@@ -3917,59 +3923,18 @@ namespace Tizen.NUI.BaseComponents
                 return;
             }
 
-            Log.Info("NUI", "Adding Child:" + child.Name + " to " + Name + "\n");
+            NDalicPINVOKE.Actor_Add(swigCPtr, View.getCPtr(child));
+            if (NDalicPINVOKE.SWIGPendingException.Pending)
+                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            Children.Add(child);
 
-            Container oldParent = child.GetParent();
-            if (oldParent != this)
+            if (ChildAdded != null)
             {
-                if (oldParent != null)
+                ChildAddedEventArgs e = new ChildAddedEventArgs
                 {
-                    oldParent.Remove(child);
-                }
-                child.InternalParent = this;
-
-                // Only give children a layout if their parent is an explicit container or a pure View.
-                // Pure View meaning not derived from a View, e.g a Legacy container.
-                // layoutSet flag is true when the View became a layout using the set Layout API opposed to automatically due to it's parent.
-                // First time the set Layout API is used by any View the Window no longer has layoutingDisabled.
-                if ((true == layoutSet || GetType() == typeof(View)) && null == child.LayoutEx && false == layoutingDisabled )
-                {
-                    Log.Info("NUI", "Parent[" + Name + "] Layout set[" + layoutSet.ToString() + "] Pure View[" + (!layoutSet).ToString() + "]\n");
-                    // If child is a View or explicitly set to require layouting then set child as a LayoutGroup.
-                    // If the child is derived from a View then it may be a legacy or existing container hence will do layouting itself.
-                    if (child.GetType() == typeof(View) || true == child.LayoutingRequired)
-                    {
-                        Log.Info("NUI", "Creating LayoutGroup for " + child.Name + " LayoutingRequired[" + child.LayoutingRequired.ToString() + "]\n");
-                        child.LayoutEx = new LayoutGroupEx();
-                    }
-                    else
-                    {
-                        // Adding child as a leaf, layouting will not propagate past this child.
-                        // Legacy containers will be a LayoutItems too and layout their children how they wish.
-                        Log.Info("NUI", "Creating LayoutItem for " + child.Name + "\n");
-                        child.LayoutEx = new LayoutItemEx();
-                    }
-                }
-
-                LayoutGroupEx layout = LayoutEx as LayoutGroupEx;
-                if(layout !=null)
-                {
-                    layout.Add(child.LayoutEx);  // Add child layout to this Views layout group list.
-                }
-
-                NDalicPINVOKE.Actor_Add(swigCPtr, View.getCPtr(child));
-                if (NDalicPINVOKE.SWIGPendingException.Pending)
-                    throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-                Children.Add(child);
-
-                if (ChildAdded != null)
-                {
-                    ChildAddedEventArgs e = new ChildAddedEventArgs
-                    {
-                        Added = child
-                    };
-                    ChildAdded(this, e);
-                }
+                    Added = child
+                };
+                ChildAdded(this, e);
             }
         }
 
