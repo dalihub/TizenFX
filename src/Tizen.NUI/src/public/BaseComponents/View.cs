@@ -3616,10 +3616,14 @@ namespace Tizen.NUI.BaseComponents
                     }
                 }
 
+                // Remove existing layout from it's parent layout group.
+                _layout?.Unparent();
+
                 // Set layout to this view
                 _layout = value;
                 // Assigned the new layout's owner.
                 _layout.Owner = this;
+                _layout.RequestLayout();
             }
         }
 

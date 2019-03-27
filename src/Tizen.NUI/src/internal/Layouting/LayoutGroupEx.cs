@@ -24,7 +24,7 @@ namespace Tizen.NUI
     /// <summary>
     /// [Draft] LayoutGroup class providing container functionality.
     /// </summary>
-    internal class LayoutGroupEx : LayoutItemEx
+    internal class LayoutGroupEx : LayoutItemEx, ILayoutParentEx
     {
         protected List<LayoutItemEx> _children{ get;} // Children of this LayoutGroup
 
@@ -43,12 +43,14 @@ namespace Tizen.NUI
         public LayoutGroupEx(View owner) : base(owner)
         {
             _children = new List<LayoutItemEx>();
+            owner.ChildAdded += OnChildAdd();
+            // Layout takes ownership of it's owner's children.
         }
 
         /// <summary>
-        /// Add a layout child to this group.<br />
+        /// From ILayoutParent.<br />
         /// </summary>
-        public void Add(LayoutItemEx childLayout)
+        public virtual void Add(LayoutItemEx childLayout)
         {
             _children.Add(childLayout);
             OnChildAdd(childLayout);
@@ -67,6 +69,22 @@ namespace Tizen.NUI
             }
             _children.Clear();
             // todo ensure child LayoutItems are still not parented to this group.
+            RequestLayout();
+        }
+
+        /// <summary>
+        // From ILayoutParent
+        /// </summary>
+        public virtual void Remove(LayoutItemEx layoutItem)
+        {
+            foreach( LayoutItemEx childLayout in _children )
+            {
+                if( childLayout == layoutItem )
+                {
+                    childLayout.SetParent(null);
+                    _children.Remove(childLayout);
+                }
+            }
             RequestLayout();
         }
 
@@ -257,6 +275,7 @@ namespace Tizen.NUI
         /// <param name="child">The Layout child.</param>
         protected virtual void OnChildAdd(LayoutItemEx child)
         {
+            Log.Info("NUI", "OnChildAdd\n");
         }
 
         /// <summary>
