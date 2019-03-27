@@ -82,7 +82,8 @@ namespace Tizen.NUI
         /// <param name="parent">Parent to set on this Layout.</param>
         public void SetParent( ILayoutParentEx parent)
         {
-            Parent = parent;
+            Parent = parent as LayoutGroupEx;
+            Log.Info("NUI", "Setting Layout Parent:" + (parent == null ? "null":parent.ToString() ) + " to:" + Owner?.Name + "\n");
             // todo May need to force SetFrame with LayoutFlags
         }
 
@@ -110,6 +111,17 @@ namespace Tizen.NUI
         internal View GetOwner()
         {
             return Owner;
+        }
+
+        /// <summary>
+        /// Initialize the layout and allow derived classes to also perform any operations
+        /// </summary>
+        /// <param name="owner">Owner of this Layout.</param>
+        internal void AttachToOwner(View owner)
+        {
+            // Assigned the layout an owner.
+            Owner = owner;
+            OnAttachedToOwner();
         }
 
         /// <summary>
@@ -142,6 +154,7 @@ namespace Tizen.NUI
             {
                 OnMeasure(widthMeasureSpec, heightMeasureSpec);
                 Flags = Flags | LayoutFlags.LayoutRequired;
+                Flags &= ~LayoutFlags.ForceLayout;
             }
             OldWidthMeasureSpec = widthMeasureSpec;
             OldHeightMeasureSpec = heightMeasureSpec;
@@ -170,7 +183,8 @@ namespace Tizen.NUI
             {
                 Log.Info("NUI", "LayoutItem Layout Frame changed or Layout forced\n");
                 OnLayout(changed, left, top, right, bottom);
-                Flags = Flags | LayoutFlags.LayoutRequired;
+                // Clear flag
+                Flags &= ~LayoutFlags.LayoutRequired;
             }
         }
 
@@ -436,6 +450,12 @@ namespace Tizen.NUI
         {
         }
 
+        /// <summary>
+        /// Virtual method to allow derived classes to perform actions
+        /// <summary>
+        protected virtual void OnAttachedToOwner()
+        {
+        }
 
         private bool SetFrame(LayoutLengthEx left, LayoutLengthEx top, LayoutLengthEx right, LayoutLengthEx bottom)
         {
