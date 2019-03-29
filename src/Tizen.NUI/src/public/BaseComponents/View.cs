@@ -3090,13 +3090,13 @@ namespace Tizen.NUI.BaseComponents
             }
             set
             {
-                if (LayoutEx != null)
+                if (_layout != null)
                 {
                     // Note: it only works if minimum size is >= than natural size.
                     // To force the size it should be done through the width&height spec or Size2D.
-                    LayoutEx.MinimumWidth = new Tizen.NUI.LayoutLengthEx(value.Width);
-                    LayoutEx.MinimumHeight = new Tizen.NUI.LayoutLengthEx(value.Height);
-                    LayoutEx.RequestLayout();
+                    _layout.MinimumWidth = new Tizen.NUI.LayoutLengthEx(value.Width);
+                    _layout.MinimumHeight = new Tizen.NUI.LayoutLengthEx(value.Height);
+                    _layout.RequestLayout();
                 }
                 SetValue(MinimumSizeProperty, value);
                 NotifyPropertyChanged();
@@ -3117,6 +3117,14 @@ namespace Tizen.NUI.BaseComponents
             {
                 // We don't have Layout.Maximum(Width|Height) so we cannot apply it to layout.
                 // MATCH_PARENT spec + parent container size can be used to limit
+                if (_layout != null)
+                {
+                    // Note: it only works if minimum size is >= than natural size.
+                    // To force the size it should be done through the width&height spec or Size2D.
+                    _layout.MinimumHeight = new Tizen.NUI.LayoutLengthEx(value.Width);
+                    _layout.MinimumWidth = new Tizen.NUI.LayoutLengthEx(value.Height);
+                    _layout.RequestLayout();
+                }
                 SetValue(MaximumSizeProperty, value);
                 NotifyPropertyChanged();
             }
@@ -3401,16 +3409,11 @@ namespace Tizen.NUI.BaseComponents
         {
             get
             {
-                int tmp = 0;
-                if (GetProperty(LayoutItemWrapper.ChildProperty.WIDTH_SPECIFICATION).Get(out tmp) == false)
-                {
-                    NUILog.Error("WidthSpecificationFixed get error!");
-                }
-                return tmp;
+                return _widthPolicy;
             }
             set
             {
-                SetProperty(LayoutItemWrapper.ChildProperty.WIDTH_SPECIFICATION, new Tizen.NUI.PropertyValue(value));
+                _widthPolicy = value;
             }
         }
 
@@ -3421,16 +3424,11 @@ namespace Tizen.NUI.BaseComponents
         {
             get
             {
-                int tmp = 0;
-                if (GetProperty(LayoutItemWrapper.ChildProperty.HEIGHT_SPECIFICATION).Get(out tmp) == false)
-                {
-                    NUILog.Error("HeightSpecificationFixed get error!");
-                }
-                return tmp;
+                return _heightPolicy;
             }
             set
             {
-                SetProperty(LayoutItemWrapper.ChildProperty.HEIGHT_SPECIFICATION, new Tizen.NUI.PropertyValue(value));
+                _heightPolicy = value;
             }
         }
 
@@ -3441,16 +3439,11 @@ namespace Tizen.NUI.BaseComponents
         {
             get
             {
-                int tmp = 0;
-                if (GetProperty(LayoutItemWrapper.ChildProperty.WIDTH_SPECIFICATION).Get(out tmp) == false)
-                {
-                    NUILog.Error("WidthSpecificationFixed get error!");
-                }
-                return (ChildLayoutData)tmp;
+                return (ChildLayoutData)_widthPolicy;
             }
             set
             {
-                SetProperty(LayoutItemWrapper.ChildProperty.WIDTH_SPECIFICATION, new Tizen.NUI.PropertyValue((int)value));
+                _widthPolicy = (int)value;
             }
         }
 
@@ -3461,16 +3454,11 @@ namespace Tizen.NUI.BaseComponents
         {
             get
             {
-                int tmp = 0;
-                if (GetProperty(LayoutItemWrapper.ChildProperty.HEIGHT_SPECIFICATION).Get(out tmp) == false)
-                {
-                    NUILog.Error("HeightSpecificationFixed get error!");
-                }
-                return (ChildLayoutData)tmp;
+                return (ChildLayoutData)_heightPolicy;
             }
             set
             {
-                SetProperty(LayoutItemWrapper.ChildProperty.HEIGHT_SPECIFICATION, new Tizen.NUI.PropertyValue((int)value));
+                _heightPolicy = (int)value;
             }
         }
 
@@ -3484,6 +3472,7 @@ namespace Tizen.NUI.BaseComponents
             {
                 SetValue(WeightProperty, value);
                 NotifyPropertyChanged();
+                _layout.RequestLayout();
             }
         }
 
@@ -3585,7 +3574,6 @@ namespace Tizen.NUI.BaseComponents
                 SetLayout(value);
             }
         }
-
 
         /// <summary>
         /// Set the layout on this View. Replaces any existing Layout.
@@ -3919,24 +3907,37 @@ namespace Tizen.NUI.BaseComponents
         /// <since_tizen> 4 </since_tizen>
         public override void Add(View child)
         {
+            Log.Info("NUI", "Add:" + child.Name + " to Layout:" + Name + "\n");
+
             if (null == child)
             {
                 Tizen.Log.Fatal("NUI", "Child is null");
                 return;
             }
 
-            NDalicPINVOKE.Actor_Add(swigCPtr, View.getCPtr(child));
-            if (NDalicPINVOKE.SWIGPendingException.Pending)
-                throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-            Children.Add(child);
-
-            if (ChildAdded != null)
+            Container oldParent = child.GetParent();
+            if (oldParent != this)
             {
-                ChildAddedEventArgs e = new ChildAddedEventArgs
+                // If child already has a parent then re-parent child
+                if (oldParent != null)
                 {
-                    Added = child
-                };
-                ChildAdded(this, e);
+                    oldParent.Remove(child);
+                }
+                child.InternalParent = this;
+
+                NDalicPINVOKE.Actor_Add(swigCPtr, View.getCPtr(child));
+                if (NDalicPINVOKE.SWIGPendingException.Pending)
+                    throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+                Children.Add(child);
+
+                if (ChildAdded != null)
+                {
+                    ChildAddedEventArgs e = new ChildAddedEventArgs
+                    {
+                        Added = child
+                    };
+                    ChildAdded(this, e);
+                }
             }
         }
 
@@ -3947,7 +3948,7 @@ namespace Tizen.NUI.BaseComponents
         /// <since_tizen> 4 </since_tizen>
         public override void Remove(View child)
         {
-            bool hasLayout = (LayoutEx != null);
+            bool hasLayout = (_layout != null);
             Log.Info("NUI","Removing View:" + child.Name + "layout[" + hasLayout.ToString() +"]\n");
 
             NDalicPINVOKE.Actor_Remove(swigCPtr, View.getCPtr(child));
@@ -3956,12 +3957,6 @@ namespace Tizen.NUI.BaseComponents
 
             Children.Remove(child);
             child.InternalParent = null;
-
-            if (hasLayout)
-            {
-                LayoutGroupEx layoutGroup = LayoutEx as LayoutGroupEx;
-                layoutGroup?.RemoveAll();
-            }
 
             if (ChildRemoved != null)
             {

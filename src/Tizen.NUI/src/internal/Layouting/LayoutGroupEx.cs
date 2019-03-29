@@ -91,49 +91,50 @@ namespace Tizen.NUI
 
         private void AddChildToLayoutGroup(View child)
         {
-            Log.Info("NUI", "AddChildToLayoutGroup:" + child.Name + " to " + Owner.Name + "\n");
+            Log.Info("NUI", "Adding child View:" + child.Name + " to Layout:" + Owner?.Name + "\n");
 
-            Container oldParent = child.GetParent();
-            if (oldParent != Owner)
+            // Only give children a layout if their parent is an explicit container or a pure View.
+            // Pure View meaning not derived from a View, e.g a Legacy container.
+            // layoutSet flag is true when the View became a layout using the set Layout API opposed to automatically due to it's parent.
+            // First time the set Layout API is used by any View the Window no longer has layoutingDisabled.
+
+            // If child already has a Layout then don't change it.
+            if (! View.layoutingDisabled && (null == child.LayoutEx))
             {
-                if (oldParent != null)
+                // Only wrap View with a Layout if a child a pure View or Layout explicitly set on this Layout
+                if ((true == Owner.layoutSet || GetType() == typeof(View)))
                 {
-                    oldParent.Remove(child);
-                }
-                child.InternalParent = Owner;
-
-                // Only give children a layout if their parent is an explicit container or a pure View.
-                // Pure View meaning not derived from a View, e.g a Legacy container.
-                // layoutSet flag is true when the View became a layout using the set Layout API opposed to automatically due to it's parent.
-                // First time the set Layout API is used by any View the Window no longer has layoutingDisabled.
-
-                // If child already has a Layout then don't change it.
-                if( ! View.layoutingDisabled && null == child.LayoutEx )
-                {
-                    // Only wrap View with a Layout if a child a pure View or Layout explicitly set on this Layout
-                    if ((true == Owner.layoutSet || GetType() == typeof(View)))
+                    Log.Info("NUI", "Parent[" + Owner.Name + "] Layout set[" + Owner.layoutSet.ToString() + "] Pure View[" + (!Owner.layoutSet).ToString() + "]\n");
+                    // If child is a View or explicitly set to require layouting then set child as a LayoutGroup.
+                    // If the child is derived from a View then it may be a legacy or existing container hence will do layouting itself.
+                    if (child.GetType() == typeof(View) || true == child.LayoutingRequired)
                     {
-                        Log.Info("NUI", "Parent[" + Owner.Name + "] Layout set[" + Owner.layoutSet.ToString() + "] Pure View[" + (!Owner.layoutSet).ToString() + "]\n");
-                        // If child is a View or explicitly set to require layouting then set child as a LayoutGroup.
-                        // If the child is derived from a View then it may be a legacy or existing container hence will do layouting itself.
-                        if (child.GetType() == typeof(View) || true == child.LayoutingRequired)
-                        {
-                            Log.Info("NUI", "Creating LayoutGroup for " + child.Name + " LayoutingRequired[" + child.LayoutingRequired.ToString() + "]\n");
-                            child.LayoutEx = new LayoutGroupEx();
-                        }
-                        else
-                        {
-                            // Adding child as a leaf, layouting will not propagate past this child.
-                            // Legacy containers will be a LayoutItems too and layout their children how they wish.
-                            Log.Info("NUI", "Creating LayoutItem for " + child.Name + "\n");
-                            child.LayoutEx = new LayoutItemEx();
-                        }
+                        Log.Info("NUI", "Creating LayoutGroup for " + child.Name + " LayoutingRequired[" + child.LayoutingRequired.ToString() + "]\n");
+                        child.LayoutEx = new LayoutGroupEx();
+                    }
+                    else
+                    {
+                        // Adding child as a leaf, layouting will not propagate past this child.
+                        // Legacy containers will be a LayoutItems too and layout their children how they wish.
+                        Log.Info("NUI", "Creating LayoutItem for " + child.Name + "\n");
+                        child.LayoutEx = new LayoutItemEx();
                     }
                 }
             }
 
-            // Add child layout to this LayoutGroup
+            // Add child layout to this LayoutGroup (Setting parent in the process)
             Add(child.LayoutEx);
+        }
+
+        private void RemoveChildFromLayoutGroup(View child)
+        {
+            Log.Info("NUI", "Removing child View:" + child.Name + " from Layout:" + Owner?.Name + "\n");
+
+            if(child.LayoutEx != null)
+            {
+                LayoutGroupEx layoutGroup = child.LayoutEx as LayoutGroupEx;
+                layoutGroup?.Remove(child.LayoutEx);
+            }
         }
 
         /// <summary>
@@ -142,6 +143,11 @@ namespace Tizen.NUI
         void OnChildAddedToOwner(object sender, View.ChildAddedEventArgs childAddedEvent)
         {
             AddChildToLayoutGroup(childAddedEvent.Added);
+        }
+
+        void OnChildFromOwner(object sender, View.ChildRemovedEventArgs childRemovedEvent)
+        {
+            RemoveChildFromLayoutGroup(childRemovedEvent.Removed);
         }
 
         /// <summary>
@@ -335,8 +341,9 @@ namespace Tizen.NUI
                 AddChildToLayoutGroup(view);
             }
 
-            // Layout attached to owner so connect to ChildAdded signal.
+            // Layout attached to owner so connect to ChildAdded and ChildRemoved signals.
             Owner.ChildAdded += OnChildAddedToOwner;
+            Owner.ChildRemoved += OnChildFromOwner;
 
             // Add layout to parent layout
             View parent = Owner.GetParent() as View;
