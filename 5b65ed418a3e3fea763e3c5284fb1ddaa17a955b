@@ -1,0 +1,95 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b0d750fa_b03dcac2",
+        "filename": "src/Tizen.NUI/src/internal/Layouting/LayoutGroupEx.cs",
+        "patchSetId": 4
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1007416
+      },
+      "writtenOn": "2019-03-29T13:09:13Z",
+      "side": 1,
+      "message": "Break this line up, hard to follow the logic.",
+      "revId": "5b65ed418a3e3fea763e3c5284fb1ddaa17a955b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "91cc034e_c0e860bd",
+        "filename": "src/Tizen.NUI/src/internal/Layouting/LayoutGroupEx.cs",
+        "patchSetId": 4
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1007416
+      },
+      "writtenOn": "2019-03-29T13:09:13Z",
+      "side": 1,
+      "message": "Tab",
+      "revId": "5b65ed418a3e3fea763e3c5284fb1ddaa17a955b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18b93702_fe8a2c88",
+        "filename": "src/Tizen.NUI/src/internal/Layouting/LayoutItemEx.cs",
+        "patchSetId": 4
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1007416
+      },
+      "writtenOn": "2019-03-29T13:09:13Z",
+      "side": 1,
+      "message": "What type of actions and when?",
+      "revId": "5b65ed418a3e3fea763e3c5284fb1ddaa17a955b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d9b0f9b_2c8b367c",
+        "filename": "src/Tizen.NUI/src/public/BaseComponents/View.cs",
+        "patchSetId": 4
+      },
+      "lineNbr": 3605,
+      "author": {
+        "id": 1007416
+      },
+      "writtenOn": "2019-03-29T13:09:13Z",
+      "side": 1,
+      "message": "missing braces (regardless of what the C# style is, the same reasons why we use them in C++ still apply here.",
+      "revId": "5b65ed418a3e3fea763e3c5284fb1ddaa17a955b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5870d8e_75e769f6",
+        "filename": "src/Tizen.NUI/src/public/BaseComponents/View.cs",
+        "patchSetId": 4
+      },
+      "lineNbr": 3936,
+      "author": {
+        "id": 1007416
+      },
+      "writtenOn": "2019-03-29T13:09:13Z",
+      "side": 1,
+      "message": "Random semicolon.",
+      "range": {
+        "startLine": 3936,
+        "startChar": 17,
+        "endLine": 3936,
+        "endChar": 18
+      },
+      "revId": "5b65ed418a3e3fea763e3c5284fb1ddaa17a955b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
