@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "dd0639b3_019a2ef9",
+        "filename": "src/Tizen.NUI/src/internal/Layouting/LayoutGroupEx.cs",
+        "patchSetId": 4
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1011527
+      },
+      "writtenOn": "2019-03-29T17:26:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0d750fa_b03dcac2",
+      "revId": "5b65ed418a3e3fea763e3c5284fb1ddaa17a955b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "91cc034e_c0e860bd",
         "filename": "src/Tizen.NUI/src/internal/Layouting/LayoutGroupEx.cs",
         "patchSetId": 4
@@ -30,6 +48,24 @@
       "writtenOn": "2019-03-29T13:09:13Z",
       "side": 1,
       "message": "Tab",
+      "revId": "5b65ed418a3e3fea763e3c5284fb1ddaa17a955b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da95785d_add441b7",
+        "filename": "src/Tizen.NUI/src/internal/Layouting/LayoutGroupEx.cs",
+        "patchSetId": 4
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1011527
+      },
+      "writtenOn": "2019-03-29T17:26:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "91cc034e_c0e860bd",
       "revId": "5b65ed418a3e3fea763e3c5284fb1ddaa17a955b",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "74d48f55_c8926600",
+        "filename": "src/Tizen.NUI/src/internal/Layouting/LayoutItemEx.cs",
+        "patchSetId": 4
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1011527
+      },
+      "writtenOn": "2019-03-29T17:26:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "18b93702_fe8a2c88",
+      "revId": "5b65ed418a3e3fea763e3c5284fb1ddaa17a955b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d9b0f9b_2c8b367c",
         "filename": "src/Tizen.NUI/src/public/BaseComponents/View.cs",
         "patchSetId": 4
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "1efd7de4_d0544f9c",
+        "filename": "src/Tizen.NUI/src/public/BaseComponents/View.cs",
+        "patchSetId": 4
+      },
+      "lineNbr": 3605,
+      "author": {
+        "id": 1011527
+      },
+      "writtenOn": "2019-03-29T17:26:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4d9b0f9b_2c8b367c",
+      "revId": "5b65ed418a3e3fea763e3c5284fb1ddaa17a955b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b5870d8e_75e769f6",
         "filename": "src/Tizen.NUI/src/public/BaseComponents/View.cs",
         "patchSetId": 4
@@ -81,6 +153,30 @@
       "writtenOn": "2019-03-29T13:09:13Z",
       "side": 1,
       "message": "Random semicolon.",
+      "range": {
+        "startLine": 3936,
+        "startChar": 17,
+        "endLine": 3936,
+        "endChar": 18
+      },
+      "revId": "5b65ed418a3e3fea763e3c5284fb1ddaa17a955b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5918c140_5eaa9099",
+        "filename": "src/Tizen.NUI/src/public/BaseComponents/View.cs",
+        "patchSetId": 4
+      },
+      "lineNbr": 3936,
+      "author": {
+        "id": 1011527
+      },
+      "writtenOn": "2019-03-29T17:26:24Z",
+      "side": 1,
+      "message": ":) Not random.  Ends the statements which stated on 3933.",
+      "parentUuid": "b5870d8e_75e769f6",
       "range": {
         "startLine": 3936,
         "startChar": 17,
