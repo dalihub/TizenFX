@@ -15,7 +15,6 @@
  *
  */
 using System.ComponentModel;
-using Tizen.NUI.Binding;
 
 namespace Tizen.NUI.BaseComponents
 {
@@ -25,38 +24,6 @@ namespace Tizen.NUI.BaseComponents
     /// <since_tizen> 3 </since_tizen>
     public class CustomView : ViewWrapper
     {
-        /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static readonly BindableProperty FocusNavigationSupportProperty = BindableProperty.Create("FocusNavigationSupport", typeof(bool), typeof(CustomView), false, propertyChanged: (bindable, oldValue, newValue) =>
-        {
-            var customView = (CustomView)bindable;
-            if (newValue != null)
-            {
-                customView.SetKeyboardNavigationSupport((bool)newValue);
-            }
-        },
-        defaultValueCreator: (bindable) =>
-        {
-            var customView = (CustomView)bindable;
-            return customView.IsKeyboardNavigationSupported();
-        });
-
-        /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static readonly BindableProperty FocusGroupProperty = BindableProperty.Create("FocusGroup", typeof(bool), typeof(CustomView), false, propertyChanged: (bindable, oldValue, newValue) =>
-        {
-            var customView = (CustomView)bindable;
-            if (newValue != null)
-            {
-                customView.SetAsKeyboardFocusGroup((bool)newValue);
-            }
-        },
-        defaultValueCreator: (bindable) =>
-        {
-            var customView = (CustomView)bindable;
-            return customView.IsKeyboardFocusGroup();
-        });
-
         /// <summary>
         /// Create an instance of customView.
         /// </summary>
@@ -124,11 +91,11 @@ namespace Tizen.NUI.BaseComponents
         {
             get
             {
-                return (bool)GetValue(FocusNavigationSupportProperty);
+                return IsKeyboardNavigationSupported();
             }
             set
             {
-                SetValue(FocusNavigationSupportProperty, value);
+                SetKeyboardNavigationSupport(value);
             }
         }
 
@@ -141,11 +108,11 @@ namespace Tizen.NUI.BaseComponents
         {
             get
             {
-                return (bool)GetValue(FocusGroupProperty);
+                return IsKeyboardFocusGroup();
             }
             set
             {
-                SetValue(FocusGroupProperty, value);
+                SetAsKeyboardFocusGroup((bool)value);
             }
         }
 
