@@ -15,9 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tizen.Applications.Common",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tizen.System.Information", "..\Tizen.System.Information\Tizen.System.Information.csproj", "{14A1C9D0-F301-4A1D-BAE0-A39B85E840CA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tizen.NUI", "..\Tizen.NUI\Tizen.NUI.csproj", "{9440B262-BA9A-4490-8E5A-7ABFA21E7CB7}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tizen.System.SystemSettings", "..\Tizen.System.SystemSettings\Tizen.System.SystemSettings.csproj", "{852634E0-31DD-4469-B538-30C63F993433}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tizen.NUI", "..\Tizen.NUI\Tizen.NUI\Tizen.NUI.csproj", "{C5D23C42-7696-48E2-AF30-F697A5505294}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,16 +49,19 @@ Global
 		{14A1C9D0-F301-4A1D-BAE0-A39B85E840CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{14A1C9D0-F301-4A1D-BAE0-A39B85E840CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{14A1C9D0-F301-4A1D-BAE0-A39B85E840CA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9440B262-BA9A-4490-8E5A-7ABFA21E7CB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9440B262-BA9A-4490-8E5A-7ABFA21E7CB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9440B262-BA9A-4490-8E5A-7ABFA21E7CB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9440B262-BA9A-4490-8E5A-7ABFA21E7CB7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{852634E0-31DD-4469-B538-30C63F993433}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{852634E0-31DD-4469-B538-30C63F993433}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{852634E0-31DD-4469-B538-30C63F993433}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{852634E0-31DD-4469-B538-30C63F993433}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5D23C42-7696-48E2-AF30-F697A5505294}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5D23C42-7696-48E2-AF30-F697A5505294}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5D23C42-7696-48E2-AF30-F697A5505294}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5D23C42-7696-48E2-AF30-F697A5505294}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C1405986-A78F-4EB7-920F-6588F4B4B885}
 	EndGlobalSection
 EndGlobal
