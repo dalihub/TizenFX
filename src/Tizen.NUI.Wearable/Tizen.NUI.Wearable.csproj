@@ -7,7 +7,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Tizen.Applications.Common\Tizen.Applications.Common.csproj" />
-    <ProjectReference Include="..\Tizen.NUI\Tizen.NUI.csproj" />
+    <ProjectReference Include="..\Tizen.NUI\Tizen.NUI\Tizen.NUI.csproj" />
   </ItemGroup>
 
 </Project>
