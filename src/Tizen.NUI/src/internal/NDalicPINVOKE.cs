@@ -12348,6 +12348,10 @@ namespace Tizen.NUI
         public static extern global::System.IntPtr TextField_InputStyleChangedSignal(global::System.Runtime.InteropServices.HandleRef jarg1);
 
 
+        [global::System.Runtime.InteropServices.DllImport("libdali-csharp-binder.so", EntryPoint = "CSharp_Dali_TextField_SelectAllText")]
+        public static extern void TextField_SelectAllText(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+
         [global::System.Runtime.InteropServices.DllImport("libdali-csharp-binder.so", EntryPoint = "CSharp_Dali_TextLabel_Property_RENDERING_BACKEND_get")]
         public static extern int TextLabel_Property_RENDERING_BACKEND_get();
 
