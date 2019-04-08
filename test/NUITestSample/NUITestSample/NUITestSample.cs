@@ -10,7 +10,8 @@ namespace NUITestSample
         [STAThread]
         static void Main(string[] args)
         {
-            new WatchSample.Program().Run(args);
+            Tizen.Log.Fatal("Sample", "ssssss");
+            //new WatchSample.Program().Run(args);
             //new ImageViewUserShaderTest2.Test().Run(args);
             //new ImageViewUserShaderTest.Test().Run(args);
             //new ScreenPositionTest.Test().Run(args);
@@ -30,7 +31,7 @@ namespace NUITestSample
             //new ScrollViewTest.Example().Run(args);
             //new ImageViewTest.Example().Run(args);
             //new FlexContainerTest.SampleMain().Run(args);
-            //new DaliTest.Example().Run(args);
+            new DaliTest.Example().Run(args);
             //new RelativeVectorTest.Example().Run(args);
             //new VisaulAnimationExample.Example2().Run(args);
             //new VisaulAnimationExample.Example3().Run(args);
