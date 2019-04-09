@@ -2260,8 +2260,8 @@ namespace Tizen.NUI.BaseComponents
                 SetValue(Size2DProperty, value);
                 // Set Specification so when layouts measure this View it matches the value set here.
                 // All Views are currently Layouts.
-                MeasureSpecificationWidth = new MeasureSpecification(new LayoutLengthEx(value.Width), MeasureSpecification.ModeType.Unspecified);
-                MeasureSpecificationHeight = new MeasureSpecification(new LayoutLengthEx(value.Height), MeasureSpecification.ModeType.Unspecified);
+                MeasureSpecificationWidth = new MeasureSpecification(new LayoutLengthEx(value.Width), MeasureSpecification.ModeType.Exactly);
+                MeasureSpecificationHeight = new MeasureSpecification(new LayoutLengthEx(value.Height), MeasureSpecification.ModeType.Exactly);
                 NotifyPropertyChanged();
             }
         }
@@ -3304,6 +3304,7 @@ namespace Tizen.NUI.BaseComponents
             {
                 SetValue(LayoutDirectionProperty, value);
                 NotifyPropertyChanged();
+                _layout?.RequestLayout();
             }
         }
 
@@ -3324,6 +3325,7 @@ namespace Tizen.NUI.BaseComponents
             set
             {
                 SetValue(MarginProperty, value);
+                _layout?.RequestLayout();
                 NotifyPropertyChanged();
             }
         }
@@ -3343,6 +3345,7 @@ namespace Tizen.NUI.BaseComponents
                 if (_widthPolicy >= 0)
                 {
                     _measureSpecificationWidth = new MeasureSpecification( new LayoutLengthEx(value), MeasureSpecification.ModeType.Exactly );
+                    _layout?.RequestLayout();
                 }
 
             }
@@ -3363,6 +3366,7 @@ namespace Tizen.NUI.BaseComponents
                 if (_heightPolicy >= 0)
                 {
                     _measureSpecificationHeight = new MeasureSpecification( new LayoutLengthEx(value), MeasureSpecification.ModeType.Exactly );
+                    _layout?.RequestLayout();
                 }
             }
         }
@@ -3387,6 +3391,7 @@ namespace Tizen.NUI.BaseComponents
             {
                 SetProperty(View.Property.PADDING, new Tizen.NUI.PropertyValue(value));
                 NotifyPropertyChanged();
+                _layout?.RequestLayout();
             }
         }
 

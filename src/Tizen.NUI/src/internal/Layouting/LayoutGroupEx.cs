@@ -398,18 +398,15 @@ namespace Tizen.NUI
                           + " child widthSpecification policy:" + childOwner.WidthSpecification
                           + " child heightSpecification policy:" + childOwner.HeightSpecification + "\n");
 
-            // Get last stored width and height specifications for the child
-            int desiredWidth = childOwner.WidthSpecification;
-            int desiredHeight = childOwner.HeightSpecification;
-
             Extents padding = childOwner.Padding; // Padding of this layout's owner, not of the child being measured.
 
             MeasureSpecification childWidthMeasureSpec = GetChildMeasureSpecification( parentWidthMeasureSpec,
                                                                                        new LayoutLengthEx(padding.Start + padding.End ),
-                                                                                       new LayoutLengthEx(desiredWidth) );
+                                                                                       new LayoutLengthEx(childOwner.WidthSpecification) );
+
             MeasureSpecification childHeightMeasureSpec = GetChildMeasureSpecification( parentHeightMeasureSpec,
-                                                                                       new LayoutLengthEx(padding.Top + padding.Bottom),
-                                                                                       new LayoutLengthEx(desiredHeight) );
+                                                                                        new LayoutLengthEx(padding.Top + padding.Bottom),
+                                                                                        new LayoutLengthEx(childOwner.HeightSpecification) );
 
             child.Measure( childWidthMeasureSpec, childHeightMeasureSpec );
         }
