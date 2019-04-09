@@ -83,8 +83,7 @@ namespace Tizen.NUI
         public void SetParent( ILayoutParentEx parent)
         {
             Parent = parent as LayoutGroupEx;
-            Log.Info("NUI", "Setting Layout Parent:" + (parent == null ? "null":parent.ToString() ) + " to:" + Owner?.Name + "\n");
-            // todo May need to force SetFrame with LayoutFlags
+            Log.Info("NUI", "Setting Parent Layout for:" +  Owner?.Name + " to (Parent):" + (parent == null ? "null":parent.ToString() ) + "\n");
         }
 
         /// <summary>
@@ -147,10 +146,11 @@ namespace Tizen.NUI
                                    (MeasuredHeight.Size == heightMeasureSpec.Size);
 
             bool needsLayout = specChanged && ( !isSpecExactly || !matchesSpecSize);
+            needsLayout = needsLayout || ((Flags & LayoutFlags.ForceLayout) == LayoutFlags.ForceLayout);
 
             Log.Info("NUI", "Measuring:" + Owner.Name + " needsLayout[" + needsLayout.ToString() + "]\n");
 
-            if (needsLayout || ((Flags & LayoutFlags.ForceLayout) == LayoutFlags.ForceLayout))
+            if (needsLayout)
             {
                 OnMeasure(widthMeasureSpec, heightMeasureSpec);
                 Flags = Flags | LayoutFlags.LayoutRequired;
@@ -248,6 +248,7 @@ namespace Tizen.NUI
         /// </summary>
         public void RequestLayout()
         {
+            Log.Info("NUI", "RequestLayout\n");
             Flags = Flags | LayoutFlags.ForceLayout;
             Window.Instance.LayoutController.RequestLayout(this);
         }
@@ -323,7 +324,7 @@ namespace Tizen.NUI
             get
             {
                 int naturalHeight = Owner.NaturalSize2D.Height;
-                Log.Info("NUI", "NaturalWidth for: " + Owner.Name + " :" + naturalHeight +"\n");
+                Log.Info("NUI", "NaturalHeight for: " + Owner.Name + " :" + naturalHeight +"\n");
                 return new LayoutLengthEx(Math.Max( MinimumHeight.AsDecimal(), naturalHeight ));
             }
         }

@@ -151,9 +151,9 @@ namespace Tizen.NUI
             bool isExactly = ( widthMode == MeasureSpecification.ModeType.Exactly );
             bool matchHeight = false;
             bool allFillParent = true;
-            LayoutLengthEx maxHeight = new LayoutLengthEx(0);
-            LayoutLengthEx alternativeMaxHeight = new LayoutLengthEx(0);
-            LayoutLengthEx weightedMaxHeight = new LayoutLengthEx(0);
+            float maxHeight = 0.0f;
+            float alternativeMaxHeight = 0.0f;
+            float weightedMaxHeight = 0.0f;
             float totalWeight = 0.0f;
 
             // Reset total length
@@ -161,7 +161,7 @@ namespace Tizen.NUI
             LayoutLengthEx usedExcessSpace = new LayoutLengthEx(0);
 
             HeightAndWidthState childState = new HeightAndWidthState(MeasuredSizeEx.StateType.MeasuredSizeOK,
-                                                                     MeasuredSizeEx.StateType.MeasuredSizeTooSmall);
+                                                                     MeasuredSizeEx.StateType.MeasuredSizeOK);
 
             // Measure children, and determine if further resolution is required
 
@@ -171,7 +171,7 @@ namespace Tizen.NUI
             // Weighted children are not measured at this phase.
             // Available space for weighted children will be calculated in the phase 2 based on totalLength value.
 
-            Log.Info("NUI", "Measuring Horizontal[" + _children.Count + "] child with parent width mode:" + widthMode + ",height mode:" + heightMode + "\n");
+            Log.Info("NUI", "Measuring Horizontal, " + _children.Count + " child(ren) with parent width mode:" + widthMode + ",height mode:" + heightMode + "\n");
 
             foreach( LayoutItemEx childLayout in _children )
             {
@@ -182,7 +182,7 @@ namespace Tizen.NUI
                 Log.Info("NUI", "Retrieved parameters for child:" + childLayout.Owner.Name
                                 + " childDesiredWidth: " + childDesiredWidth.AsRoundedValue()
                                 + " childDesiredHeight:" + childDesiredHeight.AsRoundedValue()
-                                + " childWeight:" + childWeight + "\n");
+                                + " childWeight:" + childWeight+ "\n");
 
                 totalWeight += childWeight;
 
@@ -193,7 +193,6 @@ namespace Tizen.NUI
                 }
                 else
                 {
-                    LayoutLengthEx childWidth = new LayoutLengthEx(childLayout.MeasuredWidth.Size);
                     if( useExcessSpace )
                     {
                         // The widthMode is either UNSPECIFIED or AT_MOST, and
@@ -205,12 +204,13 @@ namespace Tizen.NUI
                         MeasureSpecification childHeightMeasureSpec = GetChildMeasureSpecification(heightMeasureSpec, new LayoutLengthEx(childLayout.Owner.Padding.Top + childLayout.Owner.Padding.Bottom),
                                                                     childDesiredHeight);
                         childLayout.Measure( childWidthMeasureSpec, childHeightMeasureSpec);
-                        usedExcessSpace += childWidth;
+                        usedExcessSpace += childLayout.MeasuredWidth.Size;
                     }
                     else
                     {
                         MeasureChild(childLayout, widthMeasureSpec, heightMeasureSpec);
                     }
+                    LayoutLengthEx childWidth = childLayout.MeasuredWidth.Size;
 
                     LayoutLengthEx length = childWidth + childMargin.Start + childMargin.End;
                     if( isExactly )
@@ -224,7 +224,7 @@ namespace Tizen.NUI
                 }
 
                 bool matchHeightLocally = false;
-                if(heightMode != MeasureSpecification.ModeType.Exactly && (int)childDesiredHeight.AsRoundedValue() == LayoutParamPolicies.WrapContent)
+                if(heightMode != MeasureSpecification.ModeType.Exactly && (int)childDesiredHeight.AsRoundedValue() == LayoutParamPolicies.MatchParent)
                 {
                     // Will have to re-measure at least this child when we know exact height.
                     matchHeight = true;
@@ -243,25 +243,20 @@ namespace Tizen.NUI
                     childState.heightState = MeasuredSizeEx.StateType.MeasuredSizeTooSmall;
                 }
 
-                maxHeight = new LayoutLengthEx(Math.Max( maxHeight.AsDecimal(), childHeight.AsDecimal()));
+                maxHeight = Math.Max( maxHeight, childHeight.AsDecimal());
                 allFillParent = ( allFillParent && childDesiredHeight.AsRoundedValue() == LayoutParamPolicies.MatchParent );
 
-                float weightedHeight = childHeight.AsDecimal();
-                if (matchHeightLocally)
-                {
-                    weightedHeight = marginHeight.AsDecimal();
-                }
                 if( childWeight > 0 )
                 {
                   /*
                   * Heights of weighted Views are bogus if we end up
                   * remeasuring, so keep them separate.
                   */
-                  weightedMaxHeight = new LayoutLengthEx(Math.Max( weightedMaxHeight.AsDecimal(), weightedHeight ));
+                  weightedMaxHeight = Math.Max( weightedMaxHeight, matchHeightLocally ? marginHeight.AsDecimal() : childHeight.AsDecimal());
                 }
                 else
                 {
-                  alternativeMaxHeight = new LayoutLengthEx(Math.Max( alternativeMaxHeight.AsDecimal(), weightedHeight ));
+                  alternativeMaxHeight = Math.Max( alternativeMaxHeight, matchHeightLocally ? marginHeight.AsDecimal() : childHeight.AsDecimal() );
                 }
             } // foreach
 
@@ -272,19 +267,19 @@ namespace Tizen.NUI
             MeasuredSizeEx widthSizeAndState = ResolveSizeAndState( widthSize, widthMeasureSpec, MeasuredSizeEx.StateType.MeasuredSizeOK);
             widthSize = widthSizeAndState.Size;
 
-            if( !allFillParent && heightMode != MeasureSpecification.ModeType.Exactly)
+            if (!allFillParent && heightMode != MeasureSpecification.ModeType.Exactly)
             {
                 maxHeight = alternativeMaxHeight;
             }
             maxHeight += padding.Top + padding.Bottom;
-            maxHeight = new LayoutLengthEx( Math.Max( maxHeight.AsRoundedValue(), SuggestedMinimumHeight.AsRoundedValue() ));
+            maxHeight = Math.Max( maxHeight, SuggestedMinimumHeight.AsRoundedValue() );
 
             widthSizeAndState.State = childState.widthState;
 
             SetMeasuredDimensions(widthSizeAndState,
-                                  ResolveSizeAndState( maxHeight, heightMeasureSpec, childState.heightState ));
+                                  ResolveSizeAndState( new LayoutLengthEx(maxHeight), heightMeasureSpec, childState.heightState ));
 
-            if( matchHeight )
+            if (matchHeight)
             {
                 ForceUniformHeight( _children.Count, widthMeasureSpec );
             }

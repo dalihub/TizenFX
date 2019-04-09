@@ -38,7 +38,6 @@ namespace Tizen.NUI
         //A Flat to check if it is already disposed.
         protected bool disposed = false;
 
-        private View _root;
         private Window _window;
         /// <summary>
         /// Constructs a LayoutController which controls the measuring and layouting.<br />
@@ -128,23 +127,86 @@ namespace Tizen.NUI
             disposed = true;
         }
 
-        private View FindRootLayout()
+        private void AutomaticallyAssignLayouts(View rootNode)
         {
-            View result = null;
-            Layer defaultLayer = _window.GetDefaultLayer();
-            for (uint i = 0; i < defaultLayer.ChildCount; i++)
+            for (uint i = 0; i < rootNode.ChildCount; i++)
             {
-                View view = defaultLayer.GetChildAt(i);
-                // Search first level of tree for a View with a layout
-                // todo Improve search for multiple layers and breath search of Views.
-                if (view.LayoutEx != null)
+                View view = rootNode.GetChildAt(i);
+                if (rootNode.LayoutEx == null )
                 {
-                    result = view;
-                    Log.Info("NUI", "LayoutController Found Root layout:" + result.Name + "\n");
-                    return result;
+                    if (rootNode.GetType() == typeof(View))
+                    {
+                        Log.Info("NUI", "Creating LayoutGroup for " + rootNode.Name  + "\n");
+                        rootNode.LayoutEx = new LayoutGroupEx();
+                        AutomaticallyAssignLayouts(rootNode);
+                    }
+                    else
+                    {
+                        Log.Info("NUI", "Creating LayoutItem for " + rootNode.Name  + "\n");
+                        rootNode.LayoutEx = new LayoutItemEx();
+                    }
                 }
             }
-            return result;
+        }
+
+        private void FindRootLayouts(View rootNode)
+        {
+            if (rootNode.LayoutEx != null)
+            {
+                Log.Info("NUI", "Found root:" + rootNode.Name + "\n");
+                // rootNode has a layout, ensure all children have default layouts or layout items.
+                AutomaticallyAssignLayouts(rootNode);
+                // rootNode has a layout, start measuring and layouting from here.
+                MeasureAndLayout(rootNode);
+            }
+            else
+            {
+                // Search children of supplied node for a layout.
+                for (uint i = 0; i < rootNode.ChildCount; i++)
+                {
+                    View view = rootNode.GetChildAt(i);
+                    FindRootLayouts(view);
+                }
+            }
+        }
+
+        void MeasureAndLayout(View root)
+        {
+            if (root !=null)
+            {
+                // Get parent MeasureSpecification, this could be the Window or View with an exact size.
+                Container parentNode = root.GetParent();
+                Size2D rootSize;
+                Position2D rootPosition = root.Position2D;
+                View parentView = parentNode as View;
+                if (parentView)
+                {
+                    // Get parent View's Size.  If using Legacy size negotiation then should have been set already.
+                    rootSize = new Size2D(parentView.Size2D.Width, parentView.Size2D.Height);
+                }
+                else
+                {
+                    // Parent not a View so assume it's a Layer which is the size of the window.
+                    rootSize = new Size2D(_window.Size.Width, _window.Size.Height);
+                }
+
+                Log.Info("NUI", "Root parent size(" + rootSize.Width + "," + rootSize.Height + ")\n");
+
+                MeasureSpecification parentWidthSpecification =
+                    new MeasureSpecification( new LayoutLengthEx(rootSize.Width), MeasureSpecification.ModeType.AtMost);
+
+                MeasureSpecification parentHeightSpecification =
+                    new MeasureSpecification( new LayoutLengthEx(rootSize.Height), MeasureSpecification.ModeType.AtMost);
+
+                // Start at root with it's parent's widthSpecification and heightSpecification
+                MeasureHierarchy(root, parentWidthSpecification, parentHeightSpecification);
+
+                // Start at root which was just measured.
+                PerformLayout( root, new LayoutLengthEx(rootPosition.X),
+                                     new LayoutLengthEx(rootPosition.Y),
+                                     new LayoutLengthEx(rootPosition.X) + root.LayoutEx.MeasuredWidth.Size,
+                                     new LayoutLengthEx(rootPosition.Y) + root.LayoutEx.MeasuredHeight.Size );
+            }
         }
 
         /// <summary>
@@ -153,27 +215,12 @@ namespace Tizen.NUI
         private void Process(int id)
         {
             Log.Info("NUI", "LayoutController Process id:" + id + "\n");
-            // root, currently is the Window, needs to be View or derive from a class that
-            // is implemented by View, Layer and Window.
 
-            if (null == _root)
+            Layer defaultLayer = _window.GetDefaultLayer();
+            for (uint i = 0; i < defaultLayer.ChildCount; i++)
             {
-                _root = FindRootLayout();
-            }
-
-            if (_root !=null)
-            {
-                // Get root MeasureSpecification, this could be the Window with an exact size.
-                MeasureSpecification rootWidthSpecification =
-                    new MeasureSpecification( new LayoutLengthEx(_window.Size.Width), MeasureSpecification.ModeType.Exactly);
-                MeasureSpecification rootHeightSpecification =
-                    new MeasureSpecification( new LayoutLengthEx(_window.Size.Height), MeasureSpecification.ModeType.Exactly );
-                // Start at root with it's widthSpec and heightSpec
-                MeasureHierarchy( _root, rootWidthSpecification, rootHeightSpecification );
-
-                // Start at root with it's widthSpec and heightSpec
-                PerformLayout( _root, new LayoutLengthEx(0), new LayoutLengthEx(0),
-                               _root.MeasureSpecificationWidth.Size, _root.MeasureSpecificationHeight.Size );
+                View view = defaultLayer.GetChildAt(i);
+                FindRootLayouts(view);
             }
         }
 
