@@ -51,7 +51,7 @@ namespace Tizen.NUI
         /// </summary>
         public virtual void Add(LayoutItemEx childLayout)
         {
-            Log.Info("NUI","Add:" + childLayout.Owner.Name + " to:" + Owner.Name + "\n");
+            Log.Info("NUI","Add Layout:" + childLayout.Owner.Name + " to Layout:" + Owner.Name + "\n");
             _children.Add(childLayout);
             childLayout.SetParent(this);
             OnChildAdd(childLayout);
@@ -121,11 +121,20 @@ namespace Tizen.NUI
                     }
                 }
             }
-
-            // Add child layout to this LayoutGroup (Setting parent in the process)
-            Add(child.LayoutEx);
+            else
+            {
+                // Add child layout to this LayoutGroup (Setting parent in the process)
+                if(child.LayoutEx != null)
+                {
+                    Add(child.LayoutEx);
+                }
+            }
         }
 
+        /// <summary>
+        /// If the child has a layout then it is removed from the parent layout.
+        /// </summary>
+        /// <param name="child">Child to remove.true</param>
         private void RemoveChildFromLayoutGroup(View child)
         {
             Log.Info("NUI", "Removing child View:" + child.Name + " from Layout:" + Owner?.Name + "\n");
@@ -138,14 +147,21 @@ namespace Tizen.NUI
         }
 
         /// <summary>
-        /// Callback for ChildAddedEvent
+        /// Callback for View.ChildAdded event
         /// </summary>
+        /// <param name="sender">The object triggering the event.</param>
+        /// <param name="childAddedEvent">Arguments from the event.</param>
         void OnChildAddedToOwner(object sender, View.ChildAddedEventArgs childAddedEvent)
         {
             AddChildToLayoutGroup(childAddedEvent.Added);
         }
 
-        void OnChildFromOwner(object sender, View.ChildRemovedEventArgs childRemovedEvent)
+        /// <summary>
+        /// Callback for View.ChildRemoved event
+        /// </summary>
+        /// <param name="sender">The object triggering the event.</param>
+        /// <param name="childRemovedEvent">Arguments from the event.</param>
+        void OnChildRemovedFromOwner(object sender, View.ChildRemovedEventArgs childRemovedEvent)
         {
             RemoveChildFromLayoutGroup(childRemovedEvent.Removed);
         }
@@ -335,6 +351,7 @@ namespace Tizen.NUI
         /// </summary>
         protected override void OnAttachedToOwner()
         {
+            Log.Info("NUI", "Attaching to Owner:" + Owner.Name + "\n");
             // Layout takes ownership of it's owner's children.
             foreach (View view in Owner.Children)
             {
@@ -343,12 +360,13 @@ namespace Tizen.NUI
 
             // Layout attached to owner so connect to ChildAdded and ChildRemoved signals.
             Owner.ChildAdded += OnChildAddedToOwner;
-            Owner.ChildRemoved += OnChildFromOwner;
+            Owner.ChildRemoved += OnChildRemovedFromOwner;
 
             // Add layout to parent layout
-            View parent = Owner.GetParent() as View;
-            (parent?.LayoutEx as LayoutGroupEx)?.Add( this );
+            // View parent = Owner.GetParent() as View;
+            // (parent?.LayoutEx as LayoutGroupEx)?.Add( this );
         }
+
         // Virtual Methods that can be overridden by derived classes.
 
         /// <summary>
