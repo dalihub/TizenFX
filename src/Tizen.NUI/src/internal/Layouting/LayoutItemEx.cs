@@ -118,9 +118,12 @@ namespace Tizen.NUI
         /// <param name="owner">Owner of this Layout.</param>
         internal void AttachToOwner(View owner)
         {
-            // Assigned the layout an owner.
+            // Assign the layout owner.
             Owner = owner;
             OnAttachedToOwner();
+            // Add layout to parent layout if a layout container
+            View parent = Owner.GetParent() as View;
+            (parent?.LayoutEx as LayoutGroupEx)?.Add( this );
         }
 
         /// <summary>
@@ -248,7 +251,7 @@ namespace Tizen.NUI
         /// </summary>
         public void RequestLayout()
         {
-            Log.Info("NUI", "RequestLayout on: \n" + Owner?.Name);
+            Log.Info("NUI", "RequestLayout on:" + Owner?.Name + "\n");
             Flags = Flags | LayoutFlags.ForceLayout;
             Window.Instance.LayoutController.RequestLayout(this);
         }

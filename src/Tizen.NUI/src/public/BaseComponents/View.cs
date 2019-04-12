@@ -2343,7 +2343,7 @@ namespace Tizen.NUI.BaseComponents
         /// This is true by default.
         /// </summary>
         /// <remarks>If false, then the top-left of the view is used for the position.
-        /// Setting this to false will allow scaling or rotation around the anchor-point without affecting the view's position.
+        /// Setting this to false will allow scaling or rotation around the pivot point without affecting the view's position.
         /// </remarks>
         /// <since_tizen> 3 </since_tizen>
         public bool PositionUsesPivotPoint
@@ -3419,6 +3419,8 @@ namespace Tizen.NUI.BaseComponents
             set
             {
                 _widthPolicy = value;
+                _measureSpecificationWidth = new MeasureSpecification(new LayoutLengthEx(value), MeasureSpecification.ModeType.Exactly);
+                _layout?.RequestLayout();
             }
         }
 
@@ -3434,6 +3436,8 @@ namespace Tizen.NUI.BaseComponents
             set
             {
                 _heightPolicy = value;
+                _measureSpecificationHeight = new MeasureSpecification(new LayoutLengthEx(value), MeasureSpecification.ModeType.Exactly);
+                _layout?.RequestLayout();
             }
         }
 
@@ -3616,10 +3620,15 @@ namespace Tizen.NUI.BaseComponents
                 _layout?.Unparent();
 
                 // Set layout to this view
-                _layout = value;
-                _layout.AttachToOwner(this);
-                _layout.RequestLayout();
+                SetLayout(value);
             }
+        }
+
+        internal void SetLayout(LayoutItemEx layout)
+        {
+            _layout = layout;
+            _layout.AttachToOwner(this);
+            _layout.RequestLayout();
         }
 
         /// <summary>
