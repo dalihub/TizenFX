@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "99d6eedf_80b3a9dd",
+        "filename": "src/Tizen.NUI/src/internal/Layouting/LayoutGroupEx.cs",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1007416
+      },
+      "writtenOn": "2019-04-16T11:03:04Z",
+      "side": 1,
+      "message": "missing documentation.",
+      "revId": "36108e287dbc586bb585016869f4416f463250dc",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
