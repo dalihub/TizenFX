@@ -212,13 +212,24 @@ namespace Tizen.NUI
 
                 if (root.WidthSpecification >= 0 )
                 {
-                    // exact size provided
+                    // exact size provided so match width exactly
                     width = new LayoutLengthEx(root.WidthSpecification);
                     widthMode = MeasureSpecification.ModeType.Exactly;
                 }
                 else if (root.WidthSpecification == LayoutParamPolicies.MatchParent)
                 {
                     widthMode = MeasureSpecification.ModeType.Exactly;
+                }
+
+                if (root.HeightSpecification >= 0 )
+                {
+                    // exact size provided so match height exactly
+                    height = new LayoutLengthEx(root.HeightSpecification);
+                    heightMode = MeasureSpecification.ModeType.Exactly;
+                }
+                else if (root.HeightSpecification == LayoutParamPolicies.MatchParent)
+                {
+                    heightMode = MeasureSpecification.ModeType.Exactly;
                 }
 
                 MeasureSpecification parentWidthSpecification =
