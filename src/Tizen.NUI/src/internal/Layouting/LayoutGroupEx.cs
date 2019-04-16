@@ -141,8 +141,7 @@ namespace Tizen.NUI
 
             if(child.LayoutEx != null)
             {
-                LayoutGroupEx layoutGroup = child.LayoutEx as LayoutGroupEx;
-                layoutGroup?.Remove(child.LayoutEx);
+                Remove(child.LayoutEx);
             }
         }
 
@@ -284,8 +283,9 @@ namespace Tizen.NUI
                     MeasureChild( childLayout, widthMeasureSpec, heightMeasureSpec );
                     LayoutLengthEx childWidth = new LayoutLengthEx(childLayout.MeasuredWidth.Size);
                     LayoutLengthEx childHeight = new LayoutLengthEx( childLayout.MeasuredHeight.Size);
-                    measuredWidth = new LayoutLengthEx(Math.Max( measuredWidth.AsDecimal(), childWidth.AsDecimal() ));
-                    measuredHeight = new LayoutLengthEx(Math.Max( measuredHeight.AsDecimal(), childHeight.AsDecimal() ));
+                    Extents childMargin = childLayout.Owner.Margin;
+                    measuredWidth = new LayoutLengthEx(Math.Max( measuredWidth.AsDecimal(), childWidth.AsDecimal() + childMargin.Start + childMargin.End));
+                    measuredHeight = new LayoutLengthEx(Math.Max( measuredHeight.AsDecimal(), childHeight.AsDecimal() + childMargin.Top + childMargin.Bottom));
                 }
             }
 
@@ -327,8 +327,8 @@ namespace Tizen.NUI
                         // Margin and Padding only supported when child anchor point is TOP_LEFT.
                         if ( owner.PivotPoint == PivotPoint.TopLeft || ( owner.PositionUsesPivotPoint == false ) )
                         {
-                          childLeft = childLeft + owner.Padding.Start + childLayout.Owner.Margin.Start;
-                          childTop = childTop + owner.Padding.Top + childLayout.Owner.Margin.Top;
+                            childLeft = childLeft + owner.Padding.Start + childLayout.Owner.Margin.Start;
+                            childTop = childTop + owner.Padding.Top + childLayout.Owner.Margin.Top;
                         }
                     }
                     childLayout.Layout( childLeft, childTop, childLeft + childLayout.MeasuredWidth.Size, childTop + childLayout.MeasuredHeight.Size );
@@ -343,7 +343,7 @@ namespace Tizen.NUI
         /// <param name="oldSize">The old size of the layout.</param>
         protected override void OnSizeChanged(LayoutSizeEx newSize, LayoutSizeEx oldSize)
         {
-            //Do nothing
+            // Do nothing
         }
 
         /// <summary>
@@ -361,10 +361,6 @@ namespace Tizen.NUI
             // Layout attached to owner so connect to ChildAdded and ChildRemoved signals.
             Owner.ChildAdded += OnChildAddedToOwner;
             Owner.ChildRemoved += OnChildRemovedFromOwner;
-
-            // Add layout to parent layout
-            // View parent = Owner.GetParent() as View;
-            // (parent?.LayoutEx as LayoutGroupEx)?.Add( this );
         }
 
         // Virtual Methods that can be overridden by derived classes.

@@ -3326,8 +3326,8 @@ namespace Tizen.NUI.BaseComponents
             set
             {
                 SetValue(MarginProperty, value);
-                _layout?.RequestLayout();
                 NotifyPropertyChanged();
+                _layout?.RequestLayout();
             }
         }
 
@@ -3346,6 +3346,7 @@ namespace Tizen.NUI.BaseComponents
                 if (_widthPolicy >= 0)
                 {
                     _measureSpecificationWidth = new MeasureSpecification( new LayoutLengthEx(value), MeasureSpecification.ModeType.Exactly );
+                    Size2D.Width = _widthPolicy;
                 }
                 _layout?.RequestLayout();
             }
@@ -3366,6 +3367,7 @@ namespace Tizen.NUI.BaseComponents
                 if (_heightPolicy >= 0)
                 {
                     _measureSpecificationHeight = new MeasureSpecification( new LayoutLengthEx(value), MeasureSpecification.ModeType.Exactly );
+                    Size2D.Height = _heightPolicy;
                 }
                _layout?.RequestLayout();
             }
@@ -3420,6 +3422,7 @@ namespace Tizen.NUI.BaseComponents
             {
                 _widthPolicy = value;
                 _measureSpecificationWidth = new MeasureSpecification(new LayoutLengthEx(value), MeasureSpecification.ModeType.Exactly);
+                Size2D.Width = value;
                 _layout?.RequestLayout();
             }
         }
@@ -3437,6 +3440,7 @@ namespace Tizen.NUI.BaseComponents
             {
                 _heightPolicy = value;
                 _measureSpecificationHeight = new MeasureSpecification(new LayoutLengthEx(value), MeasureSpecification.ModeType.Exactly);
+                Size2D.Height = value;
                 _layout?.RequestLayout();
             }
         }
