@@ -420,23 +420,28 @@ namespace Tizen.NUI.BaseComponents
                 default: return Tizen.NUI.VerticalAlignmentType.Top;
             }
         });
-        /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
+
+        /// <summary>
+        /// "Please DO NOT use! This will be deprecated! Please use 'View Weight' instead of BindableProperty"
+        /// This needs to be hidden as inhouse API until all applications using it have been updated.  Do not make public.
+        /// </summary>
+        [Obsolete("Please DO NOT use! This will be deprecated! Please use 'View Weight' instead of BindableProperty ")]
         [EditorBrowsable(EditorBrowsableState.Never)]
         public static readonly BindableProperty WeightProperty = BindableProperty.Create("Weight", typeof(float), typeof(View), default(float), propertyChanged: (bindable, oldValue, newValue) =>
         {
             var view = (View)bindable;
             if (newValue != null)
             {
-                Tizen.NUI.Object.SetProperty(view.swigCPtr, LinearLayout.ChildProperty.WEIGHT, new Tizen.NUI.PropertyValue((float)newValue));
+                view.Weight = (float)newValue;
             }
         },
+
         defaultValueCreator: (bindable) =>
         {
             var view = (View)bindable;
-            float temp = 0.0f;
-            Tizen.NUI.Object.GetProperty(view.swigCPtr, LinearLayout.ChildProperty.WEIGHT).Get(out temp);
-            return temp;
+            return view.Weight;
         });
+
         /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
         [EditorBrowsable(EditorBrowsableState.Never)]
         public static readonly BindableProperty LeftFocusableViewProperty = BindableProperty.Create(nameof(View.LeftFocusableView), typeof(View), typeof(View), null, propertyChanged: (bindable, oldValue, newValue) =>
@@ -1282,6 +1287,7 @@ namespace Tizen.NUI.BaseComponents
         private LayoutItemEx _layout; // Exclusive layout assigned to this View.
         private int _widthPolicy = LayoutParamPolicies.WrapContent; // Layout width policy
         private int _heightPolicy = LayoutParamPolicies.WrapContent; // Layout height policy
+        private float _weight = 0.0f; // Weighting of child View in a Layout
         private MeasureSpecification _measureSpecificationWidth; // Layout width and internal Mode
         private MeasureSpecification _measureSpecificationHeight; // Layout height and internal Mode
         private bool _backgroundImageSynchronosLoading = false;
@@ -2530,7 +2536,7 @@ namespace Tizen.NUI.BaseComponents
             set
             {
                 SetValue(SizeWidthProperty, value);
-                SetProperty(LayoutItemWrapper.ChildProperty.WIDTH_SPECIFICATION, new Tizen.NUI.PropertyValue(value));
+                WidthSpecification = (int)Math.Ceiling(value);
                 NotifyPropertyChanged();
             }
         }
@@ -2548,7 +2554,7 @@ namespace Tizen.NUI.BaseComponents
             set
             {
                 SetValue(SizeHeightProperty, value);
-                SetProperty(LayoutItemWrapper.ChildProperty.HEIGHT_SPECIFICATION, new Tizen.NUI.PropertyValue(value));
+                HeightSpecification = (int)Math.Ceiling(value);
                 NotifyPropertyChanged();
             }
         }
@@ -3235,8 +3241,8 @@ namespace Tizen.NUI.BaseComponents
                 SetValue(SizeProperty, value);
                 // Set Specification so when layouts measure this View it matches the value set here.
                 // All Views are currently Layouts.
-                SetProperty(LayoutItemWrapper.ChildProperty.WIDTH_SPECIFICATION, new Tizen.NUI.PropertyValue(value.Width));
-                SetProperty(LayoutItemWrapper.ChildProperty.HEIGHT_SPECIFICATION, new Tizen.NUI.PropertyValue(value.Height));
+                WidthSpecification = (int)Math.Ceiling(value.Width);
+                HeightSpecification = (int)Math.Ceiling(value.Height);
                 NotifyPropertyChanged();
             }
         }
@@ -3483,12 +3489,11 @@ namespace Tizen.NUI.BaseComponents
         {
             get
             {
-                return (float)GetValue(WeightProperty);
+                return _weight;
             }
             set
             {
-                SetValue(WeightProperty, value);
-                NotifyPropertyChanged();
+                _weight = value;
                 _layout.RequestLayout();
             }
         }
@@ -3560,35 +3565,6 @@ namespace Tizen.NUI.BaseComponents
             set
             {
                 SetKeyboardFocusable(value);
-            }
-        }
-
-        /// <summary>
-        /// Set the layout on this control.  Replaced by LayoutEx.
-        /// </summary>
-        /// <remarks>
-        /// </remarks>
-        internal LayoutItem Layout
-        {
-            get
-            {
-                IntPtr cPtr = Tizen.NUI.NDalicManualPINVOKE.GetLayout__SWIG_1(View.getCPtr(this));
-
-                HandleRef CPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
-                BaseHandle basehandle = Registry.GetManagedBaseHandleFromNativePtr(CPtr.Handle);
-                NDalicPINVOKE.delete_BaseHandle(CPtr);
-                CPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
-
-                if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-
-                return basehandle as LayoutItem;
-            }
-            set
-            {
-                Log.Info("NUI", "Set Layout on:" + Name + "\n");
-                layoutingDisabled = false;
-                layoutSet = true;
-                SetLayout(value);
             }
         }
 
@@ -3668,25 +3644,6 @@ namespace Tizen.NUI.BaseComponents
             get
             {
                 return _measureSpecificationHeight;
-            }
-        }
-
-        /// <summary>
-        /// Set that layouting is required on this View. It will automatically receive a Layout.
-        /// </summary>
-        /// <remarks>
-        /// </remarks>
-        internal bool LayoutingRequired
-        {
-            get
-            {
-                bool result = Tizen.NUI.NDalicManualPINVOKE.View_IsLayoutingRequired(View.getCPtr(this));
-                if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-                return result;
-            }
-            set
-            {
-                Tizen.NUI.NDalicManualPINVOKE.View_SetLayoutingRequired(View.getCPtr(this), value);
             }
         }
 
@@ -3929,7 +3886,8 @@ namespace Tizen.NUI.BaseComponents
         /// <since_tizen> 4 </since_tizen>
         public override void Add(View child)
         {
-            Log.Info("NUI", "Add:" + child.Name + " to Layout:" + Name + "\n");
+            bool hasLayout = (_layout != null);
+            Log.Info("NUI", "Add:" + child.Name + " to View:" + Name + "which has layout[" + hasLayout + "] + \n");
 
             if (null == child)
             {
@@ -5169,16 +5127,6 @@ namespace Tizen.NUI.BaseComponents
         internal IntPtr GetPtrfromView()
         {
             return (IntPtr)swigCPtr;
-        }
-
-        internal void SetLayout(LayoutItem layout)
-        {
-            Tizen.NUI.NDalicManualPINVOKE.SetLayout__SWIG_1(View.getCPtr(this), LayoutItem.getCPtr(layout));
-            layout.LayoutChildren.Clear();
-            foreach (View view in Children)
-            {
-                layout.LayoutChildren.Add(view.Layout);
-            }
         }
 
         /// <summary>
