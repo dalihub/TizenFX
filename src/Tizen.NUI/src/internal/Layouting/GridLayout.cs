@@ -24,7 +24,7 @@ namespace Tizen.NUI
     /// <summary>
     /// [Draft] This class implements a grid layout
     /// </summary>
-    internal class GridLayout : LayoutGroupEx
+    internal class GridLayout : LayoutGroup
     {
         const int AUTO_FIT = -1;
         private int _columns = 1;
@@ -119,7 +119,7 @@ namespace Tizen.NUI
 
             if (childCount > 0)
             {
-                LayoutItemEx childLayoutItem = _children[0];
+                LayoutItem childLayoutItem = _children[0];
                 View childOwner = childLayoutItem.Owner;
 
                 MeasureChild( childLayoutItem, widthMeasureSpec, heightMeasureSpec );
@@ -198,11 +198,11 @@ namespace Tizen.NUI
 
             } // Children exists
 
-            SetMeasuredDimensions( ResolveSizeAndState( new LayoutLengthEx(widthSize), widthMeasureSpec, MeasuredSizeEx.StateType.MeasuredSizeOK ),
-                                   ResolveSizeAndState( new LayoutLengthEx(heightSize), heightMeasureSpec,  MeasuredSizeEx.StateType.MeasuredSizeOK ) );
+            SetMeasuredDimensions( ResolveSizeAndState( new LayoutLength(widthSize), widthMeasureSpec, MeasuredSize.StateType.MeasuredSizeOK ),
+                                   ResolveSizeAndState( new LayoutLength(heightSize), heightMeasureSpec,  MeasuredSize.StateType.MeasuredSizeOK ) );
         }
 
-        protected override void OnLayout( bool changed, LayoutLengthEx left, LayoutLengthEx top, LayoutLengthEx right, LayoutLengthEx bottom )
+        protected override void OnLayout( bool changed, LayoutLength left, LayoutLength top, LayoutLength right, LayoutLength bottom )
         {
             List<GridLocations.Cell> locations = _locations.GetLocations();
 
@@ -216,7 +216,7 @@ namespace Tizen.NUI
             }
 
             int index = 0;
-            foreach( LayoutItemEx childLayout in _children )
+            foreach( LayoutItem childLayout in _children )
             {
                 // for each child
                 if( childLayout != null )
@@ -244,8 +244,8 @@ namespace Tizen.NUI
                     y1 += childMargins.Top;
                     y2 -= childMargins.Bottom;
 
-                    childLayout.Layout( new LayoutLengthEx(x1), new LayoutLengthEx(y1),
-                                        new LayoutLengthEx(x2), new LayoutLengthEx(y2) );
+                    childLayout.Layout( new LayoutLength(x1), new LayoutLength(y1),
+                                        new LayoutLength(x2), new LayoutLength(y2) );
                     index++;
                 }
             }

@@ -23,14 +23,14 @@ namespace Tizen.NUI
     /// <summary>
     /// [Draft] Class that encodes a measurement and a measure state, which is set if the measured size is too small.
     /// </summary>
-    internal struct MeasuredSizeEx
+    internal struct MeasuredSize
     {
         /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="measuredSize">size parameter</param>
         /// <param name="state">State</param>
-        public MeasuredSizeEx(LayoutLengthEx measuredSize, MeasuredSizeEx.StateType state)
+        public MeasuredSize(LayoutLength measuredSize, MeasuredSize.StateType state)
         {
             Size = measuredSize;
             State = state;
@@ -40,15 +40,15 @@ namespace Tizen.NUI
         /// Creates a MeasuredSize from a LayoutLength
         /// </summary>
         /// <param name="measuredSize">LayoutLength to create </param>
-        public static implicit operator MeasuredSizeEx(LayoutLengthEx measuredSize)
+        public static implicit operator MeasuredSize(LayoutLength measuredSize)
         {
-            return new MeasuredSizeEx(measuredSize, StateType.MeasuredSizeOK);
+            return new MeasuredSize(measuredSize, StateType.MeasuredSizeOK);
         }
 
         /// <summary>
         /// LayoutLength size property
         /// </summary>
-        public LayoutLengthEx Size{ get; set;}
+        public LayoutLength Size{ get; set;}
 
         /// <summary>
         /// Measured state for this size.

@@ -24,7 +24,7 @@ namespace Tizen.NUI
     /// <summary>
     /// [Draft] A type that represents a layout length. Currently, this implies pixels, but could be extended to handle device dependant sizes, etc.
     /// </summary>
-    internal struct LayoutLengthEx
+    internal struct LayoutLength
     {
         private float _value;
 
@@ -32,7 +32,7 @@ namespace Tizen.NUI
         /// [Draft] Constructor from an int
         /// </summary>
         /// <param name="value">Int to initialize with.</param>
-        public LayoutLengthEx(int value)
+        public LayoutLength(int value)
         {
             _value = value;
         }
@@ -41,7 +41,7 @@ namespace Tizen.NUI
         /// [Draft] Constructor from a float
         /// </summary>
         /// <param name="value">Float to initialize with.</param>
-        public LayoutLengthEx(float value)
+        public LayoutLength(float value)
         {
             _value = value;
         }
@@ -50,7 +50,7 @@ namespace Tizen.NUI
         /// [Draft] Constructor from a LayoutLength
         /// </summary>
         /// <param name="layoutLength">LayoutLength object to initialize with.</param>
-        public LayoutLengthEx(LayoutLengthEx layoutLength)
+        public LayoutLength(LayoutLength layoutLength)
         {
             _value = layoutLength._value;
         }
@@ -79,7 +79,7 @@ namespace Tizen.NUI
         /// <param name="arg1">The first value.</param>
         /// <param name="arg2">The second value</param>
         /// <returns>true if LayoutLengths are equal</returns>
-        public static bool operator ==(LayoutLengthEx arg1, LayoutLengthEx arg2)
+        public static bool operator ==(LayoutLength arg1, LayoutLength arg2)
         {
             return arg1.Equals(arg2);
         }
@@ -90,7 +90,7 @@ namespace Tizen.NUI
         /// <param name="arg1">The first value.</param>
         /// <param name="arg2">The second value</param>
         /// <returns>true if LayoutLengths are not equal</returns>
-        public static bool operator !=(LayoutLengthEx arg1, LayoutLengthEx arg2)
+        public static bool operator !=(LayoutLength arg1, LayoutLength arg2)
         {
             return !arg1.Equals(arg2);
         }
@@ -102,9 +102,9 @@ namespace Tizen.NUI
         /// <returns>true if equal LayoutLength, else false.</returns>
         public override bool Equals(object obj)
         {
-            if (obj is LayoutLengthEx)
+            if (obj is LayoutLength)
             {
-                return this.Equals((LayoutLengthEx)obj);
+                return this.Equals((LayoutLength)obj);
             }
             return false;
         }
@@ -114,7 +114,7 @@ namespace Tizen.NUI
         /// </summary>
         /// <param name="layoutLength">The LayoutLength to compare with the current LayoutLength.</param>
         /// <returns>true if equal LayoutLengths, else false.</returns>
-        public bool Equals(LayoutLengthEx layoutLength)
+        public bool Equals(LayoutLength layoutLength)
         {
             return (Math.Abs(_value - layoutLength._value ) <= float.Epsilon);
         }
@@ -133,9 +133,9 @@ namespace Tizen.NUI
         /// <param name="arg1">The first value.</param>
         /// <param name="arg2">The second value.</param>
         /// <returns>The LayoutLength containing the result of the addition.</returns>
-        public static LayoutLengthEx operator +(LayoutLengthEx arg1, LayoutLengthEx arg2)
+        public static LayoutLength operator +(LayoutLength arg1, LayoutLength arg2)
         {
-            return new LayoutLengthEx( arg1._value + arg2._value );
+            return new LayoutLength( arg1._value + arg2._value );
         }
 
         /// <summary>
@@ -144,9 +144,9 @@ namespace Tizen.NUI
         /// <param name="arg1">The first value.</param>
         /// <param name="arg2">The second value.</param>
         /// <returns>The LayoutLength containing the result of the addition.</returns>
-        public static LayoutLengthEx operator +(LayoutLengthEx arg1, int arg2)
+        public static LayoutLength operator +(LayoutLength arg1, int arg2)
         {
-            return new LayoutLengthEx(arg1._value + (float)arg2);
+            return new LayoutLength(arg1._value + (float)arg2);
         }
 
         /// <summary>
@@ -155,9 +155,9 @@ namespace Tizen.NUI
         /// <param name="arg1">The first value.</param>
         /// <param name="arg2">The second value.</param>
         /// <returns>The LayoutLength containing the result of the subtraction.</returns>
-        public static LayoutLengthEx operator -(LayoutLengthEx arg1, LayoutLengthEx arg2)
+        public static LayoutLength operator -(LayoutLength arg1, LayoutLength arg2)
         {
-            return new LayoutLengthEx(arg1._value - arg2._value);
+            return new LayoutLength(arg1._value - arg2._value);
         }
 
         /// <summary>
@@ -166,9 +166,9 @@ namespace Tizen.NUI
         /// <param name="arg1">The first value.</param>
         /// <param name="arg2">The second value.</param>
         /// <returns>The LayoutLength containing the result of the subtraction.</returns>
-        public static LayoutLengthEx operator -(LayoutLengthEx arg1, int arg2)
+        public static LayoutLength operator -(LayoutLength arg1, int arg2)
         {
-            return new LayoutLengthEx(arg1._value - (float)arg2);
+            return new LayoutLength(arg1._value - (float)arg2);
         }
 
         /// <summary>
@@ -177,9 +177,9 @@ namespace Tizen.NUI
         /// <param name="arg1">The first value.</param>
         /// <param name="arg2">The second value.</param>
         /// <returns>The LayoutLength containing the result of the multiplication.</returns>
-        public static LayoutLengthEx operator *(LayoutLengthEx arg1, LayoutLengthEx arg2)
+        public static LayoutLength operator *(LayoutLength arg1, LayoutLength arg2)
         {
-            return new LayoutLengthEx(arg1._value * arg2._value);
+            return new LayoutLength(arg1._value * arg2._value);
         }
 
         /// <summary>
@@ -188,9 +188,9 @@ namespace Tizen.NUI
         /// <param name="arg1">The first value.</param>
         /// <param name="arg2">The int value to scale the LayoutLength.</param>
         /// <returns>The LayoutLength containing the result of the scaling.</returns>
-        public static LayoutLengthEx operator *(LayoutLengthEx arg1, int arg2)
+        public static LayoutLength operator *(LayoutLength arg1, int arg2)
         {
-            return new LayoutLengthEx(arg1._value * arg2);
+            return new LayoutLength(arg1._value * arg2);
         }
 
         /// <summary>
@@ -199,9 +199,9 @@ namespace Tizen.NUI
         /// <param name="arg1">The first value.</param>
         /// <param name="arg2">The second value.</param>
         /// <returns>The LayoutLength containing the result of the division.</returns>
-        public static LayoutLengthEx operator /(LayoutLengthEx arg1, LayoutLengthEx arg2)
+        public static LayoutLength operator /(LayoutLength arg1, LayoutLength arg2)
         {
-            return new LayoutLengthEx(arg1._value /  arg2._value);
+            return new LayoutLength(arg1._value /  arg2._value);
         }
 
         /// <summary>
@@ -210,9 +210,9 @@ namespace Tizen.NUI
         /// <param name="arg1">The first value.</param>
         /// <param name="arg2">The int value to scale the vector by.</param>
         /// <returns>The LayoutLength containing the result of the scaling.</returns>
-        public static LayoutLengthEx operator /(LayoutLengthEx arg1, int arg2)
+        public static LayoutLength operator /(LayoutLength arg1, int arg2)
         {
-            return new LayoutLengthEx(arg1._value / (float)arg2);
+            return new LayoutLength(arg1._value / (float)arg2);
         }
     }
 }
