@@ -105,12 +105,16 @@ namespace Tizen.NUI
                 if ((true == Owner.layoutSet || GetType() == typeof(View)))
                 {
                     Log.Info("NUI", "Parent[" + Owner.Name + "] Layout set[" + Owner.layoutSet.ToString() + "] Pure View[" + (!Owner.layoutSet).ToString() + "]\n");
-                    // If child is a View or explicitly set to require layouting then set child as a LayoutGroup.
+                    // If child of this layout is a pure View then assign it a LayoutGroup
                     // If the child is derived from a View then it may be a legacy or existing container hence will do layouting itself.
-                    if (child.GetType() == typeof(View) || true == child.LayoutingRequired)
+                    if (child.GetType() == typeof(View))
                     {
-                        Log.Info("NUI", "Creating LayoutGroup for " + child.Name + " LayoutingRequired[" + child.LayoutingRequired.ToString() + "]\n");
+<<<<<<< HEAD:src/Tizen.NUI/src/internal/Layouting/LayoutGroupEx.cs
+                        Log.Info("NUI", "Creating LayoutGroup for " + child.Name +  "]\n");
                         child.LayoutEx = new LayoutGroupEx();
+=======
+                        child.Layout = new LayoutGroup();
+>>>>>>> 81932b0... More to remove:src/Tizen.NUI/src/internal/Layouting/LayoutGroup.cs
                     }
                     else
                     {
