@@ -1284,7 +1284,7 @@ namespace Tizen.NUI.BaseComponents
 
         internal readonly MergedStyle _mergedStyle;
         private global::System.Runtime.InteropServices.HandleRef swigCPtr;
-        private LayoutItemEx _layout; // Exclusive layout assigned to this View.
+        private LayoutItem _layout; // Exclusive layout assigned to this View.
         private int _widthPolicy = LayoutParamPolicies.WrapContent; // Layout width policy
         private int _heightPolicy = LayoutParamPolicies.WrapContent; // Layout height policy
         private float _weight = 0.0f; // Weighting of child View in a Layout
@@ -2270,8 +2270,8 @@ namespace Tizen.NUI.BaseComponents
                 SetValue(Size2DProperty, value);
                 // Set Specification so when layouts measure this View it matches the value set here.
                 // All Views are currently Layouts.
-                MeasureSpecificationWidth = new MeasureSpecification(new LayoutLengthEx(value.Width), MeasureSpecification.ModeType.Exactly);
-                MeasureSpecificationHeight = new MeasureSpecification(new LayoutLengthEx(value.Height), MeasureSpecification.ModeType.Exactly);
+                MeasureSpecificationWidth = new MeasureSpecification(new LayoutLength(value.Width), MeasureSpecification.ModeType.Exactly);
+                MeasureSpecificationHeight = new MeasureSpecification(new LayoutLength(value.Height), MeasureSpecification.ModeType.Exactly);
                 NotifyPropertyChanged();
             }
         }
@@ -3105,8 +3105,8 @@ namespace Tizen.NUI.BaseComponents
                 {
                     // Note: it only works if minimum size is >= than natural size.
                     // To force the size it should be done through the width&height spec or Size2D.
-                    _layout.MinimumWidth = new Tizen.NUI.LayoutLengthEx(value.Width);
-                    _layout.MinimumHeight = new Tizen.NUI.LayoutLengthEx(value.Height);
+                    _layout.MinimumWidth = new Tizen.NUI.LayoutLength(value.Width);
+                    _layout.MinimumHeight = new Tizen.NUI.LayoutLength(value.Height);
                     _layout.RequestLayout();
                 }
                 SetValue(MinimumSizeProperty, value);
@@ -3132,8 +3132,8 @@ namespace Tizen.NUI.BaseComponents
                 {
                     // Note: it only works if minimum size is >= than natural size.
                     // To force the size it should be done through the width&height spec or Size2D.
-                    _layout.MinimumHeight = new Tizen.NUI.LayoutLengthEx(value.Width);
-                    _layout.MinimumWidth = new Tizen.NUI.LayoutLengthEx(value.Height);
+                    _layout.MinimumHeight = new Tizen.NUI.LayoutLength(value.Width);
+                    _layout.MinimumWidth = new Tizen.NUI.LayoutLength(value.Height);
                     _layout.RequestLayout();
                 }
                 SetValue(MaximumSizeProperty, value);
@@ -3355,7 +3355,7 @@ namespace Tizen.NUI.BaseComponents
                 _widthPolicy = value;
                 if (_widthPolicy >= 0)
                 {
-                    _measureSpecificationWidth = new MeasureSpecification( new LayoutLengthEx(value), MeasureSpecification.ModeType.Exactly );
+                    _measureSpecificationWidth = new MeasureSpecification( new LayoutLength(value), MeasureSpecification.ModeType.Exactly );
                     Size2D.Width = _widthPolicy;
                 }
                 _layout?.RequestLayout();
@@ -3376,7 +3376,7 @@ namespace Tizen.NUI.BaseComponents
                 _heightPolicy = value;
                 if (_heightPolicy >= 0)
                 {
-                    _measureSpecificationHeight = new MeasureSpecification( new LayoutLengthEx(value), MeasureSpecification.ModeType.Exactly );
+                    _measureSpecificationHeight = new MeasureSpecification( new LayoutLength(value), MeasureSpecification.ModeType.Exactly );
                     Size2D.Height = _heightPolicy;
                 }
                _layout?.RequestLayout();
@@ -3431,7 +3431,7 @@ namespace Tizen.NUI.BaseComponents
             set
             {
                 _widthPolicy = value;
-                _measureSpecificationWidth = new MeasureSpecification(new LayoutLengthEx(value), MeasureSpecification.ModeType.Exactly);
+                _measureSpecificationWidth = new MeasureSpecification(new LayoutLength(value), MeasureSpecification.ModeType.Exactly);
                 Size2D.Width = value;
                 _layout?.RequestLayout();
             }
@@ -3449,7 +3449,7 @@ namespace Tizen.NUI.BaseComponents
             set
             {
                 _heightPolicy = value;
-                _measureSpecificationHeight = new MeasureSpecification(new LayoutLengthEx(value), MeasureSpecification.ModeType.Exactly);
+                _measureSpecificationHeight = new MeasureSpecification(new LayoutLength(value), MeasureSpecification.ModeType.Exactly);
                 Size2D.Height = value;
                 _layout?.RequestLayout();
             }
@@ -3573,7 +3573,7 @@ namespace Tizen.NUI.BaseComponents
         /// </summary>
         /// <remarks>
         /// </remarks>
-        internal LayoutItemEx LayoutEx
+        internal LayoutItem Layout
         {
             get
             {
@@ -3597,7 +3597,7 @@ namespace Tizen.NUI.BaseComponents
                 {
                     Log.Info("NUI", "Set layout already in use by another View: " + value.Owner.Name + "will get a LayoutGroup\n");
                     // Previous owner of the layout gets a default layout as a replacement.
-                    value.Owner.LayoutEx = new LayoutGroupEx();
+                    value.Owner.Layout = new LayoutGroup();
                 }
 
                 // Remove existing layout from it's parent layout group.
@@ -3608,7 +3608,7 @@ namespace Tizen.NUI.BaseComponents
             }
         }
 
-        internal void SetLayout(LayoutItemEx layout)
+        internal void SetLayout(LayoutItem layout)
         {
             _layout = layout;
             _layout.AttachToOwner(this);

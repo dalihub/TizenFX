@@ -23,14 +23,14 @@ namespace Tizen.NUI
     /// <summary>
     /// [Draft] This class represents a layout size (width and height), non mutable.
     /// </summary>
-    internal struct LayoutSizeEx
+    internal struct LayoutSize
     {
         /// <summary>
         /// [Draft] Constructor from width and height
         /// </summary>
         /// <param name="width">Int to initialize with.</param>
         /// <param name="height">Int to initialize with.</param>
-        public LayoutSizeEx(int width, int height)
+        public LayoutSize(int width, int height)
         {
             Width = width;
             Height = height;
@@ -52,9 +52,9 @@ namespace Tizen.NUI
         /// <returns>true if obj is equal to this LayoutSize.</returns>
         public override bool Equals(object obj)
         {
-            if (obj is LayoutSizeEx)
+            if (obj is LayoutSize)
             {
-                LayoutSizeEx layoutSize = (LayoutSizeEx)obj;
+                LayoutSize layoutSize = (LayoutSize)obj;
                 return ((layoutSize.Width == Width) && (layoutSize.Height == Height));
             }
             return false;
@@ -66,7 +66,7 @@ namespace Tizen.NUI
         /// <param name="lhs">A LayoutSize instance.</param>
         /// <param name="rhs">A LayoutSize instance.</param>
         /// <returns>true if the two LayoutSize instances have equal values.</returns>
-        public static bool operator ==(LayoutSizeEx lhs, LayoutSizeEx rhs)
+        public static bool operator ==(LayoutSize lhs, LayoutSize rhs)
         {
             return ((lhs.Width == rhs.Width) && (lhs.Height == rhs.Height));
         }
@@ -78,7 +78,7 @@ namespace Tizen.NUI
         /// <param name="lhs">A LayoutSize instance.</param>
         /// <param name="rhs">A LayoutSize instance.</param>
         /// <returns>true if the two LayoutSize instances have do not have equal values.</returns>
-        public static bool operator !=(LayoutSizeEx lhs, LayoutSizeEx rhs)
+        public static bool operator !=(LayoutSize lhs, LayoutSize rhs)
         {
             return ((lhs.Width != rhs.Width) || (lhs.Height != rhs.Height));
         }
