@@ -66,13 +66,13 @@ namespace Tizen.NUI
         /// Request relayout of a LayoutItem and it's parent tree.
         /// </summary>
         /// <param name="layoutItem">LayoutItem that is required to be laid out again.</param>
-        public void RequestLayout(LayoutItemEx layoutItem)
+        public void RequestLayout(LayoutItem layoutItem)
         {
             // Go up the tree and mark all parents to relayout
-            ILayoutParentEx layoutParent = layoutItem.GetParent();
+            ILayoutParent layoutParent = layoutItem.GetParent();
             if (layoutParent != null)
             {
-                 LayoutGroupEx layoutGroup =  layoutParent as LayoutGroupEx;
+                 LayoutGroup layoutGroup =  layoutParent as LayoutGroup;
                  if(! layoutGroup.LayoutRequested)
                  {
                     layoutGroup.RequestLayout();
@@ -135,18 +135,18 @@ namespace Tizen.NUI
             for (uint i = 0; i < rootNode.ChildCount; i++)
             {
                 View view = rootNode.GetChildAt(i);
-                if (rootNode.LayoutEx == null )
+                if (rootNode.Layout == null )
                 {
                     if (rootNode.GetType() == typeof(View))
                     {
                         Log.Info("NUI", "Creating LayoutGroup for " + rootNode.Name  + "\n");
-                        rootNode.LayoutEx = new LayoutGroupEx();
+                        rootNode.Layout = new LayoutGroup();
                         AutomaticallyAssignLayouts(rootNode);
                     }
                     else
                     {
                         Log.Info("NUI", "Creating LayoutItem for " + rootNode.Name  + "\n");
-                        rootNode.LayoutEx = new LayoutItemEx();
+                        rootNode.Layout = new LayoutItem();
                     }
                 }
             }
@@ -156,7 +156,7 @@ namespace Tizen.NUI
         // Once found, it's children can be assigned Layouts and the Measure process started.
         private void FindRootLayouts(View rootNode)
         {
-            if (rootNode.LayoutEx != null)
+            if (rootNode.Layout != null)
             {
                 Log.Info("NUI", "Found root:" + rootNode.Name + "\n");
                 // rootNode has a layout, ensure all children have default layouts or layout items.
@@ -205,15 +205,15 @@ namespace Tizen.NUI
                 // If match parent then should be root parent size.
                 // If exact then should be that size limited by the root parent size.
 
-                LayoutLengthEx width = new LayoutLengthEx(rootSize.Width);
-                LayoutLengthEx height = new LayoutLengthEx(rootSize.Height);
+                LayoutLength width = new LayoutLength(rootSize.Width);
+                LayoutLength height = new LayoutLength(rootSize.Height);
                 MeasureSpecification.ModeType widthMode = MeasureSpecification.ModeType.AtMost;
                 MeasureSpecification.ModeType heightMode = MeasureSpecification.ModeType.AtMost;
 
                 if (root.WidthSpecification >= 0 )
                 {
                     // exact size provided so match width exactly
-                    width = new LayoutLengthEx(root.WidthSpecification);
+                    width = new LayoutLength(root.WidthSpecification);
                     widthMode = MeasureSpecification.ModeType.Exactly;
                 }
                 else if (root.WidthSpecification == LayoutParamPolicies.MatchParent)
@@ -224,7 +224,7 @@ namespace Tizen.NUI
                 if (root.HeightSpecification >= 0 )
                 {
                     // exact size provided so match height exactly
-                    height = new LayoutLengthEx(root.HeightSpecification);
+                    height = new LayoutLength(root.HeightSpecification);
                     heightMode = MeasureSpecification.ModeType.Exactly;
                 }
                 else if (root.HeightSpecification == LayoutParamPolicies.MatchParent)
@@ -242,10 +242,10 @@ namespace Tizen.NUI
                 MeasureHierarchy(root, parentWidthSpecification, parentHeightSpecification);
 
                 // Start at root which was just measured.
-                PerformLayout( root, new LayoutLengthEx(rootPosition.X),
-                                     new LayoutLengthEx(rootPosition.Y),
-                                     new LayoutLengthEx(rootPosition.X) + root.LayoutEx.MeasuredWidth.Size,
-                                     new LayoutLengthEx(rootPosition.Y) + root.LayoutEx.MeasuredHeight.Size );
+                PerformLayout( root, new LayoutLength(rootPosition.X),
+                                     new LayoutLength(rootPosition.Y),
+                                     new LayoutLength(rootPosition.X) + root.Layout.MeasuredWidth.Size,
+                                     new LayoutLength(rootPosition.Y) + root.Layout.MeasuredHeight.Size );
             }
         }
 
@@ -275,20 +275,20 @@ namespace Tizen.NUI
             //
             // If in a leaf View with no layout, it's natural size is bubbled back up.
 
-            if (root.LayoutEx != null)
+            if (root.Layout != null)
             {
-                root.LayoutEx.Measure(widthSpec, heightSpec);
+                root.Layout.Measure(widthSpec, heightSpec);
             }
         }
 
         /// <summary>
         /// Performs the layouting positioning
         /// </summary>
-        private void PerformLayout(View root, LayoutLengthEx left, LayoutLengthEx top, LayoutLengthEx right, LayoutLengthEx bottom)
+        private void PerformLayout(View root, LayoutLength left, LayoutLength top, LayoutLength right, LayoutLength bottom)
         {
-            if(root.LayoutEx != null)
+            if(root.Layout != null)
             {
-                root.LayoutEx.Layout(left, top, right, bottom);
+                root.Layout.Layout(left, top, right, bottom);
             }
         }
     } // class LayoutController

@@ -22,17 +22,17 @@ namespace Tizen.NUI
     /// [Draft] This class implements a absolute layout, allowing explicit positioning of children.
     ///  Positions are from the top left of the layout and can be set using the Actor::Property::POSITION and alike.
     /// </summary>
-    internal class AbsoluteLayout : LayoutGroupEx
+    internal class AbsoluteLayout : LayoutGroup
     {
         /// <summary>
         /// Struct to store Measured states of height and width.
         /// </summary>
         private struct HeightAndWidthState
         {
-            public MeasuredSizeEx.StateType widthState;
-            public MeasuredSizeEx.StateType heightState;
+            public MeasuredSize.StateType widthState;
+            public MeasuredSize.StateType heightState;
 
-            public HeightAndWidthState( MeasuredSizeEx.StateType width, MeasuredSizeEx.StateType height)
+            public HeightAndWidthState( MeasuredSize.StateType width, MeasuredSize.StateType height)
             {
                 widthState = width;
                 heightState = height;
@@ -52,8 +52,8 @@ namespace Tizen.NUI
             float totalHeight = 0.0f;
             float totalWidth = 0.0f;
 
-            HeightAndWidthState childState = new HeightAndWidthState(MeasuredSizeEx.StateType.MeasuredSizeOK,
-                                                                     MeasuredSizeEx.StateType.MeasuredSizeOK);
+            HeightAndWidthState childState = new HeightAndWidthState(MeasuredSize.StateType.MeasuredSizeOK,
+                                                                     MeasuredSize.StateType.MeasuredSizeOK);
 
             float minPositionX = 0.0f;
             float minPositionY = 0.0f;
@@ -61,7 +61,7 @@ namespace Tizen.NUI
             float maxPositionY = 0.0f;
 
             // measure children
-            foreach( LayoutItemEx childLayout in _children )
+            foreach( LayoutItem childLayout in _children )
             {
                 if (childLayout != null)
                 {
@@ -87,21 +87,21 @@ namespace Tizen.NUI
                     totalHeight = maxPositionY - minPositionY;
                     Log.Info( "NUI" , "AbsoluteLayout::OnMeasure child width(" + childWidth + ") height(" + childHeight + ")\n" );
 
-                    if (childLayout.MeasuredWidthAndState.State == MeasuredSizeEx.StateType.MeasuredSizeTooSmall)
+                    if (childLayout.MeasuredWidthAndState.State == MeasuredSize.StateType.MeasuredSizeTooSmall)
                     {
-                        childState.widthState = MeasuredSizeEx.StateType.MeasuredSizeTooSmall;
+                        childState.widthState = MeasuredSize.StateType.MeasuredSizeTooSmall;
                     }
-                    if (childLayout.MeasuredWidthAndState.State == MeasuredSizeEx.StateType.MeasuredSizeTooSmall)
+                    if (childLayout.MeasuredWidthAndState.State == MeasuredSize.StateType.MeasuredSizeTooSmall)
                     {
-                        childState.heightState = MeasuredSizeEx.StateType.MeasuredSizeTooSmall;
+                        childState.heightState = MeasuredSize.StateType.MeasuredSizeTooSmall;
                     }
                 }
             }
 
             Log.Info( "NUI" , "AbsoluteLayout::OnMeasure total width(" + totalWidth + ") total height(" + totalHeight + ")\n" );
 
-            MeasuredSizeEx widthSizeAndState = ResolveSizeAndState(new LayoutLengthEx(totalWidth), widthMeasureSpec, MeasuredSizeEx.StateType.MeasuredSizeOK);
-            MeasuredSizeEx heightSizeAndState = ResolveSizeAndState(new LayoutLengthEx(totalHeight), heightMeasureSpec, MeasuredSizeEx.StateType.MeasuredSizeOK);
+            MeasuredSize widthSizeAndState = ResolveSizeAndState(new LayoutLength(totalWidth), widthMeasureSpec, MeasuredSize.StateType.MeasuredSizeOK);
+            MeasuredSize heightSizeAndState = ResolveSizeAndState(new LayoutLength(totalHeight), heightMeasureSpec, MeasuredSize.StateType.MeasuredSizeOK);
             totalWidth = widthSizeAndState.Size.AsDecimal();
             totalHeight = heightSizeAndState.Size.AsDecimal();
 
@@ -112,25 +112,25 @@ namespace Tizen.NUI
             widthSizeAndState.State = childState.widthState;
             heightSizeAndState.State = childState.heightState;
 
-            SetMeasuredDimensions( ResolveSizeAndState( new LayoutLengthEx(totalWidth), widthMeasureSpec, childState.widthState ),
-                                   ResolveSizeAndState( new LayoutLengthEx(totalHeight), heightMeasureSpec, childState.heightState ) );
+            SetMeasuredDimensions( ResolveSizeAndState( new LayoutLength(totalWidth), widthMeasureSpec, childState.widthState ),
+                                   ResolveSizeAndState( new LayoutLength(totalHeight), heightMeasureSpec, childState.heightState ) );
         }
 
-        protected override void OnLayout(bool changed, LayoutLengthEx left, LayoutLengthEx top, LayoutLengthEx right, LayoutLengthEx bottom)
+        protected override void OnLayout(bool changed, LayoutLength left, LayoutLength top, LayoutLength right, LayoutLength bottom)
         {
             // Absolute layout positions it's children at their Actor positions.
             // Children could overlap or spill outside the parent, as is the nature of absolute positions.
-            foreach( LayoutItemEx childLayout in _children )
+            foreach( LayoutItem childLayout in _children )
             {
                 if( childLayout != null )
                 {
-                    LayoutLengthEx childWidth = childLayout.MeasuredWidth.Size;
-                    LayoutLengthEx childHeight = childLayout.MeasuredHeight.Size;
+                    LayoutLength childWidth = childLayout.MeasuredWidth.Size;
+                    LayoutLength childHeight = childLayout.MeasuredHeight.Size;
 
                     Position2D childPosition = childLayout.Owner.Position2D;
 
-                    LayoutLengthEx childLeft = new LayoutLengthEx(childPosition.X);
-                    LayoutLengthEx childTop = new LayoutLengthEx(childPosition.Y);
+                    LayoutLength childLeft = new LayoutLength(childPosition.X);
+                    LayoutLength childTop = new LayoutLength(childPosition.Y);
 
                     Log.Info("NUI", "Child View:" + childLayout.Owner.Name
                                     + " position(" + childLeft.AsRoundedValue() + ", "
