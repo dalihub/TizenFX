@@ -21,19 +21,19 @@ namespace Tizen.NUI
     /// [Draft]
     /// Interface that defines a layout Parent. Enables a layout child to access methods on its parent, e.g. Remove (during unparenting)
     /// </summary>
-    internal interface ILayoutParentEx
+    internal interface ILayoutParent
     {
 
         /// <summary>
         /// Add this child to the parent.
         /// </summary>
         /// <param name="layoutItem">The layout child to add.</param>
-        void Add(LayoutItemEx layoutItem);
+        void Add(LayoutItem layoutItem);
 
         /// <summary>
         /// Remove this child from the parent
         /// </summary>
         /// <param name="layoutItem">The layout child to add.</param>
-        void Remove(LayoutItemEx layoutItem);
+        void Remove(LayoutItem layoutItem);
     }
 }
