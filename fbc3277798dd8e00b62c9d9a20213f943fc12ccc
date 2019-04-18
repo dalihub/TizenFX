@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "85b78809_bc267a1f",
+        "filename": "src/Tizen.NUI/src/public/BaseComponents/View.cs",
+        "patchSetId": 1
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1007416
+      },
+      "writtenOn": "2019-04-18T08:12:47Z",
+      "side": 0,
+      "message": "Is it OK to remove this? I guess it wasn\u0027t truly public?",
+      "revId": "fbc3277798dd8e00b62c9d9a20213f943fc12ccc",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
