@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cf181cce_243c5f91",
+        "filename": "src/Tizen.NUI/src/public/BaseComponents/TextField.cs",
+        "patchSetId": 4
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1011527
+      },
+      "writtenOn": "2019-04-23T11:01:50Z",
+      "side": 1,
+      "message": "The default value may need to be true or false.",
+      "range": {
+        "startLine": 259,
+        "startChar": 168,
+        "endLine": 259,
+        "endChar": 172
+      },
+      "revId": "3d0f0f647383464773b23eeaa4bedddde8eca476",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2ae2b8a_69e610da",
+        "filename": "src/Tizen.NUI/src/public/BaseComponents/TextField.cs",
+        "patchSetId": 4
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1011527
+      },
+      "writtenOn": "2019-04-23T11:01:50Z",
+      "side": 1,
+      "message": "Default value may need to be true or false.",
+      "range": {
+        "startLine": 276,
+        "startChar": 178,
+        "endLine": 276,
+        "endChar": 182
+      },
+      "revId": "3d0f0f647383464773b23eeaa4bedddde8eca476",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
