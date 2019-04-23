@@ -22,6 +22,30 @@
       "revId": "06548395c6aaa0b9464052f77c19413d4b8c2971",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e81abe39_db1690d7",
+        "filename": "src/Tizen.NUI/src/internal/Layouting/LayoutGroupEx.cs",
+        "patchSetId": 3
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1011527
+      },
+      "writtenOn": "2019-04-23T15:57:34Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "561272bd_8fccdec1",
+      "range": {
+        "startLine": 112,
+        "startChar": 0,
+        "endLine": 117,
+        "endChar": 85
+      },
+      "revId": "06548395c6aaa0b9464052f77c19413d4b8c2971",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     }
   ]
 }
