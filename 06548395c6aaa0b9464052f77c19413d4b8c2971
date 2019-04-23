@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "561272bd_8fccdec1",
+        "filename": "src/Tizen.NUI/src/internal/Layouting/LayoutGroupEx.cs",
+        "patchSetId": 3
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1011527
+      },
+      "writtenOn": "2019-04-23T15:42:46Z",
+      "side": 1,
+      "message": "This is fixed in the next patch - https://review.gerrithub.io/c/dalihub/TizenFX/+/451369/3\n\nCould squash patches if want this not to be seen,hard any other way.",
+      "range": {
+        "startLine": 112,
+        "startChar": 0,
+        "endLine": 117,
+        "endChar": 85
+      },
+      "revId": "06548395c6aaa0b9464052f77c19413d4b8c2971",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
