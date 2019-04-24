@@ -66,11 +66,11 @@ namespace Tizen.NUI
         /// <param name="columns">The number of columns.</param>
         internal void SetColumns(int columns)
         {
-            _columns = columns;
             _numberOfRequestedColumns = columns;
             if( columns != _columns)
             {
                 _columns = Math.Max(1, _columns);
+                _columns = columns;
                 RequestLayout();
             }
         }
