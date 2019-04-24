@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "68137442_9c61f41b",
+        "filename": "src/Tizen.NUI/src/public/Layer.cs",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1007416
+      },
+      "writtenOn": "2019-04-24T08:37:34Z",
+      "side": 1,
+      "message": "We really should deprecate this!",
+      "revId": "5cc4ea56f3290dbc4a6ba230f8f9713236f51fe3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
