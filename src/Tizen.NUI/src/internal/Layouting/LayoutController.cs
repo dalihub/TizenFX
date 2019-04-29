@@ -156,7 +156,6 @@ namespace Tizen.NUI
         {
             if (rootNode.Layout != null)
             {
-                Log.Info("NUI", "Found root:" + rootNode.Name + "\n");
                 // rootNode has a layout, ensure all children have default layouts or layout items.
                 AutomaticallyAssignLayouts(rootNode);
                 // rootNode has a layout, start measuring and layouting from here.
