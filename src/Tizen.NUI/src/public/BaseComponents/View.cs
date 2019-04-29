@@ -3329,13 +3329,35 @@ namespace Tizen.NUI.BaseComponents
         {
             get
             {
-                return (Extents)GetValue(MarginProperty);
+                // If View has a Layout then margin is stored in Layout.
+                if (Layout != null)
+                {
+                    return Layout.Margin;
+                }
+                else
+                {
+                    // If Layout not set then return margin stored in View.
+                    return (Extents)GetValue(MarginProperty);
+                }
+                // Two return points to prevent creating a zeroed Extent native object before assignment
             }
             set
             {
-                SetValue(MarginProperty, value);
-                NotifyPropertyChanged();
-                _layout?.RequestLayout();
+                if(Layout != null)
+                {
+                    // Layout set so store Margin in LayoutItem instead of View.
+                    // If View stores the Margin too then the Legacy SizeNegotiation will
+                    // overwrite then position and size values Measured in the Layouting.
+                    Layout.Margin = value;
+                    SetValue(MarginProperty, new Extents(0,0,0,0));
+                    NotifyPropertyChanged();
+                    _layout?.RequestLayout();
+                }
+                else
+                {
+                    SetValue(MarginProperty, value);
+                    NotifyPropertyChanged();
+                }
             }
         }
 
@@ -3591,15 +3613,31 @@ namespace Tizen.NUI.BaseComponents
 
                 // If new layout being set already has a owner then that owner receives a replacement default layout.
                 // First check if the layout to be set already has a owner.
-                if ( value.Owner != null )
+                if (value.Owner != null)
                 {
                     Log.Info("NUI", "Set layout already in use by another View: " + value.Owner.Name + "will get a LayoutGroup\n");
                     // Previous owner of the layout gets a default layout as a replacement.
                     value.Owner.Layout = new LayoutGroup();
+                    // Copy Margin to replacement layout.
+                    value.Owner.Layout.Margin = value.Margin;
                 }
+
+                // If View has a layout which already stores a Margin then restore it to the View.
+                // Will be moved to new Layout within this function.
+                Margin = _layout?.Margin;
 
                 // Remove existing layout from it's parent layout group.
                 _layout?.Unparent();
+
+                // Do not try to set Margins on a null Layout (when a layout is being removed from a View)
+                if (value !=null)
+                {
+                    if (Margin.Top != 0 || Margin.Bottom !=0 || Margin.Start !=0 || Margin.End != 0)
+                    {
+                        // If View already has a margin set then store in Layout instead.
+                        value.Margin = Margin;
+                    }
+                }
 
                 // Set layout to this view
                 SetLayout(value);
