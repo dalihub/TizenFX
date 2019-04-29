@@ -51,9 +51,19 @@ namespace Tizen.NUI
         private LayoutData _layoutData;
 
         /// <summary>
-        /// The View that this Layout has been assigned to.
+        /// [Draft] The View that this Layout has been assigned to.
         /// </summary>
         public View Owner{get; set;}  // Should not keep a View alive.
+
+        /// <summary>
+        /// [Draft] Margin for this LayoutItem
+        /// </summary>
+        public Extents Margin{set;get;} = new Extents(0,0,0,0);
+
+        /// <summary>
+        /// [Draft] Padding for this LayoutItem
+        /// </summary>
+        public Extents Padding{set;get;} = new Extents(0,0,0,0);
 
         /// <summary>
         /// [Draft] Constructor

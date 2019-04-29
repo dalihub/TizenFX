@@ -190,7 +190,7 @@ namespace Tizen.NUI
                 LayoutLength childDesiredWidth = new LayoutLength(childLayout.Owner.WidthSpecification);
                 LayoutLength childDesiredHeight = new LayoutLength(childLayout.Owner.HeightSpecification);
                 float childWeight = childLayout.Owner.Weight;
-                Extents childMargin = childLayout.Owner.Margin;
+                Extents childMargin = childLayout.Margin;
                 Log.Info("NUI", "Retrieved parameters for child:" + childLayout.Owner.Name
                                 + " childDesiredWidth: " + childDesiredWidth.AsRoundedValue()
                                 + " childDesiredHeight:" + childDesiredHeight.AsRoundedValue()
@@ -333,7 +333,7 @@ namespace Tizen.NUI
                 LayoutLength childDesiredWidth = new LayoutLength(childLayout.Owner.WidthSpecification);
                 LayoutLength childDesiredHeight = new LayoutLength(childLayout.Owner.HeightSpecification);
                 float childWeight = childLayout.Owner.Weight;
-                Extents childMargin = childLayout.Owner.Margin;
+                Extents childMargin = childLayout.Margin;
                 Log.Info("NUI", "Retrieved parameters for child:" + childLayout.Owner.Name
                                 + " desiredWidth: " + childDesiredWidth.AsRoundedValue()
                                 + " desiredHeight:" + childDesiredHeight.AsRoundedValue()
@@ -392,7 +392,7 @@ namespace Tizen.NUI
                     matchWidthLocally = true;
                 }
 
-                float marginWidth = (childLayout.Owner.Margin.Start) + (childLayout.Owner.Margin.End);
+                float marginWidth = (childLayout.Margin.Start) + (childLayout.Margin.End);
                 LayoutLength childWidth = new LayoutLength(childLayout.MeasuredWidth.Size.AsDecimal() + marginWidth);
 
                 // was combineMeasuredStates()
@@ -457,7 +457,7 @@ namespace Tizen.NUI
                     int desiredWidth = childLayout.Owner.WidthSpecification;
                     int desiredHeight = childLayout.Owner.HeightSpecification;
                     float childWeight = childLayout.Owner.Weight;
-                    Extents childMargin = childLayout.Owner.Margin;
+                    Extents childMargin = childLayout.Margin;
 
                     float childHeight = 0;
                     if( childWeight > 0 )
@@ -617,7 +617,7 @@ namespace Tizen.NUI
                 {
                     LayoutLength childWidth = childLayout.MeasuredWidth.Size;
                     LayoutLength childHeight = childLayout.MeasuredHeight.Size;
-                    Extents childMargin = childLayout.Owner.Margin;
+                    Extents childMargin = childLayout.Margin;
 
                     switch ( LinearAlignment )
                     {
@@ -679,7 +679,7 @@ namespace Tizen.NUI
                 {
                     LayoutLength childWidth = childLayout.MeasuredWidth.Size;
                     LayoutLength childHeight = childLayout.MeasuredHeight.Size;
-                    Extents childMargin = childLayout.Owner.Margin;
+                    Extents childMargin = childLayout.Margin;
 
                     childTop += childMargin.Top;
                     switch ( LinearAlignment )
