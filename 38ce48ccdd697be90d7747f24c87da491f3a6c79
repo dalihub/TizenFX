@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0653df02_aced0458",
+        "filename": "src/Tizen.NUI/src/public/BaseComponents/View.cs",
+        "patchSetId": 3
+      },
+      "lineNbr": 3651,
+      "author": {
+        "id": 1007416
+      },
+      "writtenOn": "2019-04-30T11:17:52Z",
+      "side": 1,
+      "message": "These will be set to 0 again as _layout is still valid.",
+      "range": {
+        "startLine": 3649,
+        "startChar": 0,
+        "endLine": 3651,
+        "endChar": 43
+      },
+      "revId": "38ce48ccdd697be90d7747f24c87da491f3a6c79",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
