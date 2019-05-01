@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6395a587_1c2a004f",
+        "filename": "src/Tizen.NUI/src/public/BaseComponents/View.cs",
+        "patchSetId": 4
+      },
+      "lineNbr": 3674,
+      "author": {
+        "id": 1007416
+      },
+      "writtenOn": "2019-05-01T15:47:20Z",
+      "side": 1,
+      "message": "Isn\u0027t this going to do 4 calls to Native?",
+      "range": {
+        "startLine": 3674,
+        "startChar": 24,
+        "endLine": 3674,
+        "endChar": 104
+      },
+      "revId": "cbdb9e9958f585650b6ccc4a8425988348894c1c",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6677c72f_fea56d8e",
+        "filename": "src/Tizen.NUI/src/public/BaseComponents/View.cs",
+        "patchSetId": 4
+      },
+      "lineNbr": 3676,
+      "author": {
+        "id": 1007416
+      },
+      "writtenOn": "2019-05-01T15:47:20Z",
+      "side": 1,
+      "message": "Do we really need to worry about whether it\u0027s set or not, can we not just set it whatever it is? What problem will that create?",
+      "revId": "cbdb9e9958f585650b6ccc4a8425988348894c1c",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
