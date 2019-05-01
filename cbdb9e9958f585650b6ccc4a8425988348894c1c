@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a7147cd9_f8ddd7e8",
+        "filename": "src/Tizen.NUI/src/public/BaseComponents/View.cs",
+        "patchSetId": 4
+      },
+      "lineNbr": 3674,
+      "author": {
+        "id": 1011527
+      },
+      "writtenOn": "2019-05-01T15:58:26Z",
+      "side": 1,
+      "message": "Only if a Layout is not assigned.",
+      "parentUuid": "6395a587_1c2a004f",
+      "range": {
+        "startLine": 3674,
+        "startChar": 24,
+        "endLine": 3674,
+        "endChar": 104
+      },
+      "revId": "cbdb9e9958f585650b6ccc4a8425988348894c1c",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6677c72f_fea56d8e",
         "filename": "src/Tizen.NUI/src/public/BaseComponents/View.cs",
         "patchSetId": 4
@@ -36,6 +60,24 @@
       "writtenOn": "2019-05-01T15:47:20Z",
       "side": 1,
       "message": "Do we really need to worry about whether it\u0027s set or not, can we not just set it whatever it is? What problem will that create?",
+      "revId": "cbdb9e9958f585650b6ccc4a8425988348894c1c",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b3c2479_ba59ab61",
+        "filename": "src/Tizen.NUI/src/public/BaseComponents/View.cs",
+        "patchSetId": 4
+      },
+      "lineNbr": 3676,
+      "author": {
+        "id": 1011527
+      },
+      "writtenOn": "2019-05-01T15:58:26Z",
+      "side": 1,
+      "message": "Dom\u0027t see a problem, setting the property on View when not needed will trigger some PropertyNotification code that might end up being as costly as doing the 4 native checks.",
+      "parentUuid": "6677c72f_fea56d8e",
       "revId": "cbdb9e9958f585650b6ccc4a8425988348894c1c",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": false
