@@ -245,6 +245,8 @@ namespace Tizen.NUI.BaseComponents
             return temp;
         });
 
+        /// Only for XAML property binding
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public static readonly BindableProperty FlexProperty = BindableProperty.Create("Flex", typeof(float), typeof(View), default(float), propertyChanged: (bindable, oldValue, newValue) =>
         {
             var view = (View)bindable;
