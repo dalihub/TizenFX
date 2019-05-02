@@ -204,8 +204,6 @@ namespace Tizen.NUI.Xaml
             {
                 StreamReader reader = new StreamReader(animationXamlPath);
                 xaml = reader.ReadToEnd();
-                reader.Close();
-                reader.Dispose();
                 Tizen.Log.Fatal("NUI", "File is exist!, try with xaml: " + xaml);
                 return xaml;
             }
@@ -238,8 +236,6 @@ namespace Tizen.NUI.Xaml
             {
                 StreamReader reader = new StreamReader(likelyResourcePath);
                 xaml = reader.ReadToEnd();
-                reader.Close();
-                reader.Dispose();
                 Tizen.Log.Fatal("NUI", "File is exist!, try with xaml: " + xaml);
                 var pattern = String.Format("x:Class *= *\"{0}\"", type.FullName);
                 var regex = new Regex(pattern, RegexOptions.ECMAScript);
