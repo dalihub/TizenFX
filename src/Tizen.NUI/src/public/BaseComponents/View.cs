@@ -3470,6 +3470,66 @@ namespace Tizen.NUI.BaseComponents
             }
         }
 
+        /// <summary>
+        /// Enables to connect Autofill framework.
+        /// </summary>
+        /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool EnableAutofill
+        {
+            get
+            {
+                bool enableAutofill = false;
+                GetProperty(View.Property.ENABLE_AUTOFILL).Get(out enableAutofill);
+                return enableAutofill;
+            }
+            set
+            {
+                SetProperty(View.Property.ENABLE_AUTOFILL, new Tizen.NUI.PropertyValue(value));
+                NotifyPropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// Sets the AutofillItem information : id, label, autofill hint, and sensitivity.
+        /// </summary>
+        /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public Tizen.NUI.PropertyMap AutofillItem
+        {
+            get
+            {
+                PropertyMap map = new PropertyMap();
+                GetProperty(View.Property.AUTOFILL_ITEM).Get(map);
+                return map;
+            }
+            set
+            {
+                SetProperty(View.Property.AUTOFILL_ITEM, new Tizen.NUI.PropertyValue(value));
+                NotifyPropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// Autofill service information, such as service name, message, and logo image.
+        /// </summary>
+        /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public Tizen.NUI.PropertyMap AutofillServiceInfo
+        {
+            get
+            {
+                PropertyMap map = new PropertyMap();
+                GetProperty(View.Property.AUTOFILL_SERVICE_INFO).Get(map);
+                return map;
+            }
+            set
+            {
+                SetProperty(View.Property.AUTOFILL_SERVICE_INFO, new Tizen.NUI.PropertyValue(value));
+                NotifyPropertyChanged();
+            }
+        }
+
         internal Style Style
         {
             get
@@ -5971,6 +6031,9 @@ namespace Tizen.NUI.BaseComponents
             internal static readonly int LAYOUT_DIRECTION = Interop.ActorProperty.Actor_Property_LAYOUT_DIRECTION_get();
             internal static readonly int MARGIN = Interop.ViewProperty.View_Property_MARGIN_get();
             internal static readonly int PADDING = Interop.ViewProperty.View_Property_PADDING_get();
+            internal static readonly int ENABLE_AUTOFILL = Interop.ViewProperty.View_Property_ENABLE_AUTOFILL_get();
+            internal static readonly int AUTOFILL_ITEM = Interop.ViewProperty.View_Property_AUTOFILL_ITEM_get();
+            internal static readonly int AUTOFILL_SERVICE_INFO = Interop.ViewProperty.View_Property_AUTOFILL_SERVICE_INFO_get();
         }
     }
 }
