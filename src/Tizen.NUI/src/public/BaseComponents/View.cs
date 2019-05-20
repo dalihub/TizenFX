@@ -2271,6 +2271,7 @@ namespace Tizen.NUI.BaseComponents
                 // All Views are currently Layouts.
                 MeasureSpecificationWidth = new MeasureSpecification(new LayoutLength(value.Width), MeasureSpecification.ModeType.Exactly);
                 MeasureSpecificationHeight = new MeasureSpecification(new LayoutLength(value.Height), MeasureSpecification.ModeType.Exactly);
+                _layout?.RequestLayout();
                 NotifyPropertyChanged();
             }
         }
@@ -3265,6 +3266,7 @@ namespace Tizen.NUI.BaseComponents
                 // All Views are currently Layouts.
                 WidthSpecification = (int)Math.Ceiling(value.Width);
                 HeightSpecification = (int)Math.Ceiling(value.Height);
+                _layout?.RequestLayout();
                 NotifyPropertyChanged();
             }
         }
