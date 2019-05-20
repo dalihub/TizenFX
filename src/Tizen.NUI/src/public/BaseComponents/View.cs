@@ -54,21 +54,6 @@ namespace Tizen.NUI.BaseComponents
         public const int WrapContent = -2;
     }
 
-    /// <summary>
-    /// [Draft] Replaced by LayoutParamPolicies, will be removed once occurrences replaced.
-    /// </summary>
-    internal enum ChildLayoutData
-    {
-        /// <summary>
-        /// Constant which indicates child size should match parent size
-        /// </summary>
-        MatchParent = LayoutParamPolicies.MatchParent,
-        /// <summary>
-        /// Constant which indicates parent should take the smallest size possible to wrap it's children with their desired size
-        /// </summary>
-        WrapContent = LayoutParamPolicies.WrapContent,
-    }
-
     internal enum ResourceLoadingStatusType
     {
         Invalid = -1,
@@ -2254,7 +2239,7 @@ namespace Tizen.NUI.BaseComponents
         /// This means by default others are impossible so it is recommended that NUI object typed properties are configured by their constructor with parameters. <br />
         /// For example, this code is working fine : view.Scale = new Vector3( 2.0f, 1.5f, 0.0f); <br />
         /// but this will not work! : view.Scale.X = 2.0f; view.Scale.Y = 1.5f; <br />
-        /// It may not match the current value in some cases, i.e. when the animation is progressing or the maximum or minimu size is set. <br />
+        /// It may not match the current value in some cases, i.e. when the animation is progressing or the maximum or minimum size is set. <br />
         /// </remarks>
         /// <since_tizen> 3 </since_tizen>
         public Size2D Size2D
@@ -2269,8 +2254,9 @@ namespace Tizen.NUI.BaseComponents
                 SetValue(Size2DProperty, value);
                 // Set Specification so when layouts measure this View it matches the value set here.
                 // All Views are currently Layouts.
-                MeasureSpecificationWidth = new MeasureSpecification(new LayoutLength(value.Width), MeasureSpecification.ModeType.Exactly);
-                MeasureSpecificationHeight = new MeasureSpecification(new LayoutLength(value.Height), MeasureSpecification.ModeType.Exactly);
+                _measureSpecificationWidth = new MeasureSpecification( new LayoutLength(value.Width), MeasureSpecification.ModeType.Exactly );
+                _measureSpecificationHeight = new MeasureSpecification( new LayoutLength(value.Height), MeasureSpecification.ModeType.Exactly );
+                Console.WriteLine("width:{0} height:{1} layout{2}\n", _measureSpecificationWidth.Size.AsRoundedValue(), _measureSpecificationHeight.Size.AsRoundedValue(), (_layout != null));
                 _layout?.RequestLayout();
                 NotifyPropertyChanged();
             }
@@ -3387,8 +3373,11 @@ namespace Tizen.NUI.BaseComponents
         }
 
         ///<summary>
-        /// The required policy for this dimension, ChildLayoutData enum or exact value.
+        /// The required policy for this dimension, LayoutParamPolicies enum or exact value.
         ///</summary>
+        /// <remarks>
+        /// Previously named LayoutWidthSpecification
+        /// </remarks>
         public int WidthSpecification
         {
             get
@@ -3408,8 +3397,11 @@ namespace Tizen.NUI.BaseComponents
         }
 
         ///<summary>
-        /// The required policy for this dimension, ChildLayoutData enum or exact value.
+        /// The required policy for this dimension, LayoutParamPolicies enum or exact value.
         ///</summary>
+        /// <remarks>
+        /// Previously named LayoutHeightSpecification
+        /// </remarks>
         public int HeightSpecification
         {
             get
@@ -3497,36 +3489,6 @@ namespace Tizen.NUI.BaseComponents
                 _measureSpecificationHeight = new MeasureSpecification(new LayoutLength(value), MeasureSpecification.ModeType.Exactly);
                 Size2D.Height = value;
                 _layout?.RequestLayout();
-            }
-        }
-
-        /// <summary>
-        /// Child property to specify desired width, use MatchParent/WrapContent)
-        /// </summary>
-        internal ChildLayoutData LayoutWidthSpecification
-        {
-            get
-            {
-                return (ChildLayoutData)_widthPolicy;
-            }
-            set
-            {
-                _widthPolicy = (int)value;
-            }
-        }
-
-        /// <summary>
-        /// Child property to specify desired height, use MatchParent/WrapContent)
-        /// </summary>
-        internal ChildLayoutData LayoutHeightSpecification
-        {
-            get
-            {
-                return (ChildLayoutData)_heightPolicy;
-            }
-            set
-            {
-                _heightPolicy = (int)value;
             }
         }
 
