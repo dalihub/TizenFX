@@ -137,6 +137,40 @@
       "revId": "e3b93e55f1cabd29d30f68095cd2d75f9ffd538b",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b38486a_a95a4441",
+        "filename": "src/Tizen.NUI/Tizen.NUI.Xaml/src/internal/XamlBinding/ListStringTypeConverter.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1015073
+      },
+      "writtenOn": "2019-05-22T03:29:36Z",
+      "side": 1,
+      "message": "Need to remove these space",
+      "revId": "e3b93e55f1cabd29d30f68095cd2d75f9ffd538b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c218ac8_235a66ff",
+        "filename": "src/Tizen.NUI/Tizen.NUI.Xaml/src/internal/XamlBinding/ModalPoppedEventArgs.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1015073
+      },
+      "writtenOn": "2019-05-22T03:29:36Z",
+      "side": 1,
+      "message": "In some files using Tizen.NUI.Xaml;\nShould be same in all files?",
+      "revId": "e3b93e55f1cabd29d30f68095cd2d75f9ffd538b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
     }
   ]
 }
