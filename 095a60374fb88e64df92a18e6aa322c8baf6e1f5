@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "746d7ea1_bf4d5306",
+        "filename": "src/Tizen.NUI/Tizen.NUI.Xaml/Properties/AssemblyInfo.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1014228
+      },
+      "writtenOn": "2019-05-22T02:55:21Z",
+      "side": 0,
+      "message": "why this line removed ?",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 80
+      },
+      "revId": "095a60374fb88e64df92a18e6aa322c8baf6e1f5",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}

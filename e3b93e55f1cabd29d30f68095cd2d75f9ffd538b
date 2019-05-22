@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "28a6479f_4a434e6e",
+        "filename": "src/Tizen.NUI/Tizen.NUI.Xaml/src/internal/Xaml/ApplyPropertiesVisitor.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 689,
+      "author": {
+        "id": 1014228
+      },
+      "writtenOn": "2019-05-22T02:55:21Z",
+      "side": 1,
+      "message": "remove unuseful spaces",
+      "range": {
+        "startLine": 689,
+        "startChar": 0,
+        "endLine": 689,
+        "endChar": 12
+      },
+      "revId": "e3b93e55f1cabd29d30f68095cd2d75f9ffd538b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e110fb72_02f33084",
+        "filename": "src/Tizen.NUI/Tizen.NUI.Xaml/src/internal/Xaml/IReferenceProvider.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1014228
+      },
+      "writtenOn": "2019-05-22T02:55:21Z",
+      "side": 1,
+      "message": "replace tab with spaces",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 2
+      },
+      "revId": "e3b93e55f1cabd29d30f68095cd2d75f9ffd538b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51ea62c6_5eb845be",
+        "filename": "src/Tizen.NUI/Tizen.NUI.Xaml/src/internal/Xaml/MarkupExpressionParser.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1014228
+      },
+      "writtenOn": "2019-05-22T02:55:21Z",
+      "side": 1,
+      "message": "remove unuseful spaces",
+      "range": {
+        "startLine": 21,
+        "startChar": 2,
+        "endLine": 21,
+        "endChar": 3
+      },
+      "revId": "e3b93e55f1cabd29d30f68095cd2d75f9ffd538b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1291069c_bf0fab31",
+        "filename": "src/Tizen.NUI/Tizen.NUI.Xaml/src/internal/Xaml/MarkupExtensions/BindingExtension.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1014228
+      },
+      "writtenOn": "2019-05-22T02:55:21Z",
+      "side": 1,
+      "message": "replace tab with spaces",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 2
+      },
+      "revId": "e3b93e55f1cabd29d30f68095cd2d75f9ffd538b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b737c333_ff2bfecb",
+        "filename": "src/Tizen.NUI/Tizen.NUI.Xaml/src/internal/XamlBinding/DependencyResolver.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1014228
+      },
+      "writtenOn": "2019-05-22T02:55:21Z",
+      "side": 1,
+      "message": "remove unuseful tab",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 12
+      },
+      "revId": "e3b93e55f1cabd29d30f68095cd2d75f9ffd538b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42aa1d4d_75b5082a",
+        "filename": "src/Tizen.NUI/Tizen.NUI.Xaml/src/internal/XamlBinding/DependencyService.cs",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1014228
+      },
+      "writtenOn": "2019-05-22T02:55:21Z",
+      "side": 1,
+      "message": "remove unuseful tab",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 16
+      },
+      "revId": "e3b93e55f1cabd29d30f68095cd2d75f9ffd538b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
