@@ -1262,6 +1262,27 @@ namespace Tizen.NUI.BaseComponents
         [EditorBrowsable(EditorBrowsableState.Never)]
         public static readonly BindableProperty XamlStyleProperty = BindableProperty.Create("XamlStyle", typeof(Style), typeof(View), default(Style), propertyChanged: (bindable, oldvalue, newvalue) => ((View)bindable)._mergedStyle.Style = (Style)newvalue);
 
+        /// This is used for XAML property data binding. This needs to be public but not used directly by user. Only used by XAML script so be made as HiddenAPI (InhouseAPI)
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public static readonly BindableProperty VisibilityProperty = BindableProperty.Create("Visibility", typeof(bool), typeof(View), true, propertyChanged: (bindable, oldValue, newValue) =>
+        {
+            View view = (View)bindable;
+            if (newValue != null)
+            {
+                view.SetVisible((bool)newValue);
+            }
+        },
+        defaultValueCreator: (bindable) =>
+        {
+            View view = (View)bindable;
+            bool tmp = false;
+            if (view != null)
+            {
+                Tizen.NUI.Object.GetProperty(view.swigCPtr, View.Property.VISIBLE).Get(out tmp);
+            }
+            return tmp;
+        });
+
         /// <summary>
         /// Flag to indicate if layout set explicitly via API call or View was automatically given a Layout.
         /// </summary>
@@ -2784,9 +2805,11 @@ namespace Tizen.NUI.BaseComponents
         {
             get
             {
-                bool temp = false;
-                GetProperty(View.Property.VISIBLE).Get(out temp);
-                return temp;
+                return (bool)GetValue(VisibilityProperty);
+            }
+            set
+            {
+                SetValue(VisibilityProperty, value);
             }
         }
 
