@@ -80,6 +80,21 @@ namespace Tizen.NUI
             if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
         }
 
+        /// <summary>
+        /// Creates a new Window.<br />
+        /// This creates an extra window in addition to the default main window<br />
+        /// </summary>
+        /// <param name="name">The name for extra window. </param>
+        /// <param name="windowPosition">The position and size of the Window.</param>
+        /// <param name="isTranslucent">Whether Window is translucent.</param>
+        /// <returns>A new Window.</returns>
+        /// <since_tizen> 6 </since_tizen>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public Window(string name, Rectangle windowPosition = null, bool isTranslucent = false) : this(Interop.Window.Window_New__SWIG_0(Rectangle.getCPtr(windowPosition), name, isTranslucent), true)
+        {
+            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+        }
+
         [UnmanagedFunctionPointer(CallingConvention.StdCall)]
         private delegate void WindowFocusChangedEventCallbackType(bool focusGained);
         [UnmanagedFunctionPointer(CallingConvention.StdCall)]
@@ -1456,6 +1471,46 @@ namespace Tizen.NUI
 
             // Setting transparency of the window should request a relayout of the tree in the case the window changes from fully transparent.
 
+        }
+
+        /// <summary>
+        /// Sets parent window of the window.
+        /// After setting that, these windows do together when raise-up, lower and iconified/deiconified.
+        /// Initially, the window is located on top of the parent. The window can go below parent by calling Lower().
+        /// If parent's window stack is changed by calling Raise() or Lower(), child windows are located on top of the parent again.
+        /// </summary>
+        /// <param name="parent">The parent window.</param>
+        /// <since_tizen> 6 </since_tizen>
+        /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public void SetParent(Window parent) {
+            Interop.Window.SetParent(swigCPtr, Window.getCPtr(parent));
+            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+        }
+
+        /// <summary>
+        /// Unsets parent window of the window.
+        /// After unsetting, the window is disconnected his parent window.
+        /// </summary>
+        /// <since_tizen> 6 </since_tizen>
+        /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public void Unparent() {
+            Interop.Window.Unparent(swigCPtr);
+            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+        }
+
+        /// <summary>
+        /// Gets parent window of the window.
+        /// </summary>
+        /// <returns>The parent window of the window.</returns>
+        /// <since_tizen> 6 </since_tizen>
+        /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public Window GetParent() {
+            Window ret = new Window(Interop.Window.GetParent(swigCPtr), true);
+            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+            return ret;
         }
 
         /// <summary>
