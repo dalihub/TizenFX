@@ -27,7 +27,7 @@ namespace Tizen.NUI
     /// The window has an orientation and indicator properties.<br />
     /// </summary>
     /// <since_tizen> 3 </since_tizen>
-    public partial class Window : BaseHandle
+    public partial class Window
     {
         private WindowFocusChangedEventCallbackType _windowFocusChangedEventCallback;
         private RootLayerTouchDataCallbackType _rootLayerTouchDataCallback;
