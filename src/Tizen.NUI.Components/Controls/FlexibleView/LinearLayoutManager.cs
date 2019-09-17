@@ -23,37 +23,27 @@ namespace Tizen.NUI.Components
     /// Layout collection of views horizontally/vertically.
     /// </summary>
     /// <since_tizen> 6 </since_tizen>
-    /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
-    [EditorBrowsable(EditorBrowsableState.Never)]
     public class LinearLayoutManager : FlexibleView.LayoutManager
     {
         /// <summary>
         /// Constant value: 0.
         /// </summary>
         /// <since_tizen> 6 </since_tizen>
-        /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
-        [EditorBrowsable(EditorBrowsableState.Never)]
         public static readonly int HORIZONTAL = OrientationHelper.HORIZONTAL;
         /// <summary>
         /// Constant value: 1.
         /// </summary>
         /// <since_tizen> 6 </since_tizen>
-        /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
-        [EditorBrowsable(EditorBrowsableState.Never)]
         public static readonly int VERTICAL = OrientationHelper.VERTICAL;
         /// <summary>
         /// Constant value: -1.
         /// </summary>
         /// <since_tizen> 6 </since_tizen>
-        /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
-        [EditorBrowsable(EditorBrowsableState.Never)]
         public static readonly int NO_POSITION = FlexibleView.NO_POSITION;
         /// <summary>
         /// Constant value: -2^31.
         /// </summary>
         /// <since_tizen> 6 </since_tizen>
-        /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
-        [EditorBrowsable(EditorBrowsableState.Never)]
         public static readonly int INVALID_OFFSET = -2147483648;
 
         private static readonly float MAX_SCROLL_FACTOR = 1 / 3f;
@@ -62,8 +52,6 @@ namespace Tizen.NUI.Components
         /// Current orientation.
         /// </summary>
         /// <since_tizen> 6 </since_tizen>
-        /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
-        [EditorBrowsable(EditorBrowsableState.Never)]
         protected int mOrientation;
 
         internal OrientationHelper mOrientationHelper;
@@ -95,8 +83,6 @@ namespace Tizen.NUI.Components
         /// </summary>
         /// <param name="orientation">Layout orientation.Should be HORIZONTAL or VERTICAL</param>
         /// <since_tizen> 6 </since_tizen>
-        /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
-        [EditorBrowsable(EditorBrowsableState.Never)]
         public LinearLayoutManager(int orientation)
         {
             mOrientation = orientation;
@@ -110,8 +96,6 @@ namespace Tizen.NUI.Components
         /// Retrieves the first visible item position.
         /// </summary>
         /// <since_tizen> 6 </since_tizen>
-        /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
-        [EditorBrowsable(EditorBrowsableState.Never)]
         public int FirstVisibleItemPosition
         {
             get
@@ -125,8 +109,6 @@ namespace Tizen.NUI.Components
         /// Retrieves the first complete visible item position.
         /// </summary>
         /// <since_tizen> 6 </since_tizen>
-        /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
-        [EditorBrowsable(EditorBrowsableState.Never)]
         public int FirstCompleteVisibleItemPosition
         {
             get
@@ -140,8 +122,6 @@ namespace Tizen.NUI.Components
         /// Retrieves the last visible item position.
         /// </summary>
         /// <since_tizen> 6 </since_tizen>
-        /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
-        [EditorBrowsable(EditorBrowsableState.Never)]
         public int LastVisibleItemPosition
         {
             get
@@ -155,8 +135,6 @@ namespace Tizen.NUI.Components
         /// Retrieves the last complete visible item position.
         /// </summary>
         /// <since_tizen> 6 </since_tizen>
-        /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
-        [EditorBrowsable(EditorBrowsableState.Never)]
         public int LastCompleteVisibleItemPosition
         {
             get
@@ -170,8 +148,6 @@ namespace Tizen.NUI.Components
         /// Query if horizontal scrolling is currently supported. The default implementation returns false.
         /// </summary>
         /// <since_tizen> 6 </since_tizen>
-        /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
-        [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool CanScrollHorizontally()
         {
             return mOrientation == HORIZONTAL;
@@ -181,8 +157,6 @@ namespace Tizen.NUI.Components
         /// Query if vertical scrolling is currently supported. The default implementation returns false.
         /// </summary>
         /// <since_tizen> 6 </since_tizen>
-        /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
-        [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool CanScrollVertically()
         {
             return mOrientation == VERTICAL;
@@ -193,8 +167,6 @@ namespace Tizen.NUI.Components
         /// </summary>
         /// <param name="recycler">Recycler to use for fetching potentially cached views for a position</param>
         /// <since_tizen> 6 </since_tizen>
-        /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
-        [EditorBrowsable(EditorBrowsableState.Never)]
         public override void OnLayoutChildren(FlexibleView.Recycler recycler)
         {
             mLayoutState.Recycle = false;
@@ -254,8 +226,6 @@ namespace Tizen.NUI.Components
         /// <param name="recycler">Recycler to use for fetching potentially cached views for a position</param>
         /// <param name="immediate">Specify if the scroll need animation</param>
         /// <since_tizen> 6 </since_tizen>
-        /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
-        [EditorBrowsable(EditorBrowsableState.Never)]
         public override float ScrollHorizontallyBy(float dx, FlexibleView.Recycler recycler, bool immediate)
         {
             if (mOrientation == VERTICAL)
@@ -272,28 +242,24 @@ namespace Tizen.NUI.Components
         /// <param name="recycler">Recycler to use for fetching potentially cached views for a position</param>
         /// <param name="immediate">Specify if the scroll need animation</param>
         /// <since_tizen> 6 </since_tizen>
-        /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
-        [EditorBrowsable(EditorBrowsableState.Never)]
         public override float ScrollVerticallyBy(float dy, FlexibleView.Recycler recycler, bool immediate)
         {
             if (mOrientation == HORIZONTAL)
             {
                 return 0;
             }
-            return ScrollBy(dy, recycler, immediate); ;
+            return ScrollBy(dy, recycler, immediate);
         }
 
         /// <summary>
         /// Compute the offset of the scrollbar's thumb within the range.
         /// </summary>
         /// <since_tizen> 6 </since_tizen>
-        /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
-        [EditorBrowsable(EditorBrowsableState.Never)]
         public override float ComputeScrollOffset()
         {
             FlexibleView.ViewHolder startChild = FindFirstVisibleItemView();
             FlexibleView.ViewHolder endChild = FindLastVisibleItemView();
-            if (GetChildCount() == 0 || startChild == null || endChild == null)
+            if (ChildCount == 0 || startChild == null || endChild == null)
             {
                 return 0;
             }
@@ -316,13 +282,11 @@ namespace Tizen.NUI.Components
         /// Compute the extent of the scrollbar's thumb within the range.
         /// </summary>
         /// <since_tizen> 6 </since_tizen>
-        /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
-        [EditorBrowsable(EditorBrowsableState.Never)]
         public override float ComputeScrollExtent()
         {
             FlexibleView.ViewHolder startChild = FindFirstVisibleItemView();
             FlexibleView.ViewHolder endChild = FindLastVisibleItemView();
-            if (GetChildCount() == 0 || startChild == null || endChild == null)
+            if (ChildCount == 0 || startChild == null || endChild == null)
             {
                 return 0;
             }
@@ -335,13 +299,11 @@ namespace Tizen.NUI.Components
         /// Compute the range that the scrollbar represents.
         /// </summary>
         /// <since_tizen> 6 </since_tizen>
-        /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
-        [EditorBrowsable(EditorBrowsableState.Never)]
         public override float ComputeScrollRange()
         {
             FlexibleView.ViewHolder startChild = FindFirstVisibleItemView();
             FlexibleView.ViewHolder endChild = FindLastVisibleItemView();
-            if (GetChildCount() == 0 || startChild == null || endChild == null)
+            if (ChildCount == 0 || startChild == null || endChild == null)
             {
                 return 0;
             }
@@ -357,8 +319,6 @@ namespace Tizen.NUI.Components
         /// </summary>
         /// <param name="position">Scroll to this adapter position</param>
         /// <since_tizen> 6 </since_tizen>
-        /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
-        [EditorBrowsable(EditorBrowsableState.Never)]
         public override void ScrollToPosition(int position)
         {
             mPendingScrollPosition = position;
@@ -373,8 +333,6 @@ namespace Tizen.NUI.Components
         /// <param name="position">Scroll to this adapter position</param>
         /// <param name="offset">The distance (in pixels) between the start edge of the item view and start edge of the FlexibleView.</param>
         /// <since_tizen> 6 </since_tizen>
-        /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
-        [EditorBrowsable(EditorBrowsableState.Never)]
         public override void ScrollToPositionWithOffset(int position, int offset)
         {
             mPendingScrollPosition = position;
@@ -387,8 +345,6 @@ namespace Tizen.NUI.Components
         /// Called after a full layout calculation is finished.
         /// </summary>
         /// <since_tizen> 6 </since_tizen>
-        /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
-        [EditorBrowsable(EditorBrowsableState.Never)]
         public override void OnLayoutCompleted()
         {
             if (mPendingScrollPosition != NO_POSITION)
@@ -413,8 +369,6 @@ namespace Tizen.NUI.Components
         /// <param name="position">The anchor adapter position</param>
         /// <param name="direction">The direction.</param>
         /// <since_tizen> 6 </since_tizen>
-        /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
-        [EditorBrowsable(EditorBrowsableState.Never)]
         protected override int GetNextPosition(int position, FlexibleView.LayoutManager.Direction direction)
         {
             if (mOrientation == HORIZONTAL)
@@ -479,9 +433,9 @@ namespace Tizen.NUI.Components
             float left, top, width, height;
             if (mOrientation == VERTICAL)
             {
-                width = GetWidth() - GetPaddingLeft() - GetPaddingRight();
+                width = Width - PaddingLeft - PaddingRight;
                 height = result.Consumed;
-                left = GetPaddingLeft();
+                left = PaddingLeft;
                 if (layoutState.LayoutDirection == LayoutState.LAYOUT_END)
                 {
                     top = layoutState.Offset;
@@ -495,8 +449,8 @@ namespace Tizen.NUI.Components
             else
             {
                 width = result.Consumed;
-                height = GetHeight() - GetPaddingTop() - GetPaddingBottom();
-                top = GetPaddingTop();
+                height = Height - PaddingTop - PaddingBottom;
+                top = PaddingTop;
                 if (layoutState.LayoutDirection == LayoutState.LAYOUT_END)
                 {
                     left = layoutState.Offset;
@@ -513,7 +467,7 @@ namespace Tizen.NUI.Components
 
         internal override FlexibleView.ViewHolder OnFocusSearchFailed(FlexibleView.ViewHolder focused, FlexibleView.LayoutManager.Direction direction, FlexibleView.Recycler recycler)
         {
-            if (GetChildCount() == 0)
+            if (ChildCount == 0)
             {
                 return null;
             }
@@ -535,7 +489,7 @@ namespace Tizen.NUI.Components
             }
             else
             {
-                nextFocus = GetChildAt(GetChildCount() - 1);
+                nextFocus = GetChildAt(ChildCount - 1);
             }
             return nextFocus;
         }
@@ -594,6 +548,7 @@ namespace Tizen.NUI.Components
                             + mPendingScrollPositionOffset;
                 }
             }
+
             return true;
         }
 
@@ -604,7 +559,7 @@ namespace Tizen.NUI.Components
          */
         private bool UpdateAnchorFromChildren(FlexibleView.Recycler recycler, AnchorInfo anchorInfo)
         {
-            if (GetChildCount() == 0)
+            if (ChildCount == 0)
             {
                 return false;
             }
@@ -656,6 +611,7 @@ namespace Tizen.NUI.Components
         private float Fill(FlexibleView.Recycler recycler, LayoutState layoutState, bool stopOnFocusable, bool immediate)
         {
             float start = layoutState.Available;
+
             if (layoutState.ScrollingOffset != LayoutState.SCROLLING_OFFSET_NaN)
             {
                 // TODO ugly bug fix. should not happen
@@ -779,7 +735,7 @@ namespace Tizen.NUI.Components
             }
             // ignore padding, ViewGroup may not clip children.
             float limit = dt;
-            int childCount = GetChildCount();
+            int childCount = ChildCount;
             if (mShouldReverseLayout)
             {
                 for (int i = childCount - 1; i >= 0; i--)
@@ -810,7 +766,7 @@ namespace Tizen.NUI.Components
 
         private void RecycleViewsFromEnd(FlexibleView.Recycler recycler, float dt, bool immediate)
         {
-            int childCount = GetChildCount();
+            int childCount = ChildCount;
             if (dt < 0)
             {
                 return;
@@ -846,7 +802,7 @@ namespace Tizen.NUI.Components
 
         private float ScrollBy(float dy, FlexibleView.Recycler recycler, bool immediate)
         {
-            if (GetChildCount() == 0 || dy == 0)
+            if (ChildCount == 0 || dy == 0)
             {
                 return 0;
             }
@@ -867,7 +823,6 @@ namespace Tizen.NUI.Components
             Cache(recycler, mLayoutState, immediate, scrolled);
 
             mOrientationHelper.OffsetChildren(scrolled, immediate);
-
 
             return scrolled;
         }
@@ -925,7 +880,7 @@ namespace Tizen.NUI.Components
          */
         private FlexibleView.ViewHolder GetChildClosestToStart()
         {
-            return GetChildAt(mShouldReverseLayout ? GetChildCount() - 1 : 0);
+            return GetChildAt(mShouldReverseLayout ? ChildCount - 1 : 0);
         }
 
         /**
@@ -936,7 +891,7 @@ namespace Tizen.NUI.Components
          */
         private FlexibleView.ViewHolder GetChildClosestToEnd()
         {
-            return GetChildAt(mShouldReverseLayout ? 0 : GetChildCount() - 1);
+            return GetChildAt(mShouldReverseLayout ? 0 : ChildCount - 1);
         }
 
         private void UpdateLayoutStateToFillEnd(int itemPosition, float offset)
@@ -965,7 +920,7 @@ namespace Tizen.NUI.Components
 
         private FlexibleView.ViewHolder FindFirstVisibleItemView()
         {
-            int childCount = GetChildCount();
+            int childCount = ChildCount;
             if (mShouldReverseLayout == false)
             {
                 for (int i = 0; i < childCount; i++)
@@ -993,7 +948,7 @@ namespace Tizen.NUI.Components
 
         private FlexibleView.ViewHolder FindFirstCompleteVisibleItemView()
         {
-            int childCount = GetChildCount();
+            int childCount = ChildCount;
             if (mShouldReverseLayout == false)
             {
                 for (int i = 0; i < childCount; i++)
@@ -1021,7 +976,7 @@ namespace Tizen.NUI.Components
 
         private FlexibleView.ViewHolder FindLastVisibleItemView()
         {
-            int childCount = GetChildCount();
+            int childCount = ChildCount;
             if (mShouldReverseLayout == false)
             {
                 for (int i = childCount - 1; i >= 0; i--)
@@ -1049,7 +1004,7 @@ namespace Tizen.NUI.Components
 
         private FlexibleView.ViewHolder FindLastCompleteVisibleItemView()
         {
-            int childCount = GetChildCount();
+            int childCount = ChildCount;
             if (mShouldReverseLayout == false)
             {
                 for (int i = childCount - 1; i >= 0; i--)
