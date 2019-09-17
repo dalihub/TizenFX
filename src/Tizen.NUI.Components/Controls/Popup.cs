@@ -468,8 +468,6 @@ namespace Tizen.NUI.Components
         /// Button overlay background color selector in Popup.
         /// </summary>
         /// <since_tizen> 6 </since_tizen>
-        /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
-        [EditorBrowsable(EditorBrowsableState.Never)]
         public ColorSelector ButtonOverLayBackgroundColorSelector
         {
             get
@@ -509,8 +507,6 @@ namespace Tizen.NUI.Components
         /// Button background image's resource url in Popup.
         /// </summary>
         /// <since_tizen> 6 </since_tizen>
-        /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
-        [EditorBrowsable(EditorBrowsableState.Never)]
         public string ButtonBackgroundImageURL
         {
             get
@@ -536,8 +532,6 @@ namespace Tizen.NUI.Components
         /// Button background image's border in Popup.
         /// </summary>
         /// <since_tizen> 6 </since_tizen>
-        /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
-        [EditorBrowsable(EditorBrowsableState.Never)]
         public Rectangle ButtonBackgroundImageBorder
         {
             get

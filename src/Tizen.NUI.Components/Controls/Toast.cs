@@ -274,6 +274,37 @@ namespace Tizen.NUI.Components
         }
 
         /// <summary>
+        /// Gets or sets text padding in toast.
+        /// </summary>
+        /// <since_tizen> 6 </since_tizen>
+        public Extents TextPadding
+        {
+            get
+            {
+                if (null != toastAttributes?.TextAttributes)
+                {
+                    return new Extents((ushort)toastAttributes.TextAttributes.PaddingLeft, (ushort)toastAttributes.TextAttributes.PaddingRight, (ushort)toastAttributes.TextAttributes.PaddingTop, (ushort)toastAttributes.TextAttributes.PaddingBottom);
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            set
+            {
+                if (null != value)
+                {
+                    CreateTextAttributes();
+                    toastAttributes.TextAttributes.PaddingLeft = value.Start;
+                    toastAttributes.TextAttributes.PaddingRight = value.End;
+                    toastAttributes.TextAttributes.PaddingTop = value.Top;
+                    toastAttributes.TextAttributes.PaddingBottom = value.Bottom;
+                    RelayoutRequest();
+                }
+            }
+        }
+
+        /// <summary>
         /// Gets or sets text line height in toast.
         /// </summary>
         /// <since_tizen> 6 </since_tizen>

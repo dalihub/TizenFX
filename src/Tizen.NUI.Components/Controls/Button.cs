@@ -707,8 +707,6 @@ namespace Tizen.NUI.Components
         /// Icon relative orientation in Button, work only when show icon and text.
         /// </summary>
         /// <since_tizen> 6 </since_tizen>
-        /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
-        [EditorBrowsable(EditorBrowsableState.Never)]
         public IconOrientation? IconRelativeOrientation
         {
             get
