@@ -280,7 +280,7 @@ namespace Tizen.NUI.Components
             {
                 return 0;
             }
-            return ScrollBy(dy, recycler, immediate); ;
+            return ScrollBy(dy, recycler, immediate);
         }
 
         /// <summary>
@@ -293,7 +293,7 @@ namespace Tizen.NUI.Components
         {
             FlexibleView.ViewHolder startChild = FindFirstVisibleItemView();
             FlexibleView.ViewHolder endChild = FindLastVisibleItemView();
-            if (GetChildCount() == 0 || startChild == null || endChild == null)
+            if (ChildCount == 0 || startChild == null || endChild == null)
             {
                 return 0;
             }
@@ -322,7 +322,7 @@ namespace Tizen.NUI.Components
         {
             FlexibleView.ViewHolder startChild = FindFirstVisibleItemView();
             FlexibleView.ViewHolder endChild = FindLastVisibleItemView();
-            if (GetChildCount() == 0 || startChild == null || endChild == null)
+            if (ChildCount == 0 || startChild == null || endChild == null)
             {
                 return 0;
             }
@@ -341,7 +341,7 @@ namespace Tizen.NUI.Components
         {
             FlexibleView.ViewHolder startChild = FindFirstVisibleItemView();
             FlexibleView.ViewHolder endChild = FindLastVisibleItemView();
-            if (GetChildCount() == 0 || startChild == null || endChild == null)
+            if (ChildCount == 0 || startChild == null || endChild == null)
             {
                 return 0;
             }
@@ -479,9 +479,9 @@ namespace Tizen.NUI.Components
             float left, top, width, height;
             if (mOrientation == VERTICAL)
             {
-                width = GetWidth() - GetPaddingLeft() - GetPaddingRight();
+                width = Width - PaddingLeft - PaddingRight;
                 height = result.Consumed;
-                left = GetPaddingLeft();
+                left = PaddingLeft;
                 if (layoutState.LayoutDirection == LayoutState.LAYOUT_END)
                 {
                     top = layoutState.Offset;
@@ -495,8 +495,8 @@ namespace Tizen.NUI.Components
             else
             {
                 width = result.Consumed;
-                height = GetHeight() - GetPaddingTop() - GetPaddingBottom();
-                top = GetPaddingTop();
+                height = Height - PaddingTop - PaddingBottom;
+                top = PaddingTop;
                 if (layoutState.LayoutDirection == LayoutState.LAYOUT_END)
                 {
                     left = layoutState.Offset;
@@ -513,7 +513,7 @@ namespace Tizen.NUI.Components
 
         internal override FlexibleView.ViewHolder OnFocusSearchFailed(FlexibleView.ViewHolder focused, FlexibleView.LayoutManager.Direction direction, FlexibleView.Recycler recycler)
         {
-            if (GetChildCount() == 0)
+            if (ChildCount == 0)
             {
                 return null;
             }
@@ -535,7 +535,7 @@ namespace Tizen.NUI.Components
             }
             else
             {
-                nextFocus = GetChildAt(GetChildCount() - 1);
+                nextFocus = GetChildAt(ChildCount - 1);
             }
             return nextFocus;
         }
@@ -594,6 +594,7 @@ namespace Tizen.NUI.Components
                             + mPendingScrollPositionOffset;
                 }
             }
+
             return true;
         }
 
@@ -604,7 +605,7 @@ namespace Tizen.NUI.Components
          */
         private bool UpdateAnchorFromChildren(FlexibleView.Recycler recycler, AnchorInfo anchorInfo)
         {
-            if (GetChildCount() == 0)
+            if (ChildCount == 0)
             {
                 return false;
             }
@@ -656,6 +657,7 @@ namespace Tizen.NUI.Components
         private float Fill(FlexibleView.Recycler recycler, LayoutState layoutState, bool stopOnFocusable, bool immediate)
         {
             float start = layoutState.Available;
+
             if (layoutState.ScrollingOffset != LayoutState.SCROLLING_OFFSET_NaN)
             {
                 // TODO ugly bug fix. should not happen
@@ -779,7 +781,7 @@ namespace Tizen.NUI.Components
             }
             // ignore padding, ViewGroup may not clip children.
             float limit = dt;
-            int childCount = GetChildCount();
+            int childCount = ChildCount;
             if (mShouldReverseLayout)
             {
                 for (int i = childCount - 1; i >= 0; i--)
@@ -810,7 +812,7 @@ namespace Tizen.NUI.Components
 
         private void RecycleViewsFromEnd(FlexibleView.Recycler recycler, float dt, bool immediate)
         {
-            int childCount = GetChildCount();
+            int childCount = ChildCount;
             if (dt < 0)
             {
                 return;
@@ -846,7 +848,7 @@ namespace Tizen.NUI.Components
 
         private float ScrollBy(float dy, FlexibleView.Recycler recycler, bool immediate)
         {
-            if (GetChildCount() == 0 || dy == 0)
+            if (ChildCount == 0 || dy == 0)
             {
                 return 0;
             }
@@ -867,7 +869,6 @@ namespace Tizen.NUI.Components
             Cache(recycler, mLayoutState, immediate, scrolled);
 
             mOrientationHelper.OffsetChildren(scrolled, immediate);
-
 
             return scrolled;
         }
@@ -925,7 +926,7 @@ namespace Tizen.NUI.Components
          */
         private FlexibleView.ViewHolder GetChildClosestToStart()
         {
-            return GetChildAt(mShouldReverseLayout ? GetChildCount() - 1 : 0);
+            return GetChildAt(mShouldReverseLayout ? ChildCount - 1 : 0);
         }
 
         /**
@@ -936,7 +937,7 @@ namespace Tizen.NUI.Components
          */
         private FlexibleView.ViewHolder GetChildClosestToEnd()
         {
-            return GetChildAt(mShouldReverseLayout ? 0 : GetChildCount() - 1);
+            return GetChildAt(mShouldReverseLayout ? 0 : ChildCount - 1);
         }
 
         private void UpdateLayoutStateToFillEnd(int itemPosition, float offset)
@@ -965,7 +966,7 @@ namespace Tizen.NUI.Components
 
         private FlexibleView.ViewHolder FindFirstVisibleItemView()
         {
-            int childCount = GetChildCount();
+            int childCount = ChildCount;
             if (mShouldReverseLayout == false)
             {
                 for (int i = 0; i < childCount; i++)
@@ -993,7 +994,7 @@ namespace Tizen.NUI.Components
 
         private FlexibleView.ViewHolder FindFirstCompleteVisibleItemView()
         {
-            int childCount = GetChildCount();
+            int childCount = ChildCount;
             if (mShouldReverseLayout == false)
             {
                 for (int i = 0; i < childCount; i++)
@@ -1021,7 +1022,7 @@ namespace Tizen.NUI.Components
 
         private FlexibleView.ViewHolder FindLastVisibleItemView()
         {
-            int childCount = GetChildCount();
+            int childCount = ChildCount;
             if (mShouldReverseLayout == false)
             {
                 for (int i = childCount - 1; i >= 0; i--)
@@ -1049,7 +1050,7 @@ namespace Tizen.NUI.Components
 
         private FlexibleView.ViewHolder FindLastCompleteVisibleItemView()
         {
-            int childCount = GetChildCount();
+            int childCount = ChildCount;
             if (mShouldReverseLayout == false)
             {
                 for (int i = childCount - 1; i >= 0; i--)
@@ -1149,11 +1150,11 @@ namespace Tizen.NUI.Components
             }
 
             /**
-         * Gets the view for the next element that we should layout.
-         * Also updates current item index to the next item, based on {@link #mItemDirection}
-         *
-         * @return The next element that we should layout.
-         */
+             * Gets the view for the next element that we should layout.
+             * Also updates current item index to the next item, based on {@link #mItemDirection}
+             *
+             * @return The next element that we should layout.
+             */
             public FlexibleView.ViewHolder Next(FlexibleView.Recycler recycler)
             {
                 FlexibleView.ViewHolder itemView = recycler.GetViewForPosition(CurrentPosition);

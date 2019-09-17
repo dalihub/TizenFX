@@ -587,6 +587,25 @@ namespace Tizen.NUI.Components
         }
 
         /// <summary>
+        /// Bottom space in list.
+        /// </summary>
+        /// <since_tizen> 6 </since_tizen>
+        /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public int ListBottomMargin
+        {
+            get
+            {
+                return (int)dropDownAttributes.ListMargin.W;
+            }
+            set
+            {
+                dropDownAttributes.ListMargin.W = value;
+                RelayoutRequest();
+            }
+        }
+
+        /// <summary>
         /// Focused item index in list.
         /// </summary>
         /// <since_tizen> 6 </since_tizen>
