@@ -25,6 +25,8 @@ namespace Tizen.NUI.Components
     /// Pagination shows the number of pages available and the currently active page.
     /// </summary>
     /// <since_tizen> 6 </since_tizen>
+    /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
+    [EditorBrowsable(EditorBrowsableState.Never)]
     public class Pagination: Control
     {
         private PaginationAttributes paginationAttributes;
@@ -97,6 +99,8 @@ namespace Tizen.NUI.Components
         /// Gets or sets the background resource of indicator.
         /// </summary>
         /// <since_tizen> 6 </since_tizen>
+        /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public string IndicatorBackgroundURL
         {
             get
@@ -118,6 +122,8 @@ namespace Tizen.NUI.Components
         /// Gets or sets the resource of the select indicator.
         /// </summary>
         /// <since_tizen> 6 </since_tizen>
+        /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public string IndicatorSelectURL
         {
             get
@@ -139,6 +145,8 @@ namespace Tizen.NUI.Components
         /// Gets or sets the space of the indicator.
         /// </summary>
         /// <since_tizen> 6 </since_tizen>
+        /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public int IndicatorSpacing
         {
             get
@@ -161,6 +169,8 @@ namespace Tizen.NUI.Components
         /// Gets or sets the count of the pages/indicators.
         /// </summary>
         /// <since_tizen> 6 </since_tizen>
+        /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public int IndicatorCount
         {
             get
@@ -208,6 +218,8 @@ namespace Tizen.NUI.Components
         /// Gets or sets the index of the select indicator.
         /// </summary>
         /// <since_tizen> 6 </since_tizen>
+        /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public int SelectedIndex
         {
             get
@@ -237,6 +249,8 @@ namespace Tizen.NUI.Components
         /// </summary>
         /// <param name="index">Indicator index</param>
         /// <since_tizen> 6 </since_tizen>
+        /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public Position2D GetIndicatorPosition(int index)
         {
             if (index < 0 || index >= indicatorList.Count)
