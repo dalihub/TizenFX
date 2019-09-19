@@ -170,16 +170,16 @@ namespace Tizen.NUI.Components
         /// Handler image's size in Switch.
         /// </summary>
         /// <since_tizen> 6 </since_tizen>
-        public Size2D SwitchHandlerImageSize2D
+        public Size SwitchHandlerImageSize
         {
             get
             {
-                return switchAttributes?.SwitchHandlerImageAttributes?.Size2D ?? new Size2D(0, 0);
+                return switchAttributes?.SwitchHandlerImageAttributes?.Size ?? new Size(0, 0);
             }
             set
             {
                 CreateSwitchHandlerImageAttributes();
-                switchAttributes.SwitchHandlerImageAttributes.Size2D = value;
+                switchAttributes.SwitchHandlerImageAttributes.Size = value;
                 RelayoutRequest();
             }
         }

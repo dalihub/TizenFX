@@ -56,9 +56,9 @@ namespace Tizen.NUI.Components
         // the current value
         private float? curValue = null;
         // the size of the low indicator
-        private Size2D lowIndicatorSize = null;
+        private Size lowIndicatorSize = null;
         // the size of the high indicator
-        private Size2D highIndicatorSize = null;
+        private Size highIndicatorSize = null;
         // the track thickness value
         private uint? trackThickness = null;
         // the value of the space between track and indicator object
@@ -295,16 +295,16 @@ namespace Tizen.NUI.Components
         /// Gets or sets the size of the thumb image object.
         /// </summary>
         /// <since_tizen> 6 </since_tizen>
-        public Size2D ThumbSize
+        public Size ThumbSize
         {
             get
             {
-                return sliderAttrs.ThumbAttributes?.Size2D;
+                return sliderAttrs.ThumbAttributes?.Size;
             }
             set
             {
                 CreateThumbAttributes();
-                sliderAttrs.ThumbAttributes.Size2D = value;
+                sliderAttrs.ThumbAttributes.Size = value;
                 RelayoutRequest();
             }
         }
@@ -549,7 +549,7 @@ namespace Tizen.NUI.Components
         /// Gets or sets the size of the low indicator object(image or text).
         /// </summary>
         /// <since_tizen> 6 </since_tizen>
-        public Size2D LowIndicatorSize
+        public Size LowIndicatorSize
         {
             get
             {
@@ -569,7 +569,7 @@ namespace Tizen.NUI.Components
         /// Gets or sets the size of the high indicator object(image or text).
         /// </summary>
         /// <since_tizen> 6 </since_tizen>
-        public Size2D HighIndicatorSize
+        public Size HighIndicatorSize
         {
             get
             {
@@ -1070,37 +1070,37 @@ namespace Tizen.NUI.Components
             }
             else if (type == IndicatorType.Image)
             {// <lowIndicatorImage> <spaceBetweenTrackAndIndicator> <bgTrack> <spaceBetweenTrackAndIndicator> <highIndicatorImage>
-                Size2D lowIndicatorImageSize = LowIndicatorImageSize();
-                Size2D highIndicatorImageSize = HighIndicatorImageSize();
+                Size lowIndicatorImageSize = LowIndicatorImageSize();
+                Size highIndicatorImageSize = HighIndicatorImageSize();
                 int curSpace = (int)CurrentSpaceBetweenTrackAndIndicator();
                 if (direction == DirectionType.Horizontal)
                 {
-                    int lowIndicatorSpace = ((lowIndicatorImageSize.Width == 0) ? (0) : (curSpace + lowIndicatorImageSize.Width));
-                    int highIndicatorSpace = ((highIndicatorImageSize.Width == 0) ? (0) : (curSpace + highIndicatorImageSize.Width));
+                    int lowIndicatorSpace = ((lowIndicatorImageSize.Width == 0) ? (0) : ((int)(curSpace + lowIndicatorImageSize.Width)));
+                    int highIndicatorSpace = ((highIndicatorImageSize.Width == 0) ? (0) : ((int)(curSpace + highIndicatorImageSize.Width)));
                     bgTrackLength = this.Size2D.Width - lowIndicatorSpace - highIndicatorSpace;
                 }
                 else if (direction == DirectionType.Vertical)
                 {
-                    int lowIndicatorSpace = ((lowIndicatorImageSize.Height == 0) ? (0) : (curSpace + lowIndicatorImageSize.Height));
-                    int highIndicatorSpace = ((highIndicatorImageSize.Height == 0) ? (0) : (curSpace + highIndicatorImageSize.Height));
+                    int lowIndicatorSpace = ((lowIndicatorImageSize.Height == 0) ? (0) : ((int)(curSpace + lowIndicatorImageSize.Height)));
+                    int highIndicatorSpace = ((highIndicatorImageSize.Height == 0) ? (0) : ((int)(curSpace + highIndicatorImageSize.Height)));
                     bgTrackLength = this.Size2D.Height - lowIndicatorSpace - highIndicatorSpace;
                 }
             }
             else if (type == IndicatorType.Text)
             {// <lowIndicatorText> <spaceBetweenTrackAndIndicator> <bgTrack> <spaceBetweenTrackAndIndicator> <highIndicatorText>
-                Size2D lowIndicatorTextSize = LowIndicatorTextSize();
-                Size2D highIndicatorTextSize = HighIndicatorTextSize();
+                Size lowIndicatorTextSize = LowIndicatorTextSize();
+                Size highIndicatorTextSize = HighIndicatorTextSize();
                 int curSpace = (int)CurrentSpaceBetweenTrackAndIndicator();
                 if (direction == DirectionType.Horizontal)
                 {
-                    int lowIndicatorSpace = ((lowIndicatorTextSize.Width == 0) ? (0) : (curSpace + lowIndicatorTextSize.Width));
-                    int highIndicatorSpace = ((highIndicatorTextSize.Width == 0) ? (0) : (curSpace + highIndicatorTextSize.Width));
+                    int lowIndicatorSpace = ((lowIndicatorTextSize.Width == 0) ? (0) : ((int)(curSpace + lowIndicatorTextSize.Width)));
+                    int highIndicatorSpace = ((highIndicatorTextSize.Width == 0) ? (0) : ((int)(curSpace + highIndicatorTextSize.Width)));
                     bgTrackLength = this.Size2D.Width - lowIndicatorSpace - highIndicatorSpace;
                 }
                 else if (direction == DirectionType.Vertical)
                 {
-                    int lowIndicatorSpace = ((lowIndicatorTextSize.Height == 0) ? (0) : (curSpace + lowIndicatorTextSize.Height));
-                    int highIndicatorSpace = ((highIndicatorTextSize.Height == 0) ? (0) : (curSpace + highIndicatorTextSize.Height));
+                    int lowIndicatorSpace = ((lowIndicatorTextSize.Height == 0) ? (0) : ((int)(curSpace + lowIndicatorTextSize.Height)));
+                    int highIndicatorSpace = ((highIndicatorTextSize.Height == 0) ? (0) : ((int)(curSpace + highIndicatorTextSize.Height)));
                     bgTrackLength = this.Size2D.Height - lowIndicatorSpace - highIndicatorSpace;
                 }
             }
@@ -1113,22 +1113,22 @@ namespace Tizen.NUI.Components
             {
                 if (lowIndicatorImage != null)
                 {
-                    lowIndicatorImage.Size2D = lowIndicatorSize;
+                    lowIndicatorImage.Size = lowIndicatorSize;
                 }
                 if (lowIndicatorText != null)
                 {
-                    lowIndicatorText.Size2D = lowIndicatorSize;
+                    lowIndicatorText.Size = lowIndicatorSize;
                 }
             }
             else
             {
-                if (lowIndicatorImage != null && sliderAttrs != null && sliderAttrs.LowIndicatorImageAttributes != null && sliderAttrs.LowIndicatorImageAttributes.Size2D != null)
+                if (lowIndicatorImage != null && sliderAttrs != null && sliderAttrs.LowIndicatorImageAttributes != null && sliderAttrs.LowIndicatorImageAttributes.Size != null)
                 {
-                    lowIndicatorImage.Size2D = sliderAttrs.LowIndicatorImageAttributes.Size2D;
+                    lowIndicatorImage.Size = sliderAttrs.LowIndicatorImageAttributes.Size;
                 }
-                if (lowIndicatorText != null && sliderAttrs != null && sliderAttrs.LowIndicatorTextAttributes != null && sliderAttrs.LowIndicatorTextAttributes.Size2D != null)
+                if (lowIndicatorText != null && sliderAttrs != null && sliderAttrs.LowIndicatorTextAttributes != null && sliderAttrs.LowIndicatorTextAttributes.Size != null)
                 {
-                    lowIndicatorText.Size2D = sliderAttrs.LowIndicatorTextAttributes.Size2D;
+                    lowIndicatorText.Size = sliderAttrs.LowIndicatorTextAttributes.Size;
                 }
             }
         }
@@ -1139,22 +1139,22 @@ namespace Tizen.NUI.Components
             {
                 if (highIndicatorImage != null)
                 {
-                    highIndicatorImage.Size2D = highIndicatorSize;
+                    highIndicatorImage.Size = highIndicatorSize;
                 }
                 if (highIndicatorText != null)
                 {
-                    highIndicatorText.Size2D = highIndicatorSize;
+                    highIndicatorText.Size = highIndicatorSize;
                 }
             }
             else
             {
-                if (highIndicatorImage != null && sliderAttrs != null && sliderAttrs.HighIndicatorImageAttributes != null && sliderAttrs.HighIndicatorImageAttributes.Size2D != null)
+                if (highIndicatorImage != null && sliderAttrs != null && sliderAttrs.HighIndicatorImageAttributes != null && sliderAttrs.HighIndicatorImageAttributes.Size != null)
                 {
-                    highIndicatorImage.Size2D = sliderAttrs.HighIndicatorImageAttributes.Size2D;
+                    highIndicatorImage.Size = sliderAttrs.HighIndicatorImageAttributes.Size;
                 }
-                if (highIndicatorText != null && sliderAttrs != null && sliderAttrs.HighIndicatorTextAttributes != null && sliderAttrs.HighIndicatorTextAttributes.Size2D != null)
+                if (highIndicatorText != null && sliderAttrs != null && sliderAttrs.HighIndicatorTextAttributes != null && sliderAttrs.HighIndicatorTextAttributes.Size != null)
                 {
-                    highIndicatorText.Size2D = sliderAttrs.HighIndicatorTextAttributes.Size2D;
+                    highIndicatorText.Size = sliderAttrs.HighIndicatorTextAttributes.Size;
                 }
             }
         }
@@ -1191,37 +1191,37 @@ namespace Tizen.NUI.Components
             }
             else if (type == IndicatorType.Image)
             {
-                Size2D lowIndicatorImageSize = LowIndicatorImageSize();
-                Size2D highIndicatorImageSize = HighIndicatorImageSize();
+                Size lowIndicatorImageSize = LowIndicatorImageSize();
+                Size highIndicatorImageSize = HighIndicatorImageSize();
                 int curSpace = (int)CurrentSpaceBetweenTrackAndIndicator();
                 if (direction == DirectionType.Horizontal)
                 {
-                    int lowIndicatorSpace = ((lowIndicatorImageSize.Width == 0) ? (0) : (curSpace + lowIndicatorImageSize.Width));
-                    int highIndicatorSpace = ((highIndicatorImageSize.Width == 0) ? (0) : (curSpace + highIndicatorImageSize.Width));
+                    int lowIndicatorSpace = ((lowIndicatorImageSize.Width == 0) ? (0) : ((int)(curSpace + lowIndicatorImageSize.Width)));
+                    int highIndicatorSpace = ((highIndicatorImageSize.Width == 0) ? (0) : ((int)(curSpace + highIndicatorImageSize.Width)));
                     bgTrackImage.Position2D = new Position2D(lowIndicatorSpace - (lowIndicatorSpace + highIndicatorSpace) / 2, 0);
                 }
                 else if (direction == DirectionType.Vertical)
                 {
-                    int lowIndicatorSpace = ((lowIndicatorImageSize.Height == 0) ? (0) : (curSpace + lowIndicatorImageSize.Height));
-                    int highIndicatorSpace = ((highIndicatorImageSize.Height == 0) ? (0) : (curSpace + highIndicatorImageSize.Height));
+                    int lowIndicatorSpace = ((lowIndicatorImageSize.Height == 0) ? (0) : ((int)(curSpace + lowIndicatorImageSize.Height)));
+                    int highIndicatorSpace = ((highIndicatorImageSize.Height == 0) ? (0) : ((int)(curSpace + highIndicatorImageSize.Height)));
                     bgTrackImage.Position2D = new Position2D(0, lowIndicatorSpace - (lowIndicatorSpace + highIndicatorSpace) / 2);
                 }
             }
             else if (type == IndicatorType.Text)
             {
-                Size2D lowIndicatorTextSize = LowIndicatorTextSize();
-                Size2D highIndicatorTextSize = HighIndicatorTextSize();
+                Size lowIndicatorTextSize = LowIndicatorTextSize();
+                Size highIndicatorTextSize = HighIndicatorTextSize();
                 int curSpace = (int)CurrentSpaceBetweenTrackAndIndicator();
                 if (direction == DirectionType.Horizontal)
                 {
-                    int lowIndicatorSpace = ((lowIndicatorTextSize.Width == 0) ? (0) : (curSpace + lowIndicatorTextSize.Width));
-                    int highIndicatorSpace = ((highIndicatorTextSize.Width == 0) ? (0) : (curSpace + highIndicatorTextSize.Width));
+                    int lowIndicatorSpace = ((lowIndicatorTextSize.Width == 0) ? (0) : ((int)(curSpace + lowIndicatorTextSize.Width)));
+                    int highIndicatorSpace = ((highIndicatorTextSize.Width == 0) ? (0) : ((int)(curSpace + highIndicatorTextSize.Width)));
                     bgTrackImage.Position2D = new Position2D(lowIndicatorSpace - (lowIndicatorSpace + highIndicatorSpace) / 2, 0);
                 }
                 else if (direction == DirectionType.Vertical)
                 {
-                    int lowIndicatorSpace = ((lowIndicatorTextSize.Height == 0) ? (0) : (curSpace + lowIndicatorTextSize.Height));
-                    int highIndicatorSpace = ((highIndicatorTextSize.Height == 0) ? (0) : (curSpace + highIndicatorTextSize.Height));
+                    int lowIndicatorSpace = ((lowIndicatorTextSize.Height == 0) ? (0) : ((int)(curSpace + lowIndicatorTextSize.Height)));
+                    int highIndicatorSpace = ((highIndicatorTextSize.Height == 0) ? (0) : ((int)(curSpace + highIndicatorTextSize.Height)));
                     bgTrackImage.Position2D = new Position2D(0, -(lowIndicatorSpace - (lowIndicatorSpace + highIndicatorSpace) / 2));
                 }
             }
@@ -1303,69 +1303,69 @@ namespace Tizen.NUI.Components
             return type;
         }
 
-        private Size2D LowIndicatorImageSize()
+        private Size LowIndicatorImageSize()
         {
-            Size2D size = new Size2D(0, 0);
+            Size size = new Size(0, 0);
             if (lowIndicatorSize != null)
             {
                 size = lowIndicatorSize;
             }
             else
             {
-                if (sliderAttrs != null && sliderAttrs.LowIndicatorImageAttributes != null && sliderAttrs.LowIndicatorImageAttributes.Size2D != null)
+                if (sliderAttrs != null && sliderAttrs.LowIndicatorImageAttributes != null && sliderAttrs.LowIndicatorImageAttributes.Size != null)
                 {
-                    size = sliderAttrs.LowIndicatorImageAttributes.Size2D;
+                    size = sliderAttrs.LowIndicatorImageAttributes.Size;
                 }
             }
             return size;
         }
 
-        private Size2D HighIndicatorImageSize()
+        private Size HighIndicatorImageSize()
         {
-            Size2D size = new Size2D(0, 0);
+            Size size = new Size(0, 0);
             if (highIndicatorSize != null)
             {
                 size = highIndicatorSize;
             }
             else
             {
-                if (sliderAttrs != null && sliderAttrs.HighIndicatorImageAttributes != null && sliderAttrs.HighIndicatorImageAttributes.Size2D != null)
+                if (sliderAttrs != null && sliderAttrs.HighIndicatorImageAttributes != null && sliderAttrs.HighIndicatorImageAttributes.Size != null)
                 {
-                    size = sliderAttrs.HighIndicatorImageAttributes.Size2D;
+                    size = sliderAttrs.HighIndicatorImageAttributes.Size;
                 }
             }
             return size;
         }
 
-        private Size2D LowIndicatorTextSize()
+        private Size LowIndicatorTextSize()
         {
-            Size2D size = new Size2D(0, 0);
+            Size size = new Size(0, 0);
             if (lowIndicatorSize != null)
             {
                 size = lowIndicatorSize;
             }
             else
             {
-                if (sliderAttrs != null && sliderAttrs.LowIndicatorTextAttributes != null && sliderAttrs.LowIndicatorTextAttributes.Size2D != null)
+                if (sliderAttrs != null && sliderAttrs.LowIndicatorTextAttributes != null && sliderAttrs.LowIndicatorTextAttributes.Size != null)
                 {
-                    size = sliderAttrs.LowIndicatorTextAttributes.Size2D;
+                    size = sliderAttrs.LowIndicatorTextAttributes.Size;
                 }
             }
             return size;
         }
 
-        private Size2D HighIndicatorTextSize()
+        private Size HighIndicatorTextSize()
         {
-            Size2D size = new Size2D(0, 0);
+            Size size = new Size(0, 0);
             if (highIndicatorSize != null)
             {
                 size = highIndicatorSize;
             }
             else
             {
-                if (sliderAttrs != null && sliderAttrs.HighIndicatorTextAttributes != null && sliderAttrs.HighIndicatorTextAttributes.Size2D != null)
+                if (sliderAttrs != null && sliderAttrs.HighIndicatorTextAttributes != null && sliderAttrs.HighIndicatorTextAttributes.Size != null)
                 {
-                    size = sliderAttrs.HighIndicatorTextAttributes.Size2D;
+                    size = sliderAttrs.HighIndicatorTextAttributes.Size;
                 }
             }
             return size;

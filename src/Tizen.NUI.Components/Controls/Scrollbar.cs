@@ -80,16 +80,12 @@ namespace Tizen.NUI.Components
             /// The Horizontal type.
             /// </summary>
             /// <since_tizen> 6 </since_tizen>
-            /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
-            [EditorBrowsable(EditorBrowsableState.Never)]
             Horizontal,
 
             /// <summary>
             /// The Vertical type.
             /// </summary>
             /// <since_tizen> 6 </since_tizen>
-            /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
-            [EditorBrowsable(EditorBrowsableState.Never)]
             Vertical
         }
 
@@ -130,26 +126,26 @@ namespace Tizen.NUI.Components
         /// </code>
         /// </example>
         /// <since_tizen> 6 </since_tizen>
-        public Size2D ThumbSize
+        public Size ThumbSize
         {
             get
             {
-                if (scrollBarAttrs.ThumbImageAttributes.Size2D == null)
+                if (scrollBarAttrs.ThumbImageAttributes.Size == null)
                 {
-                    scrollBarAttrs.ThumbImageAttributes.Size2D = new Size2D();
+                    scrollBarAttrs.ThumbImageAttributes.Size = new Size();
                 }
-                return scrollBarAttrs.ThumbImageAttributes.Size2D;
+                return scrollBarAttrs.ThumbImageAttributes.Size;
             }
             set
             {
-                if (scrollBarAttrs.ThumbImageAttributes.Size2D == null)
+                if (scrollBarAttrs.ThumbImageAttributes.Size == null)
                 {
-                    scrollBarAttrs.ThumbImageAttributes.Size2D = new Size2D();
+                    scrollBarAttrs.ThumbImageAttributes.Size = new Size();
                 }
                 if (thumbImage != null)
                 {
-                    scrollBarAttrs.ThumbImageAttributes.Size2D.Width = value.Width;
-                    scrollBarAttrs.ThumbImageAttributes.Size2D.Height = value.Height;
+                    scrollBarAttrs.ThumbImageAttributes.Size.Width = value.Width;
+                    scrollBarAttrs.ThumbImageAttributes.Size.Height = value.Height;
                     RelayoutRequest();
                 }
             }
@@ -346,7 +342,7 @@ namespace Tizen.NUI.Components
         /// </code>
         /// </example>
         /// <since_tizen> 6 </since_tizen>
-        public void SetCurrentValue(int currentValue, bool isEnableAni = true)
+        public void SetCurrentValue(int currentValue, bool EnableAnimation = true)
         {
             if (currentValue < minValue || currentValue > maxValue)
             {
@@ -354,7 +350,7 @@ namespace Tizen.NUI.Components
                 throw new ArgumentOutOfRangeException("Wrong Current value. It shoud be greater than the Min value, and less than the Max value!");
             }
 
-            enableAni = isEnableAni;
+            enableAni = EnableAnimation;
             CurrentValue = currentValue;
         }
 
@@ -534,14 +530,14 @@ namespace Tizen.NUI.Components
             float height = (float)Size2D.Height;
             float thumbW = 0.0f;
             float thumbH = 0.0f;
-            if (scrollBarAttrs.ThumbImageAttributes.Size2D == null)
+            if (scrollBarAttrs.ThumbImageAttributes.Size == null)
             {
                 return;
             }
             else
             {
-                thumbW = scrollBarAttrs.ThumbImageAttributes.Size2D.Width;
-                thumbH = scrollBarAttrs.ThumbImageAttributes.Size2D.Height;
+                thumbW = scrollBarAttrs.ThumbImageAttributes.Size.Width;
+                thumbH = scrollBarAttrs.ThumbImageAttributes.Size.Height;
             }
             float ratio = (float)(curValue - minValue) / (float)(maxValue - minValue);
 

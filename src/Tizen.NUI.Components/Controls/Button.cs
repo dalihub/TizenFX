@@ -35,7 +35,7 @@ namespace Tizen.NUI.Components
         private ImageView buttonIcon;
 
         private ButtonAttributes buttonAttributes;
-        private EventHandler<StateChangeEventArgs> stateChangeHander;
+        private EventHandler<StateChangedEventArgs> stateChangeHander;
 
         private bool isSelected = false;
         private bool isEnabled = true;
@@ -79,7 +79,7 @@ namespace Tizen.NUI.Components
         /// An event for the button state changed signal which can be used to subscribe or unsubscribe the event handler provided by the user.<br />
         /// </summary>
         /// <since_tizen> 6 </since_tizen>
-        public event EventHandler<StateChangeEventArgs> StateChangedEvent
+        public event EventHandler<StateChangedEventArgs> StateChangedEvent
         {
             add
             {
@@ -707,6 +707,8 @@ namespace Tizen.NUI.Components
         /// Icon relative orientation in Button, work only when show icon and text.
         /// </summary>
         /// <since_tizen> 6 </since_tizen>
+        /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public IconOrientation? IconRelativeOrientation
         {
             get
@@ -720,78 +722,6 @@ namespace Tizen.NUI.Components
                     buttonAttributes.IconRelativeOrientation = value;
                     RelayoutRequest();
                 }
-            }
-        }
-
-        /// <summary>
-        /// Icon left padding in Button, work only when show icon and text.
-        /// </summary>
-        /// <since_tizen> 6 </since_tizen>
-        public int IconPaddingLeft
-        {
-            get
-            {
-                return buttonAttributes?.IconAttributes?.PaddingLeft ?? 0;
-            }
-            set
-            {
-                CreateIconAttributes();
-                buttonAttributes.IconAttributes.PaddingLeft = value;
-                RelayoutRequest();
-            }
-        }
-
-        /// <summary>
-        /// Icon right padding in Button, work only when show icon and text.
-        /// </summary>
-        /// <since_tizen> 6 </since_tizen>
-        public int IconPaddingRight
-        {
-            get
-            {
-                return buttonAttributes?.IconAttributes?.PaddingRight ?? 0;
-            }
-            set
-            {
-                CreateIconAttributes();
-                buttonAttributes.IconAttributes.PaddingRight = value;
-                RelayoutRequest();
-            }
-        }
-
-        /// <summary>
-        /// Icon top padding in Button, work only when show icon and text.
-        /// </summary>
-        /// <since_tizen> 6 </since_tizen>
-        public int IconPaddingTop
-        {
-            get
-            {
-                return buttonAttributes?.IconAttributes?.PaddingTop ?? 0;
-            }
-            set
-            {
-                CreateIconAttributes();
-                buttonAttributes.IconAttributes.PaddingTop = value;
-                RelayoutRequest();
-            }
-        }
-
-        /// <summary>
-        /// Icon bottom padding in Button, work only when show icon and text.
-        /// </summary>
-        /// <since_tizen> 6 </since_tizen>
-        public int IconPaddingBottom
-        {
-            get
-            {
-                return buttonAttributes?.IconAttributes?.PaddingBottom ?? 0;
-            }
-            set
-            {
-                CreateIconAttributes();
-                buttonAttributes.IconAttributes.PaddingBottom = value;
-                RelayoutRequest();
             }
         }
 
@@ -823,78 +753,6 @@ namespace Tizen.NUI.Components
                     buttonAttributes.IconAttributes.PaddingBottom = value.Bottom;
                     RelayoutRequest();
                 }
-            }
-        }
-
-        /// <summary>
-        /// Text left padding in Button, work only when show icon and text.
-        /// </summary>
-        /// <since_tizen> 6 </since_tizen>
-        public int TextPaddingLeft
-        {
-            get
-            {
-                return buttonAttributes?.TextAttributes?.PaddingLeft ?? 0;
-            }
-            set
-            {
-                CreateTextAttributes();
-                buttonAttributes.TextAttributes.PaddingLeft = value;
-                RelayoutRequest();
-            }
-        }
-
-        /// <summary>
-        /// Text right padding in Button, work only when show icon and text.
-        /// </summary>
-        /// <since_tizen> 6 </since_tizen>
-        public int TextPaddingRight
-        {
-            get
-            {
-                return buttonAttributes?.TextAttributes?.PaddingRight ?? 0;
-            }
-            set
-            {
-                CreateTextAttributes();
-                buttonAttributes.TextAttributes.PaddingRight = value;
-                RelayoutRequest();
-            }
-        }
-
-        /// <summary>
-        /// Text top padding in Button, work only when show icon and text.
-        /// </summary>
-        /// <since_tizen> 6 </since_tizen>
-        public int TextPaddingTop
-        {
-            get
-            {
-                return buttonAttributes?.TextAttributes?.PaddingTop ?? 0;
-            }
-            set
-            {
-                CreateTextAttributes();
-                buttonAttributes.TextAttributes.PaddingTop = value;
-                RelayoutRequest();
-            }
-        }
-
-        /// <summary>
-        /// Text bottom padding in Button, work only when show icon and text.
-        /// </summary>
-        /// <since_tizen> 6 </since_tizen>
-        public int TextPaddingBottom
-        {
-            get
-            {
-                return buttonAttributes?.TextAttributes?.PaddingBottom ?? 0;
-            }
-            set
-            {
-                CreateTextAttributes();
-                buttonAttributes.TextAttributes.PaddingBottom = value;
-                RelayoutRequest();
             }
         }
 
@@ -1192,7 +1050,7 @@ namespace Tizen.NUI.Components
 
                 OnUpdate();
 
-                StateChangeEventArgs e = new StateChangeEventArgs
+                StateChangedEventArgs e = new StateChangedEventArgs
                 {
                     PreviousState = sourceState,
                     CurrentState = targetState
@@ -1475,7 +1333,7 @@ namespace Tizen.NUI.Components
         /// StateChangeEventArgs is a class to record button state change event arguments which will sent to user.
         /// </summary>
         /// <since_tizen> 6 </since_tizen>
-        public class StateChangeEventArgs : EventArgs
+        public class StateChangedEventArgs : EventArgs
         {
             /// <summary> previous state of Button </summary>
             /// <since_tizen> 6 </since_tizen>

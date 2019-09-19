@@ -74,7 +74,7 @@ namespace Tizen.NUI.Components
         /// An event for the button clicked signal which can be used to subscribe or unsubscribe the event handler provided by the user.<br />
         /// </summary>
         /// <since_tizen> 6 </since_tizen>
-        public event EventHandler<ButtonClickEventArgs> PopupButtonClickedEvent;
+        public event EventHandler<ButtonClickEventArgs> PopupButtonClickEvent;
 
         /// <summary>
         /// Title text string in Popup.
@@ -326,16 +326,16 @@ namespace Tizen.NUI.Components
         /// Title text's position in Popup.
         /// </summary>
         /// <since_tizen> 6 </since_tizen>
-        public Position2D TitleTextPosition2D
+        public Position TitleTextPosition
         {
             get
             {
-                return popupAttributes?.TitleTextAttributes?.Position2D ?? new Position2D(0, 0);
+                return popupAttributes?.TitleTextAttributes?.Position ?? new Position(0, 0, 0);
             }
             set
             {
                 CreateTitleTextAttributes();
-                popupAttributes.TitleTextAttributes.Position2D = value;
+                popupAttributes.TitleTextAttributes.Position = value;
                 RelayoutRequest();
             }
         }
@@ -348,12 +348,12 @@ namespace Tizen.NUI.Components
         {
             get
             {
-                return popupAttributes?.TitleTextAttributes?.Size2D?.Height ?? 0;
+                return (int)(popupAttributes?.TitleTextAttributes?.Size?.Height ?? 0);
             }
             set
             {
                 CreateTitleTextAttributes();
-                popupAttributes.TitleTextAttributes.Size2D.Height = value;
+                popupAttributes.TitleTextAttributes.Size.Height = value;
                 RelayoutRequest();
             }
         }
@@ -392,12 +392,12 @@ namespace Tizen.NUI.Components
         {
             get
             {
-                return popupAttributes?.ButtonAttributes?.Size2D?.Height ?? 0;
+                return (int)(popupAttributes?.ButtonAttributes?.Size?.Height ?? 0);
             }
             set
             {
                 CreateButtonAttributes();
-                popupAttributes.ButtonAttributes.Size2D.Height = value;
+                popupAttributes.ButtonAttributes.Size.Height = value;
                 RelayoutRequest();
             }
         }
@@ -468,6 +468,8 @@ namespace Tizen.NUI.Components
         /// Button overlay background color selector in Popup.
         /// </summary>
         /// <since_tizen> 6 </since_tizen>
+        /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public ColorSelector ButtonOverLayBackgroundColorSelector
         {
             get
@@ -507,6 +509,8 @@ namespace Tizen.NUI.Components
         /// Button background image's resource url in Popup.
         /// </summary>
         /// <since_tizen> 6 </since_tizen>
+        /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public string ButtonBackgroundImageURL
         {
             get
@@ -532,6 +536,8 @@ namespace Tizen.NUI.Components
         /// Button background image's border in Popup.
         /// </summary>
         /// <since_tizen> 6 </since_tizen>
+        /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public Rectangle ButtonBackgroundImageBorder
         {
             get
@@ -723,16 +729,16 @@ namespace Tizen.NUI.Components
                     popupAttributes.TitleTextAttributes.Text = new StringSelector { All = titleText.Text };
                     w = (int)(Size2D.Width - titleText.PositionX * 2);
 
-                    if (popupAttributes.TitleTextAttributes.Size2D != null)
+                    if (popupAttributes.TitleTextAttributes.Size != null)
                     {
-                        titleH = titleText.Size2D.Height;
+                        titleH = (int)titleText.Size.Height;
                     }
                     titleText.Size2D = new Size2D(w, titleH);
 
-                    if (popupAttributes.TitleTextAttributes.Position2D != null)
+                    if (popupAttributes.TitleTextAttributes.Position != null)
                     {
-                        titleX = popupAttributes.TitleTextAttributes.Position2D.X;
-                        titleY = popupAttributes.TitleTextAttributes.Position2D.Y;
+                        titleX = (int)popupAttributes.TitleTextAttributes.Position.X;
+                        titleY = (int)popupAttributes.TitleTextAttributes.Position.Y;
                     }
                 }
                 else
@@ -746,9 +752,9 @@ namespace Tizen.NUI.Components
 
             UpdateButton(buttonCount);
            
-            if (buttonList != null && popupAttributes.ButtonAttributes != null && popupAttributes.ButtonAttributes.Size2D != null)
+            if (buttonList != null && popupAttributes.ButtonAttributes != null && popupAttributes.ButtonAttributes.Size != null)
             {
-                buttonH = popupAttributes.ButtonAttributes.Size2D.Height;
+                buttonH = (int)popupAttributes.ButtonAttributes.Size.Height;
             }
             ContentView.Size2D = new Size2D(Size2D.Width - titleX * 2, Size2D.Height - titleY - titleH - buttonH);
             ContentView.Position2D = new Position2D(titleX, titleY + titleH);
@@ -882,7 +888,7 @@ namespace Tizen.NUI.Components
             {
                 popupAttributes.TitleTextAttributes = new TextAttributes()
                 {
-                    Size2D =  new Size2D(0, 0),
+                    Size =  new Size(0, 0),
                     PositionUsesPivotPoint = true,
                     ParentOrigin = Tizen.NUI.ParentOrigin.TopLeft,
                     PivotPoint = Tizen.NUI.PivotPoint.TopLeft,
@@ -898,7 +904,7 @@ namespace Tizen.NUI.Components
             {
                 popupAttributes.ButtonAttributes = new ButtonAttributes()
                 {
-                    Size2D =  new Size2D(0, 0),
+                    Size =  new Size(0, 0),
                     PositionUsesPivotPoint = true,
                     ParentOrigin =  Tizen.NUI.ParentOrigin.BottomLeft,
                     PivotPoint = Tizen.NUI.PivotPoint.BottomLeft,
@@ -959,13 +965,13 @@ namespace Tizen.NUI.Components
                 return;
             }
             int buttonWidth = Size2D.Width / count;
-            int buttonHeight = popupAttributes.ButtonAttributes.Size2D.Height;
+            int buttonHeight = (int)popupAttributes.ButtonAttributes.Size.Height;
             int pos = 0;
             buttonList = new List<Button>();
             for (int i = 0; i < count; i++)
             {
                 Button btn = null;
-                popupAttributes.ButtonAttributes.Size2D.Width = buttonWidth;
+                popupAttributes.ButtonAttributes.Size.Width = buttonWidth;
                 btn = new Button(popupAttributes.ButtonAttributes);
                 btn.Position2D = new Position2D(pos, 0);
 
@@ -983,7 +989,7 @@ namespace Tizen.NUI.Components
 
         private void ButtonClickEvent(object sender, Button.ClickEventArgs e)
         {
-            if (PopupButtonClickedEvent != null && buttonList != null)
+            if (PopupButtonClickEvent != null && buttonList != null)
             {
                 Button button = sender as Button;
                 for (int i = 0; i < buttonList.Count; i++)
@@ -992,7 +998,7 @@ namespace Tizen.NUI.Components
                     {
                         ButtonClickEventArgs args = new ButtonClickEventArgs();
                         args.ButtonIndex = i;
-                        PopupButtonClickedEvent(this, args);
+                        PopupButtonClickEvent(this, args);
                     }
                 }
             }

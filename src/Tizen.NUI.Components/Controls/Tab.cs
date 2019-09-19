@@ -201,18 +201,18 @@ namespace Tizen.NUI.Components
         /// UnderLine view's size in Tab.
         /// </summary>
         /// <since_tizen> 6 </since_tizen>
-        public Size2D UnderLineSize2D
+        public Size UnderLineSize
         {
             get
             {
-                return tabAttributes.UnderLineAttributes?.Size2D;
+                return tabAttributes.UnderLineAttributes?.Size;
             }
             set
             {
                 if (value != null)
                 {
                     CreateUnderLineAttributes();
-                    tabAttributes.UnderLineAttributes.Size2D = value;
+                    tabAttributes.UnderLineAttributes.Size = value;
                     RelayoutRequest();
                 }
             }
@@ -572,9 +572,9 @@ namespace Tizen.NUI.Components
         {
             int h = 0;
             int topSpace = (int)tabAttributes.Space.Z;
-            if (tabAttributes.UnderLineAttributes != null && tabAttributes.UnderLineAttributes.Size2D != null)
+            if (tabAttributes.UnderLineAttributes != null && tabAttributes.UnderLineAttributes.Size != null)
             {
-                h = tabAttributes.UnderLineAttributes.Size2D.Height;
+                h = (int)tabAttributes.UnderLineAttributes.Size.Height;
             }
             Tab.TabItem item = new TabItem();
             ApplyAttributes(item.TextItem, tabAttributes.TextAttributes);
@@ -654,15 +654,15 @@ namespace Tizen.NUI.Components
         
         private void UpdateUnderLinePos()
         {
-            if (underline == null || tabAttributes.UnderLineAttributes == null || tabAttributes.UnderLineAttributes.Size2D == null
+            if (underline == null || tabAttributes.UnderLineAttributes == null || tabAttributes.UnderLineAttributes.Size == null
                 || itemList == null || itemList.Count <= 0)
             {
                 return;
             }
 
-            tabAttributes.UnderLineAttributes.Size2D.Width = itemList[curIndex].Size2D.Width;
+            tabAttributes.UnderLineAttributes.Size.Width = itemList[curIndex].Size2D.Width;
 
-            underline.Size2D = new Size2D(itemList[curIndex].Size2D.Width, tabAttributes.UnderLineAttributes.Size2D.Height);
+            underline.Size2D = new Size2D(itemList[curIndex].Size2D.Width, (int)tabAttributes.UnderLineAttributes.Size.Height);
             underline.BackgroundColor = tabAttributes.UnderLineAttributes.BackgroundColor.All;
             if (isNeedAnimation)
             {

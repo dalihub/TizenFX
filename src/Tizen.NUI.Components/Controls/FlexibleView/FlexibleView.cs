@@ -617,11 +617,11 @@ namespace Tizen.NUI.Components
             }
             if (mScrollBar.Direction == ScrollBar.DirectionType.Vertical)
             {
-                mScrollBar.ThumbSize = new Size2D((int)thickness, (int)length);
+                mScrollBar.ThumbSize = new Size(thickness, length);
             }
             else
             {
-                mScrollBar.ThumbSize = new Size2D((int)length, (int)thickness);
+                mScrollBar.ThumbSize = new Size(length, thickness);
             }
             mScrollBar.MinValue = 0;
             mScrollBar.MaxValue = (int)(range - extent);

@@ -87,16 +87,17 @@ namespace Tizen.NUI.Components
         /// Gets or sets loading size.
         /// </summary>
         /// <since_tizen> 6 </since_tizen>
-        public Size2D LoadingSize
+        public new Size Size
         {
             get
             {
-                return loadingAttrs.LoadingSize ?? new Size2D(100, 100);
+                return loadingAttrs.Size ?? new Size(100, 100);
             }
             set
             {
-                loadingAttrs.LoadingSize = value;
-                imageVisual.Size = value;
+                loadingAttrs.Size = value;
+                base.Size = value;
+                imageVisual.Size = new Size2D((int)value.Width, (int)value.Height);
             }
         }
 
@@ -108,17 +109,17 @@ namespace Tizen.NUI.Components
         {
             get
             {
-                return loadingAttrs?.FPS?.All ?? (int)(1000.0f / 16.6f);
+                return loadingAttrs?.FrameRate?.All ?? (int)(1000.0f / 16.6f);
             }
             set
             {
                 if (value != 0) //It will crash if 0 
                 {
-                    if (null == loadingAttrs.FPS)
+                    if (null == loadingAttrs.FrameRate)
                     {
-                        loadingAttrs.FPS = new IntSelector();
+                        loadingAttrs.FrameRate = new IntSelector();
                     }
-                    loadingAttrs.FPS.All = value;
+                    loadingAttrs.FrameRate.All = value;
                     imageVisual.FrameDelay = 1000.0f / value;
                 }
             }
@@ -205,13 +206,13 @@ namespace Tizen.NUI.Components
             {
                 imageVisual.URLS = new List<string>(loadingAttrs.ImageArray);
             }
-            if (null != loadingAttrs.FPS)
+            if (null != loadingAttrs.FrameRate)
             {
-                imageVisual.FrameDelay = 1000.0f / (float)loadingAttrs.FPS.All;
+                imageVisual.FrameDelay = 1000.0f / (float)loadingAttrs.FrameRate.All;
             }
             if (null != loadingAttrs.LoadingSize)
             {
-                imageVisual.Size = loadingAttrs.LoadingSize;
+                imageVisual.Size = new Size2D((int)loadingAttrs.LoadingSize.Width, (int)loadingAttrs.LoadingSize.Height);
             }
         }
     }
