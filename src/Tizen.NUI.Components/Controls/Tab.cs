@@ -73,7 +73,7 @@ namespace Tizen.NUI.Components
         /// An event for the item changed signal which can be used to subscribe or unsubscribe the event handler provided by the user.<br />
         /// </summary>
         /// <since_tizen> 6 </since_tizen>
-        public event EventHandler<ItemChangeEventArgs> ItemChangedEvent;
+        public event EventHandler<ItemChangedEventArgs> ItemChangedEvent;
 
         /// <summary>
         /// Selected item's index in Tab.
@@ -99,15 +99,15 @@ namespace Tizen.NUI.Components
         /// If true, TabItem's width will be equal as text's natural width, if false, it will be decided by Tab's width and tab item count.
         /// </summary>
         /// <since_tizen> 6 </since_tizen>
-        public bool IsNatureTextWidth
+        public bool UseTextNaturalSize
         {
             get
             {
-                return tabAttributes.IsNatureTextWidth;
+                return tabAttributes.UseTextNaturalSize;
             }
             set
             {
-                tabAttributes.IsNatureTextWidth = value;
+                tabAttributes.UseTextNaturalSize = value;
                 RelayoutRequest();
             }
         }
@@ -116,15 +116,15 @@ namespace Tizen.NUI.Components
         /// Gap between items.
         /// </summary>
         /// <since_tizen> 6 </since_tizen>
-        public int ItemGap
+        public int ItemSpace
         {
             get
             {
-                return tabAttributes.ItemGap;
+                return tabAttributes.ItemSpace;
             }
             set
             {
-                tabAttributes.ItemGap = value;
+                tabAttributes.ItemSpace = value;
                 RelayoutRequest();
             }
         }
@@ -468,7 +468,7 @@ namespace Tizen.NUI.Components
             TabAttributes tempAttributes = StyleManager.Instance.GetAttributes(style) as TabAttributes;
             if (tempAttributes != null)
             {
-                tempAttributes.IsNatureTextWidth = tabAttributes.IsNatureTextWidth; // keep IsNatureTextWidth as original
+                tempAttributes.UseTextNaturalSize = tabAttributes.UseTextNaturalSize; // keep IsNatureTextWidth as original
                 attributes = tabAttributes = tempAttributes;
                 RelayoutRequest();
             }
@@ -494,18 +494,18 @@ namespace Tizen.NUI.Components
 
             int preX = (int)tabAttributes.Space.X;
             int preW = 0;
-            int itemGap = tabAttributes.ItemGap;
+            int itemSpace = tabAttributes.ItemSpace;
 
             if (LayoutDirection == ViewLayoutDirectionType.LTR)
             {
-                if (tabAttributes.IsNatureTextWidth == true)
+                if (tabAttributes.UseTextNaturalSize == true)
                 {
                     for (int i = 0; i < totalNum; i++)
                     {
                         preW = itemList[i].TextItem.NaturalSize2D.Width;
                         itemList[i].Position2D.X = preX;
                         itemList[i].Size2D.Width = preW;
-                        preX = itemList[i].Position2D.X + preW + itemGap;
+                        preX = itemList[i].Position2D.X + preW + itemSpace;
                         itemList[i].Index = i;
                     }
                 }
@@ -516,7 +516,7 @@ namespace Tizen.NUI.Components
                     {
                         itemList[i].Position2D.X = preX;
                         itemList[i].Size2D.Width = preW;
-                        preX = itemList[i].Position2D.X + preW + itemGap;
+                        preX = itemList[i].Position2D.X + preW + itemSpace;
                         itemList[i].Index = i;
                     }
                 }
@@ -524,7 +524,7 @@ namespace Tizen.NUI.Components
             else
             {
                 preX = (int)tabAttributes.Space.Y;
-                if (tabAttributes.IsNatureTextWidth == true)
+                if (tabAttributes.UseTextNaturalSize == true)
                 {
                     int w = Size2D.Width;
                     for (int i = 0; i < totalNum; i++)
@@ -532,7 +532,7 @@ namespace Tizen.NUI.Components
                         preW = (itemList[i].TextItem.NaturalSize2D != null ? itemList[i].TextItem.NaturalSize2D.Width : 0);
                         itemList[i].Position2D.X = w - preW - preX;
                         itemList[i].Size2D.Width = preW;
-                        preX = w - itemList[i].Position2D.X + itemGap;
+                        preX = w - itemList[i].Position2D.X + itemSpace;
                         itemList[i].Index = i;
                     }
                 }
@@ -543,7 +543,7 @@ namespace Tizen.NUI.Components
                     {
                         itemList[i].Position2D.X = preX;
                         itemList[i].Size2D.Width = preW;
-                        preX = itemList[i].Position2D.X + preW + itemGap;
+                        preX = itemList[i].Position2D.X + preW + itemSpace;
                         itemList[i].Index = i;
                     }
                 }
@@ -691,7 +691,7 @@ namespace Tizen.NUI.Components
                 return;
             }
 
-            ItemChangeEventArgs e = new ItemChangeEventArgs
+            ItemChangedEventArgs e = new ItemChangedEventArgs
             {
                 PreviousIndex = curIndex,
                 CurrentIndex = item.Index
@@ -813,10 +813,10 @@ namespace Tizen.NUI.Components
         }
 
         /// <summary>
-        /// ItemChangeEventArgs is a class to record item change event arguments which will sent to user.
+        /// ItemChangedEventArgs is a class to record item change event arguments which will sent to user.
         /// </summary>
         /// <since_tizen> 6 </since_tizen>
-        public class ItemChangeEventArgs : EventArgs
+        public class ItemChangedEventArgs : EventArgs
         {
             /// <summary> Previous selected index of Tab </summary>
             /// <since_tizen> 6 </since_tizen>
