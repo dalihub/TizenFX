@@ -130,70 +130,29 @@ namespace Tizen.NUI.Components
         }
 
         /// <summary>
-        /// Left space in Tab.
+        /// Space in Tab. Sequence as Left, Right, Top, Bottom
         /// </summary>
         /// <since_tizen> 6 </since_tizen>
-        public int LeftSpace
+        public Extents Space
         {
             get
             {
-                return (int)tabAttributes.Space.X;
+                if(null == tabAttributes || null == tabAttributes.Space)
+                {
+                    return null;
+                }
+                else
+                {
+                    return new Extents((ushort)tabAttributes.Space.X, (ushort)tabAttributes.Space.Y, (ushort)tabAttributes.Space.Z, (ushort)tabAttributes.Space.W);
+                }
             }
             set
             {
-                tabAttributes.Space.X = value;
-                RelayoutRequest();
-            }
-        }
-
-        /// <summary>
-        /// Bottom space in Tab.
-        /// </summary>
-        /// <since_tizen> 6 </since_tizen>
-        public int BottomSpace
-        {
-            get
-            {
-                return (int)tabAttributes.Space.W;
-            }
-            set
-            {
-                tabAttributes.Space.W = value;
-                RelayoutRequest();
-            }
-        }
-
-        /// <summary>
-        /// Right space in Tab.
-        /// </summary>
-        /// <since_tizen> 6 </since_tizen>
-        public int RightSpace
-        {
-            get
-            {
-                return (int)tabAttributes.Space.Y;
-            }
-            set
-            {
-                tabAttributes.Space.Y = value;
-                RelayoutRequest();
-            }
-        }
-
-        /// <summary>
-        /// Top space in Tab.
-        /// </summary>
-        /// <since_tizen> 6 </since_tizen>
-        public int TopSpace
-        {
-            get
-            {
-                return (int)tabAttributes.Space.Z;
-            }
-            set
-            {
-                tabAttributes.Space.Z = value;
-                RelayoutRequest();
+                if(null != value)
+                {
+                    tabAttributes.Space = new Vector4(value.Start, value.End, value.Top, value.Bottom);
+                    RelayoutRequest();
+                }
             }
         }
 

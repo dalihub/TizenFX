@@ -71,23 +71,17 @@ namespace Tizen.NUI.Components
         private LayoutState mLayoutState;
         private AnchorInfo mAnchorInfo = new AnchorInfo();
 
-        /**
-         * Stashed to avoid allocation, currently only used in #fill()
-         */
+        // Stashed to avoid allocation, currently only used in #fill()
         private LayoutChunkResult mLayoutChunkResult = new LayoutChunkResult();
 
         private bool mShouldReverseLayout = false;
 
-        /**
-         * When LayoutManager needs to scroll to a position, it sets this variable and requests a
-         * layout which will check this variable and re-layout accordingly.
-         */
+        // When LayoutManager needs to scroll to a position, it sets this variable and requests a
+        // layout which will check this variable and re-layout accordingly.
         private int mPendingScrollPosition = NO_POSITION;
 
-        /**
-         * Used to keep the offset value when {@link #scrollToPositionWithOffset(int, int)} is
-         * called.
-         */
+        // Used to keep the offset value when {@link #scrollToPositionWithOffset(int, int)} is
+        // called.
         private int mPendingScrollPositionOffset = INVALID_OFFSET;
 
         /// <summary>
@@ -557,10 +551,9 @@ namespace Tizen.NUI.Components
             anchorInfo.Coordinate = anchorInfo.LayoutFromEnd ? mOrientationHelper.GetEndAfterPadding() : mOrientationHelper.GetStartAfterPadding();
         }
 
-        /**
-         * If there is a pending scroll position or saved states, updates the anchor info from that
-         * data and returns true
-         */
+        
+        // If there is a pending scroll position or saved states, updates the anchor info from that
+        // data and returns true
         private bool UpdateAnchorFromPendingData(AnchorInfo anchorInfo)
         {
             if (mPendingScrollPosition == NO_POSITION)
@@ -598,11 +591,9 @@ namespace Tizen.NUI.Components
             return true;
         }
 
-        /**
-         * Finds an anchor child from existing Views. Most of the time, this is the view closest to
-         * start or end that has a valid position (e.g. not removed).
-         * If a child has focus, it is given priority.
-         */
+        // Finds an anchor child from existing Views. Most of the time, this is the view closest to
+        // start or end that has a valid position (e.g. not removed).
+        // If a child has focus, it is given priority.
         private bool UpdateAnchorFromChildren(FlexibleView.Recycler recycler, AnchorInfo anchorInfo)
         {
             if (ChildCount == 0)
@@ -621,16 +612,14 @@ namespace Tizen.NUI.Components
             return true;
         }
 
-        /**
-         * Converts a focusDirection to orientation.
-         *
-         * @param focusDirection One of {@link View#FOCUS_UP}, {@link View#FOCUS_DOWN},
-         *                       {@link View#FOCUS_LEFT}, {@link View#FOCUS_RIGHT},
-         *                       {@link View#FOCUS_BACKWARD}, {@link View#FOCUS_FORWARD}
-         *                       or 0 for not applicable
-         * @return {@link LayoutState#LAYOUT_START} or {@link LayoutState#LAYOUT_END} if focus direction
-         * is applicable to current state, {@link LayoutState#INVALID_LAYOUT} otherwise.
-         */
+        // Converts a focusDirection to orientation.
+        //
+        // @param focusDirection One of {@link View#FOCUS_UP}, {@link View#FOCUS_DOWN},
+        //                       {@link View#FOCUS_LEFT}, {@link View#FOCUS_RIGHT},
+        //                       {@link View#FOCUS_BACKWARD}, {@link View#FOCUS_FORWARD}
+        //                       or 0 for not applicable
+        // @return {@link LayoutState#LAYOUT_START} or {@link LayoutState#LAYOUT_END} if focus direction
+        // is applicable to current state, {@link LayoutState#INVALID_LAYOUT} otherwise.
         private int ConvertFocusDirectionToLayoutDirection(FlexibleView.LayoutManager.Direction focusDirection)
         {
             switch (focusDirection)
@@ -681,12 +670,11 @@ namespace Tizen.NUI.Components
                     break;
                 }
                 layoutState.Offset += layoutChunkResult.Consumed * layoutState.LayoutDirection;
-                /**
-                 * Consume the available space if:
-                 * layoutChunk did not request to be ignored
-                 * OR we are laying out scrap children
-                 * OR we are not doing pre-layout
-                 */
+                
+                // Consume the available space if:
+                // layoutChunk did not request to be ignored
+                // OR we are laying out scrap children
+                // OR we are not doing pre-layout
                 if (!layoutChunkResult.IgnoreConsumed)
                 {
                     layoutState.Available -= layoutChunkResult.Consumed;
@@ -918,23 +906,20 @@ namespace Tizen.NUI.Components
             mLayoutState.ScrollingOffset = scrollingOffset;
 
         }
-        /**
-         * Convenience method to find the child closes to start. Caller should check it has enough
-         * children.
-         *
-         * @return The child closes to start of the layout from user's perspective.
-         */
+
+        // Convenience method to find the child closes to start. Caller should check it has enough
+        // children.
+        //
+        // @return The child closes to start of the layout from user's perspective.
         private FlexibleView.ViewHolder GetChildClosestToStart()
         {
             return GetChildAt(mShouldReverseLayout ? ChildCount - 1 : 0);
         }
 
-        /**
-         * Convenience method to find the child closes to end. Caller should check it has enough
-         * children.
-         *
-         * @return The child closes to end of the layout from user's perspective.
-         */
+        // Convenience method to find the child closes to end. Caller should check it has enough
+        // children.
+        //
+        // @return The child closes to end of the layout from user's perspective.
         private FlexibleView.ViewHolder GetChildClosestToEnd()
         {
             return GetChildAt(mShouldReverseLayout ? 0 : ChildCount - 1);
@@ -1076,10 +1061,7 @@ namespace Tizen.NUI.Components
             return null;
         }
 
-
-        /**
-         * Helper class that keeps temporary state while {LayoutManager} is filling out the empty space.
-         **/
+        // Helper class that keeps temporary state while {LayoutManager} is filling out the empty space.
         internal class LayoutState
         {
             public static readonly int LAYOUT_START = -1;
@@ -1094,67 +1076,47 @@ namespace Tizen.NUI.Components
 
             public static readonly int SCROLLING_OFFSET_NaN = -10000;
 
-            /**
-             * We may not want to recycle children in some cases (e.g. layout)
-             */
+            // We may not want to recycle children in some cases (e.g. layout)
             public bool Recycle = true;
 
-            /**
-             * Pixel offset where layout should start
-             */
+            // Pixel offset where layout should start
             public float Offset;
 
-            /**
-             * Number of pixels that we should fill, in the layout direction.
-             */
+            // Number of pixels that we should fill, in the layout direction.
             public float Available;
 
-            /**
-             * Current position on the adapter to get the next item.
-             */
+            // Current position on the adapter to get the next item.
             public int CurrentPosition;
 
-            /**
-             * Defines the direction in which the data adapter is traversed.
-             * Should be {@link #ITEM_DIRECTION_HEAD} or {@link #ITEM_DIRECTION_TAIL}
-             */
+            // Defines the direction in which the data adapter is traversed.
+            // Should be {@link #ITEM_DIRECTION_HEAD} or {@link #ITEM_DIRECTION_TAIL}
             public int ItemDirection;
 
-            /**
-             * Defines the direction in which the layout is filled.
-             * Should be {@link #LAYOUT_START} or {@link #LAYOUT_END}
-             */
+            // Defines the direction in which the layout is filled.
+            // Should be {@link #LAYOUT_START} or {@link #LAYOUT_END}
             public int LayoutDirection;
 
-            /**
-             * Used when LayoutState is constructed in a scrolling state.
-             * It should be set the amount of scrolling we can make without creating a new view.
-             * Settings this is required for efficient view recycling.
-             */
+            // Used when LayoutState is constructed in a scrolling state.
+            // It should be set the amount of scrolling we can make without creating a new view.
+            // Settings this is required for efficient view recycling.
             public float ScrollingOffset;
 
-            /**
-             * Used if you want to pre-layout items that are not yet visible.
-             * The difference with {@link #mAvailable} is that, when recycling, distance laid out for
-             * {@link #mExtra} is not considered to avoid recycling visible children.
-             */
+            // Used if you want to pre-layout items that are not yet visible.
+            // The difference with {@link #mAvailable} is that, when recycling, distance laid out for
+            // {@link #mExtra} is not considered to avoid recycling visible children.
             public float Extra = 0;
 
 
-            /**
-             * @return true if there are more items in the data adapter
-             */
+            // @return true if there are more items in the data adapter
             public bool HasMore(int itemCount)
             {
                 return CurrentPosition >= 0 && CurrentPosition < itemCount;
             }
 
-            /**
-             * Gets the view for the next element that we should layout.
-             * Also updates current item index to the next item, based on {@link #mItemDirection}
-             *
-             * @return The next element that we should layout.
-             */
+            // Gets the view for the next element that we should layout.
+            // Also updates current item index to the next item, based on {@link #mItemDirection}
+            //
+            // @return The next element that we should layout.
             public FlexibleView.ViewHolder Next(FlexibleView.Recycler recycler)
             {
                 FlexibleView.ViewHolder itemView = recycler.GetViewForPosition(CurrentPosition);

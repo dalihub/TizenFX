@@ -406,7 +406,7 @@ namespace Tizen.NUI.Components
         /// Button text point size in Popup.
         /// </summary>
         /// <since_tizen> 6 </since_tizen>
-        public float ButtonPointSize
+        public float ButtonTextPointSize
         {
             get
             {
