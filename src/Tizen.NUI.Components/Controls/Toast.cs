@@ -246,6 +246,8 @@ namespace Tizen.NUI.Components
         /// Gets or sets text left padding in toast.
         /// </summary>
         /// <since_tizen> 6 </since_tizen>
+        /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public int TextPaddingLeft
         {
             get
@@ -264,6 +266,8 @@ namespace Tizen.NUI.Components
         /// Gets or sets text right padding in toast.
         /// </summary>
         /// <since_tizen> 6 </since_tizen>
+        /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public int TextPaddingRight
         {
             get
@@ -282,6 +286,8 @@ namespace Tizen.NUI.Components
         /// Gets or sets text top padding in toast.
         /// </summary>
         /// <since_tizen> 6 </since_tizen>
+        /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public int TextPaddingTop
         {
             get
@@ -300,6 +306,8 @@ namespace Tizen.NUI.Components
         /// Gets or sets text bottom padding in toast.
         /// </summary>
         /// <since_tizen> 6 </since_tizen>
+        /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public int TextPaddingBottom
         {
             get
