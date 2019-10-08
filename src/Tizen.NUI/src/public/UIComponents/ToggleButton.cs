@@ -14,6 +14,7 @@
  * limitations under the License.
  *
  */
+using System;
 using System.ComponentModel;
 using Tizen.NUI.Binding;
 
@@ -23,9 +24,13 @@ namespace Tizen.NUI
     /// A ToggleButton allows the user to change a setting between two or more states.
     /// </summary>
     /// <since_tizen> 3 </since_tizen>
+    /// This will be deprecated
+    [Obsolete("Deprecated in API6; Will be removed in API9. Please use Tizen.NUI.Components")]
+    [EditorBrowsable(EditorBrowsableState.Never)]
     public class ToggleButton : Tizen.NUI.UIComponents.Button
     {
-        /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
+        /// This will be deprecated
+        [Obsolete("Deprecated in API6; Will be removed in API9. Please use Tizen.NUI.Components")]
         [EditorBrowsable(EditorBrowsableState.Never)]
         public static readonly BindableProperty StateVisualsProperty = BindableProperty.Create("StateVisuals", typeof(PropertyArray), typeof(ToggleButton), new PropertyArray(), propertyChanged: (bindable, oldValue, newValue) =>
         {
@@ -44,6 +49,9 @@ namespace Tizen.NUI
         });
 
         /// Only for XAML property binding. This will be changed as Inhouse API by ACR later.
+        /// This will be deprecated
+        [Obsolete("Deprecated in API6; Will be removed in API9. Please use Tizen.NUI.Components")]
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public static readonly BindableProperty TooltipsProperty = BindableProperty.Create("Tooltips", typeof(PropertyArray), typeof(ToggleButton), new PropertyArray(), propertyChanged: (bindable, oldValue, newValue) =>
         {
             var toggleButton = (ToggleButton)bindable;
@@ -60,7 +68,8 @@ namespace Tizen.NUI
             return temp;
         });
 
-        /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
+        /// This will be deprecated
+        [Obsolete("Deprecated in API6; Will be removed in API9. Please use Tizen.NUI.Components")]
         [EditorBrowsable(EditorBrowsableState.Never)]
         public static readonly BindableProperty CurrentStateIndexProperty = BindableProperty.Create("CurrentStateIndex", typeof(int), typeof(ToggleButton), default(int), propertyChanged: (bindable, oldValue, newValue) =>
         {
@@ -84,6 +93,9 @@ namespace Tizen.NUI
         /// Create an instance for toggleButton.
         /// </summary>
         /// <since_tizen> 3 </since_tizen>
+        /// This will be deprecated
+        [Obsolete("Deprecated in API6; Will be removed in API9. Please use Tizen.NUI.Components")]
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public ToggleButton() : this(Interop.ToggleButton.ToggleButton_New(), true)
         {
             if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
@@ -98,6 +110,9 @@ namespace Tizen.NUI
         /// Gets and Sets the state visual array of toggle button.
         /// </summary>
         /// <since_tizen> 3 </since_tizen>
+        /// This will be deprecated
+        [Obsolete("Deprecated in API6; Will be removed in API9. Please use Tizen.NUI.Components")]
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public Tizen.NUI.PropertyArray StateVisuals
         {
             get
@@ -114,6 +129,9 @@ namespace Tizen.NUI
         /// Gets and Sets the tooltips of toggle button.
         /// </summary>
         /// <since_tizen> 3 </since_tizen>
+        /// This will be deprecated
+        [Obsolete("Deprecated in API6; Will be removed in API9. Please use Tizen.NUI.Components")]
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public Tizen.NUI.PropertyArray Tooltips
         {
             get
@@ -130,6 +148,9 @@ namespace Tizen.NUI
         /// Gets and Sets the current state index of toggle button.
         /// </summary>
         /// <since_tizen> 3 </since_tizen>
+        /// This will be deprecated
+        [Obsolete("Deprecated in API6; Will be removed in API9. Please use Tizen.NUI.Components")]
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public int CurrentStateIndex
         {
             get
@@ -152,19 +173,14 @@ namespace Tizen.NUI
         /// </summary>
         /// <param name="type">The dispose type</param>
         /// <since_tizen> 3 </since_tizen>
+        /// This will be deprecated
+        [Obsolete("Deprecated in API6; Will be removed in API9. Please use Tizen.NUI.Components")]
+        [EditorBrowsable(EditorBrowsableState.Never)]
         protected override void Dispose(DisposeTypes type)
         {
             if (disposed)
             {
                 return;
-            }
-
-            if (type == DisposeTypes.Explicit)
-            {
-                //Called by User
-                //Release your own managed resources here.
-                //You should release all of your own disposable objects here.
-
             }
 
             //Release your own unmanaged resources here.
@@ -188,22 +204,34 @@ namespace Tizen.NUI
         /// This should be internal, please do not use.
         /// </summary>
         /// <since_tizen> 3 </since_tizen>
+        /// This will be deprecated
+        [Obsolete("Deprecated in API6; Will be removed in API9. Please use Tizen.NUI.Components")]
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public new class Property
         {
             /// <summary>
             /// This should be internal, please do not use.
             /// </summary>
             /// <since_tizen> 3 </since_tizen>
+            /// This will be deprecated
+            [Obsolete("Deprecated in API6; Will be removed in API9. Please use Tizen.NUI.Components")]
+            [EditorBrowsable(EditorBrowsableState.Never)]
             public static readonly int STATE_VISUALS = Interop.ToggleButton.ToggleButton_Property_STATE_VISUALS_get();
             /// <summary>
             /// This should be internal, please do not use.
             /// </summary>
             /// <since_tizen> 3 </since_tizen>
+            /// This will be deprecated
+            [Obsolete("Deprecated in API6; Will be removed in API9. Please use Tizen.NUI.Components")]
+            [EditorBrowsable(EditorBrowsableState.Never)]
             public static readonly int TOOLTIPS = Interop.ToggleButton.ToggleButton_Property_TOOLTIPS_get();
             /// <summary>
             /// This should be internal, please do not use.
             /// </summary>
             /// <since_tizen> 3 </since_tizen>
+            /// This will be deprecated
+            [Obsolete("Deprecated in API6; Will be removed in API9. Please use Tizen.NUI.Components")]
+            [EditorBrowsable(EditorBrowsableState.Never)]
             public static readonly int CURRENT_STATE_INDEX = Interop.ToggleButton.ToggleButton_Property_CURRENT_STATE_INDEX_get();
         }
     }

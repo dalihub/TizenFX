@@ -233,11 +233,16 @@ namespace Tizen.Multimedia
         /// </remarks>
         /// <exception cref="ObjectDisposedException">The player has already been disposed of.</exception>
         /// <exception cref="ArgumentException">The value is not valid.</exception>
+        /// <exception cref="InvalidOperationException">
+        ///     If audio offload is enabled by calling <see cref="AudioOffload.IsEnabled"/>. (Since tizen 6.0)
+        /// </exception>
         /// <since_tizen> 3 </since_tizen>
         public AudioLatencyMode AudioLatencyMode
         {
             get
             {
+                AudioOffload.CheckDisabled();
+
                 NativePlayer.GetAudioLatencyMode(Handle, out var value).
                     ThrowIfFailed(this, "Failed to get the audio latency mode of the player");
 
@@ -246,6 +251,7 @@ namespace Tizen.Multimedia
             set
             {
                 ValidateNotDisposed();
+                AudioOffload.CheckDisabled();
 
                 ValidationUtil.ValidateEnum(typeof(AudioLatencyMode), value, nameof(value));
 
@@ -539,14 +545,23 @@ namespace Tizen.Multimedia
         /// </summary>
         /// <value>If the replaygain status is true, replaygain is applied (if contents has a replaygain tag);
         /// otherwise, the replaygain is not affected by tag and properties.</value>
+        /// <remarks>This function could be unavailable depending on the audio codec type.</remarks>
         /// <exception cref="ObjectDisposedException">The player has already been disposed of.</exception>
-        /// <exception cref="InvalidOperationException">The player is not in the valid state.</exception>
+        /// <exception cref="InvalidOperationException">
+        ///     The player is not in the valid state.
+        ///     -or-<br/>
+        ///     If audio offload is enabled by calling <see cref="AudioOffload.IsEnabled"/>. (Since tizen 6.0)
+        /// </exception>
+        /// <exception cref="NotAvailableException">The function is not available depending on the audio codec type. (Since tizen 6.0)</exception>
+        /// <seealso cref="AudioCodecType"/>
         /// <since_tizen> 5 </since_tizen>
         public bool ReplayGain
         {
             get
             {
                 ValidateNotDisposed();
+                AudioOffload.CheckDisabled();
+
                 NativePlayer.IsReplayGain(Handle, out var value).
                     ThrowIfFailed(this, "Failed to get the replaygain of the player");
                 return value;
@@ -554,6 +569,8 @@ namespace Tizen.Multimedia
             set
             {
                 ValidateNotDisposed();
+                AudioOffload.CheckDisabled();
+
                 NativePlayer.SetReplayGain(Handle, value).
                     ThrowIfFailed(this, "Failed to set the replaygain of the player");
             }
@@ -565,16 +582,25 @@ namespace Tizen.Multimedia
         /// </summary>
         /// <value>The value indicating whether or not AudioPitch is enabled. The default is false.</value>
         /// <remarks>This function is used for audio content only.
-        /// To set, the player must be in the <see cref="PlayerState.Idle"/> state.</remarks>
-        /// <exception cref="InvalidOperationException">The player is not in the valid state.</exception>
+        /// To set, the player must be in the <see cref="PlayerState.Idle"/> state.
+        /// This function could be unavailable depending on the audio codec type.</remarks>
+        /// <exception cref="InvalidOperationException">
+        ///     The player is not in the valid state.
+        ///     -or-<br/>
+        ///     If audio offload is enabled by calling <see cref="AudioOffload.IsEnabled"/>. (Since tizen 6.0)
+        /// </exception>
         /// <exception cref="ObjectDisposedException">The player has already been disposed of.</exception>
+        /// <exception cref="NotAvailableException">The function is not available depending on the audio codec type. (Since tizen 6.0)</exception>
         /// <seealso cref="AudioPitch"/>
+        /// <seealso cref="AudioCodecType"/>
         /// <since_tizen> 6 </since_tizen>
         public bool AudioPitchEnabled
         {
             get
             {
                 ValidateNotDisposed();
+                AudioOffload.CheckDisabled();
+
                 NativePlayer.IsAudioPitchEnabled(Handle, out var value).
                     ThrowIfFailed(this, "Failed to get whether the audio pitch is enabled or not");
                 return value;
@@ -583,6 +609,7 @@ namespace Tizen.Multimedia
             set
             {
                 ValidateNotDisposed();
+                AudioOffload.CheckDisabled();
                 ValidatePlayerState(PlayerState.Idle);
 
                 NativePlayer.SetAudioPitchEnabled(Handle, value).
@@ -595,21 +622,29 @@ namespace Tizen.Multimedia
         /// </summary>
         /// <value>The audio stream pitch value. The default is 1.</value>
         /// <remarks>Enabling pitch control could increase the CPU usage on some devices.
-        /// This function is used for audio content only.</remarks>
-        /// <exception cref="InvalidOperationException">A pitch is not enabled.</exception>
+        /// This function is used for audio content only.
+        /// This function could be unavailable depending on the audio codec type.</remarks>
+        /// <exception cref="InvalidOperationException">
+        ///     A pitch is not enabled.
+        ///     -or-<br/>
+        ///     If audio offload is enabled by calling <see cref="AudioOffload.IsEnabled"/>. (Since tizen 6.0)
+        /// </exception>
         /// <exception cref="ObjectDisposedException">The player has already been disposed of.</exception>
         /// <exception cref="ArgumentOutOfRangeException">
         ///     value is less than 0.5.
         ///     -or-<br/>
         ///     value is greater than 2.0.<br/>
         /// </exception>
+        /// <exception cref="NotAvailableException">The function is not available depending on the audio codec type. (Since tizen 6.0)</exception>
         /// <seealso cref="AudioPitchEnabled"/>
+        /// <seealso cref="AudioCodecType"/>
         /// <since_tizen> 6 </since_tizen>
         public float AudioPitch
         {
             get
             {
                 ValidateNotDisposed();
+                AudioOffload.CheckDisabled();
 
                 if (AudioPitchEnabled == false)
                 {
@@ -625,6 +660,7 @@ namespace Tizen.Multimedia
             set
             {
                 ValidateNotDisposed();
+                AudioOffload.CheckDisabled();
 
                 if (AudioPitchEnabled == false)
                 {
@@ -637,6 +673,56 @@ namespace Tizen.Multimedia
                 }
 
                 NativePlayer.SetAudioPitch(Handle, value).ThrowIfFailed(this, "Failed to set the audio pitch");
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the default codec type of the audio decoder.
+        /// </summary>
+        /// <value>A <see cref="CodecType"/> that specifies the type.
+        /// The default codec type could be different depending on the device capability.</value>
+        /// <remarks>
+        /// <para>To set, the player must be in the <see cref="PlayerState.Idle"/> state.</para>
+        /// <para>If H/W audio codec type is not supported in some cases, S/W audio codec type could be used instead.</para>
+        /// <para>The availability could be changed depending on the codec capability.
+        /// If an application wants to use the H/W audio codec type as default,
+        /// following functions should be called after the codec type is set. :<br/>
+        /// <see cref="AudioEffect.IsAvailable"/><br/>
+        /// <see cref="EnableExportingAudioData"/><br/>
+        /// <see cref="DisableExportingAudioData"/><br/>
+        /// <see cref="ReplayGain"/><br/>
+        /// <see cref="AudioPitch"/><br/>
+        /// <see cref="AudioPitchEnabled"/><br/></para>
+        /// </remarks>
+        /// <exception cref="ObjectDisposedException">The player has already been disposed of.</exception>
+        /// <exception cref="ArgumentException">The value is not valid.</exception>
+        /// <exception cref="InvalidOperationException">
+        ///     The player is not in the valid state.
+        ///     -or-<br/>
+        ///     Operation failed; internal error.
+        /// </exception>
+        /// <exception cref="CodecNotSupportedException">The selected codec is not supported.</exception>
+        /// <since_tizen> 6 </since_tizen>
+        public CodecType AudioCodecType
+        {
+            get
+            {
+                ValidateNotDisposed();
+
+                NativePlayer.GetAudioCodecType(Handle, out var value).
+                    ThrowIfFailed(this, "Failed to get the type of the audio codec");
+
+                return value;
+            }
+            set
+            {
+                ValidateNotDisposed();
+                ValidatePlayerState(PlayerState.Idle);
+
+                ValidationUtil.ValidateEnum(typeof(CodecType), value, nameof(value));
+
+                NativePlayer.SetAudioCodecType(Handle, value).
+                    ThrowIfFailed(this, "Failed to set the type of the audio codec");
             }
         }
 
@@ -675,6 +761,25 @@ namespace Tizen.Multimedia
                 }
 
                 return _adaptiveVariants;
+            }
+        }
+
+        private AudioOffload _audioOffload;
+
+        /// <summary>
+        /// Gets the setting for audio offload.
+        /// </summary>
+        /// <since_tizen> 6 </since_tizen>
+        public AudioOffload AudioOffload
+        {
+            get
+            {
+                if (_audioOffload == null)
+                {
+                    _audioOffload = new AudioOffload(this);
+                }
+
+                return _audioOffload;
             }
         }
     }

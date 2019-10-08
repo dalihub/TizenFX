@@ -127,6 +127,7 @@ namespace Tizen.NUI.BaseComponents
             if (newValue != null)
             {
                 Tizen.NUI.Object.SetProperty(view.swigCPtr, View.Property.BACKGROUND, new Tizen.NUI.PropertyValue((string)newValue));
+                view.BackgroundImageSynchronosLoading = view._backgroundImageSynchronosLoading;
             }
         },
         defaultValueCreator: (bindable) =>
@@ -239,7 +240,8 @@ namespace Tizen.NUI.BaseComponents
             return temp;
         });
 
-        /// Only for XAML property binding. This will be changed as Inhouse API by ACR later.
+        /// Only for XAML property binding. No need to open as public. (keep as Hidden/InhouseAPI)
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public static readonly BindableProperty FlexProperty = BindableProperty.Create("Flex", typeof(float), typeof(View), default(float), propertyChanged: (bindable, oldValue, newValue) =>
         {
             var view = (View)bindable;
@@ -1258,6 +1260,28 @@ namespace Tizen.NUI.BaseComponents
             Tizen.NUI.Object.GetProperty(view.swigCPtr, View.Property.MARGIN).Get(temp);
             return temp;
         });
+
+
+        /// This will be public opened in tizen_6.0 after ACR done. Before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public static readonly BindableProperty UpdateSizeHintProperty = BindableProperty.Create("UpdateSizeHint", typeof(Vector2), typeof(View), null, propertyChanged: (bindable, oldValue, newValue) =>
+        {
+            var view = (View)bindable;
+            if (newValue != null)
+            {
+                Tizen.NUI.Object.SetProperty(view.swigCPtr, Interop.ViewProperty.View_Property_UPDATE_SIZE_HINT_get(), new Tizen.NUI.PropertyValue((Vector2)newValue));
+            }
+        },
+        defaultValueCreator: (bindable) =>
+        {
+            var view = (View)bindable;
+			
+            Vector2 temp = new Vector2(0.0f, 0.0f);
+            Tizen.NUI.Object.GetProperty(view.swigCPtr, Interop.ViewProperty.View_Property_UPDATE_SIZE_HINT_get()).Get(temp);
+            return temp;
+        });
+
+
         /// This will be public opened in tizen_5.0 after ACR done. Before ACR, need to be hidden as inhouse API.
         [EditorBrowsable(EditorBrowsableState.Never)]
         public static readonly BindableProperty XamlStyleProperty = BindableProperty.Create("XamlStyle", typeof(Style), typeof(View), default(Style), propertyChanged: (bindable, oldvalue, newvalue) => ((View)bindable)._mergedStyle.Style = (Style)newvalue);
@@ -2418,7 +2442,7 @@ namespace Tizen.NUI.BaseComponents
             "Like: " +
             "View view = new View(); " +
             "view.PivotPoint = PivotPoint.Center; " +
-            "view.PositionUsesPivotPoint = true;" + 
+            "view.PositionUsesPivotPoint = true;" +
             " Deprecated in API5: Will be removed in API8")]
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool PositionUsesAnchorPoint
@@ -3316,7 +3340,7 @@ namespace Tizen.NUI.BaseComponents
         }
 
         /// <summary>
-        /// Deprecated in API5; Will be removed in API8. Please use 'Container GetParent() for derived class' instead! 
+        /// Deprecated in API5; Will be removed in API8. Please use 'Container GetParent() for derived class' instead!
         /// </summary>
         /// <since_tizen> 3 </since_tizen>
         [Obsolete("Deprecated in API5; Will be removed in API8. Please use 'Container GetParent() for derived class' instead! " +
@@ -3434,11 +3458,7 @@ namespace Tizen.NUI.BaseComponents
         ///<summary>
         /// The required policy for this dimension, LayoutParamPolicies enum or exact value.
         ///</summary>
-        /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
-        /// <remarks>
-        /// Previously named LayoutWidthSpecification
-        /// </remarks>
-        [EditorBrowsable(EditorBrowsableState.Never)]
+        /// <since_tizen> 6 </since_tizen>
         public int WidthSpecification
         {
             get
@@ -3460,10 +3480,7 @@ namespace Tizen.NUI.BaseComponents
         ///<summary>
         /// The required policy for this dimension, LayoutParamPolicies enum or exact value.
         ///</summary>
-        /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
-        /// <remarks>
-        /// Previously named LayoutHeightSpecification
-        /// </remarks>
+        /// <since_tizen> 6 </since_tizen>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public int HeightSpecification
         {
@@ -3486,8 +3503,7 @@ namespace Tizen.NUI.BaseComponents
         ///<summary>
         /// Gets the List of transitions for this View.
         ///</summary>
-        /// Hidden-API which is usually used as Inhouse-API. If required to be opened as Public-API, ACR process is needed.
-        [EditorBrowsable(EditorBrowsableState.Never)]
+        /// <since_tizen> 6 </since_tizen>
         public Dictionary<TransitionCondition, TransitionList> LayoutTransitions
         {
             get
@@ -3500,7 +3516,14 @@ namespace Tizen.NUI.BaseComponents
             }
         }
 
-        internal LayoutTransition LayoutTransition
+        ///<summary>
+        /// Set a layout transitions for this View.
+        ///</summary>
+        /// <remarks>
+        /// Use LayoutTransitions to receive a collection of LayoutTransitions set on the View.
+        /// </remarks>
+        /// <since_tizen> 6 </since_tizen>
+        public LayoutTransition LayoutTransition
         {
             set
             {
@@ -3568,117 +3591,12 @@ namespace Tizen.NUI.BaseComponents
             }
         }
 
-        /// <summary>
-        /// The color mode of View.
-        /// This specifies whether the View uses its own color, or inherits its parent color.
-        /// The default is ColorMode.UseOwnMultiplyParentColor.
-        /// </summary>
-        internal ColorMode ColorMode
-        {
-            set
-            {
-                SetColorMode(value);
-            }
-            get
-            {
-                return GetColorMode();
-            }
-        }
-
-        internal float Weight
-        {
-            get
-            {
-                return _weight;
-            }
-            set
-            {
-                _weight = value;
-                _layout?.RequestLayout();
-            }
-        }
-
-        /// <summary>
-        ///  Whether to load the BackgroundImage synchronously.
-        ///  If not specified, the default is false, i.e. the BackgroundImage is loaded asynchronously.
-        ///  Note: For Normal Quad images only.
-        /// </summary>
-        /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool BackgroundImageSynchronosLoading
-        {
-            get
-            {
-                return _backgroundImageSynchronosLoading;
-            }
-            set
-            {
-                if (value != _backgroundImageSynchronosLoading)
-                {
-                    string bgUrl = "";
-                    PropertyMap bgMap = this.Background;
-                    int visualType = 0;
-                    bgMap.Find(Visual.Property.Type)?.Get(out visualType);
-                    if (visualType == (int)Visual.Type.Image)
-                    {
-                        bgMap.Find(ImageVisualProperty.URL)?.Get(out bgUrl);
-                    }
-                    if (bgUrl.Length != 0)
-                    {
-                        _backgroundImageSynchronosLoading = value;
-                        bgMap.Add("synchronousLoading", new PropertyValue(_backgroundImageSynchronosLoading));
-                        this.Background = bgMap;
-                    }
-                }
-            }
-        }
-
-        internal float WorldPositionX
-        {
-            get
-            {
-                float temp = 0.0f;
-                GetProperty(View.Property.WORLD_POSITION_X).Get(out temp);
-                return temp;
-            }
-        }
-
-        internal float WorldPositionY
-        {
-            get
-            {
-                float temp = 0.0f;
-                GetProperty(View.Property.WORLD_POSITION_Y).Get(out temp);
-                return temp;
-            }
-        }
-
-        internal float WorldPositionZ
-        {
-            get
-            {
-                float temp = 0.0f;
-                GetProperty(View.Property.WORLD_POSITION_Z).Get(out temp);
-                return temp;
-            }
-        }
-
-        internal bool FocusState
-        {
-            get
-            {
-                return IsKeyboardFocusable();
-            }
-            set
-            {
-                SetKeyboardFocusable(value);
-            }
-        }
 
         /// <summary>
         /// Set the layout on this View. Replaces any existing Layout.
         /// </summary>
-        internal LayoutItem Layout
+        /// <since_tizen> 6 </since_tizen>
+        public LayoutItem Layout
         {
             get
             {
@@ -3700,7 +3618,6 @@ namespace Tizen.NUI.BaseComponents
                 // First check if the layout to be set already has a owner.
                 if (value?.Owner != null)
                 {
-                    Log.Info("NUI", "Set layout already in use by another View: " + value.Owner.Name + "will get a LayoutGroup\n");
                     // Previous owner of the layout gets a default layout as a replacement.
                     value.Owner.Layout = new LayoutGroup();
 
@@ -3758,6 +3675,117 @@ namespace Tizen.NUI.BaseComponents
 
                 // Set layout to this view
                 SetLayout(value);
+            }
+        }
+
+        /// <summary>
+        /// The weight of the View, used to share available space in a layout with siblings.
+        /// </summary>
+        /// <since_tizen> 6 </since_tizen>
+        public float Weight
+        {
+            get
+            {
+                return _weight;
+            }
+            set
+            {
+                _weight = value;
+                _layout?.RequestLayout();
+            }
+        }
+
+
+        /// <summary>
+        /// The color mode of View.
+        /// This specifies whether the View uses its own color, or inherits its parent color.
+        /// The default is ColorMode.UseOwnMultiplyParentColor.
+        /// </summary>
+        internal ColorMode ColorMode
+        {
+            set
+            {
+                SetColorMode(value);
+            }
+            get
+            {
+                return GetColorMode();
+            }
+        }
+
+        /// <summary>
+        ///  Whether to load the BackgroundImage synchronously.
+        ///  If not specified, the default is false, i.e. the BackgroundImage is loaded asynchronously.
+        ///  Note: For Normal Quad images only.
+        /// </summary>
+        /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool BackgroundImageSynchronosLoading
+        {
+            get
+            {
+                return _backgroundImageSynchronosLoading;
+            }
+            set
+            {
+                _backgroundImageSynchronosLoading = value;
+                string bgUrl = "";
+                int visualType = 0;
+                Background.Find(Visual.Property.Type)?.Get(out visualType);
+                if (visualType == (int)Visual.Type.Image)
+                {
+                    Background.Find(ImageVisualProperty.URL)?.Get(out bgUrl);
+                }
+
+                if (bgUrl.Length != 0)
+                {
+                    PropertyMap bgMap = this.Background;
+                    bgMap.Add("synchronousLoading", new PropertyValue(_backgroundImageSynchronosLoading));
+                    Background = bgMap;
+                }
+
+            }
+        }
+
+        internal float WorldPositionX
+        {
+            get
+            {
+                float temp = 0.0f;
+                GetProperty(View.Property.WORLD_POSITION_X).Get(out temp);
+                return temp;
+            }
+        }
+
+        internal float WorldPositionY
+        {
+            get
+            {
+                float temp = 0.0f;
+                GetProperty(View.Property.WORLD_POSITION_Y).Get(out temp);
+                return temp;
+            }
+        }
+
+        internal float WorldPositionZ
+        {
+            get
+            {
+                float temp = 0.0f;
+                GetProperty(View.Property.WORLD_POSITION_Z).Get(out temp);
+                return temp;
+            }
+        }
+
+        internal bool FocusState
+        {
+            get
+            {
+                return IsKeyboardFocusable();
+            }
+            set
+            {
+                SetKeyboardFocusable(value);
             }
         }
 
@@ -4051,7 +4079,6 @@ namespace Tizen.NUI.BaseComponents
         public override void Add(View child)
         {
             bool hasLayout = (_layout != null);
-            Log.Info("NUI", "Add:" + child.Name + " to View:" + Name + " which has layout[" + hasLayout + "] + \n");
 
             if (null == child)
             {
@@ -4098,7 +4125,6 @@ namespace Tizen.NUI.BaseComponents
                 return;
 
             bool hasLayout = (_layout != null);
-            Log.Info("NUI","Removing View:" + child.Name + " layout[" + hasLayout.ToString() +"]\n");
 
             // If View has a layout then do a deferred child removal
             // Actual child removal is performed by the layouting system so
@@ -4853,21 +4879,27 @@ namespace Tizen.NUI.BaseComponents
                 throw NDalicPINVOKE.SWIGPendingException.Retrieve();
         }
 
-        internal void RotateBy(Degree angle, Vector3 axis)
+        /// This will be public opened in tizen_next after ACR done. Before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public void RotateBy(Degree angle, Vector3 axis)
         {
             Interop.ActorInternal.Actor_RotateBy__SWIG_0(swigCPtr, Degree.getCPtr(angle), Vector3.getCPtr(axis));
             if (NDalicPINVOKE.SWIGPendingException.Pending)
                 throw NDalicPINVOKE.SWIGPendingException.Retrieve();
         }
 
-        internal void RotateBy(Radian angle, Vector3 axis)
+        /// This will be public opened in tizen_next after ACR done. Before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public void RotateBy(Radian angle, Vector3 axis)
         {
             Interop.ActorInternal.Actor_RotateBy__SWIG_1(swigCPtr, Radian.getCPtr(angle), Vector3.getCPtr(axis));
             if (NDalicPINVOKE.SWIGPendingException.Pending)
                 throw NDalicPINVOKE.SWIGPendingException.Retrieve();
         }
 
-        internal void RotateBy(Rotation relativeRotation)
+        /// This will be public opened in tizen_next after ACR done. Before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public void RotateBy(Rotation relativeRotation)
         {
             Interop.ActorInternal.Actor_RotateBy__SWIG_2(swigCPtr, Rotation.getCPtr(relativeRotation));
             if (NDalicPINVOKE.SWIGPendingException.Pending)
@@ -4926,7 +4958,9 @@ namespace Tizen.NUI.BaseComponents
                 throw NDalicPINVOKE.SWIGPendingException.Retrieve();
         }
 
-        internal void ScaleBy(Vector3 relativeScale)
+        /// This will be public opened in tizen_next after ACR done. Before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public void ScaleBy(Vector3 relativeScale)
         {
             Interop.ActorInternal.Actor_ScaleBy(swigCPtr, Vector3.getCPtr(relativeScale));
             if (NDalicPINVOKE.SWIGPendingException.Pending)
@@ -5691,7 +5725,7 @@ namespace Tizen.NUI.BaseComponents
             View view = GetParent()?.FindCurrentChildById(id);
 
             //If we can't find the parent's children, find in the top layer.
-            if (!view) 
+            if (!view)
             {
                 Container parent = GetParent();
                 while ((parent is View) && (parent != null))
@@ -5946,6 +5980,20 @@ namespace Tizen.NUI.BaseComponents
             }
         }
 
+        /// This will be public opened in tizen_6.0 after ACR done. Before ACR, need to be hidden as inhouse API.
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public Vector2 UpdateSizeHint
+        {
+            get
+            {
+                return (Vector2)GetValue(UpdateSizeHintProperty);
+            }
+            set
+            {
+                SetValue(UpdateSizeHintProperty, value);
+                NotifyPropertyChanged();
+            }
+        }
 
         private Dictionary<string, Transition> transDictionary = new Dictionary<string, Transition>();
 

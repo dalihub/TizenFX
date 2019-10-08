@@ -624,11 +624,11 @@ namespace Tizen.NUI.Components
             }
             if (mScrollBar.Direction == ScrollBar.DirectionType.Vertical)
             {
-                mScrollBar.ThumbSize = new Size2D((int)thickness, (int)length);
+                mScrollBar.ThumbSize = new Size(thickness, length);
             }
             else
             {
-                mScrollBar.ThumbSize = new Size2D((int)length, (int)thickness);
+                mScrollBar.ThumbSize = new Size(length, thickness);
             }
             mScrollBar.MinValue = 0;
             mScrollBar.MaxValue = (int)(range - extent);
@@ -1159,7 +1159,6 @@ namespace Tizen.NUI.Components
             {
             }
 
-
             /// <summary>
             /// Gets the current focus position in adapter.
             /// </summary>
@@ -1410,9 +1409,12 @@ namespace Tizen.NUI.Components
             /// <since_tizen> 6 </since_tizen>
             /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
             [EditorBrowsable(EditorBrowsableState.Never)]
-            public int GetChildCount()
+            public int ChildCount
             {
-                return mChildHelper != null ? mChildHelper.GetChildCount() : 0;
+                get
+                {
+                    return mChildHelper != null ? mChildHelper.GetChildCount() : 0;
+                }
             }
 
             /// <summary>
@@ -1615,9 +1617,12 @@ namespace Tizen.NUI.Components
             /// <since_tizen> 6 </since_tizen>
             /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
             [EditorBrowsable(EditorBrowsableState.Never)]
-            public float GetWidth()
+            public float Width
             {
-                return mFlexibleView != null ? mFlexibleView.SizeWidth : 0;
+                get
+                {
+                    return mFlexibleView != null ? mFlexibleView.SizeWidth : 0;
+                }
             }
 
             /// <summary>
@@ -1626,9 +1631,12 @@ namespace Tizen.NUI.Components
             /// <since_tizen> 6 </since_tizen>
             /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
             [EditorBrowsable(EditorBrowsableState.Never)]
-            public float GetHeight()
+            public float Height
             {
-                return mFlexibleView != null ? mFlexibleView.SizeHeight : 0;
+                get
+                {
+                    return mFlexibleView != null ? mFlexibleView.SizeHeight : 0;
+                }
             }
 
             /// <summary>
@@ -1637,7 +1645,7 @@ namespace Tizen.NUI.Components
             /// <since_tizen> 6 </since_tizen>
             /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
             [EditorBrowsable(EditorBrowsableState.Never)]
-            public int GetPaddingLeft()
+            public int PaddingLeft
             {
                 return mFlexibleView?.Padding?.Start ?? 0;
             }
@@ -1648,7 +1656,7 @@ namespace Tizen.NUI.Components
             /// <since_tizen> 6 </since_tizen>
             /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
             [EditorBrowsable(EditorBrowsableState.Never)]
-            public int GetPaddingTop()
+            public int PaddingTop
             {
                 return mFlexibleView?.Padding?.Top ?? 0;
             }
@@ -1659,7 +1667,7 @@ namespace Tizen.NUI.Components
             /// <since_tizen> 6 </since_tizen>
             /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
             [EditorBrowsable(EditorBrowsableState.Never)]
-            public int GetPaddingRight()
+            public int PaddingRight
             {
                 return mFlexibleView?.Padding?.End ?? 0;
             }
@@ -1670,7 +1678,7 @@ namespace Tizen.NUI.Components
             /// <since_tizen> 6 </since_tizen>
             /// This will be public opened in tizen_5.5 after ACR done. Before ACR, need to be hidden as inhouse API.
             [EditorBrowsable(EditorBrowsableState.Never)]
-            public int GetPaddingBottom()
+            public int PaddingBottom
             {
                 return mFlexibleView?.Padding?.Bottom ?? 0;
             }
@@ -1834,10 +1842,10 @@ namespace Tizen.NUI.Components
             private Vector2 GetChildRectangleOnScreenScrollAmount(FlexibleView parent, FlexibleView.ViewHolder child)
             {
                 Vector2 ret = new Vector2(0, 0);
-                int parentLeft = GetPaddingLeft();
-                int parentTop = GetPaddingTop();
-                int parentRight = (int)GetWidth() - GetPaddingRight();
-                int parentBottom = (int)GetHeight() - GetPaddingBottom();
+                int parentLeft = PaddingLeft;
+                int parentTop = PaddingTop;
+                int parentRight = (int)Width - PaddingRight;
+                int parentBottom = (int)Height - PaddingBottom;
                 int childLeft = (int)child.Left;
                 int childTop = (int)child.Top;
                 int childRight = (int)child.Right;
