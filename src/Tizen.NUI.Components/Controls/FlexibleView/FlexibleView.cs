@@ -1495,9 +1495,9 @@ namespace Tizen.NUI.Components
                         vh = mChildHelper.GetChildAt(childCount - 1);
                         if (vh.LayoutPosition == ItemCount - 1)
                         {
-                            if ((int)(vh.ItemView.PositionX + dx) != (int)GetWidth())
+                            if ((int)(vh.ItemView.PositionX + dx) != (int)Width)
                             {
-                                dx = (int)(GetWidth() - vh.ItemView.PositionX);
+                                dx = (int)(Width - vh.ItemView.PositionX);
                             }
                         }
                     }
@@ -1580,9 +1580,9 @@ namespace Tizen.NUI.Components
                         vh = mChildHelper.GetChildAt(childCount - 1);
                         if (vh.LayoutPosition == ItemCount - 1)
                         {
-                            if ((int)(vh.ItemView.PositionY + dy) != (int)GetHeight())
+                            if ((int)(vh.ItemView.PositionY + dy) != (int)Height)
                             {
-                                dy = (int)(GetHeight() - vh.ItemView.PositionY);
+                                dy = (int)(Height - vh.ItemView.PositionY);
                             }
                         }
                     }
@@ -1900,7 +1900,7 @@ namespace Tizen.NUI.Components
                 else
                     start = 0;
 
-                int itemCount = GetChildCount();
+                int itemCount = ChildCount;
 
                 int end = NO_POSITION;
                 ViewHolder lastItemView = FindLastVisibleItemView();
