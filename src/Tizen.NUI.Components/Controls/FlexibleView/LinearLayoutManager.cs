@@ -802,7 +802,7 @@ namespace Tizen.NUI.Components
             {
                 return;
             }
-            int childCount = GetChildCount();
+            int childCount = ChildCount;
             float limit = mOrientationHelper.GetEnd() - dt;
             if (mShouldReverseLayout)
             {
