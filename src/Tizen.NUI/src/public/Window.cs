@@ -1194,7 +1194,6 @@ namespace Tizen.NUI
             if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
 
             // Setting Position of the window should request a relayout of the tree.
-
         }
 
         /// <summary>
