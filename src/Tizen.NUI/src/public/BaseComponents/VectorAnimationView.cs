@@ -281,12 +281,8 @@ namespace Tizen.NUI.BaseComponents
             }
             else
             {
-<<<<<<< HEAD
-                //SetPlayRange(0, TotalFrameNumber - 1);
-=======
                 SetPlayRange(0, mTotalFrameNum - 1);
                 CurrentFrame = 0;
->>>>>>> 44acf2f... [NUI] some change in VectorAnimationViewTBD (#1064)
             }
 
             base.Play();
