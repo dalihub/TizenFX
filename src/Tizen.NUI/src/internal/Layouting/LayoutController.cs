@@ -39,6 +39,9 @@ namespace Tizen.NUI
 
         event Callback _instance;
 
+        // A Flag to check if it is already disposed.
+        private bool disposed = false;
+
         private Window _window;
 
         Animation _coreAnimation;

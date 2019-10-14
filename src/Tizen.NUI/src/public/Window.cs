@@ -37,20 +37,6 @@ namespace Tizen.NUI
         private List<Layer> _childLayers = new List<Layer>();
         private LayoutController localController;
 
-        /// <summary>
-        /// Creates a new Window.<br />
-        /// This creates an extra window in addition to the default main window<br />
-        /// </summary>
-        /// <param name="windowPosition">The position and size of the Window.</param>
-        /// <param name="isTranslucent">Whether Window is translucent.</param>
-        /// <returns>A new Window.</returns>
-        /// <since_tizen> 6 </since_tizen>
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public Window(Rectangle windowPosition = null, bool isTranslucent = false) : this(Interop.Window.Window_New__SWIG_0(Rectangle.getCPtr(windowPosition), "", isTranslucent), true)
-        {
-            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
-        }
-
         internal Window(global::System.IntPtr cPtr, bool cMemoryOwn) : base(Interop.Window.Window_SWIGUpcast(cPtr), cMemoryOwn)
         {
             swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
@@ -61,6 +47,34 @@ namespace Tizen.NUI
                 localController = new LayoutController(this);
                 NUILog.Debug("layoutController id:" + localController.GetId() );
             }
+        }
+		
+        /// <summary>
+        /// Creates a new Window.<br />
+        /// This creates an extra window in addition to the default main window<br />
+        /// </summary>
+        /// <param name="windowPosition">The position and size of the Window.</param>
+        /// <param name="isTranslucent">Whether Window is translucent.</param>
+        /// <returns>A new Window.</returns>
+        /// <since_tizen> 6 </since_tizen>
+        public Window(Rectangle windowPosition = null , bool isTranslucent = false) : this(Interop.Window.Window_New__SWIG_0(Rectangle.getCPtr(windowPosition), "", isTranslucent), true)
+        {
+            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
+        }
+
+        /// <summary>
+        /// Creates a new Window.<br />
+        /// This creates an extra window in addition to the default main window<br />
+        /// </summary>
+        /// <param name="name">The name for extra window. </param>
+        /// <param name="windowPosition">The position and size of the Window.</param>
+        /// <param name="isTranslucent">Whether Window is translucent.</param>
+        /// <returns>A new Window.</returns>
+        /// <since_tizen> 6 </since_tizen>
+        public Window(string name, Rectangle windowPosition = null, bool isTranslucent = false) : this(Interop.Window.Window_New__SWIG_0(Rectangle.getCPtr(windowPosition), name, isTranslucent), true)
+        {
+            this._windowTitle = name;
+            if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
         }
 
         /// <summary>
@@ -1012,27 +1026,47 @@ namespace Tizen.NUI
             if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
         }
 
-        internal void AddAvailableOrientation(Window.WindowOrientation orientation)
+        /// <summary>
+        /// Adds an orientation to the list of available orientations.
+        /// </summary>
+        /// <param name="orientation">The available orientation to add</param>
+        /// <since_tizen> 6 </since_tizen>
+        public void AddAvailableOrientation(Window.WindowOrientation orientation)
         {
-            Interop.WindowInternal.Window_AddAvailableOrientation(swigCPtr, (int)orientation);
+            Interop.Window.Window_AddAvailableOrientation(swigCPtr, (int)orientation);
             if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
         }
 
-        internal void RemoveAvailableOrientation(Window.WindowOrientation orientation)
+        /// <summary>
+        /// Removes an orientation from the list of available orientations.
+        /// </summary>
+        /// <param name="orientation">The available orientation to remove.</param>
+        /// <since_tizen> 6 </since_tizen>
+        public void RemoveAvailableOrientation(Window.WindowOrientation orientation)
         {
-            Interop.WindowInternal.Window_RemoveAvailableOrientation(swigCPtr, (int)orientation);
+            Interop.Window.Window_RemoveAvailableOrientation(swigCPtr, (int)orientation);
             if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
         }
 
-        internal void SetPreferredOrientation(Window.WindowOrientation orientation)
+        /// <summary>
+        /// Sets a preferred orientation.
+        /// </summary>
+        /// <param name="orientation">The preferred orientation.</param>
+        /// <since_tizen> 6 </since_tizen>
+        public void SetPreferredOrientation(Window.WindowOrientation orientation)
         {
-            Interop.WindowInternal.Window_SetPreferredOrientation(swigCPtr, (int)orientation);
+            Interop.Window.Window_SetPreferredOrientation(swigCPtr, (int)orientation);
             if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
         }
 
-        internal Window.WindowOrientation GetPreferredOrientation()
+        /// <summary>
+        /// Gets the preferred orientation.
+        /// </summary>
+        /// <since_tizen> 6 </since_tizen>
+        /// <returns>The preferred orientation if previously set, or none.</returns>
+        public Window.WindowOrientation GetPreferredOrientation()
         {
-            Window.WindowOrientation ret = (Window.WindowOrientation)Interop.WindowInternal.Window_GetPreferredOrientation(swigCPtr);
+            Window.WindowOrientation ret = (Window.WindowOrientation)Interop.Window.Window_GetPreferredOrientation(swigCPtr);
             if (NDalicPINVOKE.SWIGPendingException.Pending) throw NDalicPINVOKE.SWIGPendingException.Retrieve();
             return ret;
         }

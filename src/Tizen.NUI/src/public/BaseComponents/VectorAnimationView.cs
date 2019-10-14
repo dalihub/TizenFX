@@ -275,6 +275,10 @@ namespace Tizen.NUI.BaseComponents
                 CurrentFrameNumber = 0;
             }
 
+            //temporal fix
+            Extents tmp = base.Margin;
+            base.Margin = tmp;
+
             base.Play();
             AnimationState = AnimationStates.Playing;
 
