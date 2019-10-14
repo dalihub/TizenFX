@@ -1993,6 +1993,7 @@ namespace Tizen.NUI
             /// Get SnapEvent From Ptr
             /// </summary>
             /// <since_tizen> 3 </since_tizen>
+            /// This will be deprecated
             [Obsolete("Deprecated in API6, Will be removed in API9, " + 
                 "Please use SnapStarted event instead!" +
                 "IntPtr(native integer pointer) is supposed to be not used in Application!")]
