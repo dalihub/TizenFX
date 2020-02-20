@@ -185,12 +185,12 @@ namespace Tizen.NUI
                                    (MeasuredHeight.Size == heightMeasureSpec.Size);
 
             bool needsLayout = specChanged && ( !isSpecExactly || !matchesSpecSize);
-            needsLayout = needsLayout || ((Flags & LayoutFlags.ForceLayout) == LayoutFlags.ForceLayout);
+            needsLayout = needsLayout || Flags.HasFlag(LayoutFlags.ForceLayout);
 
             if (needsLayout)
             {
                 OnMeasure(widthMeasureSpec, heightMeasureSpec);
-                Flags = Flags | LayoutFlags.LayoutRequired;
+                Flags |= LayoutFlags.LayoutRequired;
                 Flags &= ~LayoutFlags.ForceLayout;
             }
             OldWidthMeasureSpec = widthMeasureSpec;
@@ -301,7 +301,7 @@ namespace Tizen.NUI
         {
             get
             {
-                return ( Flags & LayoutFlags.ForceLayout) == LayoutFlags.ForceLayout;
+                return Flags.HasFlag(LayoutFlags.ForceLayout);
             }
         }
 

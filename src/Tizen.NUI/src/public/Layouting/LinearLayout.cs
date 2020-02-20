@@ -282,6 +282,8 @@ namespace Tizen.NUI
             // Weighted children are not measured at this phase.
             // Available space for weighted children will be calculated in the phase 2 based on totalLength value.
             // Max height of children is stored.
+
+            // 너비에 대한것
             foreach( LayoutItem childLayout in LayoutChildren )
             {
                 int childDesiredHeight = childLayout.Owner.HeightSpecification;
@@ -324,15 +326,22 @@ namespace Tizen.NUI
 
                     if (isExactly)
                     {
+                        // Cell padding을 왜 안더함..?
+                        //본인 패딩도 들어가야 될 것 같은데.. 왜 안들어갔을까? 애초에 total length는 padding값으로 시작해야 될 것 같은데..
                         _totalLength += length.AsDecimal();
                     }
                     else
                     {
+                        //내가 정해지지 않는 상황 이기 때문에 더 큰거로 골라져야함 (Wrapcontent 등) 근데 작은경우가 있나?
+                        //본인 패딩도 들어가야 될 것 같은데.. 왜 안들어갔을까?
                         _totalLength = Math.Max(_totalLength, _totalLength + length.AsDecimal() + CellPadding.Width);
                     }
                 }
 
                 bool matchHeightLocally = false;
+
+                // 나도 안정해졌는데 child가 내꺼 따라간다네?
+                // 내가 정해지면 child의 크기를 다시 정해야됨!
                 if (heightMode != MeasureSpecification.ModeType.Exactly && childDesiredHeight == LayoutParamPolicies.MatchParent)
                 {
                     // A child has set to MatchParent on it's height.
@@ -342,6 +351,7 @@ namespace Tizen.NUI
                 }
 
                 float marginHeight = childMargin.Top + childMargin.Bottom;
+                //Exact의 경우 child의 높이는 이미 정해졌음
                 float childHeight = childLayout.MeasuredHeight.Size.AsDecimal() + marginHeight;
 
                 if (childLayout.MeasuredWidth.State == MeasuredSize.StateType.MeasuredSizeTooSmall)
@@ -353,23 +363,31 @@ namespace Tizen.NUI
                     childState.heightState = MeasuredSize.StateType.MeasuredSizeTooSmall;
                 }
 
+                // child 중 제일 큰 Height
                 maxHeight = Math.Max( maxHeight, childHeight);
                 allFillParent = ( allFillParent && childDesiredHeight == LayoutParamPolicies.MatchParent);
 
                 if (childWeight > 0)
                 {
                   // Heights of weighted Views are invalid if we end up remeasuring, so store them separately.
+                  // child의 height가 아직 정해지지 않았다? -> marginHeight만 넣어놓음
+                  // Weight child가 가지는 높이 중 제일 높은 것 저장
                   weightedMaxHeight = Math.Max( weightedMaxHeight, matchHeightLocally ? marginHeight : childHeight);
                 }
                 else
                 {
+                  //Child의 높이 중 제일 높은 것 저장
                   alternativeMaxHeight = Math.Max( alternativeMaxHeight, matchHeightLocally ? marginHeight : childHeight );
                 }
             } // foreach
 
+            //고려 순서가 잘못된느낌... 너비에 이미 패딩이 들어가 있어야되는데 왜 여기서..
             Extents padding = Padding;
             _totalLength += padding.Start + padding.End;
 
+            //Weight 자식 외에 메저가 끝남. 여태까지 더한것들을 widthSize라고 생각.
+            //혹시 NaturalSize가 더 크면 그걸로 max를 생각 << 이유가? View에서 Natural Size 의 영향 받을일이??
+            //여태까지 한것을 가지고 스펙가지고 다시 한번 확인
             float widthSize = _totalLength;
             widthSize = Math.Max( widthSize, SuggestedMinimumWidth.AsDecimal());
             MeasuredSize widthSizeAndState = ResolveSizeAndState( new LayoutLength(widthSize), widthMeasureSpec, MeasuredSize.StateType.MeasuredSizeOK);
@@ -405,6 +423,7 @@ namespace Tizen.NUI
                     }
 
                     float length = childLayout.MeasuredWidth.Size.AsDecimal() + childMargin.Start + childMargin.End;
+                    // 마지막 cellpadding 제외
                     float cellPadding = i < numberOfChildren - 1 ? CellPadding.Width : 0;
                     if( isExactly )
                     {
@@ -412,18 +431,23 @@ namespace Tizen.NUI
                     }
                     else
                     {
+                        //정해지지 않았으면 최대값을 계속 택하면서 늘려나간다.
                         float totalLength = _totalLength;
                         _totalLength = Math.Max( _totalLength, _totalLength + length + cellPadding );
                     }
 
+                    //내가 안정해졌는데 자식이 내 크기를 원한다!
                     bool matchHeightLocally = (heightMode != MeasureSpecification.ModeType.Exactly) && (desiredChildHeight == LayoutParamPolicies.MatchParent);
                     float marginHeight = childMargin.Top + childMargin.Bottom;
                     float childHeight = childLayout.MeasuredHeight.Size.AsDecimal() + marginHeight;
 
                     maxHeight = Math.Max( maxHeight, childHeight );
                     alternativeMaxHeight = Math.Max( alternativeMaxHeight, matchHeightLocally ? marginHeight : childHeight );
+
+                    //이해 안감
                     allFillParent = (allFillParent && desiredChildHeight == LayoutParamPolicies.MatchParent);
 
+                    // 이걸 왜 계속더함..??
                     _totalLength += padding.Start + padding.End;
                 } // for loop
             }
