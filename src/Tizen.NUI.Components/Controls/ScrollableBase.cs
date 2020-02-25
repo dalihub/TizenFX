@@ -17,6 +17,7 @@ using System;
 using Tizen.NUI.BaseComponents;
 using System.ComponentModel;
 using System.Diagnostics;
+
 namespace Tizen.NUI.Components
 {
     /// <summary>
@@ -29,6 +30,7 @@ namespace Tizen.NUI.Components
 	    static bool LayoutDebugScrollableBase = false; // Debug flag
         private Direction mScrollingDirection = Direction.Vertical;
         private bool mScrollEnabled = true;
+        private int mPageWidth = 0;
 
         private class ScrollableBaseCustomLayout : LayoutGroup
         {
@@ -108,6 +110,8 @@ namespace Tizen.NUI.Components
                 SetMeasuredDimensions( ResolveSizeAndState( new LayoutLength(totalWidth), widthMeasureSpec, childWidthState ),
                                        ResolveSizeAndState( new LayoutLength(totalHeight), heightMeasureSpec, childHeightState ) );
 
+                // Size of ScrollableBase is changed. Change Page width too.
+                scrollableBase.mPageWidth = (int)MeasuredWidth.Size.AsRoundedValue();
             }
 
             protected override void OnLayout(bool changed, LayoutLength left, LayoutLength top, LayoutLength right, LayoutLength bottom)
@@ -250,25 +254,11 @@ namespace Tizen.NUI.Components
         public int CurrentPage { get; private set; } = 0;
 
         /// <summary>
-        /// [Draft] Pages mode, Number of pages.
-        /// </summary>
-        /// This may be public opened in tizen_6.0 after ACR done. Before ACR, need to be hidden as inhouse API
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public int NumberOfPages { set; get; } = 1;
-
-        /// <summary>
         /// [Draft] Duration of scroll animation.
         /// </summary>
         /// This may be public opened in tizen_6.0 after ACR done. Before ACR, need to be hidden as inhouse API
         [EditorBrowsable(EditorBrowsableState.Never)]
         public int ScrollDuration { set; get; } = 125;
-
-        /// <summary>
-        /// [Draft] Width of the Page.
-        /// </summary>
-        /// This may be public opened in tizen_6.0 after ACR done. Before ACR, need to be hidden as inhouse API
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public int PageWidth { set; get; } = 1080; // Temporary use for prototype, should get ScrollableBase width
 
         /// <summary>
         /// ScrollEventArgs is a class to record scroll event arguments which will sent to user.
@@ -278,6 +268,31 @@ namespace Tizen.NUI.Components
         [EditorBrowsable(EditorBrowsableState.Never)]
         public class ScrollEventArgs : EventArgs
         {
+            Position position;
+
+            /// <summary>
+            /// Default constructor.
+            /// </summary>
+            /// <param name="position">Current scroll position</param>
+            /// <since_tizen> 6 </since_tizen>
+            /// This may be public opened in tizen_6.0 after ACR done. Before ACR, need to be hidden as inhouse API
+            public ScrollEventArgs(Position position)
+            {
+                this.position = position;
+            }
+
+            /// <summary>
+            /// [Draft] Current scroll position.
+            /// </summary>
+            /// This may be public opened in tizen_6.0 after ACR done. Before ACR, need to be hidden as inhouse API
+            [EditorBrowsable(EditorBrowsableState.Never)]
+            public Position Position
+            {
+                get
+                {
+                    return position;
+                }
+            }
         }
 
         /// <summary>
@@ -314,6 +329,13 @@ namespace Tizen.NUI.Components
         public event EventHandler<ScrollEventArgs> ScrollAnimationEndEvent;
 
 
+        /// <summary>
+        /// An event emitted when scrolling, user can subscribe or unsubscribe to this event handler.<br />
+        /// </summary>
+        /// <since_tizen> 6 </since_tizen>
+        /// This may be public opened in tizen_6.0 after ACR done. Before ACR, need to be hidden as inhouse API
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public event EventHandler<ScrollEventArgs> ScrollEvent;
 
         private Animation scrollAnimation;
         private float maxScrollDistance;
@@ -328,6 +350,7 @@ namespace Tizen.NUI.Components
 
         // If false then can only flick pages when the current animation/scroll as ended.
         private bool flickWhenAnimating = false;
+        private PropertyNotification propertyNotification;
 
         /// <summary>
         /// [Draft] Constructor
@@ -346,11 +369,18 @@ namespace Tizen.NUI.Components
             mTapGestureDetector.Attach(this);
             mTapGestureDetector.Detected += OnTapGestureDetected;
 
+
             ClippingMode = ClippingModeType.ClipToBoundingBox;
 
             mScrollingChild = new View();
+            mScrollingChild.Name = "DefaultScrollingChild";
 
             Layout = new ScrollableBaseCustomLayout();
+        }
+
+        private void OnPropertyChanged(object source, PropertyNotification.NotifyEventArgs args)
+        {
+            OnScroll();
         }
 
         /// <summary>
@@ -362,10 +392,19 @@ namespace Tizen.NUI.Components
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override void OnChildAdd(View view)
         {
-            mScrollingChild = view;
+            if(mScrollingChild.Name != "DefaultScrollingChild")
             {
-            if (Children.Count > 1)
-                Log.Error("ScrollableBase", $"Only 1 child should be added to ScrollableBase.");
+                propertyNotification.Notified -= OnPropertyChanged;
+                mScrollingChild.RemovePropertyNotification(propertyNotification);
+            }
+
+            mScrollingChild = view;
+            propertyNotification = mScrollingChild?.AddPropertyNotification("position", PropertyCondition.Step(1.0f));
+            propertyNotification.Notified += OnPropertyChanged;
+
+            {
+                if (Children.Count > 1)
+                    Log.Error("ScrollableBase", $"Only 1 child should be added to ScrollableBase.");
             }
         }
 
@@ -378,6 +417,9 @@ namespace Tizen.NUI.Components
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override void OnChildRemove(View view)
         {
+            propertyNotification.Notified -= OnPropertyChanged;
+            mScrollingChild.RemovePropertyNotification(propertyNotification);
+
             mScrollingChild = new View();
         }
 
@@ -409,26 +451,32 @@ namespace Tizen.NUI.Components
 
         private void OnScrollDragStart()
         {
-            ScrollEventArgs eventArgs = new ScrollEventArgs();
+            ScrollEventArgs eventArgs = new ScrollEventArgs(mScrollingChild.CurrentPosition);
             ScrollDragStartEvent?.Invoke(this, eventArgs);
         }
 
         private void OnScrollDragEnd()
         {
-            ScrollEventArgs eventArgs = new ScrollEventArgs();
+            ScrollEventArgs eventArgs = new ScrollEventArgs(mScrollingChild.CurrentPosition);
             ScrollDragEndEvent?.Invoke(this, eventArgs);
         }
 
         private void OnScrollAnimationStart()
         {
-            ScrollEventArgs eventArgs = new ScrollEventArgs();
+            ScrollEventArgs eventArgs = new ScrollEventArgs(mScrollingChild.CurrentPosition);
             ScrollAnimationStartEvent?.Invoke(this, eventArgs);
         }
 
         private void OnScrollAnimationEnd()
         {
-            ScrollEventArgs eventArgs = new ScrollEventArgs();
+            ScrollEventArgs eventArgs = new ScrollEventArgs(mScrollingChild.CurrentPosition);
             ScrollAnimationEndEvent?.Invoke(this, eventArgs);
+        }
+
+        private void OnScroll()
+        {
+            ScrollEventArgs eventArgs = new ScrollEventArgs(mScrollingChild.CurrentPosition);
+            ScrollEvent?.Invoke(this, eventArgs);
         }
 
         private void StopScroll()
@@ -626,11 +674,11 @@ namespace Tizen.NUI.Components
                                                                 " currentPage[" + CurrentPage + "]" );
 
             //Increment current page if total displacement enough to warrant a page change.
-            if (Math.Abs(totalDisplacementForPan) > (PageWidth * ratioOfScreenWidthToCompleteScroll))
+            if (Math.Abs(totalDisplacementForPan) > (mPageWidth * ratioOfScreenWidthToCompleteScroll))
             {
                 if (totalDisplacementForPan < 0)
                 {
-                    CurrentPage = Math.Min(NumberOfPages - 1, ++CurrentPage);
+                    CurrentPage = Math.Min(Math.Max(mScrollingChild.Children.Count - 1,0), ++CurrentPage);
                 }
                 else
                 {
@@ -639,7 +687,7 @@ namespace Tizen.NUI.Components
             }
 
             // Animate to new page or reposition to current page
-            int destinationX = -(CurrentPage * PageWidth);
+            int destinationX = -(CurrentPage * mPageWidth);
             Debug.WriteLineIf(LayoutDebugScrollableBase, "Snapping to page[" + CurrentPage + "] to:"+ destinationX + " from:" + mScrollingChild.PositionX);
             AnimateChildTo(ScrollDuration, destinationX);
         }
@@ -652,7 +700,7 @@ namespace Tizen.NUI.Components
               {
                   if(flickDisplacement < 0)
                   {
-                      CurrentPage = Math.Min(NumberOfPages - 1, CurrentPage + 1);
+                      CurrentPage = Math.Min(Math.Max(mScrollingChild.Children.Count - 1,0), CurrentPage + 1);
                       Debug.WriteLineIf(LayoutDebugScrollableBase, "Snap - to page:" + CurrentPage);
                   }
                   else
@@ -660,7 +708,7 @@ namespace Tizen.NUI.Components
                       CurrentPage = Math.Max(0, CurrentPage - 1);
                       Debug.WriteLineIf(LayoutDebugScrollableBase, "Snap + to page:" + CurrentPage);
                   }
-                  float targetPosition = -(CurrentPage* PageWidth); // page size
+                  float targetPosition = -(CurrentPage* mPageWidth); // page size
                   Debug.WriteLineIf(LayoutDebugScrollableBase, "Snapping to :" + targetPosition);
                   AnimateChildTo(ScrollDuration,targetPosition);
               }
@@ -697,7 +745,6 @@ namespace Tizen.NUI.Components
                     totalDisplacementForPan += e.PanGesture.Displacement.Y;
                 }
                 Debug.WriteLineIf(LayoutDebugScrollableBase, "OnPanGestureDetected Continue totalDisplacementForPan:" + totalDisplacementForPan);
-
             }
             else if (e.PanGesture.State == Gesture.StateType.Finished)
             {
@@ -741,7 +788,6 @@ namespace Tizen.NUI.Components
             scrolling = false;
             OnScrollAnimationEnd();
         }
-
     }
 
 } // namespace
