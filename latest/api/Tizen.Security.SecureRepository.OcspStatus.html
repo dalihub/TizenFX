@@ -10,7 +10,7 @@
     <meta name="title" content="Enum OcspStatus
  ">
     <meta name="generator" content="docfx ">
-    <meta name="version" content="API11">
+    <meta name="version" content="API12">
   
     <link rel="shortcut icon" href="../../images/tizen_favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -89,12 +89,13 @@
   <dl class="attribute-list"><dt>Namespace:</dt><dd><a class="xref" href="Tizen.html">Tizen</a>.<a class="xref" href="Tizen.Security.html">Security</a>.<a class="xref" href="Tizen.Security.SecureRepository.html">SecureRepository</a></dd></dl>
   <dl class="attribute-list"><dt>Assembly:</dt><dd>Tizen.Security.SecureRepository.dll</dd></dl>
 
-  <div class="markdown level0 summary"><p>Enumeration for the OCSP status.</p>
+  <div class="markdown level0 summary"><p>[Obsolete(&quot;Please do not use! This will be deprecated!&quot;)]</p>
 </div>
   <div class="markdown level0 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public enum OcspStatus</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Please do not use! This will be deprecated with API9 and removed with API11! Please use raw OpenSSL instead!&quot;)]
+public enum OcspStatus</code></pre>
   </div>
 
 
@@ -111,37 +112,37 @@
     <tbody>
       <tr>
         <td id="Tizen_Security_SecureRepository_OcspStatus_Good">Good</td>
-        <td><p>The OCSP status is good.</p>
+        <td><p>OCSP status is good.</p>
 </td>
       </tr>
       <tr>
         <td id="Tizen_Security_SecureRepository_OcspStatus_InternalError">InternalError</td>
-        <td><p>An Internal error.</p>
+        <td><p>Internal error.</p>
 </td>
       </tr>
       <tr>
         <td id="Tizen_Security_SecureRepository_OcspStatus_InvalidResponse">InvalidResponse</td>
-        <td><p>The invalid response from the OCSP server.</p>
+        <td><p>Invalid response from the OCSP server.</p>
 </td>
       </tr>
       <tr>
         <td id="Tizen_Security_SecureRepository_OcspStatus_InvalidUrl">InvalidUrl</td>
-        <td><p>The invalid URL in the certificate OCSP extension.</p>
+        <td><p>Invalid URL in the certificate OCSP extension.</p>
 </td>
       </tr>
       <tr>
         <td id="Tizen_Security_SecureRepository_OcspStatus_NetworkError">NetworkError</td>
-        <td><p>The Network connection error.</p>
+        <td><p>Network connection error.</p>
 </td>
       </tr>
       <tr>
         <td id="Tizen_Security_SecureRepository_OcspStatus_RemoteError">RemoteError</td>
-        <td><p>The OCSP remote server error.</p>
+        <td><p>OCSP remote server error.</p>
 </td>
       </tr>
       <tr>
         <td id="Tizen_Security_SecureRepository_OcspStatus_Revoked">Revoked</td>
-        <td><p>The certificate is revoked.</p>
+        <td><p>Certificate is revoked.</p>
 </td>
       </tr>
       <tr>
@@ -151,33 +152,11 @@
       </tr>
       <tr>
         <td id="Tizen_Security_SecureRepository_OcspStatus_Unsupported">Unsupported</td>
-        <td><p>The certificate does not provide the OCSP extension.</p>
+        <td><p>Certificate does not provide the OCSP extension.</p>
 </td>
       </tr>
     </tbody>
   </thead></thead></table>
-  <h3 id="extensionmethods">Extension Methods</h3>
-  <div>
-      <a class="xref" href="Tizen.NUI.EXaml.EXamlExtensions.html#Tizen_NUI_EXaml_EXamlExtensions_LoadFromEXaml__1___0_System_String_">EXamlExtensions.LoadFromEXaml&lt;OcspStatus&gt;(OcspStatus, string)</a>
-  </div>
-  <div>
-      <a class="xref" href="Tizen.NUI.EXaml.EXamlExtensions.html#Tizen_NUI_EXaml_EXamlExtensions_LoadFromEXamlByRelativePath__1___0_System_String_">EXamlExtensions.LoadFromEXamlByRelativePath&lt;OcspStatus&gt;(OcspStatus, string)</a>
-  </div>
-  <div>
-      <a class="xref" href="Tizen.NUI.EXaml.EXamlExtensions.html#Tizen_NUI_EXaml_EXamlExtensions_LoadFromEXamlPath__1___0_System_String_">EXamlExtensions.LoadFromEXamlPath&lt;OcspStatus&gt;(OcspStatus, string)</a>
-  </div>
-  <div>
-      <a class="xref" href="Tizen.NUI.EXaml.EXamlExtensions.html#Tizen_NUI_EXaml_EXamlExtensions_LoadFromEXamlPath__1___0_Type_">EXamlExtensions.LoadFromEXamlPath&lt;OcspStatus&gt;(OcspStatus, Type)</a>
-  </div>
-  <div>
-      <a class="xref" href="Tizen.NUI.Xaml.Extensions.html#Tizen_NUI_Xaml_Extensions_LoadFromXaml__1___0_System_String_">Extensions.LoadFromXaml&lt;OcspStatus&gt;(OcspStatus, string)</a>
-  </div>
-  <div>
-      <a class="xref" href="Tizen.NUI.Xaml.Extensions.html#Tizen_NUI_Xaml_Extensions_LoadFromXaml__1___0_Type_">Extensions.LoadFromXaml&lt;OcspStatus&gt;(OcspStatus, Type)</a>
-  </div>
-  <div>
-      <a class="xref" href="Tizen.NUI.Xaml.Extensions.html#Tizen_NUI_Xaml_Extensions_LoadFromXamlFile__1___0_System_String_">Extensions.LoadFromXamlFile&lt;OcspStatus&gt;(OcspStatus, string)</a>
-  </div>
 </article>
           </div>
 
@@ -186,7 +165,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/Samsung/TizenFX/blob/API11/src/Tizen.Security.SecureRepository/Tizen.Security.SecureRepository/OcspStatus.cs/#L29" class="contribution-link">View Source</a>
+                    <a href="https://github.com/Samsung/TizenFX/blob/API12/src/Tizen.Security.SecureRepository/Tizen.Security.SecureRepository/OcspStatus.cs/#L29" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
@@ -205,7 +184,7 @@
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-      <span>Copyright &copy; 2016-2023 Samsung <br> Generated by <strong>DocFX</strong></span>
+      <span>Copyright &copy; 2016-2024 Samsung <br> Generated by <strong>DocFX</strong></span>
       
           </div>
         </div>

@@ -89,13 +89,13 @@
   <dl class="attribute-list"><dt>Namespace:</dt><dd><a class="xref" href="Tizen.html">Tizen</a>.<a class="xref" href="Tizen.NUI.html">NUI</a></dd></dl>
   <dl class="attribute-list"><dt>Assembly:</dt><dd>Tizen.NUI.dll</dd></dl>
 
-  <div class="markdown level0 summary"><p>[Draft] This class implements a absolute layout, allowing explicit positioning of children.
+  <div class="markdown level0 summary"><p>This class implements a absolute layout, allowing explicit positioning of children.
 Positions are from the top left of the layout and can be set using the View.Position and alike.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class AbsoluteLayout : LayoutGroup, ILayoutParent</code></pre>
+    <pre><code class="lang-csharp hljs">public class AbsoluteLayout : LayoutGroup, IDisposable, ILayoutParent</code></pre>
   </div>
 
 
@@ -116,6 +116,7 @@ Positions are from the top left of the layout and can be set using the View.Posi
   <dl class="attribute-list stack">
     <dt>Implements</dt>
     <dd>
+      <div class="pdl"><span class="xref">System.IDisposable</span></div>
       <div class="pdl"><a class="xref" href="Tizen.NUI.ILayoutParent.html">ILayoutParent</a></div>
     </dd>
   </dl>
@@ -123,11 +124,11 @@ Positions are from the top left of the layout and can be set using the View.Posi
   <h3 id="constructors">Constructors
 </h3>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI/src/public/Layouting/AbsoluteLayout.cs/#L29">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/API12/src/Tizen.NUI/src/public/Layouting/AbsoluteLayout.cs/#L29">View Source</a>
   </span>
   <a id="Tizen_NUI_AbsoluteLayout__ctor_" data-uid="Tizen.NUI.AbsoluteLayout.#ctor*"></a>
   <h4 id="Tizen_NUI_AbsoluteLayout__ctor" data-uid="Tizen.NUI.AbsoluteLayout.#ctor">AbsoluteLayout()</h4>
-  <div class="markdown level1 summary"><p>[Draft] Constructor</p>
+  <div class="markdown level1 summary"><p>The default constructor of AbsoluteLayout class</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -141,7 +142,7 @@ Positions are from the top left of the layout and can be set using the View.Posi
   <h3 id="methods">Methods
 </h3>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI/src/public/Layouting/AbsoluteLayout.cs/#L92">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/API12/src/Tizen.NUI/src/public/Layouting/AbsoluteLayout.cs/#L92">View Source</a>
   </span>
   <a id="Tizen_NUI_AbsoluteLayout_OnLayout_" data-uid="Tizen.NUI.AbsoluteLayout.OnLayout*"></a>
   <h4 id="Tizen_NUI_AbsoluteLayout_OnLayout_System_Boolean_Tizen_NUI_LayoutLength_Tizen_NUI_LayoutLength_Tizen_NUI_LayoutLength_Tizen_NUI_LayoutLength_" data-uid="Tizen.NUI.AbsoluteLayout.OnLayout(System.Boolean,Tizen.NUI.LayoutLength,Tizen.NUI.LayoutLength,Tizen.NUI.LayoutLength,Tizen.NUI.LayoutLength)">OnLayout(bool, LayoutLength, LayoutLength, LayoutLength, LayoutLength)</h4>
@@ -201,7 +202,7 @@ Positions are from the top left of the layout and can be set using the View.Posi
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI/src/public/Layouting/AbsoluteLayout.cs/#L39">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/API12/src/Tizen.NUI/src/public/Layouting/AbsoluteLayout.cs/#L39">View Source</a>
   </span>
   <a id="Tizen_NUI_AbsoluteLayout_OnMeasure_" data-uid="Tizen.NUI.AbsoluteLayout.OnMeasure*"></a>
   <h4 id="Tizen_NUI_AbsoluteLayout_OnMeasure_Tizen_NUI_MeasureSpecification_Tizen_NUI_MeasureSpecification_" data-uid="Tizen.NUI.AbsoluteLayout.OnMeasure(Tizen.NUI.MeasureSpecification,Tizen.NUI.MeasureSpecification)">OnMeasure(MeasureSpecification, MeasureSpecification)</h4>
@@ -244,29 +245,10 @@ Positions are from the top left of the layout and can be set using the View.Posi
 
   <h3 id="implements">Implements</h3>
   <div>
+      <span class="xref">System.IDisposable</span>
+  </div>
+  <div>
       <a class="xref" href="Tizen.NUI.ILayoutParent.html">ILayoutParent</a>
-  </div>
-  <h3 id="extensionmethods">Extension Methods</h3>
-  <div>
-      <a class="xref" href="Tizen.NUI.EXaml.EXamlExtensions.html#Tizen_NUI_EXaml_EXamlExtensions_LoadFromEXaml__1___0_System_String_">EXamlExtensions.LoadFromEXaml&lt;T&gt;(T, string)</a>
-  </div>
-  <div>
-      <a class="xref" href="Tizen.NUI.EXaml.EXamlExtensions.html#Tizen_NUI_EXaml_EXamlExtensions_LoadFromEXamlByRelativePath__1___0_System_String_">EXamlExtensions.LoadFromEXamlByRelativePath&lt;T&gt;(T, string)</a>
-  </div>
-  <div>
-      <a class="xref" href="Tizen.NUI.EXaml.EXamlExtensions.html#Tizen_NUI_EXaml_EXamlExtensions_LoadFromEXamlPath__1___0_System_String_">EXamlExtensions.LoadFromEXamlPath&lt;TXaml&gt;(TXaml, string)</a>
-  </div>
-  <div>
-      <a class="xref" href="Tizen.NUI.EXaml.EXamlExtensions.html#Tizen_NUI_EXaml_EXamlExtensions_LoadFromEXamlPath__1___0_Type_">EXamlExtensions.LoadFromEXamlPath&lt;T&gt;(T, Type)</a>
-  </div>
-  <div>
-      <a class="xref" href="Tizen.NUI.Xaml.Extensions.html#Tizen_NUI_Xaml_Extensions_LoadFromXaml__1___0_System_String_">Extensions.LoadFromXaml&lt;TXaml&gt;(TXaml, string)</a>
-  </div>
-  <div>
-      <a class="xref" href="Tizen.NUI.Xaml.Extensions.html#Tizen_NUI_Xaml_Extensions_LoadFromXaml__1___0_Type_">Extensions.LoadFromXaml&lt;TXaml&gt;(TXaml, Type)</a>
-  </div>
-  <div>
-      <a class="xref" href="Tizen.NUI.Xaml.Extensions.html#Tizen_NUI_Xaml_Extensions_LoadFromXamlFile__1___0_System_String_">Extensions.LoadFromXamlFile&lt;TXaml&gt;(TXaml, string)</a>
   </div>
 </article>
           </div>
@@ -276,7 +258,7 @@ Positions are from the top left of the layout and can be set using the View.Posi
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI/src/public/Layouting/AbsoluteLayout.cs/#L23" class="contribution-link">View Source</a>
+                    <a href="https://github.com/Samsung/TizenFX/blob/API12/src/Tizen.NUI/src/public/Layouting/AbsoluteLayout.cs/#L23" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
@@ -295,7 +277,7 @@ Positions are from the top left of the layout and can be set using the View.Posi
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-      <span>Copyright &copy; 2016-2023 Samsung <br> Generated by <strong>DocFX</strong></span>
+      <span>Copyright &copy; 2016-2024 Samsung <br> Generated by <strong>DocFX</strong></span>
       
           </div>
         </div>

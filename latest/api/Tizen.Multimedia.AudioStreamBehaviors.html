@@ -10,7 +10,7 @@
     <meta name="title" content="Enum AudioStreamBehaviors
  ">
     <meta name="generator" content="docfx ">
-    <meta name="version" content="API11">
+    <meta name="version" content="API12">
   
     <link rel="shortcut icon" href="../../images/tizen_favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -89,15 +89,18 @@
   <dl class="attribute-list"><dt>Namespace:</dt><dd><a class="xref" href="Tizen.html">Tizen</a>.<a class="xref" href="Tizen.Multimedia.html">Multimedia</a></dd></dl>
   <dl class="attribute-list"><dt>Assembly:</dt><dd>Tizen.Multimedia.dll</dd></dl>
 
-  <div class="markdown level0 summary"><p>Specifies the flags for the audio stream behaviors.</p>
+  <div class="markdown level0 summary"><p>Defines the flags that specify the behaviors of audio streams.
+This enumeration allows for a bitwise combination of its member values,
+enabling flexible configurations for audio playback and management.</p>
 <p>
-This enumeration has a <see cref="!:FlagsAttribute"></see> attribute that allows a bitwise combination of its member values.
+This enumeration has a <span class="xref">System.FlagsAttribute</span> attribute that allows a bitwise combination of its member values.
 </p>
 </div>
   <div class="markdown level0 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public enum AudioStreamBehaviors</code></pre>
+    <pre><code class="lang-csharp hljs">[Flags]
+public enum AudioStreamBehaviors</code></pre>
   </div>
 
 
@@ -114,38 +117,22 @@ This enumeration has a <see cref="!:FlagsAttribute"></see> attribute that allows
     <tbody>
       <tr>
         <td id="Tizen_Multimedia_AudioStreamBehaviors_Fading">Fading</td>
-        <td><p>Fading.</p>
+        <td><p>Indicates that the audio stream should apply a fading effect
+during transitions. This behavior is useful for creating smoother
+audio experiences, such as gradually lowering the volume before
+stopping or increasing the volume when starting playback.</p>
 </td>
       </tr>
       <tr>
         <td id="Tizen_Multimedia_AudioStreamBehaviors_NoResume">NoResume</td>
-        <td><p>No Resume.</p>
+        <td><p>Indicates that the audio stream should not resume automatically
+after being paused or stopped. This flag can be used when
+explicit control over playback is desired, requiring the application
+to manually manage the resumption of audio playback.</p>
 </td>
       </tr>
     </tbody>
   </thead></thead></table>
-  <h3 id="extensionmethods">Extension Methods</h3>
-  <div>
-      <a class="xref" href="Tizen.NUI.EXaml.EXamlExtensions.html#Tizen_NUI_EXaml_EXamlExtensions_LoadFromEXaml__1___0_System_String_">EXamlExtensions.LoadFromEXaml&lt;AudioStreamBehaviors&gt;(AudioStreamBehaviors, string)</a>
-  </div>
-  <div>
-      <a class="xref" href="Tizen.NUI.EXaml.EXamlExtensions.html#Tizen_NUI_EXaml_EXamlExtensions_LoadFromEXamlByRelativePath__1___0_System_String_">EXamlExtensions.LoadFromEXamlByRelativePath&lt;AudioStreamBehaviors&gt;(AudioStreamBehaviors, string)</a>
-  </div>
-  <div>
-      <a class="xref" href="Tizen.NUI.EXaml.EXamlExtensions.html#Tizen_NUI_EXaml_EXamlExtensions_LoadFromEXamlPath__1___0_System_String_">EXamlExtensions.LoadFromEXamlPath&lt;AudioStreamBehaviors&gt;(AudioStreamBehaviors, string)</a>
-  </div>
-  <div>
-      <a class="xref" href="Tizen.NUI.EXaml.EXamlExtensions.html#Tizen_NUI_EXaml_EXamlExtensions_LoadFromEXamlPath__1___0_Type_">EXamlExtensions.LoadFromEXamlPath&lt;AudioStreamBehaviors&gt;(AudioStreamBehaviors, Type)</a>
-  </div>
-  <div>
-      <a class="xref" href="Tizen.NUI.Xaml.Extensions.html#Tizen_NUI_Xaml_Extensions_LoadFromXaml__1___0_System_String_">Extensions.LoadFromXaml&lt;AudioStreamBehaviors&gt;(AudioStreamBehaviors, string)</a>
-  </div>
-  <div>
-      <a class="xref" href="Tizen.NUI.Xaml.Extensions.html#Tizen_NUI_Xaml_Extensions_LoadFromXaml__1___0_Type_">Extensions.LoadFromXaml&lt;AudioStreamBehaviors&gt;(AudioStreamBehaviors, Type)</a>
-  </div>
-  <div>
-      <a class="xref" href="Tizen.NUI.Xaml.Extensions.html#Tizen_NUI_Xaml_Extensions_LoadFromXamlFile__1___0_System_String_">Extensions.LoadFromXamlFile&lt;AudioStreamBehaviors&gt;(AudioStreamBehaviors, string)</a>
-  </div>
 </article>
           </div>
 
@@ -154,7 +141,7 @@ This enumeration has a <see cref="!:FlagsAttribute"></see> attribute that allows
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/Samsung/TizenFX/blob/API11/src/Tizen.Multimedia/AudioManager/AudioStreamBehaviors.cs/#L28" class="contribution-link">View Source</a>
+                    <a href="https://github.com/Samsung/TizenFX/blob/API12/src/Tizen.Multimedia/AudioManager/AudioStreamBehaviors.cs/#L30" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
@@ -173,7 +160,7 @@ This enumeration has a <see cref="!:FlagsAttribute"></see> attribute that allows
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-      <span>Copyright &copy; 2016-2023 Samsung <br> Generated by <strong>DocFX</strong></span>
+      <span>Copyright &copy; 2016-2024 Samsung <br> Generated by <strong>DocFX</strong></span>
       
           </div>
         </div>

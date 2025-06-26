@@ -102,7 +102,7 @@
     <dt>Inheritance</dt>
     <dd>
       <div class="pdl-holder">
-        <div class="pdl"><span class="xref">System.Object</span></div>
+        <div class="pdl"><span class="xref">object</span></div>
         <div><span class="xref">VoiceCommandList</span></div>
       </div>
     </dd>
@@ -114,7 +114,7 @@
   <h3 id="constructors">Constructors
 </h3>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/master/internals/src/Tizen.Uix.VoiceControlWidget/Tizen.Uix.VoiceControlWidget/VoiceCommandList.cs/#L43">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/main/internals/src/Tizen.Uix.VoiceControlWidget/Tizen.Uix.VoiceControlWidget/VoiceCommandList.cs/#L43">View Source</a>
   </span>
   <a id="Tizen_Uix_VoiceControlWidget_VoiceCommandList__ctor_" data-uid="Tizen.Uix.VoiceControlWidget.VoiceCommandList.#ctor*"></a>
   <h4 id="Tizen_Uix_VoiceControlWidget_VoiceCommandList__ctor" data-uid="Tizen.Uix.VoiceControlWidget.VoiceCommandList.#ctor">VoiceCommandList()</h4>
@@ -125,6 +125,37 @@
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public VoiceCommandList()</code></pre>
   </div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.OutOfMemoryException</span></td>
+        <td><p>This exception can be due to out of memory.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.ArgumentException</span></td>
+        <td><p>This exception can be due to an invalid parameter.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.UnauthorizedAccessException</span></td>
+        <td><p>This exception can be due to permission denied.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.NotSupportedException</span></td>
+        <td><p>This exception can be due to not supported.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <div style="margin-bottom: 15px"></div>
@@ -132,7 +163,7 @@
   <h3 id="properties">Properties
 </h3>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/master/internals/src/Tizen.Uix.VoiceControlWidget/Tizen.Uix.VoiceControlWidget/VoiceCommandList.cs/#L86">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/main/internals/src/Tizen.Uix.VoiceControlWidget/Tizen.Uix.VoiceControlWidget/VoiceCommandList.cs/#L86">View Source</a>
   </span>
   <a id="Tizen_Uix_VoiceControlWidget_VoiceCommandList_Count_" data-uid="Tizen.Uix.VoiceControlWidget.VoiceCommandList.Count*"></a>
   <h4 id="Tizen_Uix_VoiceControlWidget_VoiceCommandList_Count" data-uid="Tizen.Uix.VoiceControlWidget.VoiceCommandList.Count">Count</h4>
@@ -165,7 +196,7 @@
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/master/internals/src/Tizen.Uix.VoiceControlWidget/Tizen.Uix.VoiceControlWidget/VoiceCommandList.cs/#L110">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/main/internals/src/Tizen.Uix.VoiceControlWidget/Tizen.Uix.VoiceControlWidget/VoiceCommandList.cs/#L110">View Source</a>
   </span>
   <a id="Tizen_Uix_VoiceControlWidget_VoiceCommandList_Current_" data-uid="Tizen.Uix.VoiceControlWidget.VoiceCommandList.Current*"></a>
   <h4 id="Tizen_Uix_VoiceControlWidget_VoiceCommandList_Current" data-uid="Tizen.Uix.VoiceControlWidget.VoiceCommandList.Current">Current</h4>
@@ -200,7 +231,7 @@ Null will be returned in case of an empty list.</p>
   <h3 id="methods">Methods
 </h3>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/master/internals/src/Tizen.Uix.VoiceControlWidget/Tizen.Uix.VoiceControlWidget/VoiceCommandList.cs/#L135">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/main/internals/src/Tizen.Uix.VoiceControlWidget/Tizen.Uix.VoiceControlWidget/VoiceCommandList.cs/#L135">View Source</a>
   </span>
   <a id="Tizen_Uix_VoiceControlWidget_VoiceCommandList_Add_" data-uid="Tizen.Uix.VoiceControlWidget.VoiceCommandList.Add*"></a>
   <h4 id="Tizen_Uix_VoiceControlWidget_VoiceCommandList_Add_Tizen_Uix_VoiceControlWidget_VoiceCommand_" data-uid="Tizen.Uix.VoiceControlWidget.VoiceCommandList.Add(Tizen.Uix.VoiceControlWidget.VoiceCommand)">Add(VoiceCommand)</h4>
@@ -229,12 +260,38 @@ Null will be returned in case of an empty list.</p>
       </tr>
     </tbody>
   </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UnauthorizedAccessException</span></td>
+        <td><p>This exception can be due to permission denied.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.NotSupportedException</span></td>
+        <td><p>This exception can be due to not supported.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.NullReferenceException</span></td>
+        <td><p>This will occur if the provided parameter is null.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/master/internals/src/Tizen.Uix.VoiceControlWidget/Tizen.Uix.VoiceControlWidget/VoiceCommandList.cs/#L200">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/main/internals/src/Tizen.Uix.VoiceControlWidget/Tizen.Uix.VoiceControlWidget/VoiceCommandList.cs/#L200">View Source</a>
   </span>
   <a id="Tizen_Uix_VoiceControlWidget_VoiceCommandList_First_" data-uid="Tizen.Uix.VoiceControlWidget.VoiceCommandList.First*"></a>
   <h4 id="Tizen_Uix_VoiceControlWidget_VoiceCommandList_First" data-uid="Tizen.Uix.VoiceControlWidget.VoiceCommandList.First">First()</h4>
@@ -245,12 +302,38 @@ Null will be returned in case of an empty list.</p>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void First()</code></pre>
   </div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.InvalidOperationException</span></td>
+        <td><p>This exception can be due to list empty.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.UnauthorizedAccessException</span></td>
+        <td><p>This exception can be due to permission denied.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.NotSupportedException</span></td>
+        <td><p>This exception can be due to not supported.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/master/internals/src/Tizen.Uix.VoiceControlWidget/Tizen.Uix.VoiceControlWidget/VoiceCommandList.cs/#L173">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/main/internals/src/Tizen.Uix.VoiceControlWidget/Tizen.Uix.VoiceControlWidget/VoiceCommandList.cs/#L173">View Source</a>
   </span>
   <a id="Tizen_Uix_VoiceControlWidget_VoiceCommandList_GetAllCommands_" data-uid="Tizen.Uix.VoiceControlWidget.VoiceCommandList.GetAllCommands*"></a>
   <h4 id="Tizen_Uix_VoiceControlWidget_VoiceCommandList_GetAllCommands" data-uid="Tizen.Uix.VoiceControlWidget.VoiceCommandList.GetAllCommands">GetAllCommands()</h4>
@@ -271,8 +354,29 @@ Null will be returned in case of an empty list.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">IEnumerable&lt;&gt;</span>&lt;<a class="xref" href="Tizen.Uix.VoiceControlWidget.VoiceCommand.html">VoiceCommand</a>&gt;</td>
+        <td><span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>&lt;<a class="xref" href="Tizen.Uix.VoiceControlWidget.VoiceCommand.html">VoiceCommand</a>&gt;</td>
         <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UnauthorizedAccessException</span></td>
+        <td><p>This exception can be due to permission denied.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.NotSupportedException</span></td>
+        <td><p>This exception can be due to not supported.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -281,7 +385,7 @@ Null will be returned in case of an empty list.</p>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/master/internals/src/Tizen.Uix.VoiceControlWidget/Tizen.Uix.VoiceControlWidget/VoiceCommandList.cs/#L218">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/main/internals/src/Tizen.Uix.VoiceControlWidget/Tizen.Uix.VoiceControlWidget/VoiceCommandList.cs/#L218">View Source</a>
   </span>
   <a id="Tizen_Uix_VoiceControlWidget_VoiceCommandList_Last_" data-uid="Tizen.Uix.VoiceControlWidget.VoiceCommandList.Last*"></a>
   <h4 id="Tizen_Uix_VoiceControlWidget_VoiceCommandList_Last" data-uid="Tizen.Uix.VoiceControlWidget.VoiceCommandList.Last">Last()</h4>
@@ -292,12 +396,38 @@ Null will be returned in case of an empty list.</p>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Last()</code></pre>
   </div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.InvalidOperationException</span></td>
+        <td><p>This exception can be due to list empty.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.UnauthorizedAccessException</span></td>
+        <td><p>This exception can be due to permission denied.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.NotSupportedException</span></td>
+        <td><p>This exception can be due to not supported.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/master/internals/src/Tizen.Uix.VoiceControlWidget/Tizen.Uix.VoiceControlWidget/VoiceCommandList.cs/#L236">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/main/internals/src/Tizen.Uix.VoiceControlWidget/Tizen.Uix.VoiceControlWidget/VoiceCommandList.cs/#L236">View Source</a>
   </span>
   <a id="Tizen_Uix_VoiceControlWidget_VoiceCommandList_Next_" data-uid="Tizen.Uix.VoiceControlWidget.VoiceCommandList.Next*"></a>
   <h4 id="Tizen_Uix_VoiceControlWidget_VoiceCommandList_Next" data-uid="Tizen.Uix.VoiceControlWidget.VoiceCommandList.Next">Next()</h4>
@@ -308,12 +438,38 @@ Null will be returned in case of an empty list.</p>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Next()</code></pre>
   </div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.InvalidOperationException</span></td>
+        <td><p>This exception can be due to list empty or list end.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.UnauthorizedAccessException</span></td>
+        <td><p>This exception can be due to permission denied.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.NotSupportedException</span></td>
+        <td><p>This exception can be due to not supported.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/master/internals/src/Tizen.Uix.VoiceControlWidget/Tizen.Uix.VoiceControlWidget/VoiceCommandList.cs/#L254">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/main/internals/src/Tizen.Uix.VoiceControlWidget/Tizen.Uix.VoiceControlWidget/VoiceCommandList.cs/#L254">View Source</a>
   </span>
   <a id="Tizen_Uix_VoiceControlWidget_VoiceCommandList_Previous_" data-uid="Tizen.Uix.VoiceControlWidget.VoiceCommandList.Previous*"></a>
   <h4 id="Tizen_Uix_VoiceControlWidget_VoiceCommandList_Previous" data-uid="Tizen.Uix.VoiceControlWidget.VoiceCommandList.Previous">Previous()</h4>
@@ -324,12 +480,38 @@ Null will be returned in case of an empty list.</p>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Previous()</code></pre>
   </div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.InvalidOperationException</span></td>
+        <td><p>This exception can be due to list empty or list end.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.UnauthorizedAccessException</span></td>
+        <td><p>This exception can be due to permission denied.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.NotSupportedException</span></td>
+        <td><p>This exception can be due to not supported.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/master/internals/src/Tizen.Uix.VoiceControlWidget/Tizen.Uix.VoiceControlWidget/VoiceCommandList.cs/#L155">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/main/internals/src/Tizen.Uix.VoiceControlWidget/Tizen.Uix.VoiceControlWidget/VoiceCommandList.cs/#L155">View Source</a>
   </span>
   <a id="Tizen_Uix_VoiceControlWidget_VoiceCommandList_Remove_" data-uid="Tizen.Uix.VoiceControlWidget.VoiceCommandList.Remove*"></a>
   <h4 id="Tizen_Uix_VoiceControlWidget_VoiceCommandList_Remove_Tizen_Uix_VoiceControlWidget_VoiceCommand_" data-uid="Tizen.Uix.VoiceControlWidget.VoiceCommandList.Remove(Tizen.Uix.VoiceControlWidget.VoiceCommand)">Remove(VoiceCommand)</h4>
@@ -358,6 +540,32 @@ Null will be returned in case of an empty list.</p>
       </tr>
     </tbody>
   </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UnauthorizedAccessException</span></td>
+        <td><p>This exception can be due to permission denied.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.NotSupportedException</span></td>
+        <td><p>This exception can be due to not supported.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.NullReferenceException</span></td>
+        <td><p>This will occur if the provided parameter is null.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <div style="margin-bottom: 15px"></div>
@@ -370,7 +578,7 @@ Null will be returned in case of an empty list.</p>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/Samsung/TizenFX/blob/master/internals/src/Tizen.Uix.VoiceControlWidget/Tizen.Uix.VoiceControlWidget/VoiceCommandList.cs/#L28" class="contribution-link">View Source</a>
+                    <a href="https://github.com/Samsung/TizenFX/blob/main/internals/src/Tizen.Uix.VoiceControlWidget/Tizen.Uix.VoiceControlWidget/VoiceCommandList.cs/#L28" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
@@ -389,7 +597,7 @@ Null will be returned in case of an empty list.</p>
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-      <span>Copyright &copy; 2016-2023 Samsung <br> Generated by <strong>DocFX</strong></span>
+      <span>Copyright &copy; 2016-2024 Samsung <br> Generated by <strong>DocFX</strong></span>
       
           </div>
         </div>
