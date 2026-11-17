@@ -1,19 +1,17 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Namespace Tizen.NUI
- </title>
+    <title>Namespace Tizen.NUI </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Namespace Tizen.NUI
- ">
+    <meta name="title" content="Namespace Tizen.NUI ">
     <meta name="generator" content="docfx ">
-    <meta name="version" content="API14">
+    <meta name="version" content="">
   
     <link rel="shortcut icon" href="../../images/tizen_favicon.ico">
-    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
     <link rel="stylesheet" href="../../styles/docfx.css">
     <link rel="stylesheet" href="../../styles/main.css">
     <link rel="stylesheet" href="../../styles/tizen.css">
@@ -44,7 +42,7 @@
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
                 <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
                 </div>
               </form>
             </div>
@@ -62,17 +60,17 @@
       <div class="container body-content">
 
         <div id="search-results">
-          <div class="search-list"> <span></span></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination" data-first="data-prev=" data-next="data-last="></ul>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
 
         <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
           <div class="sidetoggle collapse" id="sidetoggle">
             <div id="sidetoc"></div>
           </div>
@@ -81,28 +79,16 @@
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="Tizen.NUI">
 
-  <h1 id="Tizen_NUI" data-uid="Tizen.NUI" class="text-break">Namespace Tizen.NUI
-</h1>
+  <h1 id="Tizen_NUI" data-uid="Tizen.NUI" class="text-break">Namespace Tizen.NUI</h1>
   <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
   <div class="markdown level0 remarks"></div>
-    <h3 id="classes">Classes
+    <h3 id="classes">
+Classes
 </h3>
       <h4><a class="xref" href="Tizen.NUI.AbsoluteLayout.html">AbsoluteLayout</a></h4>
       <section><p>This class implements a absolute layout, allowing explicit positioning of children.
 Positions are from the top left of the layout and can be set using the View.Position and alike.</p>
-</section>
-      <h4><a class="xref" href="Tizen.NUI.Adaptor.html">Adaptor</a></h4>
-      <section><p>An Adaptor object is used to initialize and control how Dali runs.</p>
-<p>It provides the lifecycle interface that allows the application
-writer to provide their own main loop and other platform related
-features.</p>
-<p>The Adaptor class provides a means for initialising the resources required by the Dali::Core.</p>
-<p>When dealing with platform events, the application writer must ensure that DALi is called in a
-thread-safe manner.</p>
-<p>As soon as the Adaptor class is created and started, the application writer can initialise their
-view objects straight away or as required by the main loop they intend to use (there is no
-need to wait for an initialize signal as per the Tizen.NUI.Application class).</p>
 </section>
       <h4><a class="xref" href="Tizen.NUI.AlphaFunction.html">AlphaFunction</a></h4>
       <section><p>Alpha functions are used in animations to specify the rate of change of the animation parameter over time.<br>
@@ -204,11 +190,11 @@ It also draws a highlight for the focused view and sends an event when the focus
       <h4><a class="xref" href="Tizen.NUI.FocusManager.FocusChangedEventArgs.html">FocusManager.FocusChangedEventArgs</a></h4>
       <section><p>Event arguments that passed via the FocusChanged signal.</p>
 </section>
-      <h4><a class="xref" href="Tizen.NUI.FocusManager.FocusedViewActivatedEventArgs.html">FocusManager.FocusedViewActivatedEventArgs</a></h4>
-      <section><p>Event arguments that passed via the FocusedViewEnterKey signal.</p>
-</section>
       <h4><a class="xref" href="Tizen.NUI.FocusManager.FocusGroupChangedEventArgs.html">FocusManager.FocusGroupChangedEventArgs</a></h4>
       <section><p>Event arguments that passed via the FocusGroupChanged signal.</p>
+</section>
+      <h4><a class="xref" href="Tizen.NUI.FocusManager.FocusedViewActivatedEventArgs.html">FocusManager.FocusedViewActivatedEventArgs</a></h4>
+      <section><p>Event arguments that passed via the FocusedViewEnterKey signal.</p>
 </section>
       <h4><a class="xref" href="Tizen.NUI.FocusManager.PreFocusChangeEventArgs.html">FocusManager.PreFocusChangeEventArgs</a></h4>
       <section><p>Event arguments that passed via the PreFocusChange signal.</p>
@@ -304,6 +290,17 @@ It can be laid out by a LayoutGroup.</p>
       <section><p>A long press gesture is emitted when the user holds the screen with the stated number of fingers.<br>
 A long press gesture finishes when all touches have been released.<br></p>
 </section>
+      <h4><a class="xref" href="Tizen.NUI.LongPressGestureDetector.html">LongPressGestureDetector</a></h4>
+      <section><p>This class emits a signals when a long press gesture occurs that meets the requirements set by the application.<br>
+For any valid long press, two signals will be emitted:<br></p>
+<ul>
+<li>First identifying the beginning (state = Started) i.e. when fingers held down for the required time.<br></li>
+<li>Second identifying the ending (state = Finished) i.e. when fingers are released.<br></li>
+</ul>
+</section>
+      <h4><a class="xref" href="Tizen.NUI.LongPressGestureDetector.DetectedEventArgs.html">LongPressGestureDetector.DetectedEventArgs</a></h4>
+      <section><p>Event arguments that passed via the LongPressGestureEvent signal.</p>
+</section>
       <h4><a class="xref" href="Tizen.NUI.MeshVisual.html">MeshVisual</a></h4>
       <section><p>A class encapsulating the property map of the mesh visual.</p>
 </section>
@@ -315,18 +312,6 @@ A long press gesture finishes when all touches have been released.<br></p>
 </section>
       <h4><a class="xref" href="Tizen.NUI.NUIEventType.html">NUIEventType</a></h4>
       <section><p>Class that represents the type of NUI event for backends. This class can be converted from string type.</p>
-</section>
-      <h4><a class="xref" href="Tizen.NUI.NUIWatchApplication.html">NUIWatchApplication</a></h4>
-      <section><p>Represents an application that can make watch-face.</p>
-</section>
-      <h4><a class="xref" href="Tizen.NUI.NUIWatchApplication.AmbientChangedEventArgs.html">NUIWatchApplication.AmbientChangedEventArgs</a></h4>
-      <section><p>Event arguments that passed via ambient tick event signal.</p>
-</section>
-      <h4><a class="xref" href="Tizen.NUI.NUIWatchApplication.AmbientTickEventArgs.html">NUIWatchApplication.AmbientTickEventArgs</a></h4>
-      <section><p>Event arguments that passed via ambient tick event signal.</p>
-</section>
-      <h4><a class="xref" href="Tizen.NUI.NUIWatchApplication.TimeTickEventArgs.html">NUIWatchApplication.TimeTickEventArgs</a></h4>
-      <section><p>Event arguments that passed via time tick event signal.</p>
 </section>
       <h4><a class="xref" href="Tizen.NUI.NUIWidgetApplication.html">NUIWidgetApplication</a></h4>
       <section><p>Represents an application that have UI screen. The NUIWidgetApplication class has a default stage.</p>
@@ -354,6 +339,12 @@ A pan gesture will end in the following ways:<br></p>
 A pan gesture will continue to be sent to the actor under than initial pan until it ends.<br></li>
 </ul>
 </section>
+      <h4><a class="xref" href="Tizen.NUI.PanGestureDetector.html">PanGestureDetector</a></h4>
+      <section><p>This class emits a signals when a pan gesture occurs.<br></p>
+</section>
+      <h4><a class="xref" href="Tizen.NUI.PanGestureDetector.DetectedEventArgs.html">PanGestureDetector.DetectedEventArgs</a></h4>
+      <section><p>Event arguments that are passed via the PanGestureEvent signal.</p>
+</section>
       <h4><a class="xref" href="Tizen.NUI.Path.html">Path</a></h4>
       <section><p>A 3D parametric curve.
 Paths can be used to animate the position and orientation of views.</p>
@@ -361,6 +352,12 @@ Paths can be used to animate the position and orientation of views.</p>
       <h4><a class="xref" href="Tizen.NUI.PinchGesture.html">PinchGesture</a></h4>
       <section><p>A PinchGesture is emitted when the user moves two fingers towards or away from each other.<br>
 A pinch gesture will continue to be sent to the actor under the center point of the pinch until the pinch ends.<br></p>
+</section>
+      <h4><a class="xref" href="Tizen.NUI.PinchGestureDetector.html">PinchGestureDetector</a></h4>
+      <section><p>It tries to detect when the user moves two touch points towards or away from each other.</p>
+</section>
+      <h4><a class="xref" href="Tizen.NUI.PinchGestureDetector.DetectedEventArgs.html">PinchGestureDetector.DetectedEventArgs</a></h4>
+      <section><p>Event arguments that passed via the PinchGestureEvent signal.</p>
 </section>
       <h4><a class="xref" href="Tizen.NUI.Position.html">Position</a></h4>
       <section><p>Position is a three-dimensional vector.</p>
@@ -429,6 +426,9 @@ All values (x, y, and z) should be between [0, 1].</p>
       <h4><a class="xref" href="Tizen.NUI.Rotation.html">Rotation</a></h4>
       <section><p>The Rotation class represents a rotation of a UI Component.</p>
 </section>
+      <h4><a class="xref" href="Tizen.NUI.SVGVisual.html">SVGVisual</a></h4>
+      <section><p>A class encapsulating the property map of the SVG visual.</p>
+</section>
       <h4><a class="xref" href="Tizen.NUI.Sampler.html">Sampler</a></h4>
       <section><p>Sampler is a handle to an object that can be used to provide the sampling parameters to sample textures.</p>
 </section>
@@ -483,11 +483,24 @@ It provides the path to the application resource root folder, from there the fil
       <h4><a class="xref" href="Tizen.NUI.StyleManager.StyleChangedEventArgs.html">StyleManager.StyleChangedEventArgs</a></h4>
       <section><p>Style changed event arguments.</p>
 </section>
-      <h4><a class="xref" href="Tizen.NUI.SVGVisual.html">SVGVisual</a></h4>
-      <section><p>A class encapsulating the property map of the SVG visual.</p>
+      <h4><a class="xref" href="Tizen.NUI.TTSPlayer.html">TTSPlayer</a></h4>
+      <section><p>The Text-to-speech (TTS) player.</p>
+</section>
+      <h4><a class="xref" href="Tizen.NUI.TTSPlayer.StateChangedEventArgs.html">TTSPlayer.StateChangedEventArgs</a></h4>
+      <section><p>This class represents the event arguments used when the state of the TTS player changes.</p>
 </section>
       <h4><a class="xref" href="Tizen.NUI.TapGesture.html">TapGesture</a></h4>
       <section><p>A TapGesture is emitted when the user taps the screen with the stated number of fingers a stated number of times.</p>
+</section>
+      <h4><a class="xref" href="Tizen.NUI.TapGestureDetector.html">TapGestureDetector</a></h4>
+      <section><p>This class emits a signal when a tap gesture occurs that meets the requirements set by the application.<br>
+A TapGesture is a discrete gesture, which means it does not have any state information attached.<br></p>
+</section>
+      <h4><a class="xref" href="Tizen.NUI.TapGestureDetector.DetectedEventArgs.html">TapGestureDetector.DetectedEventArgs</a></h4>
+      <section><p>Event arguments that are passed via the TapGestureEvent signal.</p>
+</section>
+      <h4><a class="xref" href="Tizen.NUI.TextVisual.html">TextVisual</a></h4>
+      <section><p>A class encapsulating the property map of the text visual.</p>
 </section>
       <h4><a class="xref" href="Tizen.NUI.Texture.html">Texture</a></h4>
       <section><p>Texture represents a texture object used as input or output by shaders.</p>
@@ -495,9 +508,6 @@ It provides the path to the application resource root folder, from there the fil
       <h4><a class="xref" href="Tizen.NUI.TextureSet.html">TextureSet</a></h4>
       <section><p>TextureSet is a handle to an object that specifies the set of images used as textures by a renderer.<br>
 The images have to be ordered in the same order they are declared in the shader.</p>
-</section>
-      <h4><a class="xref" href="Tizen.NUI.TextVisual.html">TextVisual</a></h4>
-      <section><p>A class encapsulating the property map of the text visual.</p>
 </section>
       <h4><a class="xref" href="Tizen.NUI.Theme.html">Theme</a></h4>
       <section><p>
@@ -560,12 +570,6 @@ This is normally used when animating visuals.</p>
       <section><p>This TransitionOptions class is a class to control Transition motion.
 This class includes multiple options for the Transition.
 NUI supports various kinds of Transitions such as App transition, Page transition, and so on.</p>
-</section>
-      <h4><a class="xref" href="Tizen.NUI.TTSPlayer.html">TTSPlayer</a></h4>
-      <section><p>The Text-to-speech (TTS) player.</p>
-</section>
-      <h4><a class="xref" href="Tizen.NUI.TTSPlayer.StateChangedEventArgs.html">TTSPlayer.StateChangedEventArgs</a></h4>
-      <section><p>This class represents the event arguments used when the state of the TTS player changes.</p>
 </section>
       <h4><a class="xref" href="Tizen.NUI.TypeInfo.html">TypeInfo</a></h4>
       <section><p>TypeInfo class for instantiation of registered types and introspection of their actions and signals.</p>
@@ -662,7 +666,8 @@ This resized event arguments.</p>
       <h4><a class="xref" href="Tizen.NUI.Window.WheelEventArgs.html">Window.WheelEventArgs</a></h4>
       <section><p>The Wheel event arguments.</p>
 </section>
-    <h3 id="structs">Structs
+    <h3 id="structs">
+Structs
 </h3>
       <h4><a class="xref" href="Tizen.NUI.BorderVisualProperty.html">BorderVisualProperty</a></h4>
       <section><p>This specifies properties of the BorderVisual.</p>
@@ -691,12 +696,12 @@ This resized event arguments.</p>
       <h4><a class="xref" href="Tizen.NUI.LayoutLength.html">LayoutLength</a></h4>
       <section><p>A type that represents a layout length. Currently, this implies pixels, but could be extended to handle device dependant sizes, etc.</p>
 </section>
-      <h4><a class="xref" href="Tizen.NUI.MeasuredSize.html">MeasuredSize</a></h4>
-      <section><p>Class that encodes a measurement and a measure state, which is set if the measured size is too small.</p>
-</section>
       <h4><a class="xref" href="Tizen.NUI.MeasureSpecification.html">MeasureSpecification</a></h4>
       <section><p>A MeasureSpecification is used during the Measure pass by a LayoutGroup to inform it's children how to be measured.
 For instance, it may measure a child with an exact width and an unspecified height in order to determine height for width.</p>
+</section>
+      <h4><a class="xref" href="Tizen.NUI.MeasuredSize.html">MeasuredSize</a></h4>
+      <section><p>Class that encodes a measurement and a measure state, which is set if the measured size is too small.</p>
 </section>
       <h4><a class="xref" href="Tizen.NUI.MeshVisualProperty.html">MeshVisualProperty</a></h4>
       <section><p>This specifies properties of the MeshVisual.</p>
@@ -728,7 +733,8 @@ For instance, it may measure a child with an exact width and an unspecified heig
       <h4><a class="xref" href="Tizen.NUI.Visual.ShaderProperty.html">Visual.ShaderProperty</a></h4>
       <section><p>This specifies shader properties.</p>
 </section>
-    <h3 id="interfaces">Interfaces
+    <h3 id="interfaces">
+Interfaces
 </h3>
       <h4><a class="xref" href="Tizen.NUI.FocusManager.ICustomFocusAlgorithm.html">FocusManager.ICustomFocusAlgorithm</a></h4>
       <section><p>ICustomFocusAlgorithm is used to provide the custom keyboard focus algorithm for retrieving the next focusable view.<br>
@@ -740,7 +746,8 @@ If focusable properties are not set, then the keyboard FocusManager calls the Ge
       <h4><a class="xref" href="Tizen.NUI.ILayoutParent.html">ILayoutParent</a></h4>
       <section><p>Interface that defines a layout Parent. Enables a layout child to access methods on its parent, e.g. Remove (during unparenting)</p>
 </section>
-    <h3 id="enums">Enums
+    <h3 id="enums">
+Enums
 </h3>
       <h4><a class="xref" href="Tizen.NUI.AlphaFunction.BuiltinFunctions.html">AlphaFunction.BuiltinFunctions</a></h4>
       <section><p>This specifies the various types of built-in alpha functions available for animations.</p>
@@ -759,9 +766,6 @@ If focusable properties are not set, then the keyboard FocusManager calls the Ge
 </section>
       <h4><a class="xref" href="Tizen.NUI.Animation.Interpolation.html">Animation.Interpolation</a></h4>
       <section><p>Enumeration for what interpolation method to use on key-frame animations.</p>
-</section>
-      <h4><a class="xref" href="Tizen.NUI.Animation.LoopingModes.html">Animation.LoopingModes</a></h4>
-      <section><p>Enumeration for what looping mode is in.</p>
 </section>
       <h4><a class="xref" href="Tizen.NUI.Animation.States.html">Animation.States</a></h4>
       <section><p>Enumeration for what state the animation is in.</p>
@@ -841,16 +845,6 @@ This determines the direction that flex items are laid out in the flex container
       <h4><a class="xref" href="Tizen.NUI.FontWidthType.html">FontWidthType</a></h4>
       <section><p>Enumeration type for the font's width.</p>
 </section>
-      <h4><a class="xref" href="Tizen.NUI.Geometry.Type.html">Geometry.Type</a></h4>
-      <section><p>Enumeration for the description of the type of geometry,
-used to determine how the coordinates will be used.</p>
-</section>
-      <h4><a class="xref" href="Tizen.NUI.Gesture.GestureType.html">Gesture.GestureType</a></h4>
-      <section><p>Enumeration for type of gesture.</p>
-</section>
-      <h4><a class="xref" href="Tizen.NUI.Gesture.StateType.html">Gesture.StateType</a></h4>
-      <section><p>Enumeration for state of the gesture.</p>
-</section>
       <h4><a class="xref" href="Tizen.NUI.GLESVersion.html">GLESVersion</a></h4>
       <section><p>This Enumeration is used the GLES version for EGL configuration.
 It is for GLWindow and GLView.</p>
@@ -859,6 +853,22 @@ It is for GLWindow and GLView.</p>
       <section><p>Enumeration for rendering mode
 This Enumeration is used to choose the rendering mode.
 It is for GLWindow and GLView.</p>
+</section>
+      <h4><a class="xref" href="Tizen.NUI.Geometry.Type.html">Geometry.Type</a></h4>
+      <section><p>Enumeration for the description of the type of geometry,
+used to determine how the coordinates will be used.</p>
+</section>
+      <h4><a class="xref" href="Tizen.NUI.Gesture.GestureType.html">Gesture.GestureType</a></h4>
+      <section><p>Enumeration for type of gesture.</p>
+</section>
+      <h4><a class="xref" href="Tizen.NUI.Gesture.SourceDataType.html">Gesture.SourceDataType</a></h4>
+      <section><p>This is the data of source type</p>
+</section>
+      <h4><a class="xref" href="Tizen.NUI.Gesture.SourceType.html">Gesture.SourceType</a></h4>
+      <section><p>This is the input device the gesture was started with. (ex : mouse)</p>
+</section>
+      <h4><a class="xref" href="Tizen.NUI.Gesture.StateType.html">Gesture.StateType</a></h4>
+      <section><p>Enumeration for state of the gesture.</p>
 </section>
       <h4><a class="xref" href="Tizen.NUI.GlyphType.html">GlyphType</a></h4>
       <section><p>Enumeration type for the glyph type.</p>
@@ -933,33 +943,36 @@ SpreadMethod defines what happens if the gradient starts or ends inside the boun
       <h4><a class="xref" href="Tizen.NUI.Layer.LayerBehavior.html">Layer.LayerBehavior</a></h4>
       <section><p>Enumeration for the behavior of the layer.</p>
 </section>
+      <h4><a class="xref" href="Tizen.NUI.LineWrapMode.html">LineWrapMode</a></h4>
+      <section><p>An enum of the line wrap mode of text controls.</p>
+</section>
       <h4><a class="xref" href="Tizen.NUI.LinearLayout.Alignment.html">LinearLayout.Alignment</a></h4>
       <section><p>Enumeration for the alignment of the linear layout items</p>
 </section>
       <h4><a class="xref" href="Tizen.NUI.LinearLayout.Orientation.html">LinearLayout.Orientation</a></h4>
       <section><p>Enumeration for the direction in which the content is laid out</p>
 </section>
-      <h4><a class="xref" href="Tizen.NUI.LineWrapMode.html">LineWrapMode</a></h4>
-      <section><p>An enum of the line wrap mode of text controls.</p>
-</section>
       <h4><a class="xref" href="Tizen.NUI.LoadPolicyType.html">LoadPolicyType</a></h4>
       <section><p>Specifies the load policy types.<br>
 Decides when the image texture should be loaded.</p>
 </section>
-      <h4><a class="xref" href="Tizen.NUI.MeasuredSize.StateType.html">MeasuredSize.StateType</a></h4>
-      <section><p>Measured states for a Size value.</p>
-</section>
       <h4><a class="xref" href="Tizen.NUI.MeasureSpecification.ModeType.html">MeasureSpecification.ModeType</a></h4>
       <section><p>Size mode for this MeasureSpecification</p>
+</section>
+      <h4><a class="xref" href="Tizen.NUI.MeasuredSize.StateType.html">MeasuredSize.StateType</a></h4>
+      <section><p>Measured states for a Size value.</p>
 </section>
       <h4><a class="xref" href="Tizen.NUI.MeshVisualShadingModeValue.html">MeshVisualShadingModeValue</a></h4>
       <section><p>The shading mode used by the mesh visual.</p>
 </section>
-      <h4><a class="xref" href="Tizen.NUI.NotificationLevel.html">NotificationLevel</a></h4>
-      <section><p>An enum of notification window's priority level.</p>
+      <h4><a class="xref" href="Tizen.NUI.MouseButton.html">MouseButton</a></h4>
+      <section><p>Mouse device button type.</p>
 </section>
       <h4><a class="xref" href="Tizen.NUI.NUIApplication.WindowMode.html">NUIApplication.WindowMode</a></h4>
       <section><p>Enumeration for deciding whether a NUI application window is opaque or transparent.</p>
+</section>
+      <h4><a class="xref" href="Tizen.NUI.NotificationLevel.html">NotificationLevel</a></h4>
+      <section><p>An enum of notification window's priority level.</p>
 </section>
       <h4><a class="xref" href="Tizen.NUI.PixelFormat.html">PixelFormat</a></h4>
       <section><p>Enumeration for Pixel formats.<br>
@@ -1028,6 +1041,12 @@ but all other filter modes do if the desired dimensions are not more than the ra
       <h4><a class="xref" href="Tizen.NUI.StyleChangeType.html">StyleChangeType</a></h4>
       <section><p>Types of style change. Enumeration for the StyleChange type.</p>
 </section>
+      <h4><a class="xref" href="Tizen.NUI.TTSPlayer.TTSMode.html">TTSPlayer.TTSMode</a></h4>
+      <section><p>Enumeration for the instance of TTS mode.</p>
+</section>
+      <h4><a class="xref" href="Tizen.NUI.TTSPlayer.TTSState.html">TTSPlayer.TTSState</a></h4>
+      <section><p>Enumeration for the instance of TTS state.</p>
+</section>
       <h4><a class="xref" href="Tizen.NUI.TextDirection.html">TextDirection</a></h4>
       <section><p>An enum of text directions.</p>
 </section>
@@ -1036,12 +1055,6 @@ but all other filter modes do if the desired dimensions are not more than the ra
 </section>
       <h4><a class="xref" href="Tizen.NUI.TransitionCondition.html">TransitionCondition</a></h4>
       <section><p>The conditions for transitions.</p>
-</section>
-      <h4><a class="xref" href="Tizen.NUI.TTSPlayer.TTSMode.html">TTSPlayer.TTSMode</a></h4>
-      <section><p>Enumeration for the instance of TTS mode.</p>
-</section>
-      <h4><a class="xref" href="Tizen.NUI.TTSPlayer.TTSState.html">TTSPlayer.TTSState</a></h4>
-      <section><p>Enumeration for the instance of TTS state.</p>
 </section>
       <h4><a class="xref" href="Tizen.NUI.VerticalAlignment.html">VerticalAlignment</a></h4>
       <section><p>Enumeration for the vertical alignment of objects such as texts and layout items.</p>
@@ -1095,14 +1108,15 @@ but all other filter modes do if the desired dimensions are not more than the ra
       <section><p>This specifies wrap mode types.<br>
 WrapModeU and WrapModeV separately decide how the texture should be sampled when the u and v coordinate exceeds the range of 0.0 to 1.0.</p>
 </section>
-    <h3 id="delegates">Delegates
+    <h3 id="delegates">
+Delegates
 </h3>
+      <h4><a class="xref" href="Tizen.NUI.DaliEventHandlerWithReturnType-3.html">DaliEventHandlerWithReturnType&lt;T, U, R&gt;</a></h4>
+      <section><p>[UnmanagedFunctionPointer(CallingConvention.Cdecl)]</p>
+</section>
       <h4><a class="xref" href="Tizen.NUI.DaliEventHandler-2.html">DaliEventHandler&lt;T, U&gt;</a></h4>
       <section><p>[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 this should be removed with EventHandler from .NET</p>
-</section>
-      <h4><a class="xref" href="Tizen.NUI.DaliEventHandlerWithReturnType-3.html">DaliEventHandlerWithReturnType&lt;T, U, R&gt;</a></h4>
-      <section><p>[UnmanagedFunctionPointer(CallingConvention.Cdecl)]</p>
 </section>
       <h4><a class="xref" href="Tizen.NUI.DragAndDrop.DragAndDropEventHandler.html">DragAndDrop.DragAndDropEventHandler</a></h4>
       <section><p>Delegate representing the method that will handle drag and drop events.</p>
@@ -1113,9 +1127,8 @@ this should be removed with EventHandler from .NET</p>
       <h4><a class="xref" href="Tizen.NUI.EventHandlerWithReturnType-3.html">EventHandlerWithReturnType&lt;T, U, R&gt;</a></h4>
       <section><p>[UnmanagedFunctionPointer(CallingConvention.Cdecl)]</p>
 </section>
-      <h4><a class="xref" href="Tizen.NUI.Extents.ExtentsChangedCallback.html">Extents.ExtentsChangedCallback</a></h4>
-      <section><p>Constructor</p>
-</section>
+
+
 </article>
           </div>
 
@@ -1147,7 +1160,7 @@ this should be removed with EventHandler from .NET</p>
       </footer>
     </div>
 
-    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../../styles/docfx.js"></script>
     <script type="text/javascript" src="../../styles/main.js"></script>
   </body>

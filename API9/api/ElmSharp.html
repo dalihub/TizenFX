@@ -1,19 +1,17 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Namespace ElmSharp
- </title>
+    <title>Namespace ElmSharp </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Namespace ElmSharp
- ">
+    <meta name="title" content="Namespace ElmSharp ">
     <meta name="generator" content="docfx ">
-    <meta name="version" content="API9">
+    <meta name="version" content="">
   
     <link rel="shortcut icon" href="../../images/tizen_favicon.ico">
-    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
     <link rel="stylesheet" href="../../styles/docfx.css">
     <link rel="stylesheet" href="../../styles/main.css">
     <link rel="stylesheet" href="../../styles/tizen.css">
@@ -44,7 +42,7 @@
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
                 <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
                 </div>
               </form>
             </div>
@@ -62,17 +60,17 @@
       <div class="container body-content">
 
         <div id="search-results">
-          <div class="search-list"> <span></span></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination" data-first="data-prev=" data-next="data-last="></ul>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
 
         <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
           <div class="sidetoggle collapse" id="sidetoggle">
             <div id="sidetoc"></div>
           </div>
@@ -81,13 +79,13 @@
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="ElmSharp">
 
-  <h1 id="ElmSharp" data-uid="ElmSharp" class="text-break">Namespace ElmSharp
-</h1>
+  <h1 id="ElmSharp" data-uid="ElmSharp" class="text-break">Namespace ElmSharp</h1>
   <div class="markdown level0 summary"><p>ElmSharp is a simple c# wrapper of native EFL elementary which is provide all the widget you need to build a full application. These APIs are at the beta status and may be changed in backward/forward-incompatible ways, and are not guarantee to be released.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="markdown level0 remarks"></div>
-    <h3 id="classes">Classes
+    <h3 id="classes">
+Classes
 </h3>
       <h4><a class="xref" href="ElmSharp.AccelerateFactorMotionMapper.html">AccelerateFactorMotionMapper</a></h4>
       <section><p>.
@@ -198,12 +196,12 @@ DisplayedMonthChangedEventArgs as a parameter.</p>
       <h4><a class="xref" href="ElmSharp.EcoreEvent.html">EcoreEvent</a></h4>
       <section><p>The event class for EcoreEvent.</p>
 </section>
-      <h4><a class="xref" href="ElmSharp.EcoreEvent-1.html">EcoreEvent&lt;TEventArgs&gt;</a></h4>
-      <section><p>The EcoreEvent is a class to help create events that are being notified of events.</p>
-</section>
       <h4><a class="xref" href="ElmSharp.EcoreEventType.html">EcoreEventType</a></h4>
       <section><p>The EcoreEventType is a type of EcoreEvent.
 It includes some predefined instance.</p>
+</section>
+      <h4><a class="xref" href="ElmSharp.EcoreEvent-1.html">EcoreEvent&lt;TEventArgs&gt;</a></h4>
+      <section><p>The EcoreEvent is a class to help create events that are being notified of events.</p>
 </section>
       <h4><a class="xref" href="ElmSharp.EcoreKeyEventArgs.html">EcoreKeyEventArgs</a></h4>
       <section><p>It inherits System.EventArgs.
@@ -413,6 +411,10 @@ It contains the Item which is <a class="xref" href="ElmSharp.MultiButtonEntryIte
       <h4><a class="xref" href="ElmSharp.NamedHint.html">NamedHint</a></h4>
       <section><p>Predefined values for the hint properties in EvasObject.</p>
 </section>
+      <h4><a class="xref" href="ElmSharp.NaviItem.html">NaviItem</a></h4>
+      <section><p>The NaviItem is a widget that contain the contents to show in Naviframe.
+Inherits ItemObject</p>
+</section>
       <h4><a class="xref" href="ElmSharp.Naviframe.html">Naviframe</a></h4>
       <section><p>The Naviframe is a widget to stand for the navigation frame. It's a views manager for applications.
 Inherits Widget.</p>
@@ -420,10 +422,6 @@ Inherits Widget.</p>
       <h4><a class="xref" href="ElmSharp.NaviframeEventArgs.html">NaviframeEventArgs</a></h4>
       <section><p>The NaviframeEventArgs is an event arguments class for naviframe.
 Inherits EventArgs.</p>
-</section>
-      <h4><a class="xref" href="ElmSharp.NaviItem.html">NaviItem</a></h4>
-      <section><p>The NaviItem is a widget that contain the contents to show in Naviframe.
-Inherits ItemObject</p>
 </section>
       <h4><a class="xref" href="ElmSharp.Panel.html">Panel</a></h4>
       <section><p>The Panel is a container that can contain subobjects.</p>
@@ -525,7 +523,8 @@ Inherits from <a class="xref" href="ElmSharp.EvasObject.html">EvasObject</a>.</p
       <h4><a class="xref" href="ElmSharp.ZoomEffect.html">ZoomEffect</a></h4>
       <section><p>Zoom effect class.</p>
 </section>
-    <h3 id="structs">Structs
+    <h3 id="structs">
+Structs
 </h3>
       <h4><a class="xref" href="ElmSharp.Color.html">Color</a></h4>
       <section><p>The Color is a struct to record the check's state.</p>
@@ -557,7 +556,8 @@ Inherits from <a class="xref" href="ElmSharp.EvasObject.html">EvasObject</a>.</p
       <h4><a class="xref" href="ElmSharp.Size.html">Size</a></h4>
       <section><p>The Size is a struct defining the height and width as a pair of generic type.</p>
 </section>
-    <h3 id="interfaces">Interfaces
+    <h3 id="interfaces">
+Interfaces
 </h3>
       <h4><a class="xref" href="ElmSharp.IAnimatorMotionMapper.html">IAnimatorMotionMapper</a></h4>
       <section><p>The AnimatorMotionMapper interface.</p>
@@ -566,7 +566,8 @@ Inherits from <a class="xref" href="ElmSharp.EvasObject.html">EvasObject</a>.</p
       <section><p>IInvalidatable is an interface, which can be overrided by its children class.
 Inherits IDisposable.</p>
 </section>
-    <h3 id="enums">Enums
+    <h3 id="enums">
+Enums
 </h3>
       <h4><a class="xref" href="ElmSharp.AnimationViewState.html">AnimationViewState</a></h4>
       <section><p>Enumeration for the AnimationView state</p>
@@ -583,11 +584,11 @@ Inherits IDisposable.</p>
       <h4><a class="xref" href="ElmSharp.CalendarMarkRepeatType.html">CalendarMarkRepeatType</a></h4>
       <section><p>Enumeration for event periodicity, used to define if a mark should be repeated beyond the event's day. It's set when a mark is added.</p>
 </section>
-      <h4><a class="xref" href="ElmSharp.CalendarSelectable.html">CalendarSelectable</a></h4>
-      <section><p>Enumeration for defining which fields of a tm struct will be taken into account.</p>
-</section>
       <h4><a class="xref" href="ElmSharp.CalendarSelectMode.html">CalendarSelectMode</a></h4>
       <section><p>Enumeration for the mode, which determines how a user could select a day.</p>
+</section>
+      <h4><a class="xref" href="ElmSharp.CalendarSelectable.html">CalendarSelectable</a></h4>
+      <section><p>Enumeration for defining which fields of a tm struct will be taken into account.</p>
 </section>
       <h4><a class="xref" href="ElmSharp.ColorSelectorMode.html">ColorSelectorMode</a></h4>
       <section><p>Enumeration for the modes of ColorSelector.</p>
@@ -748,7 +749,8 @@ Inherits IDisposable.</p>
       <h4><a class="xref" href="ElmSharp.WrapType.html">WrapType</a></h4>
       <section><p>Enumeration for the wrap types.</p>
 </section>
-    <h3 id="delegates">Delegates
+    <h3 id="delegates">
+Delegates
 </h3>
       <h4><a class="xref" href="ElmSharp.Calendar.DateFormatDelegate.html">Calendar.DateFormatDelegate</a></h4>
       <section><p>This delegate type is used to format the string that will be used to display month and year.</p>
@@ -780,6 +782,8 @@ Inherits IDisposable.</p>
       <h4><a class="xref" href="ElmSharp.SmartEvent-1.SmartEventInfoParser.html">SmartEvent&lt;TEventArgs&gt;.SmartEventInfoParser</a></h4>
       <section><p>The delegate for creating smart event item arguments.</p>
 </section>
+
+
 </article>
           </div>
 
@@ -811,7 +815,7 @@ Inherits IDisposable.</p>
       </footer>
     </div>
 
-    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../../styles/docfx.js"></script>
     <script type="text/javascript" src="../../styles/main.js"></script>
   </body>

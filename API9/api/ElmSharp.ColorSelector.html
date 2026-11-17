@@ -1,19 +1,17 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class ColorSelector
- </title>
+    <title>Class ColorSelector </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class ColorSelector
- ">
+    <meta name="title" content="Class ColorSelector ">
     <meta name="generator" content="docfx ">
-    <meta name="version" content="API9">
+    <meta name="version" content="">
   
     <link rel="shortcut icon" href="../../images/tizen_favicon.ico">
-    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
     <link rel="stylesheet" href="../../styles/docfx.css">
     <link rel="stylesheet" href="../../styles/main.css">
     <link rel="stylesheet" href="../../styles/tizen.css">
@@ -44,7 +42,7 @@
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
                 <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
                 </div>
               </form>
             </div>
@@ -62,17 +60,17 @@
       <div class="container body-content">
 
         <div id="search-results">
-          <div class="search-list"> <span></span></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination" data-first="data-prev=" data-next="data-last="></ul>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
 
         <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
           <div class="sidetoggle collapse" id="sidetoggle">
             <div id="sidetoc"></div>
           </div>
@@ -82,8 +80,8 @@
             <article class="content wrap" id="_content" data-uid="ElmSharp.ColorSelector">
 
 
-  <h1 id="ElmSharp_ColorSelector" data-uid="ElmSharp.ColorSelector" class="text-break">Class ColorSelector
-</h1>
+
+  <h1 id="ElmSharp_ColorSelector" data-uid="ElmSharp.ColorSelector" class="text-break">Class ColorSelector</h1>
   <h3 class="hidden-anchor" id="definition"><a href="#definition"></a>Definition</h3>
 
   <dl class="attribute-list"><dt>Namespace:</dt><dd><a class="xref" href="ElmSharp.html">ElmSharp</a></dd></dl>
@@ -95,7 +93,7 @@ It also allows to load/save colors from/to the configuration with a unique ident
   <div class="markdown level0 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class ColorSelector : Layout, IAccessibleObject</code></pre>
+    <pre><code class="lang- hljs">public class ColorSelector : Layout, IAccessibleObject</code></pre>
   </div>
 
 
@@ -103,7 +101,7 @@ It also allows to load/save colors from/to the configuration with a unique ident
     <dt>Inheritance</dt>
     <dd>
       <div class="pdl-holder">
-        <div class="pdl"><span class="xref">object</span></div>
+        <div class="pdl"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
         <div class="pdl"><a class="xref" href="ElmSharp.EvasObject.html">EvasObject</a></div>
         <div class="pdl"><a class="xref" href="ElmSharp.Accessible.AccessibleObject.html">AccessibleObject</a></div>
         <div class="pdl"><a class="xref" href="ElmSharp.Widget.html">Widget</a></div>
@@ -131,7 +129,7 @@ color items on the palette, or by selecting it from the selector.</p>
   <h3 id="constructors">Constructors
 </h3>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API9/src/ElmSharp/ElmSharp/ColorSelector.cs/#L83">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/ElmSharp/ElmSharp/ColorSelector.cs/#L83">View Source</a>
   </span>
   <a id="ElmSharp_ColorSelector__ctor_" data-uid="ElmSharp.ColorSelector.#ctor*"></a>
   <h4 id="ElmSharp_ColorSelector__ctor_ElmSharp_EvasObject_" data-uid="ElmSharp.ColorSelector.#ctor(ElmSharp.EvasObject)">ColorSelector(EvasObject)</h4>
@@ -140,7 +138,7 @@ color items on the palette, or by selecting it from the selector.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ColorSelector(EvasObject parent)</code></pre>
+    <pre><code class="lang- hljs">public ColorSelector(EvasObject parent)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -159,11 +157,6 @@ color items on the palette, or by selecting it from the selector.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="ElmSharp_ColorSelector__ctor_ElmSharp_EvasObject__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>By default, the colors are loaded/saved from/to configuration using the &quot;default&quot; identifier.
-The colors can be picked by the user from the color set by clicking on individual
-color items on the palette, or by selecting it from the selector.</p>
-</div>
 
 
   <div style="margin-bottom: 15px"></div>
@@ -171,7 +164,7 @@ color items on the palette, or by selecting it from the selector.</p>
   <h3 id="properties">Properties
 </h3>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API9/src/ElmSharp/ElmSharp/ColorSelector.cs/#L141">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/ElmSharp/ElmSharp/ColorSelector.cs/#L141">View Source</a>
   </span>
   <a id="ElmSharp_ColorSelector_Mode_" data-uid="ElmSharp.ColorSelector.Mode*"></a>
   <h4 id="ElmSharp_ColorSelector_Mode" data-uid="ElmSharp.ColorSelector.Mode">Mode</h4>
@@ -180,7 +173,7 @@ color items on the palette, or by selecting it from the selector.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ColorSelectorMode Mode { get; set; }</code></pre>
+    <pre><code class="lang- hljs">public ColorSelectorMode Mode { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -197,17 +190,12 @@ color items on the palette, or by selecting it from the selector.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="ElmSharp_ColorSelector_Mode_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>By default, the colors are loaded/saved from/to configuration using the &quot;default&quot; identifier.
-The colors can be picked by the user from the color set by clicking on individual
-color items on the palette, or by selecting it from the selector.</p>
-</div>
 
 
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API9/src/ElmSharp/ElmSharp/ColorSelector.cs/#L125">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/ElmSharp/ElmSharp/ColorSelector.cs/#L125">View Source</a>
   </span>
   <a id="ElmSharp_ColorSelector_Opacity_" data-uid="ElmSharp.ColorSelector.Opacity*"></a>
   <h4 id="ElmSharp_ColorSelector_Opacity" data-uid="ElmSharp.ColorSelector.Opacity">Opacity</h4>
@@ -216,7 +204,7 @@ color items on the palette, or by selecting it from the selector.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override int Opacity { get; set; }</code></pre>
+    <pre><code class="lang- hljs">public override int Opacity { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -228,24 +216,19 @@ color items on the palette, or by selecting it from the selector.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">int</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ElmSharp.Widget.html#ElmSharp_Widget_Opacity">Widget.Opacity</a></div>
-  <h5 id="ElmSharp_ColorSelector_Opacity_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>By default, the colors are loaded/saved from/to configuration using the &quot;default&quot; identifier.
-The colors can be picked by the user from the color set by clicking on individual
-color items on the palette, or by selecting it from the selector.</p>
-</div>
 
 
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API9/src/ElmSharp/ElmSharp/ColorSelector.cs/#L160">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/ElmSharp/ElmSharp/ColorSelector.cs/#L160">View Source</a>
   </span>
   <a id="ElmSharp_ColorSelector_PaletteName_" data-uid="ElmSharp.ColorSelector.PaletteName*"></a>
   <h4 id="ElmSharp_ColorSelector_PaletteName" data-uid="ElmSharp.ColorSelector.PaletteName">PaletteName</h4>
@@ -254,7 +237,7 @@ color items on the palette, or by selecting it from the selector.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string PaletteName { get; set; }</code></pre>
+    <pre><code class="lang- hljs">public string PaletteName { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -266,22 +249,17 @@ color items on the palette, or by selecting it from the selector.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">string</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <h5 id="ElmSharp_ColorSelector_PaletteName_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>By default, the colors are loaded/saved from/to configuration using the &quot;default&quot; identifier.
-The colors can be picked by the user from the color set by clicking on individual
-color items on the palette, or by selecting it from the selector.</p>
-</div>
 
 
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API9/src/ElmSharp/ElmSharp/ColorSelector.cs/#L105">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/ElmSharp/ElmSharp/ColorSelector.cs/#L105">View Source</a>
   </span>
   <a id="ElmSharp_ColorSelector_SelectedColor_" data-uid="ElmSharp.ColorSelector.SelectedColor*"></a>
   <h4 id="ElmSharp_ColorSelector_SelectedColor" data-uid="ElmSharp.ColorSelector.SelectedColor">SelectedColor</h4>
@@ -290,7 +268,7 @@ color items on the palette, or by selecting it from the selector.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Color SelectedColor { get; set; }</code></pre>
+    <pre><code class="lang- hljs">public Color SelectedColor { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -307,11 +285,6 @@ color items on the palette, or by selecting it from the selector.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="ElmSharp_ColorSelector_SelectedColor_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>By default, the colors are loaded/saved from/to configuration using the &quot;default&quot; identifier.
-The colors can be picked by the user from the color set by clicking on individual
-color items on the palette, or by selecting it from the selector.</p>
-</div>
 
 
   <div style="margin-bottom: 15px"></div>
@@ -319,7 +292,7 @@ color items on the palette, or by selecting it from the selector.</p>
   <h3 id="methods">Methods
 </h3>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API9/src/ElmSharp/ElmSharp/ColorSelector.cs/#L178">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/ElmSharp/ElmSharp/ColorSelector.cs/#L178">View Source</a>
   </span>
   <a id="ElmSharp_ColorSelector_AddPaletteColor_" data-uid="ElmSharp.ColorSelector.AddPaletteColor*"></a>
   <h4 id="ElmSharp_ColorSelector_AddPaletteColor_ElmSharp_Color_" data-uid="ElmSharp.ColorSelector.AddPaletteColor(ElmSharp.Color)">AddPaletteColor(Color)</h4>
@@ -328,7 +301,7 @@ color items on the palette, or by selecting it from the selector.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ColorSelectorItem AddPaletteColor(Color color)</code></pre>
+    <pre><code class="lang- hljs">public ColorSelectorItem AddPaletteColor(Color color)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -364,17 +337,12 @@ color items on the palette, or by selecting it from the selector.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="ElmSharp_ColorSelector_AddPaletteColor_ElmSharp_Color__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>By default, the colors are loaded/saved from/to configuration using the &quot;default&quot; identifier.
-The colors can be picked by the user from the color set by clicking on individual
-color items on the palette, or by selecting it from the selector.</p>
-</div>
 
 
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API9/src/ElmSharp/ElmSharp/ColorSelector.cs/#L189">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/ElmSharp/ElmSharp/ColorSelector.cs/#L189">View Source</a>
   </span>
   <a id="ElmSharp_ColorSelector_ClearPalette_" data-uid="ElmSharp.ColorSelector.ClearPalette*"></a>
   <h4 id="ElmSharp_ColorSelector_ClearPalette" data-uid="ElmSharp.ColorSelector.ClearPalette">ClearPalette()</h4>
@@ -383,19 +351,14 @@ color items on the palette, or by selecting it from the selector.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void ClearPalette()</code></pre>
+    <pre><code class="lang- hljs">public void ClearPalette()</code></pre>
   </div>
-  <h5 id="ElmSharp_ColorSelector_ClearPalette_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>By default, the colors are loaded/saved from/to configuration using the &quot;default&quot; identifier.
-The colors can be picked by the user from the color set by clicking on individual
-color items on the palette, or by selecting it from the selector.</p>
-</div>
 
 
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API9/src/ElmSharp/ElmSharp/ColorSelector.cs/#L200">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/ElmSharp/ElmSharp/ColorSelector.cs/#L200">View Source</a>
   </span>
   <a id="ElmSharp_ColorSelector_CreateHandle_" data-uid="ElmSharp.ColorSelector.CreateHandle*"></a>
   <h4 id="ElmSharp_ColorSelector_CreateHandle_ElmSharp_EvasObject_" data-uid="ElmSharp.ColorSelector.CreateHandle(ElmSharp.EvasObject)">CreateHandle(EvasObject)</h4>
@@ -404,7 +367,7 @@ color items on the palette, or by selecting it from the selector.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected override IntPtr CreateHandle(EvasObject parent)</code></pre>
+    <pre><code class="lang- hljs">protected override IntPtr CreateHandle(EvasObject parent)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -434,7 +397,7 @@ color items on the palette, or by selecting it from the selector.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.IntPtr</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">IntPtr</a></td>
         <td><p>Handle IntPtr.</p>
 </td>
       </tr>
@@ -442,11 +405,6 @@ color items on the palette, or by selecting it from the selector.</p>
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="ElmSharp.Layout.html#ElmSharp_Layout_CreateHandle_ElmSharp_EvasObject_">Layout.CreateHandle(EvasObject)</a></div>
-  <h5 id="ElmSharp_ColorSelector_CreateHandle_ElmSharp_EvasObject__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>By default, the colors are loaded/saved from/to configuration using the &quot;default&quot; identifier.
-The colors can be picked by the user from the color set by clicking on individual
-color items on the palette, or by selecting it from the selector.</p>
-</div>
 
 
   <div style="margin-bottom: 15px"></div>
@@ -454,7 +412,7 @@ color items on the palette, or by selecting it from the selector.</p>
   <h3 id="events">Events
 </h3>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API9/src/ElmSharp/ElmSharp/ColorSelector.cs/#L95">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/ElmSharp/ElmSharp/ColorSelector.cs/#L95">View Source</a>
   </span>
   <h4 id="ElmSharp_ColorSelector_ColorChanged" data-uid="ElmSharp.ColorSelector.ColorChanged">ColorChanged</h4>
   <div class="markdown level1 summary"><p>ColorChanged will be triggered when the SelectedColor is changed.</p>
@@ -462,7 +420,7 @@ color items on the palette, or by selecting it from the selector.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public event EventHandler&lt;ColorChangedEventArgs&gt; ColorChanged</code></pre>
+    <pre><code class="lang- hljs">public event EventHandler&lt;ColorChangedEventArgs&gt; ColorChanged</code></pre>
   </div>
   <h5 class="eventType">Event Type</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -474,16 +432,11 @@ color items on the palette, or by selecting it from the selector.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.EventHandler&lt;TEventArgs&gt;</span>&lt;<a class="xref" href="ElmSharp.ColorChangedEventArgs.html">ColorChangedEventArgs</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="ElmSharp.ColorChangedEventArgs.html">ColorChangedEventArgs</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <h5 id="ElmSharp_ColorSelector_ColorChanged_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>By default, the colors are loaded/saved from/to configuration using the &quot;default&quot; identifier.
-The colors can be picked by the user from the color set by clicking on individual
-color items on the palette, or by selecting it from the selector.</p>
-</div>
 
 
   <div style="margin-bottom: 15px"></div>
@@ -505,6 +458,7 @@ color items on the palette, or by selecting it from the selector.</p>
   <div>
       <a class="xref" href="ElmSharp.Wearable.RotaryEventExtensions.html#ElmSharp_Wearable_RotaryEventExtensions_RemoveRotaryEventHandler_ElmSharp_EvasObject_ElmSharp_Wearable_RotaryEventHandler_">RotaryEventExtensions.RemoveRotaryEventHandler(EvasObject, RotaryEventHandler)</a>
   </div>
+
 </article>
           </div>
 
@@ -513,7 +467,7 @@ color items on the palette, or by selecting it from the selector.</p>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/Samsung/TizenFX/blob/API9/src/ElmSharp/ElmSharp/ColorSelector.cs/#L73" class="contribution-link">View Source</a>
+                    <a href="https://github.com/Samsung/TizenFX/blob/master/src/ElmSharp/ElmSharp/ColorSelector.cs/#L73" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
@@ -539,7 +493,7 @@ color items on the palette, or by selecting it from the selector.</p>
       </footer>
     </div>
 
-    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../../styles/docfx.js"></script>
     <script type="text/javascript" src="../../styles/main.js"></script>
   </body>

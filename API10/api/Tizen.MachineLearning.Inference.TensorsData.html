@@ -1,19 +1,17 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class TensorsData
- </title>
+    <title>Class TensorsData </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class TensorsData
- ">
+    <meta name="title" content="Class TensorsData ">
     <meta name="generator" content="docfx ">
-    <meta name="version" content="API10">
+    <meta name="version" content="">
   
     <link rel="shortcut icon" href="../../images/tizen_favicon.ico">
-    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
     <link rel="stylesheet" href="../../styles/docfx.css">
     <link rel="stylesheet" href="../../styles/main.css">
     <link rel="stylesheet" href="../../styles/tizen.css">
@@ -44,7 +42,7 @@
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
                 <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
                 </div>
               </form>
             </div>
@@ -62,17 +60,17 @@
       <div class="container body-content">
 
         <div id="search-results">
-          <div class="search-list"> <span></span></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination" data-first="data-prev=" data-next="data-last="></ul>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
 
         <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
           <div class="sidetoggle collapse" id="sidetoggle">
             <div id="sidetoc"></div>
           </div>
@@ -82,11 +80,11 @@
             <article class="content wrap" id="_content" data-uid="Tizen.MachineLearning.Inference.TensorsData">
 
 
-  <h1 id="Tizen_MachineLearning_Inference_TensorsData" data-uid="Tizen.MachineLearning.Inference.TensorsData" class="text-break">Class TensorsData
-</h1>
+
+  <h1 id="Tizen_MachineLearning_Inference_TensorsData" data-uid="Tizen.MachineLearning.Inference.TensorsData" class="text-break">Class TensorsData</h1>
   <h3 class="hidden-anchor" id="definition"><a href="#definition"></a>Definition</h3>
 
-  <dl class="attribute-list"><dt>Namespace:</dt><dd><a class="xref" href="Tizen.html">Tizen</a>.<span class="xref">MachineLearning</span>.<a class="xref" href="Tizen.MachineLearning.Inference.html">Inference</a></dd></dl>
+  <dl class="attribute-list"><dt>Namespace:</dt><dd><a class="xref" href="Tizen.html">Tizen</a>.<a class="xref" href="Tizen.MachineLearning.html">MachineLearning</a>.<a class="xref" href="Tizen.MachineLearning.Inference.html">Inference</a></dd></dl>
   <dl class="attribute-list"><dt>Assembly:</dt><dd>Tizen.MachineLearning.Inference.dll</dd></dl>
 
   <div class="markdown level0 summary"><p>The TensorsData class sets and gets the buffer data for each Tensor.</p>
@@ -94,7 +92,7 @@
   <div class="markdown level0 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class TensorsData : IDisposable</code></pre>
+    <pre><code class="lang- hljs">public class TensorsData : IDisposable</code></pre>
   </div>
 
 
@@ -102,7 +100,7 @@
     <dt>Inheritance</dt>
     <dd>
       <div class="pdl-holder">
-        <div class="pdl"><span class="xref">object</span></div>
+        <div class="pdl"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
         <div><span class="xref">TensorsData</span></div>
       </div>
     </dd>
@@ -113,14 +111,14 @@
   <dl class="attribute-list stack">
     <dt>Implements</dt>
     <dd>
-      <div class="pdl"><span class="xref">System.IDisposable</span></div>
+      <div class="pdl"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
     </dd>
   </dl>
 
   <h3 id="properties">Properties
 </h3>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API10/src/Tizen.MachineLearning.Inference/Tizen.MachineLearning.Inference/TensorsData.cs/#L103">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.MachineLearning.Inference/Tizen.MachineLearning.Inference/TensorsData.cs/#L103">View Source</a>
   </span>
   <a id="Tizen_MachineLearning_Inference_TensorsData_Count_" data-uid="Tizen.MachineLearning.Inference.TensorsData.Count*"></a>
   <h4 id="Tizen_MachineLearning_Inference_TensorsData_Count" data-uid="Tizen.MachineLearning.Inference.TensorsData.Count">Count</h4>
@@ -129,7 +127,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int Count { get; }</code></pre>
+    <pre><code class="lang- hljs">public int Count { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -141,7 +139,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">int</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -156,7 +154,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.NotSupportedException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a></td>
         <td><p>Thrown when the feature is not supported.</p>
 </td>
       </tr>
@@ -167,7 +165,7 @@
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API10/src/Tizen.MachineLearning.Inference/Tizen.MachineLearning.Inference/TensorsData.cs/#L119">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.MachineLearning.Inference/Tizen.MachineLearning.Inference/TensorsData.cs/#L119">View Source</a>
   </span>
   <a id="Tizen_MachineLearning_Inference_TensorsData_TensorsInfo_" data-uid="Tizen.MachineLearning.Inference.TensorsData.TensorsInfo*"></a>
   <h4 id="Tizen_MachineLearning_Inference_TensorsData_TensorsInfo" data-uid="Tizen.MachineLearning.Inference.TensorsData.TensorsInfo">TensorsInfo</h4>
@@ -176,7 +174,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TensorsInfo TensorsInfo { get; }</code></pre>
+    <pre><code class="lang- hljs">public TensorsInfo TensorsInfo { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -204,7 +202,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.NotSupportedException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a></td>
         <td><p>Thrown when the feature is not supported.</p>
 </td>
       </tr>
@@ -217,7 +215,7 @@
   <h3 id="methods">Methods
 </h3>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API10/src/Tizen.MachineLearning.Inference/Tizen.MachineLearning.Inference/TensorsData.cs/#L136">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.MachineLearning.Inference/Tizen.MachineLearning.Inference/TensorsData.cs/#L136">View Source</a>
   </span>
   <a id="Tizen_MachineLearning_Inference_TensorsData_Allocate_" data-uid="Tizen.MachineLearning.Inference.TensorsData.Allocate*"></a>
   <h4 id="Tizen_MachineLearning_Inference_TensorsData_Allocate_Tizen_MachineLearning_Inference_TensorsInfo_" data-uid="Tizen.MachineLearning.Inference.TensorsData.Allocate(Tizen.MachineLearning.Inference.TensorsInfo)">Allocate(TensorsInfo)</h4>
@@ -226,7 +224,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static TensorsData Allocate(TensorsInfo info)</code></pre>
+    <pre><code class="lang- hljs">public static TensorsData Allocate(TensorsInfo info)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -272,12 +270,12 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
         <td><p>Thrown when the method failed due to an invalid parameter.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.NotSupportedException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a></td>
         <td><p>Thrown when the feature is not supported.</p>
 </td>
       </tr>
@@ -288,7 +286,7 @@
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API10/src/Tizen.MachineLearning.Inference/Tizen.MachineLearning.Inference/TensorsData.cs/#L188">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.MachineLearning.Inference/Tizen.MachineLearning.Inference/TensorsData.cs/#L188">View Source</a>
   </span>
   <a id="Tizen_MachineLearning_Inference_TensorsData_Dispose_" data-uid="Tizen.MachineLearning.Inference.TensorsData.Dispose*"></a>
   <h4 id="Tizen_MachineLearning_Inference_TensorsData_Dispose" data-uid="Tizen.MachineLearning.Inference.TensorsData.Dispose">Dispose()</h4>
@@ -297,14 +295,14 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+    <pre><code class="lang- hljs">public void Dispose()</code></pre>
   </div>
 
 
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API10/src/Tizen.MachineLearning.Inference/Tizen.MachineLearning.Inference/TensorsData.cs/#L198">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.MachineLearning.Inference/Tizen.MachineLearning.Inference/TensorsData.cs/#L198">View Source</a>
   </span>
   <a id="Tizen_MachineLearning_Inference_TensorsData_Dispose_" data-uid="Tizen.MachineLearning.Inference.TensorsData.Dispose*"></a>
   <h4 id="Tizen_MachineLearning_Inference_TensorsData_Dispose_System_Boolean_" data-uid="Tizen.MachineLearning.Inference.TensorsData.Dispose(System.Boolean)">Dispose(bool)</h4>
@@ -313,7 +311,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected virtual void Dispose(bool disposing)</code></pre>
+    <pre><code class="lang- hljs">protected virtual void Dispose(bool disposing)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -326,7 +324,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">bool</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
         <td><span class="parametername">disposing</span></td>
         <td><p>If true, disposes any disposable objects. If false, does not dispose disposable objects.</p>
 </td>
@@ -338,7 +336,7 @@
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API10/src/Tizen.MachineLearning.Inference/Tizen.MachineLearning.Inference/TensorsData.cs/#L92">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.MachineLearning.Inference/Tizen.MachineLearning.Inference/TensorsData.cs/#L92">View Source</a>
   </span>
   <a id="Tizen_MachineLearning_Inference_TensorsData_Finalize_" data-uid="Tizen.MachineLearning.Inference.TensorsData.Finalize*"></a>
   <h4 id="Tizen_MachineLearning_Inference_TensorsData_Finalize" data-uid="Tizen.MachineLearning.Inference.TensorsData.Finalize">~TensorsData()</h4>
@@ -347,14 +345,14 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected ~TensorsData()</code></pre>
+    <pre><code class="lang- hljs">protected ~TensorsData()</code></pre>
   </div>
 
 
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API10/src/Tizen.MachineLearning.Inference/Tizen.MachineLearning.Inference/TensorsData.cs/#L175">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.MachineLearning.Inference/Tizen.MachineLearning.Inference/TensorsData.cs/#L175">View Source</a>
   </span>
   <a id="Tizen_MachineLearning_Inference_TensorsData_GetTensorData_" data-uid="Tizen.MachineLearning.Inference.TensorsData.GetTensorData*"></a>
   <h4 id="Tizen_MachineLearning_Inference_TensorsData_GetTensorData_System_Int32_" data-uid="Tizen.MachineLearning.Inference.TensorsData.GetTensorData(System.Int32)">GetTensorData(int)</h4>
@@ -363,7 +361,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public byte[] GetTensorData(int index)</code></pre>
+    <pre><code class="lang- hljs">public byte[] GetTensorData(int index)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -376,7 +374,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">int</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">index</span></td>
         <td><p>The index of the tensor.</p>
 </td>
@@ -393,7 +391,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">byte</span>[]</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</td>
         <td><p>Raw tensor data</p>
 </td>
       </tr>
@@ -409,12 +407,12 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
         <td><p>Thrown when the method failed due to an invalid parameter.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.NotSupportedException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a></td>
         <td><p>Thrown when the feature is not supported.</p>
 </td>
       </tr>
@@ -425,7 +423,7 @@
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API10/src/Tizen.MachineLearning.Inference/Tizen.MachineLearning.Inference/TensorsData.cs/#L156">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.MachineLearning.Inference/Tizen.MachineLearning.Inference/TensorsData.cs/#L156">View Source</a>
   </span>
   <a id="Tizen_MachineLearning_Inference_TensorsData_SetTensorData_" data-uid="Tizen.MachineLearning.Inference.TensorsData.SetTensorData*"></a>
   <h4 id="Tizen_MachineLearning_Inference_TensorsData_SetTensorData_System_Int32_System_Byte___" data-uid="Tizen.MachineLearning.Inference.TensorsData.SetTensorData(System.Int32,System.Byte[])">SetTensorData(int, byte[])</h4>
@@ -434,7 +432,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void SetTensorData(int index, byte[] buffer)</code></pre>
+    <pre><code class="lang- hljs">public void SetTensorData(int index, byte[] buffer)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -447,13 +445,13 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">int</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">index</span></td>
         <td><p>The index of the tensor.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">byte</span>[]</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</td>
         <td><span class="parametername">buffer</span></td>
         <td><p>Raw tensor data to be set.</p>
 </td>
@@ -470,12 +468,12 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.NotSupportedException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a></td>
         <td><p>Thrown when the feature is not supported.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
         <td><p>Thrown when the data is not valid.</p>
 </td>
       </tr>
@@ -487,8 +485,9 @@
 
   <h3 id="implements">Implements</h3>
   <div>
-      <span class="xref">System.IDisposable</span>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a>
   </div>
+
 </article>
           </div>
 
@@ -497,7 +496,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/Samsung/TizenFX/blob/API10/src/Tizen.MachineLearning.Inference/Tizen.MachineLearning.Inference/TensorsData.cs/#L26" class="contribution-link">View Source</a>
+                    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.MachineLearning.Inference/Tizen.MachineLearning.Inference/TensorsData.cs/#L26" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
@@ -523,7 +522,7 @@
       </footer>
     </div>
 
-    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../../styles/docfx.js"></script>
     <script type="text/javascript" src="../../styles/main.js"></script>
   </body>

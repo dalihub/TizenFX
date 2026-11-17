@@ -1,19 +1,17 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class Palette
- </title>
+    <title>Class Palette </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class Palette
- ">
+    <meta name="title" content="Class Palette ">
     <meta name="generator" content="docfx ">
-    <meta name="version" content="API11">
+    <meta name="version" content="">
   
     <link rel="shortcut icon" href="../../images/tizen_favicon.ico">
-    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
     <link rel="stylesheet" href="../../styles/docfx.css">
     <link rel="stylesheet" href="../../styles/main.css">
     <link rel="stylesheet" href="../../styles/tizen.css">
@@ -44,7 +42,7 @@
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
                 <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
                 </div>
               </form>
             </div>
@@ -62,17 +60,17 @@
       <div class="container body-content">
 
         <div id="search-results">
-          <div class="search-list"> <span></span></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination" data-first="data-prev=" data-next="data-last="></ul>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
 
         <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
           <div class="sidetoggle collapse" id="sidetoggle">
             <div id="sidetoc"></div>
           </div>
@@ -82,8 +80,8 @@
             <article class="content wrap" id="_content" data-uid="Tizen.NUI.Palette">
 
 
-  <h1 id="Tizen_NUI_Palette" data-uid="Tizen.NUI.Palette" class="text-break">Class Palette
-</h1>
+
+  <h1 id="Tizen_NUI_Palette" data-uid="Tizen.NUI.Palette" class="text-break">Class Palette</h1>
   <h3 class="hidden-anchor" id="definition"><a href="#definition"></a>Definition</h3>
 
   <dl class="attribute-list"><dt>Namespace:</dt><dd><a class="xref" href="Tizen.html">Tizen</a>.<a class="xref" href="Tizen.NUI.html">NUI</a></dd></dl>
@@ -97,7 +95,7 @@ Vibrant, Vibrant Dark, Vibrant Light, Muted, Muted Dark, Muted Light</p>
   <div class="markdown level0 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class Palette</code></pre>
+    <pre><code class="lang- hljs">public sealed class Palette</code></pre>
   </div>
 
 
@@ -105,7 +103,7 @@ Vibrant, Vibrant Dark, Vibrant Light, Muted, Muted Dark, Muted Light</p>
     <dt>Inheritance</dt>
     <dd>
       <div class="pdl-holder">
-        <div class="pdl"><span class="xref">object</span></div>
+        <div class="pdl"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
         <div><span class="xref">Palette</span></div>
       </div>
     </dd>
@@ -117,7 +115,73 @@ Vibrant, Vibrant Dark, Vibrant Light, Muted, Muted Dark, Muted Light</p>
   <h3 id="methods">Methods
 </h3>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API11/src/Tizen.NUI/src/public/Utility/Palette.cs/#L165">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI/src/public/Utility/Palette.cs/#L151">View Source</a>
+  </span>
+  <a id="Tizen_NUI_Palette_Generate_" data-uid="Tizen.NUI.Palette.Generate*"></a>
+  <h4 id="Tizen_NUI_Palette_Generate_Tizen_NUI_PixelBuffer_" data-uid="Tizen.NUI.Palette.Generate(Tizen.NUI.PixelBuffer)">Generate(PixelBuffer)</h4>
+  <div class="markdown level1 summary"><p>Generate a Palette synchronously using pixelBuffer as source.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">public static Palette Generate(PixelBuffer pixelBuffer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">PixelBuffer</span></td>
+        <td><span class="parametername">pixelBuffer</span></td>
+        <td><p>A Target image's pixelBuffer.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Tizen.NUI.Palette.html">Palette</a></td>
+        <td><p>the palette instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>Thrown when the argument pixelBuffer is null.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <div style="margin-bottom: 15px"></div>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI/src/public/Utility/Palette.cs/#L165">View Source</a>
   </span>
   <a id="Tizen_NUI_Palette_Generate_" data-uid="Tizen.NUI.Palette.Generate*"></a>
   <h4 id="Tizen_NUI_Palette_Generate_Tizen_NUI_PixelBuffer_Tizen_NUI_Rectangle_" data-uid="Tizen.NUI.Palette.Generate(Tizen.NUI.PixelBuffer,Tizen.NUI.Rectangle)">Generate(PixelBuffer, Rectangle)</h4>
@@ -127,7 +191,7 @@ And set a region of the pixelBuffer to be used exclusively when calculating the 
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Palette Generate(PixelBuffer pixelBuffer, Rectangle region)</code></pre>
+    <pre><code class="lang- hljs">public static Palette Generate(PixelBuffer pixelBuffer, Rectangle region)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -140,7 +204,7 @@ And set a region of the pixelBuffer to be used exclusively when calculating the 
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Tizen.NUI.PixelBuffer</span></td>
+        <td><span class="xref">PixelBuffer</span></td>
         <td><span class="parametername">pixelBuffer</span></td>
         <td><p>A Target image's pixelBuffer.</p>
 </td>
@@ -179,7 +243,7 @@ And set a region of the pixelBuffer to be used exclusively when calculating the 
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
         <td><p>Thrown when the argument pixelBuffer is null.</p>
 </td>
       </tr>
@@ -190,16 +254,16 @@ And set a region of the pixelBuffer to be used exclusively when calculating the 
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API11/src/Tizen.NUI/src/public/Utility/Palette.cs/#L151">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI/src/public/Utility/Palette.cs/#L119">View Source</a>
   </span>
-  <a id="Tizen_NUI_Palette_Generate_" data-uid="Tizen.NUI.Palette.Generate*"></a>
-  <h4 id="Tizen_NUI_Palette_Generate_Tizen_NUI_PixelBuffer_" data-uid="Tizen.NUI.Palette.Generate(Tizen.NUI.PixelBuffer)">Generate(PixelBuffer)</h4>
-  <div class="markdown level1 summary"><p>Generate a Palette synchronously using pixelBuffer as source.</p>
+  <a id="Tizen_NUI_Palette_GenerateAsync_" data-uid="Tizen.NUI.Palette.GenerateAsync*"></a>
+  <h4 id="Tizen_NUI_Palette_GenerateAsync_Tizen_NUI_PixelBuffer_" data-uid="Tizen.NUI.Palette.GenerateAsync(Tizen.NUI.PixelBuffer)">GenerateAsync(PixelBuffer)</h4>
+  <div class="markdown level1 summary"><p>Generate a Palette asynchronously using bitmap as source.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Palette Generate(PixelBuffer pixelBuffer)</code></pre>
+    <pre><code class="lang- hljs">public static Task&lt;Palette&gt; GenerateAsync(PixelBuffer pixelBuffer)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -212,7 +276,7 @@ And set a region of the pixelBuffer to be used exclusively when calculating the 
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Tizen.NUI.PixelBuffer</span></td>
+        <td><span class="xref">PixelBuffer</span></td>
         <td><span class="parametername">pixelBuffer</span></td>
         <td><p>A Target image's pixelBuffer.</p>
 </td>
@@ -229,8 +293,8 @@ And set a region of the pixelBuffer to be used exclusively when calculating the 
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Tizen.NUI.Palette.html">Palette</a></td>
-        <td><p>the palette instance.</p>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Tizen.NUI.Palette.html">Palette</a>&gt;</td>
+        <td><p>A task that represents the asynchronous pixelBuffer generate operation.</p>
 </td>
       </tr>
     </tbody>
@@ -245,7 +309,7 @@ And set a region of the pixelBuffer to be used exclusively when calculating the 
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
         <td><p>Thrown when the argument pixelBuffer is null.</p>
 </td>
       </tr>
@@ -256,7 +320,7 @@ And set a region of the pixelBuffer to be used exclusively when calculating the 
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API11/src/Tizen.NUI/src/public/Utility/Palette.cs/#L136">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI/src/public/Utility/Palette.cs/#L136">View Source</a>
   </span>
   <a id="Tizen_NUI_Palette_GenerateAsync_" data-uid="Tizen.NUI.Palette.GenerateAsync*"></a>
   <h4 id="Tizen_NUI_Palette_GenerateAsync_Tizen_NUI_PixelBuffer_Tizen_NUI_Rectangle_" data-uid="Tizen.NUI.Palette.GenerateAsync(Tizen.NUI.PixelBuffer,Tizen.NUI.Rectangle)">GenerateAsync(PixelBuffer, Rectangle)</h4>
@@ -266,7 +330,7 @@ And set a region of the pixelBuffer to be used exclusively when calculating the 
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;Palette&gt; GenerateAsync(PixelBuffer pixelBuffer, Rectangle region)</code></pre>
+    <pre><code class="lang- hljs">public static Task&lt;Palette&gt; GenerateAsync(PixelBuffer pixelBuffer, Rectangle region)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -279,7 +343,7 @@ And set a region of the pixelBuffer to be used exclusively when calculating the 
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Tizen.NUI.PixelBuffer</span></td>
+        <td><span class="xref">PixelBuffer</span></td>
         <td><span class="parametername">pixelBuffer</span></td>
         <td><p>A Target image's pixelBuffer.</p>
 </td>
@@ -302,7 +366,7 @@ And set a region of the pixelBuffer to be used exclusively when calculating the 
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task&lt;TResult&gt;</span>&lt;<a class="xref" href="Tizen.NUI.Palette.html">Palette</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Tizen.NUI.Palette.html">Palette</a>&gt;</td>
         <td><p>A task that represents the asynchronous pixelBuffer generate operation.</p>
 </td>
       </tr>
@@ -318,7 +382,7 @@ And set a region of the pixelBuffer to be used exclusively when calculating the 
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
         <td><p>Thrown when the argument pixelBuffer is null.</p>
 </td>
       </tr>
@@ -329,73 +393,7 @@ And set a region of the pixelBuffer to be used exclusively when calculating the 
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API11/src/Tizen.NUI/src/public/Utility/Palette.cs/#L119">View Source</a>
-  </span>
-  <a id="Tizen_NUI_Palette_GenerateAsync_" data-uid="Tizen.NUI.Palette.GenerateAsync*"></a>
-  <h4 id="Tizen_NUI_Palette_GenerateAsync_Tizen_NUI_PixelBuffer_" data-uid="Tizen.NUI.Palette.GenerateAsync(Tizen.NUI.PixelBuffer)">GenerateAsync(PixelBuffer)</h4>
-  <div class="markdown level1 summary"><p>Generate a Palette asynchronously using bitmap as source.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;Palette&gt; GenerateAsync(PixelBuffer pixelBuffer)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Tizen.NUI.PixelBuffer</span></td>
-        <td><span class="parametername">pixelBuffer</span></td>
-        <td><p>A Target image's pixelBuffer.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Threading.Tasks.Task&lt;TResult&gt;</span>&lt;<a class="xref" href="Tizen.NUI.Palette.html">Palette</a>&gt;</td>
-        <td><p>A task that represents the asynchronous pixelBuffer generate operation.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentNullException</span></td>
-        <td><p>Thrown when the argument pixelBuffer is null.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <div style="margin-bottom: 15px"></div>
-
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API11/src/Tizen.NUI/src/public/Utility/Palette.cs/#L280">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI/src/public/Utility/Palette.cs/#L280">View Source</a>
   </span>
   <a id="Tizen_NUI_Palette_GetDarkMutedSwatch_" data-uid="Tizen.NUI.Palette.GetDarkMutedSwatch*"></a>
   <h4 id="Tizen_NUI_Palette_GetDarkMutedSwatch" data-uid="Tizen.NUI.Palette.GetDarkMutedSwatch">GetDarkMutedSwatch()</h4>
@@ -404,7 +402,7 @@ And set a region of the pixelBuffer to be used exclusively when calculating the 
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Palette.Swatch GetDarkMutedSwatch()</code></pre>
+    <pre><code class="lang- hljs">public Palette.Swatch GetDarkMutedSwatch()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -427,7 +425,7 @@ And set a region of the pixelBuffer to be used exclusively when calculating the 
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API11/src/Tizen.NUI/src/public/Utility/Palette.cs/#L250">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI/src/public/Utility/Palette.cs/#L250">View Source</a>
   </span>
   <a id="Tizen_NUI_Palette_GetDarkVibrantSwatch_" data-uid="Tizen.NUI.Palette.GetDarkVibrantSwatch*"></a>
   <h4 id="Tizen_NUI_Palette_GetDarkVibrantSwatch" data-uid="Tizen.NUI.Palette.GetDarkVibrantSwatch">GetDarkVibrantSwatch()</h4>
@@ -436,7 +434,7 @@ And set a region of the pixelBuffer to be used exclusively when calculating the 
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Palette.Swatch GetDarkVibrantSwatch()</code></pre>
+    <pre><code class="lang- hljs">public Palette.Swatch GetDarkVibrantSwatch()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -459,7 +457,7 @@ And set a region of the pixelBuffer to be used exclusively when calculating the 
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API11/src/Tizen.NUI/src/public/Utility/Palette.cs/#L213">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI/src/public/Utility/Palette.cs/#L213">View Source</a>
   </span>
   <a id="Tizen_NUI_Palette_GetDominantSwatch_" data-uid="Tizen.NUI.Palette.GetDominantSwatch*"></a>
   <h4 id="Tizen_NUI_Palette_GetDominantSwatch" data-uid="Tizen.NUI.Palette.GetDominantSwatch">GetDominantSwatch()</h4>
@@ -469,7 +467,7 @@ The dominant swatch is defined as the swatch with the greatest population (frequ
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Palette.Swatch GetDominantSwatch()</code></pre>
+    <pre><code class="lang- hljs">public Palette.Swatch GetDominantSwatch()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -492,7 +490,7 @@ The dominant swatch is defined as the swatch with the greatest population (frequ
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API11/src/Tizen.NUI/src/public/Utility/Palette.cs/#L270">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI/src/public/Utility/Palette.cs/#L270">View Source</a>
   </span>
   <a id="Tizen_NUI_Palette_GetLightMutedSwatch_" data-uid="Tizen.NUI.Palette.GetLightMutedSwatch*"></a>
   <h4 id="Tizen_NUI_Palette_GetLightMutedSwatch" data-uid="Tizen.NUI.Palette.GetLightMutedSwatch">GetLightMutedSwatch()</h4>
@@ -501,7 +499,7 @@ The dominant swatch is defined as the swatch with the greatest population (frequ
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Palette.Swatch GetLightMutedSwatch()</code></pre>
+    <pre><code class="lang- hljs">public Palette.Swatch GetLightMutedSwatch()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -524,7 +522,7 @@ The dominant swatch is defined as the swatch with the greatest population (frequ
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API11/src/Tizen.NUI/src/public/Utility/Palette.cs/#L240">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI/src/public/Utility/Palette.cs/#L240">View Source</a>
   </span>
   <a id="Tizen_NUI_Palette_GetLightVibrantSwatch_" data-uid="Tizen.NUI.Palette.GetLightVibrantSwatch*"></a>
   <h4 id="Tizen_NUI_Palette_GetLightVibrantSwatch" data-uid="Tizen.NUI.Palette.GetLightVibrantSwatch">GetLightVibrantSwatch()</h4>
@@ -533,7 +531,7 @@ The dominant swatch is defined as the swatch with the greatest population (frequ
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Palette.Swatch GetLightVibrantSwatch()</code></pre>
+    <pre><code class="lang- hljs">public Palette.Swatch GetLightVibrantSwatch()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -556,7 +554,7 @@ The dominant swatch is defined as the swatch with the greatest population (frequ
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API11/src/Tizen.NUI/src/public/Utility/Palette.cs/#L260">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI/src/public/Utility/Palette.cs/#L260">View Source</a>
   </span>
   <a id="Tizen_NUI_Palette_GetMutedSwatch_" data-uid="Tizen.NUI.Palette.GetMutedSwatch*"></a>
   <h4 id="Tizen_NUI_Palette_GetMutedSwatch" data-uid="Tizen.NUI.Palette.GetMutedSwatch">GetMutedSwatch()</h4>
@@ -565,7 +563,7 @@ The dominant swatch is defined as the swatch with the greatest population (frequ
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Palette.Swatch GetMutedSwatch()</code></pre>
+    <pre><code class="lang- hljs">public Palette.Swatch GetMutedSwatch()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -588,7 +586,7 @@ The dominant swatch is defined as the swatch with the greatest population (frequ
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API11/src/Tizen.NUI/src/public/Utility/Palette.cs/#L202">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI/src/public/Utility/Palette.cs/#L202">View Source</a>
   </span>
   <a id="Tizen_NUI_Palette_GetSwatches_" data-uid="Tizen.NUI.Palette.GetSwatches*"></a>
   <h4 id="Tizen_NUI_Palette_GetSwatches" data-uid="Tizen.NUI.Palette.GetSwatches">GetSwatches()</h4>
@@ -597,7 +595,7 @@ The dominant swatch is defined as the swatch with the greatest population (frequ
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IReadOnlyCollection&lt;Palette.Swatch&gt; GetSwatches()</code></pre>
+    <pre><code class="lang- hljs">public IReadOnlyCollection&lt;Palette.Swatch&gt; GetSwatches()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -609,7 +607,7 @@ The dominant swatch is defined as the swatch with the greatest population (frequ
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IReadOnlyCollection&lt;T&gt;</span>&lt;<a class="xref" href="Tizen.NUI.Palette.html">Palette</a>.<a class="xref" href="Tizen.NUI.Palette.Swatch.html">Swatch</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="Tizen.NUI.Palette.html">Palette</a>.<a class="xref" href="Tizen.NUI.Palette.Swatch.html">Swatch</a>&gt;</td>
         <td><p>The swatch list</p>
 </td>
       </tr>
@@ -620,7 +618,7 @@ The dominant swatch is defined as the swatch with the greatest population (frequ
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API11/src/Tizen.NUI/src/public/Utility/Palette.cs/#L230">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI/src/public/Utility/Palette.cs/#L230">View Source</a>
   </span>
   <a id="Tizen_NUI_Palette_GetVibrantSwatch_" data-uid="Tizen.NUI.Palette.GetVibrantSwatch*"></a>
   <h4 id="Tizen_NUI_Palette_GetVibrantSwatch" data-uid="Tizen.NUI.Palette.GetVibrantSwatch">GetVibrantSwatch()</h4>
@@ -629,7 +627,7 @@ The dominant swatch is defined as the swatch with the greatest population (frequ
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Palette.Swatch GetVibrantSwatch()</code></pre>
+    <pre><code class="lang- hljs">public Palette.Swatch GetVibrantSwatch()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -651,6 +649,7 @@ The dominant swatch is defined as the swatch with the greatest population (frequ
 
   <div style="margin-bottom: 15px"></div>
 
+
 </article>
           </div>
 
@@ -659,7 +658,7 @@ The dominant swatch is defined as the swatch with the greatest population (frequ
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/Samsung/TizenFX/blob/API11/src/Tizen.NUI/src/public/Utility/Palette.cs/#L42" class="contribution-link">View Source</a>
+                    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI/src/public/Utility/Palette.cs/#L42" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
@@ -685,7 +684,7 @@ The dominant swatch is defined as the swatch with the greatest population (frequ
       </footer>
     </div>
 
-    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../../styles/docfx.js"></script>
     <script type="text/javascript" src="../../styles/main.js"></script>
   </body>

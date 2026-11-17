@@ -1,19 +1,17 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class StreamRecorder
- </title>
+    <title>Class StreamRecorder </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class StreamRecorder
- ">
+    <meta name="title" content="Class StreamRecorder ">
     <meta name="generator" content="docfx ">
-    <meta name="version" content="API9">
+    <meta name="version" content="">
   
     <link rel="shortcut icon" href="../../images/tizen_favicon.ico">
-    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
     <link rel="stylesheet" href="../../styles/docfx.css">
     <link rel="stylesheet" href="../../styles/main.css">
     <link rel="stylesheet" href="../../styles/tizen.css">
@@ -44,7 +42,7 @@
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
                 <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
                 </div>
               </form>
             </div>
@@ -62,17 +60,17 @@
       <div class="container body-content">
 
         <div id="search-results">
-          <div class="search-list"> <span></span></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination" data-first="data-prev=" data-next="data-last="></ul>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
 
         <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
           <div class="sidetoggle collapse" id="sidetoggle">
             <div id="sidetoc"></div>
           </div>
@@ -82,8 +80,8 @@
             <article class="content wrap" id="_content" data-uid="Tizen.Multimedia.StreamRecorder">
 
 
-  <h1 id="Tizen_Multimedia_StreamRecorder" data-uid="Tizen.Multimedia.StreamRecorder" class="text-break">Class StreamRecorder
-</h1>
+
+  <h1 id="Tizen_Multimedia_StreamRecorder" data-uid="Tizen.Multimedia.StreamRecorder" class="text-break">Class StreamRecorder</h1>
   <h3 class="hidden-anchor" id="definition"><a href="#definition"></a>Definition</h3>
 
   <dl class="attribute-list"><dt>Namespace:</dt><dd><a class="xref" href="Tizen.html">Tizen</a>.<a class="xref" href="Tizen.Multimedia.html">Multimedia</a></dd></dl>
@@ -94,7 +92,7 @@
   <div class="markdown level0 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class StreamRecorder : IDisposable</code></pre>
+    <pre><code class="lang- hljs">public class StreamRecorder : IDisposable</code></pre>
   </div>
 
 
@@ -102,7 +100,7 @@
     <dt>Inheritance</dt>
     <dd>
       <div class="pdl-holder">
-        <div class="pdl"><span class="xref">object</span></div>
+        <div class="pdl"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
         <div><span class="xref">StreamRecorder</span></div>
       </div>
     </dd>
@@ -113,14 +111,14 @@
   <dl class="attribute-list stack">
     <dt>Implements</dt>
     <dd>
-      <div class="pdl"><span class="xref">System.IDisposable</span></div>
+      <div class="pdl"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
     </dd>
   </dl>
 
   <h3 id="constructors">Constructors
 </h3>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API9/src/Tizen.Multimedia.StreamRecorder/StreamRecorder/StreamRecorder.cs/#L50">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Multimedia.StreamRecorder/StreamRecorder/StreamRecorder.cs/#L50">View Source</a>
   </span>
   <a id="Tizen_Multimedia_StreamRecorder__ctor_" data-uid="Tizen.Multimedia.StreamRecorder.#ctor*"></a>
   <h4 id="Tizen_Multimedia_StreamRecorder__ctor" data-uid="Tizen.Multimedia.StreamRecorder.#ctor">StreamRecorder()</h4>
@@ -129,7 +127,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public StreamRecorder()</code></pre>
+    <pre><code class="lang- hljs">public StreamRecorder()</code></pre>
   </div>
   <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -141,16 +139,12 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.NotSupportedException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a></td>
         <td><p>The feature is not supported.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 id="Tizen_Multimedia_StreamRecorder__ctor_seealso">See Also</h5>
-  <div class="seealso">
-      <div><a class="xref" href="Tizen.Multimedia.Recorder.html">Recorder</a></div>
-  </div>
 
 
   <div style="margin-bottom: 15px"></div>
@@ -158,7 +152,7 @@
   <h3 id="properties">Properties
 </h3>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API9/src/Tizen.Multimedia.StreamRecorder/StreamRecorder/StreamRecorder.cs/#L94">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Multimedia.StreamRecorder/StreamRecorder/StreamRecorder.cs/#L94">View Source</a>
   </span>
   <a id="Tizen_Multimedia_StreamRecorder_State_" data-uid="Tizen.Multimedia.StreamRecorder.State*"></a>
   <h4 id="Tizen_Multimedia_StreamRecorder_State" data-uid="Tizen.Multimedia.StreamRecorder.State">State</h4>
@@ -167,7 +161,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public RecorderState State { get; }</code></pre>
+    <pre><code class="lang- hljs">public RecorderState State { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -194,16 +188,12 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.ObjectDisposedException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></td>
         <td><p>The <a class="xref" href="Tizen.Multimedia.StreamRecorder.html">StreamRecorder</a> has already been disposed.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 id="Tizen_Multimedia_StreamRecorder_State_seealso">See Also</h5>
-  <div class="seealso">
-      <div><a class="xref" href="Tizen.Multimedia.Recorder.html">Recorder</a></div>
-  </div>
 
 
   <div style="margin-bottom: 15px"></div>
@@ -211,7 +201,7 @@
   <h3 id="methods">Methods
 </h3>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API9/src/Tizen.Multimedia.StreamRecorder/StreamRecorder/StreamRecorder.cs/#L280">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Multimedia.StreamRecorder/StreamRecorder/StreamRecorder.cs/#L280">View Source</a>
   </span>
   <a id="Tizen_Multimedia_StreamRecorder_Cancel_" data-uid="Tizen.Multimedia.StreamRecorder.Cancel*"></a>
   <h4 id="Tizen_Multimedia_StreamRecorder_Cancel" data-uid="Tizen.Multimedia.StreamRecorder.Cancel">Cancel()</h4>
@@ -221,7 +211,7 @@ The recording data is discarded and not written.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Cancel()</code></pre>
+    <pre><code class="lang- hljs">public void Cancel()</code></pre>
   </div>
   <h5 id="Tizen_Multimedia_StreamRecorder_Cancel_remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>The recorder state must be <a class="xref" href="Tizen.Multimedia.RecorderState.html#Tizen_Multimedia_RecorderState_Recording">Recording</a> state by <a class="xref" href="Tizen.Multimedia.StreamRecorder.html#Tizen_Multimedia_StreamRecorder_Start">Start()</a> or
@@ -237,12 +227,12 @@ The recording data is discarded and not written.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.InvalidOperationException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
         <td><p>The recorder is not in the valid state.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.ObjectDisposedException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></td>
         <td><p>The <a class="xref" href="Tizen.Multimedia.StreamRecorder.html">StreamRecorder</a> has already been disposed.</p>
 </td>
       </tr>
@@ -258,7 +248,7 @@ The recording data is discarded and not written.</p>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API9/src/Tizen.Multimedia.StreamRecorder/StreamRecorder/StreamRecorder.cs/#L260">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Multimedia.StreamRecorder/StreamRecorder/StreamRecorder.cs/#L260">View Source</a>
   </span>
   <a id="Tizen_Multimedia_StreamRecorder_Commit_" data-uid="Tizen.Multimedia.StreamRecorder.Commit*"></a>
   <h4 id="Tizen_Multimedia_StreamRecorder_Commit" data-uid="Tizen.Multimedia.StreamRecorder.Commit">Commit()</h4>
@@ -267,7 +257,7 @@ The recording data is discarded and not written.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Commit()</code></pre>
+    <pre><code class="lang- hljs">public void Commit()</code></pre>
   </div>
   <h5 id="Tizen_Multimedia_StreamRecorder_Commit_remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>The recorder state must be <a class="xref" href="Tizen.Multimedia.RecorderState.html#Tizen_Multimedia_RecorderState_Recording">Recording</a> state by <a class="xref" href="Tizen.Multimedia.StreamRecorder.html#Tizen_Multimedia_StreamRecorder_Start">Start()</a> or
@@ -289,17 +279,17 @@ http://tizen.org/privilege/externalstorage is needed if the save path are releva
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.InvalidOperationException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
         <td><p>The recorder is not in the valid state.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.UnauthorizedAccessException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></td>
         <td><p>The access to the resources can not be granted.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.ObjectDisposedException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></td>
         <td><p>The <a class="xref" href="Tizen.Multimedia.StreamRecorder.html">StreamRecorder</a> has already been disposed.</p>
 </td>
       </tr>
@@ -315,7 +305,7 @@ http://tizen.org/privilege/externalstorage is needed if the save path are releva
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API9/src/Tizen.Multimedia.StreamRecorder/StreamRecorder/StreamRecorder.cs/#L364">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Multimedia.StreamRecorder/StreamRecorder/StreamRecorder.cs/#L364">View Source</a>
   </span>
   <a id="Tizen_Multimedia_StreamRecorder_Dispose_" data-uid="Tizen.Multimedia.StreamRecorder.Dispose*"></a>
   <h4 id="Tizen_Multimedia_StreamRecorder_Dispose" data-uid="Tizen.Multimedia.StreamRecorder.Dispose">Dispose()</h4>
@@ -324,18 +314,14 @@ http://tizen.org/privilege/externalstorage is needed if the save path are releva
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
-  </div>
-  <h5 id="Tizen_Multimedia_StreamRecorder_Dispose_seealso">See Also</h5>
-  <div class="seealso">
-      <div><a class="xref" href="Tizen.Multimedia.Recorder.html">Recorder</a></div>
+    <pre><code class="lang- hljs">public void Dispose()</code></pre>
   </div>
 
 
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API9/src/Tizen.Multimedia.StreamRecorder/StreamRecorder/StreamRecorder.cs/#L376">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Multimedia.StreamRecorder/StreamRecorder/StreamRecorder.cs/#L376">View Source</a>
   </span>
   <a id="Tizen_Multimedia_StreamRecorder_Dispose_" data-uid="Tizen.Multimedia.StreamRecorder.Dispose*"></a>
   <h4 id="Tizen_Multimedia_StreamRecorder_Dispose_System_Boolean_" data-uid="Tizen.Multimedia.StreamRecorder.Dispose(System.Boolean)">Dispose(bool)</h4>
@@ -344,7 +330,7 @@ http://tizen.org/privilege/externalstorage is needed if the save path are releva
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected virtual void Dispose(bool disposing)</code></pre>
+    <pre><code class="lang- hljs">protected virtual void Dispose(bool disposing)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -357,23 +343,19 @@ http://tizen.org/privilege/externalstorage is needed if the save path are releva
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">bool</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
         <td><span class="parametername">disposing</span></td>
         <td><p>true to release both managed and unmanaged resources; false to release only unmanaged resources.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 id="Tizen_Multimedia_StreamRecorder_Dispose_System_Boolean__seealso">See Also</h5>
-  <div class="seealso">
-      <div><a class="xref" href="Tizen.Multimedia.Recorder.html">Recorder</a></div>
-  </div>
 
 
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API9/src/Tizen.Multimedia.StreamRecorder/StreamRecorder/StreamRecorder.Capabilities.cs/#L106">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Multimedia.StreamRecorder/StreamRecorder/StreamRecorder.Capabilities.cs/#L106">View Source</a>
   </span>
   <a id="Tizen_Multimedia_StreamRecorder_GetSupportedAudioCodecs_" data-uid="Tizen.Multimedia.StreamRecorder.GetSupportedAudioCodecs*"></a>
   <h4 id="Tizen_Multimedia_StreamRecorder_GetSupportedAudioCodecs" data-uid="Tizen.Multimedia.StreamRecorder.GetSupportedAudioCodecs">GetSupportedAudioCodecs()</h4>
@@ -382,7 +364,7 @@ http://tizen.org/privilege/externalstorage is needed if the save path are releva
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IEnumerable&lt;RecorderAudioCodec&gt; GetSupportedAudioCodecs()</code></pre>
+    <pre><code class="lang- hljs">public IEnumerable&lt;RecorderAudioCodec&gt; GetSupportedAudioCodecs()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -394,22 +376,18 @@ http://tizen.org/privilege/externalstorage is needed if the save path are releva
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>&lt;<a class="xref" href="Tizen.Multimedia.RecorderAudioCodec.html">RecorderAudioCodec</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Tizen.Multimedia.RecorderAudioCodec.html">RecorderAudioCodec</a>&gt;</td>
         <td><p>An IEnumerable of <a class="xref" href="Tizen.Multimedia.RecorderAudioCodec.html">RecorderAudioCodec</a> representing the supported audio codecs.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 id="Tizen_Multimedia_StreamRecorder_GetSupportedAudioCodecs_seealso">See Also</h5>
-  <div class="seealso">
-      <div><a class="xref" href="Tizen.Multimedia.Recorder.html">Recorder</a></div>
-  </div>
 
 
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API9/src/Tizen.Multimedia.StreamRecorder/StreamRecorder/StreamRecorder.Capabilities.cs/#L97">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Multimedia.StreamRecorder/StreamRecorder/StreamRecorder.Capabilities.cs/#L97">View Source</a>
   </span>
   <a id="Tizen_Multimedia_StreamRecorder_GetSupportedFileFormats_" data-uid="Tizen.Multimedia.StreamRecorder.GetSupportedFileFormats*"></a>
   <h4 id="Tizen_Multimedia_StreamRecorder_GetSupportedFileFormats" data-uid="Tizen.Multimedia.StreamRecorder.GetSupportedFileFormats">GetSupportedFileFormats()</h4>
@@ -418,7 +396,7 @@ http://tizen.org/privilege/externalstorage is needed if the save path are releva
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IEnumerable&lt;RecorderFileFormat&gt; GetSupportedFileFormats()</code></pre>
+    <pre><code class="lang- hljs">public IEnumerable&lt;RecorderFileFormat&gt; GetSupportedFileFormats()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -430,22 +408,18 @@ http://tizen.org/privilege/externalstorage is needed if the save path are releva
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>&lt;<a class="xref" href="Tizen.Multimedia.RecorderFileFormat.html">RecorderFileFormat</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Tizen.Multimedia.RecorderFileFormat.html">RecorderFileFormat</a>&gt;</td>
         <td><p>An IEnumerable of <a class="xref" href="Tizen.Multimedia.RecorderFileFormat.html">RecorderFileFormat</a> representing the supported file formats.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 id="Tizen_Multimedia_StreamRecorder_GetSupportedFileFormats_seealso">See Also</h5>
-  <div class="seealso">
-      <div><a class="xref" href="Tizen.Multimedia.Recorder.html">Recorder</a></div>
-  </div>
 
 
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API9/src/Tizen.Multimedia.StreamRecorder/StreamRecorder/StreamRecorder.Capabilities.cs/#L115">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Multimedia.StreamRecorder/StreamRecorder/StreamRecorder.Capabilities.cs/#L115">View Source</a>
   </span>
   <a id="Tizen_Multimedia_StreamRecorder_GetSupportedVideoCodecs_" data-uid="Tizen.Multimedia.StreamRecorder.GetSupportedVideoCodecs*"></a>
   <h4 id="Tizen_Multimedia_StreamRecorder_GetSupportedVideoCodecs" data-uid="Tizen.Multimedia.StreamRecorder.GetSupportedVideoCodecs">GetSupportedVideoCodecs()</h4>
@@ -454,7 +428,7 @@ http://tizen.org/privilege/externalstorage is needed if the save path are releva
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IEnumerable&lt;RecorderVideoCodec&gt; GetSupportedVideoCodecs()</code></pre>
+    <pre><code class="lang- hljs">public IEnumerable&lt;RecorderVideoCodec&gt; GetSupportedVideoCodecs()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -466,22 +440,18 @@ http://tizen.org/privilege/externalstorage is needed if the save path are releva
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>&lt;<a class="xref" href="Tizen.Multimedia.RecorderVideoCodec.html">RecorderVideoCodec</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Tizen.Multimedia.RecorderVideoCodec.html">RecorderVideoCodec</a>&gt;</td>
         <td><p>An IEnumerable of <a class="xref" href="Tizen.Multimedia.RecorderVideoCodec.html">RecorderVideoCodec</a> representing the supported video codecs.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 id="Tizen_Multimedia_StreamRecorder_GetSupportedVideoCodecs_seealso">See Also</h5>
-  <div class="seealso">
-      <div><a class="xref" href="Tizen.Multimedia.Recorder.html">Recorder</a></div>
-  </div>
 
 
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API9/src/Tizen.Multimedia.StreamRecorder/StreamRecorder/StreamRecorder.Capabilities.cs/#L124">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Multimedia.StreamRecorder/StreamRecorder/StreamRecorder.Capabilities.cs/#L124">View Source</a>
   </span>
   <a id="Tizen_Multimedia_StreamRecorder_GetSupportedVideoResolutions_" data-uid="Tizen.Multimedia.StreamRecorder.GetSupportedVideoResolutions*"></a>
   <h4 id="Tizen_Multimedia_StreamRecorder_GetSupportedVideoResolutions" data-uid="Tizen.Multimedia.StreamRecorder.GetSupportedVideoResolutions">GetSupportedVideoResolutions()</h4>
@@ -490,7 +460,7 @@ http://tizen.org/privilege/externalstorage is needed if the save path are releva
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IEnumerable&lt;Size&gt; GetSupportedVideoResolutions()</code></pre>
+    <pre><code class="lang- hljs">public IEnumerable&lt;Size&gt; GetSupportedVideoResolutions()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -502,22 +472,18 @@ http://tizen.org/privilege/externalstorage is needed if the save path are releva
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>&lt;<a class="xref" href="Tizen.Multimedia.Size.html">Size</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Tizen.Multimedia.Size.html">Size</a>&gt;</td>
         <td><p>An IEnumerable of <a class="xref" href="Tizen.Multimedia.Size.html">Size</a> representing the supported resolutions.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 id="Tizen_Multimedia_StreamRecorder_GetSupportedVideoResolutions_seealso">See Also</h5>
-  <div class="seealso">
-      <div><a class="xref" href="Tizen.Multimedia.Recorder.html">Recorder</a></div>
-  </div>
 
 
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API9/src/Tizen.Multimedia.StreamRecorder/StreamRecorder/StreamRecorder.cs/#L227">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Multimedia.StreamRecorder/StreamRecorder/StreamRecorder.cs/#L227">View Source</a>
   </span>
   <a id="Tizen_Multimedia_StreamRecorder_Pause_" data-uid="Tizen.Multimedia.StreamRecorder.Pause*"></a>
   <h4 id="Tizen_Multimedia_StreamRecorder_Pause" data-uid="Tizen.Multimedia.StreamRecorder.Pause">Pause()</h4>
@@ -526,7 +492,7 @@ http://tizen.org/privilege/externalstorage is needed if the save path are releva
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Pause()</code></pre>
+    <pre><code class="lang- hljs">public void Pause()</code></pre>
   </div>
   <h5 id="Tizen_Multimedia_StreamRecorder_Pause_remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>Recording can be resumed with <a class="xref" href="Tizen.Multimedia.StreamRecorder.html#Tizen_Multimedia_StreamRecorder_Start">Start()</a>.<br>
@@ -545,12 +511,12 @@ It has no effect if the recorder is already in the <a class="xref" href="Tizen.M
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.InvalidOperationException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
         <td><p>The recorder is not in the valid state.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.ObjectDisposedException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></td>
         <td><p>The <a class="xref" href="Tizen.Multimedia.StreamRecorder.html">StreamRecorder</a> has already been disposed.</p>
 </td>
       </tr>
@@ -567,7 +533,7 @@ It has no effect if the recorder is already in the <a class="xref" href="Tizen.M
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API9/src/Tizen.Multimedia.StreamRecorder/StreamRecorder/StreamRecorder.cs/#L134">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Multimedia.StreamRecorder/StreamRecorder/StreamRecorder.cs/#L134">View Source</a>
   </span>
   <a id="Tizen_Multimedia_StreamRecorder_Prepare_" data-uid="Tizen.Multimedia.StreamRecorder.Prepare*"></a>
   <h4 id="Tizen_Multimedia_StreamRecorder_Prepare_Tizen_Multimedia_StreamRecorderOptions_" data-uid="Tizen.Multimedia.StreamRecorder.Prepare(Tizen.Multimedia.StreamRecorderOptions)">Prepare(StreamRecorderOptions)</h4>
@@ -576,7 +542,7 @@ It has no effect if the recorder is already in the <a class="xref" href="Tizen.M
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Prepare(StreamRecorderOptions options)</code></pre>
+    <pre><code class="lang- hljs">public void Prepare(StreamRecorderOptions options)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -609,23 +575,23 @@ It has no effect if the recorder is already in the <a class="xref" href="Tizen.M
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.InvalidOperationException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
         <td><p>The recorder is not in the valid state.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
         <td><p>Both <a class="xref" href="Tizen.Multimedia.StreamRecorderOptions.html#Tizen_Multimedia_StreamRecorderOptions_Audio">Audio</a> and
 <a class="xref" href="Tizen.Multimedia.StreamRecorderOptions.html#Tizen_Multimedia_StreamRecorderOptions_Video">Video</a> are null.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.NotSupportedException</span></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">options</code> contains a value which is not supported.</p>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a></td>
+        <td><p><code class="paramref">options</code> contains a value which is not supported.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.ObjectDisposedException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></td>
         <td><p>The <a class="xref" href="Tizen.Multimedia.StreamRecorder.html">StreamRecorder</a> has already been disposed.</p>
 </td>
       </tr>
@@ -644,7 +610,7 @@ It has no effect if the recorder is already in the <a class="xref" href="Tizen.M
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API9/src/Tizen.Multimedia.StreamRecorder/StreamRecorder/StreamRecorder.cs/#L318">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Multimedia.StreamRecorder/StreamRecorder/StreamRecorder.cs/#L318">View Source</a>
   </span>
   <a id="Tizen_Multimedia_StreamRecorder_PushBuffer_" data-uid="Tizen.Multimedia.StreamRecorder.PushBuffer*"></a>
   <h4 id="Tizen_Multimedia_StreamRecorder_PushBuffer_Tizen_Multimedia_MediaPacket_" data-uid="Tizen.Multimedia.StreamRecorder.PushBuffer(Tizen.Multimedia.MediaPacket)">PushBuffer(MediaPacket)</h4>
@@ -653,7 +619,7 @@ It has no effect if the recorder is already in the <a class="xref" href="Tizen.M
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void PushBuffer(MediaPacket packet)</code></pre>
+    <pre><code class="lang- hljs">public void PushBuffer(MediaPacket packet)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -686,20 +652,20 @@ It has no effect if the recorder is already in the <a class="xref" href="Tizen.M
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.InvalidOperationException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
         <td><p>The recorder is not in the valid state.<br>
 -or-<br>
-<code data-dev-comment-type="paramref" class="paramref">packet</code> is an audio packet but audio recording is not enabled(See <a class="xref" href="Tizen.Multimedia.StreamRecorderOptions.html#Tizen_Multimedia_StreamRecorderOptions_Audio">Audio</a>).<br>
+<code class="paramref">packet</code> is an audio packet but audio recording is not enabled(See <a class="xref" href="Tizen.Multimedia.StreamRecorderOptions.html#Tizen_Multimedia_StreamRecorderOptions_Audio">Audio</a>).<br>
 -or-<br>
-<code data-dev-comment-type="paramref" class="paramref">packet</code> is a video packet but video recording is not enabled(See <a class="xref" href="Tizen.Multimedia.StreamRecorderOptions.html#Tizen_Multimedia_StreamRecorderOptions_Video">Video</a>).<br>
+<code class="paramref">packet</code> is a video packet but video recording is not enabled(See <a class="xref" href="Tizen.Multimedia.StreamRecorderOptions.html#Tizen_Multimedia_StreamRecorderOptions_Video">Video</a>).<br>
 -or-<br>
-<code data-dev-comment-type="paramref" class="paramref">packet</code> is a video packet but the <a class="xref" href="Tizen.Multimedia.VideoMediaFormat.html#Tizen_Multimedia_VideoMediaFormat_MimeType">MimeType</a> does not match the video source format.<br>
+<code class="paramref">packet</code> is a video packet but the <a class="xref" href="Tizen.Multimedia.VideoMediaFormat.html#Tizen_Multimedia_VideoMediaFormat_MimeType">MimeType</a> does not match the video source format.<br>
 -or-<br>
 An internal error occurs.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.ObjectDisposedException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></td>
         <td><p>The <a class="xref" href="Tizen.Multimedia.StreamRecorder.html">StreamRecorder</a> has already been disposed.</p>
 </td>
       </tr>
@@ -716,7 +682,7 @@ An internal error occurs.</p>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API9/src/Tizen.Multimedia.StreamRecorder/StreamRecorder/StreamRecorder.cs/#L199">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Multimedia.StreamRecorder/StreamRecorder/StreamRecorder.cs/#L199">View Source</a>
   </span>
   <a id="Tizen_Multimedia_StreamRecorder_Start_" data-uid="Tizen.Multimedia.StreamRecorder.Start*"></a>
   <h4 id="Tizen_Multimedia_StreamRecorder_Start" data-uid="Tizen.Multimedia.StreamRecorder.Start">Start()</h4>
@@ -725,7 +691,7 @@ An internal error occurs.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Start()</code></pre>
+    <pre><code class="lang- hljs">public void Start()</code></pre>
   </div>
   <h5 id="Tizen_Multimedia_StreamRecorder_Start_remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>The recorder state must be <a class="xref" href="Tizen.Multimedia.RecorderState.html#Tizen_Multimedia_RecorderState_Ready">Ready</a> state by
@@ -744,17 +710,17 @@ It has no effect if the recorder is already in the <a class="xref" href="Tizen.M
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.InvalidOperationException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
         <td><p>The recorder is not in the valid state.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.UnauthorizedAccessException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></td>
         <td><p>The access of the resources can not be granted.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.ObjectDisposedException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></td>
         <td><p>The <a class="xref" href="Tizen.Multimedia.StreamRecorder.html">StreamRecorder</a> has already been disposed.</p>
 </td>
       </tr>
@@ -771,7 +737,7 @@ It has no effect if the recorder is already in the <a class="xref" href="Tizen.M
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API9/src/Tizen.Multimedia.StreamRecorder/StreamRecorder/StreamRecorder.cs/#L170">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Multimedia.StreamRecorder/StreamRecorder/StreamRecorder.cs/#L170">View Source</a>
   </span>
   <a id="Tizen_Multimedia_StreamRecorder_Unprepare_" data-uid="Tizen.Multimedia.StreamRecorder.Unprepare*"></a>
   <h4 id="Tizen_Multimedia_StreamRecorder_Unprepare" data-uid="Tizen.Multimedia.StreamRecorder.Unprepare">Unprepare()</h4>
@@ -780,7 +746,7 @@ It has no effect if the recorder is already in the <a class="xref" href="Tizen.M
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Unprepare()</code></pre>
+    <pre><code class="lang- hljs">public void Unprepare()</code></pre>
   </div>
   <h5 id="Tizen_Multimedia_StreamRecorder_Unprepare_remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>The recorder state must be <a class="xref" href="Tizen.Multimedia.RecorderState.html#Tizen_Multimedia_RecorderState_Ready">Ready</a> state by
@@ -799,12 +765,12 @@ It has no effect if the recorder is already in the <a class="xref" href="Tizen.M
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.InvalidOperationException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
         <td><p>The recorder is not in the valid state.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.ObjectDisposedException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></td>
         <td><p>The <a class="xref" href="Tizen.Multimedia.StreamRecorder.html">StreamRecorder</a> has already been disposed.</p>
 </td>
       </tr>
@@ -821,7 +787,7 @@ It has no effect if the recorder is already in the <a class="xref" href="Tizen.M
   <h3 id="events">Events
 </h3>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API9/src/Tizen.Multimedia.StreamRecorder/StreamRecorder/StreamRecorder.Events.cs/#L37">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Multimedia.StreamRecorder/StreamRecorder/StreamRecorder.Events.cs/#L37">View Source</a>
   </span>
   <h4 id="Tizen_Multimedia_StreamRecorder_BufferConsumed" data-uid="Tizen.Multimedia.StreamRecorder.BufferConsumed">BufferConsumed</h4>
   <div class="markdown level1 summary"><p>Occurs when a buffer had consumed completely.</p>
@@ -829,7 +795,7 @@ It has no effect if the recorder is already in the <a class="xref" href="Tizen.M
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public event EventHandler&lt;StreamRecorderBufferConsumedEventArgs&gt; BufferConsumed</code></pre>
+    <pre><code class="lang- hljs">public event EventHandler&lt;StreamRecorderBufferConsumedEventArgs&gt; BufferConsumed</code></pre>
   </div>
   <h5 class="eventType">Event Type</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -841,21 +807,17 @@ It has no effect if the recorder is already in the <a class="xref" href="Tizen.M
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.EventHandler&lt;TEventArgs&gt;</span>&lt;<a class="xref" href="Tizen.Multimedia.StreamRecorderBufferConsumedEventArgs.html">StreamRecorderBufferConsumedEventArgs</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="Tizen.Multimedia.StreamRecorderBufferConsumedEventArgs.html">StreamRecorderBufferConsumedEventArgs</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <h5 id="Tizen_Multimedia_StreamRecorder_BufferConsumed_seealso">See Also</h5>
-  <div class="seealso">
-      <div><a class="xref" href="Tizen.Multimedia.Recorder.html">Recorder</a></div>
-  </div>
 
 
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API9/src/Tizen.Multimedia.StreamRecorder/StreamRecorder/StreamRecorder.Events.cs/#L55">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Multimedia.StreamRecorder/StreamRecorder/StreamRecorder.Events.cs/#L55">View Source</a>
   </span>
   <h4 id="Tizen_Multimedia_StreamRecorder_ErrorOccurred" data-uid="Tizen.Multimedia.StreamRecorder.ErrorOccurred">ErrorOccurred</h4>
   <div class="markdown level1 summary"><p>Occurs when an error occurred during a recorder operation.</p>
@@ -863,7 +825,7 @@ It has no effect if the recorder is already in the <a class="xref" href="Tizen.M
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public event EventHandler&lt;StreamRecorderErrorOccurredEventArgs&gt; ErrorOccurred</code></pre>
+    <pre><code class="lang- hljs">public event EventHandler&lt;StreamRecorderErrorOccurredEventArgs&gt; ErrorOccurred</code></pre>
   </div>
   <h5 class="eventType">Event Type</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -875,21 +837,17 @@ It has no effect if the recorder is already in the <a class="xref" href="Tizen.M
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.EventHandler&lt;TEventArgs&gt;</span>&lt;<a class="xref" href="Tizen.Multimedia.StreamRecorderErrorOccurredEventArgs.html">StreamRecorderErrorOccurredEventArgs</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="Tizen.Multimedia.StreamRecorderErrorOccurredEventArgs.html">StreamRecorderErrorOccurredEventArgs</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <h5 id="Tizen_Multimedia_StreamRecorder_ErrorOccurred_seealso">See Also</h5>
-  <div class="seealso">
-      <div><a class="xref" href="Tizen.Multimedia.Recorder.html">Recorder</a></div>
-  </div>
 
 
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API9/src/Tizen.Multimedia.StreamRecorder/StreamRecorder/StreamRecorder.Events.cs/#L49">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Multimedia.StreamRecorder/StreamRecorder/StreamRecorder.Events.cs/#L49">View Source</a>
   </span>
   <h4 id="Tizen_Multimedia_StreamRecorder_RecordingLimitReached" data-uid="Tizen.Multimedia.StreamRecorder.RecordingLimitReached">RecordingLimitReached</h4>
   <div class="markdown level1 summary"><p>Occurs when recording limit is reached.</p>
@@ -897,7 +855,7 @@ It has no effect if the recorder is already in the <a class="xref" href="Tizen.M
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public event EventHandler&lt;RecordingLimitReachedEventArgs&gt; RecordingLimitReached</code></pre>
+    <pre><code class="lang- hljs">public event EventHandler&lt;RecordingLimitReachedEventArgs&gt; RecordingLimitReached</code></pre>
   </div>
   <h5 class="eventType">Event Type</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -909,21 +867,17 @@ It has no effect if the recorder is already in the <a class="xref" href="Tizen.M
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.EventHandler&lt;TEventArgs&gt;</span>&lt;<a class="xref" href="Tizen.Multimedia.RecordingLimitReachedEventArgs.html">RecordingLimitReachedEventArgs</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="Tizen.Multimedia.RecordingLimitReachedEventArgs.html">RecordingLimitReachedEventArgs</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <h5 id="Tizen_Multimedia_StreamRecorder_RecordingLimitReached_seealso">See Also</h5>
-  <div class="seealso">
-      <div><a class="xref" href="Tizen.Multimedia.Recorder.html">Recorder</a></div>
-  </div>
 
 
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API9/src/Tizen.Multimedia.StreamRecorder/StreamRecorder/StreamRecorder.Events.cs/#L43">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Multimedia.StreamRecorder/StreamRecorder/StreamRecorder.Events.cs/#L43">View Source</a>
   </span>
   <h4 id="Tizen_Multimedia_StreamRecorder_RecordingStatusChanged" data-uid="Tizen.Multimedia.StreamRecorder.RecordingStatusChanged">RecordingStatusChanged</h4>
   <div class="markdown level1 summary"><p>Occurs when recording status is changed.</p>
@@ -931,7 +885,7 @@ It has no effect if the recorder is already in the <a class="xref" href="Tizen.M
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public event EventHandler&lt;RecordingStatusChangedEventArgs&gt; RecordingStatusChanged</code></pre>
+    <pre><code class="lang- hljs">public event EventHandler&lt;RecordingStatusChangedEventArgs&gt; RecordingStatusChanged</code></pre>
   </div>
   <h5 class="eventType">Event Type</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -943,21 +897,17 @@ It has no effect if the recorder is already in the <a class="xref" href="Tizen.M
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.EventHandler&lt;TEventArgs&gt;</span>&lt;<a class="xref" href="Tizen.Multimedia.RecordingStatusChangedEventArgs.html">RecordingStatusChangedEventArgs</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="Tizen.Multimedia.RecordingStatusChangedEventArgs.html">RecordingStatusChangedEventArgs</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <h5 id="Tizen_Multimedia_StreamRecorder_RecordingStatusChanged_seealso">See Also</h5>
-  <div class="seealso">
-      <div><a class="xref" href="Tizen.Multimedia.Recorder.html">Recorder</a></div>
-  </div>
 
 
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API9/src/Tizen.Multimedia.StreamRecorder/StreamRecorder/StreamRecorder.Events.cs/#L30">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Multimedia.StreamRecorder/StreamRecorder/StreamRecorder.Events.cs/#L30">View Source</a>
   </span>
   <h4 id="Tizen_Multimedia_StreamRecorder_StateChanged" data-uid="Tizen.Multimedia.StreamRecorder.StateChanged">StateChanged</h4>
   <div class="markdown level1 summary"><p>Occurs when <a class="xref" href="Tizen.Multimedia.StreamRecorder.html">StreamRecorder</a> state is changed.</p>
@@ -965,7 +915,7 @@ It has no effect if the recorder is already in the <a class="xref" href="Tizen.M
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public event EventHandler&lt;StreamRecorderStateChangedEventArgs&gt; StateChanged</code></pre>
+    <pre><code class="lang- hljs">public event EventHandler&lt;StreamRecorderStateChangedEventArgs&gt; StateChanged</code></pre>
   </div>
   <h5 class="eventType">Event Type</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -977,27 +927,24 @@ It has no effect if the recorder is already in the <a class="xref" href="Tizen.M
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.EventHandler&lt;TEventArgs&gt;</span>&lt;<a class="xref" href="Tizen.Multimedia.StreamRecorderStateChangedEventArgs.html">StreamRecorderStateChangedEventArgs</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="Tizen.Multimedia.StreamRecorderStateChangedEventArgs.html">StreamRecorderStateChangedEventArgs</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <h5 id="Tizen_Multimedia_StreamRecorder_StateChanged_seealso">See Also</h5>
-  <div class="seealso">
-      <div><a class="xref" href="Tizen.Multimedia.Recorder.html">Recorder</a></div>
-  </div>
 
 
   <div style="margin-bottom: 15px"></div>
 
   <h3 id="implements">Implements</h3>
   <div>
-      <span class="xref">System.IDisposable</span>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a>
   </div>
   <h3 id="seealso">See Also</h3>
   <div class="seealso">
       <div><a class="xref" href="Tizen.Multimedia.Recorder.html">Recorder</a></div>
   </div>
+
 </article>
           </div>
 
@@ -1006,7 +953,7 @@ It has no effect if the recorder is already in the <a class="xref" href="Tizen.M
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/Samsung/TizenFX/blob/API9/src/Tizen.Multimedia.StreamRecorder/StreamRecorder/StreamRecorder.Events.cs/#L24" class="contribution-link">View Source</a>
+                    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Multimedia.StreamRecorder/StreamRecorder/StreamRecorder.Events.cs/#L24" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
@@ -1032,7 +979,7 @@ It has no effect if the recorder is already in the <a class="xref" href="Tizen.M
       </footer>
     </div>
 
-    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../../styles/docfx.js"></script>
     <script type="text/javascript" src="../../styles/main.js"></script>
   </body>

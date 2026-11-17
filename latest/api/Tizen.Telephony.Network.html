@@ -1,19 +1,17 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class Network
- </title>
+    <title>Class Network </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class Network
- ">
+    <meta name="title" content="Class Network ">
     <meta name="generator" content="docfx ">
-    <meta name="version" content="API13">
+    <meta name="version" content="">
   
     <link rel="shortcut icon" href="../../images/tizen_favicon.ico">
-    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
     <link rel="stylesheet" href="../../styles/docfx.css">
     <link rel="stylesheet" href="../../styles/main.css">
     <link rel="stylesheet" href="../../styles/tizen.css">
@@ -44,7 +42,7 @@
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
                 <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
                 </div>
               </form>
             </div>
@@ -62,17 +60,17 @@
       <div class="container body-content">
 
         <div id="search-results">
-          <div class="search-list"> <span></span></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination" data-first="data-prev=" data-next="data-last="></ul>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
 
         <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
           <div class="sidetoggle collapse" id="sidetoggle">
             <div id="sidetoc"></div>
           </div>
@@ -82,8 +80,8 @@
             <article class="content wrap" id="_content" data-uid="Tizen.Telephony.Network">
 
 
-  <h1 id="Tizen_Telephony_Network" data-uid="Tizen.Telephony.Network" class="text-break">Class Network
-</h1>
+
+  <h1 id="Tizen_Telephony_Network" data-uid="Tizen.Telephony.Network" class="text-break">Class Network</h1>
   <h3 class="hidden-anchor" id="definition"><a href="#definition"></a>Definition</h3>
 
   <dl class="attribute-list"><dt>Namespace:</dt><dd><a class="xref" href="Tizen.html">Tizen</a>.<a class="xref" href="Tizen.Telephony.html">Telephony</a></dd></dl>
@@ -96,7 +94,7 @@ the current location. Another property, CellId, enables users to obtain the cell
   <div class="markdown level0 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Deprecated since API13, will be removed in API15.&quot;)]
+    <pre><code class="lang- hljs">[Obsolete(&quot;Deprecated since API13, will be removed in API15.&quot;)]
 public class Network</code></pre>
   </div>
 
@@ -105,7 +103,7 @@ public class Network</code></pre>
     <dt>Inheritance</dt>
     <dd>
       <div class="pdl-holder">
-        <div class="pdl"><span class="xref">object</span></div>
+        <div class="pdl"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
         <div><span class="xref">Network</span></div>
       </div>
     </dd>
@@ -117,7 +115,7 @@ public class Network</code></pre>
   <h3 id="constructors">Constructors
 </h3>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.Telephony/Tizen.Telephony/Network.cs/#L44">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Telephony/Tizen.Telephony/Network.cs/#L44">View Source</a>
   </span>
   <a id="Tizen_Telephony_Network__ctor_" data-uid="Tizen.Telephony.Network.#ctor*"></a>
   <h4 id="Tizen_Telephony_Network__ctor_Tizen_Telephony_SlotHandle_" data-uid="Tizen.Telephony.Network.#ctor(Tizen.Telephony.SlotHandle)">Network(SlotHandle)</h4>
@@ -126,7 +124,7 @@ public class Network</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Deprecated since API13, will be removed in API15.&quot;)]
+    <pre><code class="lang- hljs">[Obsolete(&quot;Deprecated since API13, will be removed in API15.&quot;)]
 public Network(SlotHandle handle)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -157,12 +155,12 @@ public Network(SlotHandle handle)</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.NotSupportedException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a></td>
         <td><p>The required feature is not supported.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
         <td><p>This exception occurs if the handle provided is null.</p>
 </td>
       </tr>
@@ -175,7 +173,7 @@ public Network(SlotHandle handle)</code></pre>
   <h3 id="properties">Properties
 </h3>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.Telephony/Tizen.Telephony/Network.cs/#L795">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Telephony/Tizen.Telephony/Network.cs/#L795">View Source</a>
   </span>
   <a id="Tizen_Telephony_Network_BaseStationId_" data-uid="Tizen.Telephony.Network.BaseStationId*"></a>
   <h4 id="Tizen_Telephony_Network_BaseStationId" data-uid="Tizen.Telephony.Network.BaseStationId">BaseStationId</h4>
@@ -184,7 +182,7 @@ public Network(SlotHandle handle)</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Deprecated since API13, will be removed in API15.&quot;)]
+    <pre><code class="lang- hljs">[Obsolete(&quot;Deprecated since API13, will be removed in API15.&quot;)]
 public int BaseStationId { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
@@ -197,7 +195,7 @@ public int BaseStationId { get; }</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">int</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><p>The base station ID.
 -1 if unknown.</p>
 </td>
@@ -212,7 +210,7 @@ public int BaseStationId { get; }</code></pre>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.Telephony/Tizen.Telephony/Network.cs/#L825">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Telephony/Tizen.Telephony/Network.cs/#L825">View Source</a>
   </span>
   <a id="Tizen_Telephony_Network_BaseStationLatitude_" data-uid="Tizen.Telephony.Network.BaseStationLatitude*"></a>
   <h4 id="Tizen_Telephony_Network_BaseStationLatitude" data-uid="Tizen.Telephony.Network.BaseStationLatitude">BaseStationLatitude</h4>
@@ -221,7 +219,7 @@ public int BaseStationId { get; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Deprecated since API13, will be removed in API15.&quot;)]
+    <pre><code class="lang- hljs">[Obsolete(&quot;Deprecated since API13, will be removed in API15.&quot;)]
 public int BaseStationLatitude { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
@@ -234,7 +232,7 @@ public int BaseStationLatitude { get; }</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">int</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><p>The base station latitude.
 0x7FFFFFFF if unknown.</p>
 </td>
@@ -249,7 +247,7 @@ public int BaseStationLatitude { get; }</code></pre>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.Telephony/Tizen.Telephony/Network.cs/#L854">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Telephony/Tizen.Telephony/Network.cs/#L854">View Source</a>
   </span>
   <a id="Tizen_Telephony_Network_BaseStationLongitude_" data-uid="Tizen.Telephony.Network.BaseStationLongitude*"></a>
   <h4 id="Tizen_Telephony_Network_BaseStationLongitude" data-uid="Tizen.Telephony.Network.BaseStationLongitude">BaseStationLongitude</h4>
@@ -258,7 +256,7 @@ public int BaseStationLatitude { get; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Deprecated since API13, will be removed in API15.&quot;)]
+    <pre><code class="lang- hljs">[Obsolete(&quot;Deprecated since API13, will be removed in API15.&quot;)]
 public int BaseStationLongitude { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
@@ -271,7 +269,7 @@ public int BaseStationLongitude { get; }</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">int</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><p>The base station latitude.
 0x7FFFFFFF if unknown.</p>
 </td>
@@ -286,7 +284,7 @@ public int BaseStationLongitude { get; }</code></pre>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.Telephony/Tizen.Telephony/Network.cs/#L349">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Telephony/Tizen.Telephony/Network.cs/#L349">View Source</a>
   </span>
   <a id="Tizen_Telephony_Network_CellId_" data-uid="Tizen.Telephony.Network.CellId*"></a>
   <h4 id="Tizen_Telephony_Network_CellId" data-uid="Tizen.Telephony.Network.CellId">CellId</h4>
@@ -295,7 +293,7 @@ public int BaseStationLongitude { get; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Deprecated since API13, will be removed in API15.&quot;)]
+    <pre><code class="lang- hljs">[Obsolete(&quot;Deprecated since API13, will be removed in API15.&quot;)]
 public int CellId { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
@@ -308,7 +306,7 @@ public int CellId { get; }</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">int</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><p>The cell identification number, -1 if unknown.</p>
 </td>
       </tr>
@@ -322,7 +320,7 @@ public int CellId { get; }</code></pre>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.Telephony/Tizen.Telephony/Network.cs/#L376">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Telephony/Tizen.Telephony/Network.cs/#L376">View Source</a>
   </span>
   <a id="Tizen_Telephony_Network_CurrentRssi_" data-uid="Tizen.Telephony.Network.CurrentRssi*"></a>
   <h4 id="Tizen_Telephony_Network_CurrentRssi" data-uid="Tizen.Telephony.Network.CurrentRssi">CurrentRssi</h4>
@@ -331,7 +329,7 @@ public int CellId { get; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Deprecated since API13, will be removed in API15.&quot;)]
+    <pre><code class="lang- hljs">[Obsolete(&quot;Deprecated since API13, will be removed in API15.&quot;)]
 public Network.Rssi CurrentRssi { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
@@ -356,7 +354,7 @@ Higher the received number, the stronger the signal strength.</p>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.Telephony/Tizen.Telephony/Network.cs/#L319">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Telephony/Tizen.Telephony/Network.cs/#L319">View Source</a>
   </span>
   <a id="Tizen_Telephony_Network_Lac_" data-uid="Tizen.Telephony.Network.Lac*"></a>
   <h4 id="Tizen_Telephony_Network_Lac" data-uid="Tizen.Telephony.Network.Lac">Lac</h4>
@@ -365,7 +363,7 @@ Higher the received number, the stronger the signal strength.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Deprecated since API13, will be removed in API15.&quot;)]
+    <pre><code class="lang- hljs">[Obsolete(&quot;Deprecated since API13, will be removed in API15.&quot;)]
 public int Lac { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
@@ -378,7 +376,7 @@ public int Lac { get; }</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">int</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><p>The Location Area Code, -1 if unknown.</p>
 </td>
       </tr>
@@ -392,7 +390,7 @@ public int Lac { get; }</code></pre>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.Telephony/Tizen.Telephony/Network.cs/#L431">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Telephony/Tizen.Telephony/Network.cs/#L431">View Source</a>
   </span>
   <a id="Tizen_Telephony_Network_Mcc_" data-uid="Tizen.Telephony.Network.Mcc*"></a>
   <h4 id="Tizen_Telephony_Network_Mcc" data-uid="Tizen.Telephony.Network.Mcc">Mcc</h4>
@@ -401,7 +399,7 @@ public int Lac { get; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Deprecated since API13, will be removed in API15.&quot;)]
+    <pre><code class="lang- hljs">[Obsolete(&quot;Deprecated since API13, will be removed in API15.&quot;)]
 public string Mcc { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
@@ -414,7 +412,7 @@ public string Mcc { get; }</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">string</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><p>The Mobile Country Code (three digits). The Mobile Country Code (MCC) identifies the country where the cell is being used.
 Empty string if unknown.</p>
 </td>
@@ -429,7 +427,7 @@ Empty string if unknown.</p>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.Telephony/Tizen.Telephony/Network.cs/#L460">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Telephony/Tizen.Telephony/Network.cs/#L460">View Source</a>
   </span>
   <a id="Tizen_Telephony_Network_Mnc_" data-uid="Tizen.Telephony.Network.Mnc*"></a>
   <h4 id="Tizen_Telephony_Network_Mnc" data-uid="Tizen.Telephony.Network.Mnc">Mnc</h4>
@@ -438,7 +436,7 @@ Empty string if unknown.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Deprecated since API13, will be removed in API15.&quot;)]
+    <pre><code class="lang- hljs">[Obsolete(&quot;Deprecated since API13, will be removed in API15.&quot;)]
 public string Mnc { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
@@ -451,7 +449,7 @@ public string Mnc { get; }</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">string</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><p>The Mobile Network Code (three digits). The Mobile Network Code (MNC) identifies the mobile phone operator and the network provider.
 Empty string if unknown.</p>
 </td>
@@ -466,7 +464,7 @@ Empty string if unknown.</p>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.Telephony/Tizen.Telephony/Network.cs/#L623">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Telephony/Tizen.Telephony/Network.cs/#L623">View Source</a>
   </span>
   <a id="Tizen_Telephony_Network_NetworkDefaultDataSubscription_" data-uid="Tizen.Telephony.Network.NetworkDefaultDataSubscription*"></a>
   <h4 id="Tizen_Telephony_Network_NetworkDefaultDataSubscription" data-uid="Tizen.Telephony.Network.NetworkDefaultDataSubscription">NetworkDefaultDataSubscription</h4>
@@ -475,7 +473,7 @@ Empty string if unknown.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Deprecated since API13, will be removed in API15.&quot;)]
+    <pre><code class="lang- hljs">[Obsolete(&quot;Deprecated since API13, will be removed in API15.&quot;)]
 public Network.DefaultDataSubscription NetworkDefaultDataSubscription { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
@@ -499,7 +497,7 @@ public Network.DefaultDataSubscription NetworkDefaultDataSubscription { get; }</
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.Telephony/Tizen.Telephony/Network.cs/#L649">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Telephony/Tizen.Telephony/Network.cs/#L649">View Source</a>
   </span>
   <a id="Tizen_Telephony_Network_NetworkDefaultSubscription_" data-uid="Tizen.Telephony.Network.NetworkDefaultSubscription*"></a>
   <h4 id="Tizen_Telephony_Network_NetworkDefaultSubscription" data-uid="Tizen.Telephony.Network.NetworkDefaultSubscription">NetworkDefaultSubscription</h4>
@@ -508,7 +506,7 @@ public Network.DefaultDataSubscription NetworkDefaultDataSubscription { get; }</
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Deprecated since API13, will be removed in API15.&quot;)]
+    <pre><code class="lang- hljs">[Obsolete(&quot;Deprecated since API13, will be removed in API15.&quot;)]
 public Network.DefaultSubscription NetworkDefaultSubscription { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
@@ -532,7 +530,7 @@ public Network.DefaultSubscription NetworkDefaultSubscription { get; }</code></p
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.Telephony/Tizen.Telephony/Network.cs/#L765">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Telephony/Tizen.Telephony/Network.cs/#L765">View Source</a>
   </span>
   <a id="Tizen_Telephony_Network_NetworkId_" data-uid="Tizen.Telephony.Network.NetworkId*"></a>
   <h4 id="Tizen_Telephony_Network_NetworkId" data-uid="Tizen.Telephony.Network.NetworkId">NetworkId</h4>
@@ -541,7 +539,7 @@ public Network.DefaultSubscription NetworkDefaultSubscription { get; }</code></p
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Deprecated since API13, will be removed in API15.&quot;)]
+    <pre><code class="lang- hljs">[Obsolete(&quot;Deprecated since API13, will be removed in API15.&quot;)]
 public int NetworkId { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
@@ -554,7 +552,7 @@ public int NetworkId { get; }</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">int</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><p>The network ID.
 -1 if unknown.</p>
 </td>
@@ -569,7 +567,7 @@ public int NetworkId { get; }</code></pre>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.Telephony/Tizen.Telephony/Network.cs/#L489">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Telephony/Tizen.Telephony/Network.cs/#L489">View Source</a>
   </span>
   <a id="Tizen_Telephony_Network_NetworkName_" data-uid="Tizen.Telephony.Network.NetworkName*"></a>
   <h4 id="Tizen_Telephony_Network_NetworkName" data-uid="Tizen.Telephony.Network.NetworkName">NetworkName</h4>
@@ -578,7 +576,7 @@ public int NetworkId { get; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Deprecated since API13, will be removed in API15.&quot;)]
+    <pre><code class="lang- hljs">[Obsolete(&quot;Deprecated since API13, will be removed in API15.&quot;)]
 public string NetworkName { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
@@ -591,7 +589,7 @@ public string NetworkName { get; }</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">string</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><p>The name of the current registered network.
 Empty string if unknown.</p>
 </td>
@@ -606,7 +604,7 @@ Empty string if unknown.</p>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.Telephony/Tizen.Telephony/Network.cs/#L571">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Telephony/Tizen.Telephony/Network.cs/#L571">View Source</a>
   </span>
   <a id="Tizen_Telephony_Network_NetworkNameOption_" data-uid="Tizen.Telephony.Network.NetworkNameOption*"></a>
   <h4 id="Tizen_Telephony_Network_NetworkNameOption" data-uid="Tizen.Telephony.Network.NetworkNameOption">NetworkNameOption</h4>
@@ -615,7 +613,7 @@ Empty string if unknown.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Deprecated since API13, will be removed in API15.&quot;)]
+    <pre><code class="lang- hljs">[Obsolete(&quot;Deprecated since API13, will be removed in API15.&quot;)]
 public Network.NameOption NetworkNameOption { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
@@ -639,7 +637,7 @@ public Network.NameOption NetworkNameOption { get; }</code></pre>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.Telephony/Tizen.Telephony/Network.cs/#L545">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Telephony/Tizen.Telephony/Network.cs/#L545">View Source</a>
   </span>
   <a id="Tizen_Telephony_Network_NetworkPsType_" data-uid="Tizen.Telephony.Network.NetworkPsType*"></a>
   <h4 id="Tizen_Telephony_Network_NetworkPsType" data-uid="Tizen.Telephony.Network.NetworkPsType">NetworkPsType</h4>
@@ -648,7 +646,7 @@ public Network.NameOption NetworkNameOption { get; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Deprecated since API13, will be removed in API15.&quot;)]
+    <pre><code class="lang- hljs">[Obsolete(&quot;Deprecated since API13, will be removed in API15.&quot;)]
 public Network.PsType NetworkPsType { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
@@ -675,7 +673,7 @@ public Network.PsType NetworkPsType { get; }</code></pre>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.Telephony/Tizen.Telephony/Network.cs/#L675">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Telephony/Tizen.Telephony/Network.cs/#L675">View Source</a>
   </span>
   <a id="Tizen_Telephony_Network_NetworkSelectionMode_" data-uid="Tizen.Telephony.Network.NetworkSelectionMode*"></a>
   <h4 id="Tizen_Telephony_Network_NetworkSelectionMode" data-uid="Tizen.Telephony.Network.NetworkSelectionMode">NetworkSelectionMode</h4>
@@ -684,7 +682,7 @@ public Network.PsType NetworkPsType { get; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Deprecated since API13, will be removed in API15.&quot;)]
+    <pre><code class="lang- hljs">[Obsolete(&quot;Deprecated since API13, will be removed in API15.&quot;)]
 public Network.SelectionMode NetworkSelectionMode { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
@@ -708,7 +706,7 @@ public Network.SelectionMode NetworkSelectionMode { get; }</code></pre>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.Telephony/Tizen.Telephony/Network.cs/#L597">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Telephony/Tizen.Telephony/Network.cs/#L597">View Source</a>
   </span>
   <a id="Tizen_Telephony_Network_NetworkServiceState_" data-uid="Tizen.Telephony.Network.NetworkServiceState*"></a>
   <h4 id="Tizen_Telephony_Network_NetworkServiceState" data-uid="Tizen.Telephony.Network.NetworkServiceState">NetworkServiceState</h4>
@@ -717,7 +715,7 @@ public Network.SelectionMode NetworkSelectionMode { get; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Deprecated since API13, will be removed in API15.&quot;)]
+    <pre><code class="lang- hljs">[Obsolete(&quot;Deprecated since API13, will be removed in API15.&quot;)]
 public Network.ServiceState NetworkServiceState { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
@@ -741,7 +739,7 @@ public Network.ServiceState NetworkServiceState { get; }</code></pre>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.Telephony/Tizen.Telephony/Network.cs/#L517">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Telephony/Tizen.Telephony/Network.cs/#L517">View Source</a>
   </span>
   <a id="Tizen_Telephony_Network_NetworkType_" data-uid="Tizen.Telephony.Network.NetworkType*"></a>
   <h4 id="Tizen_Telephony_Network_NetworkType" data-uid="Tizen.Telephony.Network.NetworkType">NetworkType</h4>
@@ -750,7 +748,7 @@ public Network.ServiceState NetworkServiceState { get; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Deprecated since API13, will be removed in API15.&quot;)]
+    <pre><code class="lang- hljs">[Obsolete(&quot;Deprecated since API13, will be removed in API15.&quot;)]
 public Network.Type NetworkType { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
@@ -777,7 +775,7 @@ public Network.Type NetworkType { get; }</code></pre>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.Telephony/Tizen.Telephony/Network.cs/#L402">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Telephony/Tizen.Telephony/Network.cs/#L402">View Source</a>
   </span>
   <a id="Tizen_Telephony_Network_RoamingStatus_" data-uid="Tizen.Telephony.Network.RoamingStatus*"></a>
   <h4 id="Tizen_Telephony_Network_RoamingStatus" data-uid="Tizen.Telephony.Network.RoamingStatus">RoamingStatus</h4>
@@ -786,7 +784,7 @@ public Network.Type NetworkType { get; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Deprecated since API13, will be removed in API15.&quot;)]
+    <pre><code class="lang- hljs">[Obsolete(&quot;Deprecated since API13, will be removed in API15.&quot;)]
 public bool RoamingStatus { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
@@ -799,7 +797,7 @@ public bool RoamingStatus { get; }</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">bool</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
         <td><p>true if roaming, otherwise false if not roaming.</p>
 </td>
       </tr>
@@ -810,7 +808,7 @@ public bool RoamingStatus { get; }</code></pre>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.Telephony/Tizen.Telephony/Network.cs/#L735">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Telephony/Tizen.Telephony/Network.cs/#L735">View Source</a>
   </span>
   <a id="Tizen_Telephony_Network_SystemId_" data-uid="Tizen.Telephony.Network.SystemId*"></a>
   <h4 id="Tizen_Telephony_Network_SystemId" data-uid="Tizen.Telephony.Network.SystemId">SystemId</h4>
@@ -819,7 +817,7 @@ public bool RoamingStatus { get; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Deprecated since API13, will be removed in API15.&quot;)]
+    <pre><code class="lang- hljs">[Obsolete(&quot;Deprecated since API13, will be removed in API15.&quot;)]
 public int SystemId { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
@@ -832,7 +830,7 @@ public int SystemId { get; }</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">int</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><p>The system ID.
 -1 if unknown.</p>
 </td>
@@ -847,7 +845,7 @@ public int SystemId { get; }</code></pre>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.Telephony/Tizen.Telephony/Network.cs/#L705">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Telephony/Tizen.Telephony/Network.cs/#L705">View Source</a>
   </span>
   <a id="Tizen_Telephony_Network_Tac_" data-uid="Tizen.Telephony.Network.Tac*"></a>
   <h4 id="Tizen_Telephony_Network_Tac" data-uid="Tizen.Telephony.Network.Tac">Tac</h4>
@@ -856,7 +854,7 @@ public int SystemId { get; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Deprecated since API13, will be removed in API15.&quot;)]
+    <pre><code class="lang- hljs">[Obsolete(&quot;Deprecated since API13, will be removed in API15.&quot;)]
 public int Tac { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
@@ -869,7 +867,7 @@ public int Tac { get; }</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">int</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><p>The Tracking Area Code.
 -1 if unknown.</p>
 </td>
@@ -883,6 +881,7 @@ public int Tac { get; }</code></pre>
 
   <div style="margin-bottom: 15px"></div>
 
+
 </article>
           </div>
 
@@ -891,7 +890,7 @@ public int Tac { get; }</code></pre>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.Telephony/Tizen.Telephony/Network.cs/#L27" class="contribution-link">View Source</a>
+                    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Telephony/Tizen.Telephony/Network.cs/#L27" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
@@ -917,7 +916,7 @@ public int Tac { get; }</code></pre>
       </footer>
     </div>
 
-    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../../styles/docfx.js"></script>
     <script type="text/javascript" src="../../styles/main.js"></script>
   </body>

@@ -1,19 +1,17 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Namespace Tizen.NUI.Components
- </title>
+    <title>Namespace Tizen.NUI.Components </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Namespace Tizen.NUI.Components
- ">
+    <meta name="title" content="Namespace Tizen.NUI.Components ">
     <meta name="generator" content="docfx ">
-    <meta name="version" content="API9">
+    <meta name="version" content="">
   
     <link rel="shortcut icon" href="../../images/tizen_favicon.ico">
-    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
     <link rel="stylesheet" href="../../styles/docfx.css">
     <link rel="stylesheet" href="../../styles/main.css">
     <link rel="stylesheet" href="../../styles/tizen.css">
@@ -44,7 +42,7 @@
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
                 <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
                 </div>
               </form>
             </div>
@@ -62,17 +60,17 @@
       <div class="container body-content">
 
         <div id="search-results">
-          <div class="search-list"> <span></span></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination" data-first="data-prev=" data-next="data-last="></ul>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
 
         <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
           <div class="sidetoggle collapse" id="sidetoggle">
             <div id="sidetoc"></div>
           </div>
@@ -81,12 +79,12 @@
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="Tizen.NUI.Components">
 
-  <h1 id="Tizen_NUI_Components" data-uid="Tizen.NUI.Components" class="text-break">Namespace Tizen.NUI.Components
-</h1>
+  <h1 id="Tizen_NUI_Components" data-uid="Tizen.NUI.Components" class="text-break">Namespace Tizen.NUI.Components</h1>
   <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
   <div class="markdown level0 remarks"></div>
-    <h3 id="classes">Classes
+    <h3 id="classes">
+Classes
 </h3>
       <h4><a class="xref" href="Tizen.NUI.Components.AlertDialog.html">AlertDialog</a></h4>
       <section><p>AlertDialog class shows a dialog with title, message and action buttons.</p>
@@ -224,14 +222,14 @@ User can handle Popup button count, head title and content area.</p>
       <h4><a class="xref" href="Tizen.NUI.Components.RecyclerViewItemStyle.html">RecyclerViewItemStyle</a></h4>
       <section><p>RecyclerViewItemStyle is a class which saves RecyclerViewItem's UX data.</p>
 </section>
-      <h4><a class="xref" href="Tizen.NUI.Components.ScrollableBase.html">ScrollableBase</a></h4>
-      <section><p>This class provides a View that can scroll a single View with a layout. This View can be a nest of Views.</p>
-</section>
       <h4><a class="xref" href="Tizen.NUI.Components.ScrollBar.html">ScrollBar</a></h4>
       <section><p>The ScrollBar class of nui component. It allows users to recognize the direction and the range of lists/content.</p>
 </section>
       <h4><a class="xref" href="Tizen.NUI.Components.ScrollEventArgs.html">ScrollEventArgs</a></h4>
       <section><p>ScrollEventArgs is a class to record scroll event arguments which will sent to user.</p>
+</section>
+      <h4><a class="xref" href="Tizen.NUI.Components.ScrollableBase.html">ScrollableBase</a></h4>
+      <section><p>This class provides a View that can scroll a single View with a layout. This View can be a nest of Views.</p>
 </section>
       <h4><a class="xref" href="Tizen.NUI.Components.SelectedChangedEventArgs.html">SelectedChangedEventArgs</a></h4>
       <section><p>SelectedChangedEventArgs is a class to record item selected arguments which will sent to user.</p>
@@ -301,44 +299,53 @@ TabView adds TabButtons and Views to TabBar and TabContent in TabView by <a clas
 TabView removes TabButtons and Views from TabBar and TabContent in TabView by <a class="xref" href="Tizen.NUI.Components.TabView.html#Tizen_NUI_Components_TabView_RemoveTab_System_Int32_">RemoveTab(int)</a>.
 TabView selects a view from the TabContent according to the selected TabButton in the TabBar.</p>
 <example>
-<pre><code>var tabView = new TabView()
+<pre><code class="lang-csharp">var tabView = new TabView()
 {
     WidthSpecification = LayoutParamPolicies.MatchParent,
     HeightSpecification = LayoutParamPolicies.MatchParent,
 };
-<p>var tabButton = new TabButton()
+
+var tabButton = new TabButton()
 {
-Text = &quot;Tab#1&quot;
-};</p>
-<p>var content = new View()
+    Text = "Tab#1"
+};
+
+var content = new View()
 {
-BackgroundColor = Color.Red,
-WidthSpecification = LayoutParamPolicies.MatchParent,
-HeightSpecification = LayoutParamPolicies.MatchParent,
-};</p>
-<p>tabView.AddTab(tabButton, content);</p>
-<p>var tabButton2 = new TabButton()
+    BackgroundColor = Color.Red,
+    WidthSpecification = LayoutParamPolicies.MatchParent,
+    HeightSpecification = LayoutParamPolicies.MatchParent,
+};
+
+tabView.AddTab(tabButton, content);
+
+var tabButton2 = new TabButton()
 {
-Text = &quot;Tab#2&quot;
-};</p>
-<p>var content2 = new View()
+    Text = "Tab#2"
+};
+
+var content2 = new View()
 {
-BackgroundColor = Color.Green,
-WidthSpecification = LayoutParamPolicies.MatchParent,
-HeightSpecification = LayoutParamPolicies.MatchParent,
-};</p>
-<p>tabView.AddTab(tabButton2, content2);</p>
-<p>var tabButton3 = new TabButton()
+    BackgroundColor = Color.Green,
+    WidthSpecification = LayoutParamPolicies.MatchParent,
+    HeightSpecification = LayoutParamPolicies.MatchParent,
+};
+
+tabView.AddTab(tabButton2, content2);
+
+var tabButton3 = new TabButton()
 {
-Text = &quot;Tab#3&quot;
-};</p>
-<p>var content3 = new View()
+    Text = "Tab#3"
+};
+
+var content3 = new View()
 {
-BackgroundColor = Color.Blue,
-WidthSpecification = LayoutParamPolicies.MatchParent,
-HeightSpecification = LayoutParamPolicies.MatchParent,
-};</p>
-<p>tabView.AddTab(tabButton3, content3);</p></code></pre>
+    BackgroundColor = Color.Blue,
+    WidthSpecification = LayoutParamPolicies.MatchParent,
+    HeightSpecification = LayoutParamPolicies.MatchParent,
+};
+
+tabView.AddTab(tabButton3, content3);</code></pre>
 </example>
 </section>
       <h4><a class="xref" href="Tizen.NUI.Components.TimeChangedEventArgs.html">TimeChangedEventArgs</a></h4>
@@ -357,7 +364,8 @@ A toast will automatically disappear after a certain time.</p>
       <h4><a class="xref" href="Tizen.NUI.Components.ValueChangedEventArgs.html">ValueChangedEventArgs</a></h4>
       <section><p>ValueChangedEventArgs is a class to notify changed Picker value argument which will sent to user.</p>
 </section>
-    <h3 id="enums">Enums
+    <h3 id="enums">
+Enums
 </h3>
       <h4><a class="xref" href="Tizen.NUI.Components.Button.IconOrientation.html">Button.IconOrientation</a></h4>
       <section><p>Icon orientation.</p>
@@ -374,11 +382,11 @@ A toast will automatically disappear after a certain time.</p>
       <h4><a class="xref" href="Tizen.NUI.Components.Progress.ProgressStatusType.html">Progress.ProgressStatusType</a></h4>
       <section><p>The status type of the Progress.</p>
 </section>
-      <h4><a class="xref" href="Tizen.NUI.Components.ScrollableBase.Direction.html">ScrollableBase.Direction</a></h4>
-      <section><p>The direction axis to scroll.</p>
-</section>
       <h4><a class="xref" href="Tizen.NUI.Components.ScrollBar.DirectionType.html">ScrollBar.DirectionType</a></h4>
       <section><p>The direction type of the Scroll.</p>
+</section>
+      <h4><a class="xref" href="Tizen.NUI.Components.ScrollableBase.Direction.html">ScrollableBase.Direction</a></h4>
+      <section><p>The direction axis to scroll.</p>
 </section>
       <h4><a class="xref" href="Tizen.NUI.Components.Slider.DirectionType.html">Slider.DirectionType</a></h4>
       <section><p>The direction type of slider.</p>
@@ -386,6 +394,8 @@ A toast will automatically disappear after a certain time.</p>
       <h4><a class="xref" href="Tizen.NUI.Components.Slider.IndicatorType.html">Slider.IndicatorType</a></h4>
       <section><p>The indicator type of slider.</p>
 </section>
+
+
 </article>
           </div>
 
@@ -417,7 +427,7 @@ A toast will automatically disappear after a certain time.</p>
       </footer>
     </div>
 
-    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../../styles/docfx.js"></script>
     <script type="text/javascript" src="../../styles/main.js"></script>
   </body>

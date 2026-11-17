@@ -1,19 +1,17 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class Vibrator
- </title>
+    <title>Class Vibrator </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class Vibrator
- ">
+    <meta name="title" content="Class Vibrator ">
     <meta name="generator" content="docfx ">
-    <meta name="version" content="API13">
+    <meta name="version" content="">
   
     <link rel="shortcut icon" href="../../images/tizen_favicon.ico">
-    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
     <link rel="stylesheet" href="../../styles/docfx.css">
     <link rel="stylesheet" href="../../styles/main.css">
     <link rel="stylesheet" href="../../styles/tizen.css">
@@ -44,7 +42,7 @@
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
                 <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
                 </div>
               </form>
             </div>
@@ -62,17 +60,17 @@
       <div class="container body-content">
 
         <div id="search-results">
-          <div class="search-list"> <span></span></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination" data-first="data-prev=" data-next="data-last="></ul>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
 
         <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
           <div class="sidetoggle collapse" id="sidetoggle">
             <div id="sidetoc"></div>
           </div>
@@ -82,8 +80,8 @@
             <article class="content wrap" id="_content" data-uid="Tizen.System.Vibrator">
 
 
-  <h1 id="Tizen_System_Vibrator" data-uid="Tizen.System.Vibrator" class="text-break">Class Vibrator
-</h1>
+
+  <h1 id="Tizen_System_Vibrator" data-uid="Tizen.System.Vibrator" class="text-break">Class Vibrator</h1>
   <h3 class="hidden-anchor" id="definition"><a href="#definition"></a>Definition</h3>
 
   <dl class="attribute-list"><dt>Namespace:</dt><dd><a class="xref" href="Tizen.html">Tizen</a>.<a class="xref" href="Tizen.System.html">System</a></dd></dl>
@@ -94,7 +92,7 @@
   <div class="markdown level0 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class Vibrator : IDisposable</code></pre>
+    <pre><code class="lang- hljs">public class Vibrator : IDisposable</code></pre>
   </div>
 
 
@@ -102,7 +100,7 @@
     <dt>Inheritance</dt>
     <dd>
       <div class="pdl-holder">
-        <div class="pdl"><span class="xref">object</span></div>
+        <div class="pdl"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
         <div><span class="xref">Vibrator</span></div>
       </div>
     </dd>
@@ -113,7 +111,7 @@
   <dl class="attribute-list stack">
     <dt>Implements</dt>
     <dd>
-      <div class="pdl"><span class="xref">System.IDisposable</span></div>
+      <div class="pdl"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
     </dd>
   </dl>
 
@@ -123,12 +121,12 @@ It allows the management of the device's vibrator parameters, such as the vibrat
 It provides the methods to vibrate and stop the vibration.</p>
 </div>
   <h5 id="Tizen_System_Vibrator_examples"><strong>Examples</strong></h5>
-  <pre><code>    Console.WriteLine(&quot;Total number of Vibrators are: {0}&quot;, Tizen.System.Vibrator.NumberOfVibrators);</code></pre>
+  <pre><code class="lang-csharp">Console.WriteLine("Total number of Vibrators are: {0}", Tizen.System.Vibrator.NumberOfVibrators);</code></pre>
 
   <h3 id="properties">Properties
 </h3>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.System/Device/Haptic.cs/#L91">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.System/Device/Haptic.cs/#L91">View Source</a>
   </span>
   <a id="Tizen_System_Vibrator_NumberOfVibrators_" data-uid="Tizen.System.Vibrator.NumberOfVibrators*"></a>
   <h4 id="Tizen_System_Vibrator_NumberOfVibrators" data-uid="Tizen.System.Vibrator.NumberOfVibrators">NumberOfVibrators</h4>
@@ -137,7 +135,7 @@ It provides the methods to vibrate and stop the vibration.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static int NumberOfVibrators { get; }</code></pre>
+    <pre><code class="lang- hljs">public static int NumberOfVibrators { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -149,7 +147,7 @@ It provides the methods to vibrate and stop the vibration.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">int</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -158,9 +156,9 @@ It provides the methods to vibrate and stop the vibration.</p>
   <div class="markdown level1 remarks"><p>Retrieves the total number of vibrators available on the device.</p>
 </div>
   <h5 id="Tizen_System_Vibrator_NumberOfVibrators_examples">Examples</h5>
-  <pre><code>using Tizen.System;
+  <pre><code class="lang-csharp">using Tizen.System;
 ...
-Console.WriteLine(&quot;Total number of Vibrators are: {0}&quot;, Vibrator.NumberOfVibrators);
+Console.WriteLine("Total number of Vibrators are: {0}", Vibrator.NumberOfVibrators);
 ...</code></pre>
 
   <h5 class="exceptions">Exceptions</h5>
@@ -173,17 +171,17 @@ Console.WriteLine(&quot;Total number of Vibrators are: {0}&quot;, Vibrator.Numbe
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
         <td><p>When an invalid parameter value is set.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.UnauthorizedAccessException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></td>
         <td><p>If the privilege is not set.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.InvalidOperationException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
         <td><p>In case of any system error.</p>
 </td>
       </tr>
@@ -194,7 +192,7 @@ Console.WriteLine(&quot;Total number of Vibrators are: {0}&quot;, Vibrator.Numbe
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.System/Device/Haptic.cs/#L108">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.System/Device/Haptic.cs/#L108">View Source</a>
   </span>
   <a id="Tizen_System_Vibrator_Vibrators_" data-uid="Tizen.System.Vibrator.Vibrators*"></a>
   <h4 id="Tizen_System_Vibrator_Vibrators" data-uid="Tizen.System.Vibrator.Vibrators">Vibrators</h4>
@@ -203,7 +201,7 @@ Console.WriteLine(&quot;Total number of Vibrators are: {0}&quot;, Vibrator.Numbe
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IReadOnlyList&lt;Vibrator&gt; Vibrators { get; }</code></pre>
+    <pre><code class="lang- hljs">public static IReadOnlyList&lt;Vibrator&gt; Vibrators { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -215,16 +213,11 @@ Console.WriteLine(&quot;Total number of Vibrators are: {0}&quot;, Vibrator.Numbe
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IReadOnlyList&lt;T&gt;</span>&lt;<a class="xref" href="Tizen.System.Vibrator.html">Vibrator</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="Tizen.System.Vibrator.html">Vibrator</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <h5 id="Tizen_System_Vibrator_Vibrators_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>The Vibrator API provides the way to access the vibrators in the device.
-It allows the management of the device's vibrator parameters, such as the vibration count and level.
-It provides the methods to vibrate and stop the vibration.</p>
-</div>
   <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -235,17 +228,17 @@ It provides the methods to vibrate and stop the vibration.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
         <td><p>When an invalid parameter value is set.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.UnauthorizedAccessException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></td>
         <td><p>If the privilege is not set.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.InvalidOperationException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
         <td><p>In case of any system error.</p>
 </td>
       </tr>
@@ -258,7 +251,7 @@ It provides the methods to vibrate and stop the vibration.</p>
   <h3 id="methods">Methods
 </h3>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.System/Device/Haptic.cs/#L239">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.System/Device/Haptic.cs/#L239">View Source</a>
   </span>
   <a id="Tizen_System_Vibrator_Dispose_" data-uid="Tizen.System.Vibrator.Dispose*"></a>
   <h4 id="Tizen_System_Vibrator_Dispose" data-uid="Tizen.System.Vibrator.Dispose">Dispose()</h4>
@@ -268,19 +261,19 @@ This function can be used to stop all the effects started by Vibrate().</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+    <pre><code class="lang- hljs">public void Dispose()</code></pre>
   </div>
   <h5 id="Tizen_System_Vibrator_Dispose_remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>Internally, it disconnects the connection to the vibrator by Vibrate().</p>
 </div>
   <h5 id="Tizen_System_Vibrator_Dispose_examples">Examples</h5>
-  <pre><code>using Tizen.System;
+  <pre><code class="lang-csharp">using Tizen.System;
 ...
 Vibrator vibrator = Vibrator.Vibrators[0];
 vibrator.Vibrate(2000, 70);
 ...
 vibrator.Stop();
-vibrator.Dispose(); </code></pre>
+vibrator.Dispose();</code></pre>
 
   <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -292,17 +285,17 @@ vibrator.Dispose(); </code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
         <td><p>When an invalid parameter value is set.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.UnauthorizedAccessException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></td>
         <td><p>If the privilege is not set.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.InvalidOperationException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
         <td><p>In case of any system error.</p>
 </td>
       </tr>
@@ -317,7 +310,7 @@ vibrator.Dispose(); </code></pre>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.System/Device/Haptic.cs/#L250">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.System/Device/Haptic.cs/#L250">View Source</a>
   </span>
   <a id="Tizen_System_Vibrator_Dispose_" data-uid="Tizen.System.Vibrator.Dispose*"></a>
   <h4 id="Tizen_System_Vibrator_Dispose_System_Boolean_" data-uid="Tizen.System.Vibrator.Dispose(System.Boolean)">Dispose(bool)</h4>
@@ -327,7 +320,7 @@ This function can be used to stop all the effects started by Vibrate().</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected virtual void Dispose(bool disposing)</code></pre>
+    <pre><code class="lang- hljs">protected virtual void Dispose(bool disposing)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -340,17 +333,12 @@ This function can be used to stop all the effects started by Vibrate().</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">bool</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
         <td><span class="parametername">disposing</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <h5 id="Tizen_System_Vibrator_Dispose_System_Boolean__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>The Vibrator API provides the way to access the vibrators in the device.
-It allows the management of the device's vibrator parameters, such as the vibration count and level.
-It provides the methods to vibrate and stop the vibration.</p>
-</div>
   <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -361,17 +349,17 @@ It provides the methods to vibrate and stop the vibration.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
         <td><p>When an invalid parameter value is set.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.UnauthorizedAccessException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></td>
         <td><p>If the privilege is not set.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.InvalidOperationException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
         <td><p>In case of any system error.</p>
 </td>
       </tr>
@@ -382,7 +370,7 @@ It provides the methods to vibrate and stop the vibration.</p>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.System/Device/Haptic.cs/#L71">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.System/Device/Haptic.cs/#L71">View Source</a>
   </span>
   <a id="Tizen_System_Vibrator_Finalize_" data-uid="Tizen.System.Vibrator.Finalize*"></a>
   <h4 id="Tizen_System_Vibrator_Finalize" data-uid="Tizen.System.Vibrator.Finalize">~Vibrator()</h4>
@@ -391,13 +379,8 @@ It provides the methods to vibrate and stop the vibration.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected ~Vibrator()</code></pre>
+    <pre><code class="lang- hljs">protected ~Vibrator()</code></pre>
   </div>
-  <h5 id="Tizen_System_Vibrator_Finalize_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>The Vibrator API provides the way to access the vibrators in the device.
-It allows the management of the device's vibrator parameters, such as the vibration count and level.
-It provides the methods to vibrate and stop the vibration.</p>
-</div>
   <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -408,17 +391,17 @@ It provides the methods to vibrate and stop the vibration.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
         <td><p>When an invalid parameter value is set.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.UnauthorizedAccessException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></td>
         <td><p>If the privilege is not set.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.InvalidOperationException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
         <td><p>In case of any system error.</p>
 </td>
       </tr>
@@ -429,7 +412,7 @@ It provides the methods to vibrate and stop the vibration.</p>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.System/Device/Haptic.cs/#L207">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.System/Device/Haptic.cs/#L207">View Source</a>
   </span>
   <a id="Tizen_System_Vibrator_Stop_" data-uid="Tizen.System.Vibrator.Stop*"></a>
   <h4 id="Tizen_System_Vibrator_Stop" data-uid="Tizen.System.Vibrator.Stop">Stop()</h4>
@@ -439,22 +422,17 @@ This function can be used to stop all the effects started by Vibrate().</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Stop()</code></pre>
+    <pre><code class="lang- hljs">public void Stop()</code></pre>
   </div>
-  <h5 id="Tizen_System_Vibrator_Stop_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>The Vibrator API provides the way to access the vibrators in the device.
-It allows the management of the device's vibrator parameters, such as the vibration count and level.
-It provides the methods to vibrate and stop the vibration.</p>
-</div>
   <h5 id="Tizen_System_Vibrator_Stop_examples">Examples</h5>
-  <pre><code>    Vibrator vibrator = Vibrator.Vibrators[0];
-    try
-    {
-        vibrator.Stop();
-    }
-    catch(Exception e)
-    {
-    }</code></pre>
+  <pre><code class="lang-csharp">Vibrator vibrator = Vibrator.Vibrators[0];
+try
+{
+    vibrator.Stop();
+}
+catch(Exception e)
+{
+}</code></pre>
 
   <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -466,22 +444,22 @@ It provides the methods to vibrate and stop the vibration.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
         <td><p>In case an invalid vibrator instance is used.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.UnauthorizedAccessException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></td>
         <td><p>If the privilege is not set.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.InvalidOperationException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
         <td><p>In case of any system error.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.NotSupportedException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a></td>
         <td><p>In case the device does not support this behavior.</p>
 </td>
       </tr>
@@ -496,7 +474,7 @@ It provides the methods to vibrate and stop the vibration.</p>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.System/Device/Haptic.cs/#L163">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.System/Device/Haptic.cs/#L163">View Source</a>
   </span>
   <a id="Tizen_System_Vibrator_Vibrate_" data-uid="Tizen.System.Vibrator.Vibrate*"></a>
   <h4 id="Tizen_System_Vibrator_Vibrate_System_Int32_System_Int32_" data-uid="Tizen.System.Vibrator.Vibrate(System.Int32,System.Int32)">Vibrate(int, int)</h4>
@@ -506,7 +484,7 @@ This function can be used to start monotonous vibration for the specified time.<
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Vibrate(int duration, int feedback)</code></pre>
+    <pre><code class="lang- hljs">public void Vibrate(int duration, int feedback)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -519,13 +497,13 @@ This function can be used to start monotonous vibration for the specified time.<
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">int</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">duration</span></td>
         <td><p>The play duration in milliseconds.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">int</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">feedback</span></td>
         <td><p>The amount of the intensity variation (0 ~ 100).</p>
 </td>
@@ -536,14 +514,14 @@ This function can be used to start monotonous vibration for the specified time.<
   <div class="markdown level1 remarks"><p>To prevent unexpected sleep (suspend) during vibration, please check and use Power module.</p>
 </div>
   <h5 id="Tizen_System_Vibrator_Vibrate_System_Int32_System_Int32__examples">Examples</h5>
-  <pre><code>    Vibrator vibrator = Vibrator.Vibrators[0];
-    try
-    {
-        vibrator.Vibrate(2000, 70);
-    }
-    catch(Exception e)
-    {
-    }</code></pre>
+  <pre><code class="lang-csharp">Vibrator vibrator = Vibrator.Vibrators[0];
+try
+{
+    vibrator.Vibrate(2000, 70);
+}
+catch(Exception e)
+{
+}</code></pre>
 
   <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -555,22 +533,22 @@ This function can be used to start monotonous vibration for the specified time.<
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
         <td><p>When an invalid parameter value is set.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.UnauthorizedAccessException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></td>
         <td><p>If the privilege is not set.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.InvalidOperationException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
         <td><p>In case of any system error.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.NotSupportedException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a></td>
         <td><p>In case the device does not support this behavior.</p>
 </td>
       </tr>
@@ -587,8 +565,9 @@ This function can be used to start monotonous vibration for the specified time.<
 
   <h3 id="implements">Implements</h3>
   <div>
-      <span class="xref">System.IDisposable</span>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a>
   </div>
+
 </article>
           </div>
 
@@ -597,7 +576,7 @@ This function can be used to start monotonous vibration for the specified time.<
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.System/Device/Haptic.cs/#L45" class="contribution-link">View Source</a>
+                    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.System/Device/Haptic.cs/#L45" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
@@ -623,7 +602,7 @@ This function can be used to start monotonous vibration for the specified time.<
       </footer>
     </div>
 
-    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../../styles/docfx.js"></script>
     <script type="text/javascript" src="../../styles/main.js"></script>
   </body>

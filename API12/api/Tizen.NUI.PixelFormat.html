@@ -1,19 +1,17 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Enum PixelFormat
- </title>
+    <title>Enum PixelFormat </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Enum PixelFormat
- ">
+    <meta name="title" content="Enum PixelFormat ">
     <meta name="generator" content="docfx ">
-    <meta name="version" content="API12">
+    <meta name="version" content="">
   
     <link rel="shortcut icon" href="../../images/tizen_favicon.ico">
-    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
     <link rel="stylesheet" href="../../styles/docfx.css">
     <link rel="stylesheet" href="../../styles/main.css">
     <link rel="stylesheet" href="../../styles/tizen.css">
@@ -44,7 +42,7 @@
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
                 <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
                 </div>
               </form>
             </div>
@@ -62,17 +60,17 @@
       <div class="container body-content">
 
         <div id="search-results">
-          <div class="search-list"> <span></span></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination" data-first="data-prev=" data-next="data-last="></ul>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
 
         <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
           <div class="sidetoggle collapse" id="sidetoggle">
             <div id="sidetoc"></div>
           </div>
@@ -82,8 +80,9 @@
             <article class="content wrap" id="_content" data-uid="Tizen.NUI.PixelFormat">
 
 
-  <h1 id="Tizen_NUI_PixelFormat" data-uid="Tizen.NUI.PixelFormat" class="text-break">Enum PixelFormat
-</h1>
+
+
+  <h1 id="Tizen_NUI_PixelFormat" data-uid="Tizen.NUI.PixelFormat" class="text-break">Enum PixelFormat</h1>
   <h3 class="hidden-anchor" id="definition"><a href="#definition"></a>Definition</h3>
 
   <dl class="attribute-list"><dt>Namespace:</dt><dd><a class="xref" href="Tizen.html">Tizen</a>.<a class="xref" href="Tizen.NUI.html">NUI</a></dd></dl>
@@ -95,21 +94,22 @@ Pixel format, default color depth is RGBA 32 bit with alpha.</p>
   <div class="markdown level0 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public enum PixelFormat</code></pre>
+    <pre><code class="lang- hljs">[SuppressMessage(&quot;Naming&quot;, &quot;CA1707: Identifiers should not contain underscores&quot;)]
+public enum PixelFormat</code></pre>
   </div>
 
 
 
   <h3 id="fields">Fields
 </h3>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
         <th>Description</th>
       </tr>
     <thead>
-    <tbody>
+    </thead></thead><tbody>
       <tr>
         <td id="Tizen_NUI_PixelFormat_A8">A8</td>
         <td><p>color depth 8-bit, alpha.</p>
@@ -151,11 +151,6 @@ Pixel format, default color depth is RGBA 32 bit with alpha.</p>
 </td>
       </tr>
       <tr>
-        <td id="Tizen_NUI_PixelFormat_COMPRESSED_RGB_PVRTC_4BPPV1">COMPRESSED_RGB_PVRTC_4BPPV1</td>
-        <td><p>PowerVR 4bpp RGB format (v1) as defined by extension IMG_texture_compression_pvrtc: <a href="http://www.khronos.org/registry/gles/extensions/IMG/IMG_texture_compression_pvrtc.txt">http://www.khronos.org/registry/gles/extensions/IMG/IMG_texture_compression_pvrtc.txt</a></p>
-</td>
-      </tr>
-      <tr>
         <td id="Tizen_NUI_PixelFormat_COMPRESSED_RGB8_ETC1">COMPRESSED_RGB8_ETC1</td>
         <td><p>ETC1 RGB as defined by GLES 2 extension OES_compressed_ETC1_RGB8_texture: <a href="http://www.khronos.org/registry/gles/extensions/OES/OES_compressed_ETC1_RGB8_texture.txt">http://www.khronos.org/registry/gles/extensions/OES/OES_compressed_ETC1_RGB8_texture.txt</a></p>
 </td>
@@ -168,6 +163,11 @@ Pixel format, default color depth is RGBA 32 bit with alpha.</p>
       <tr>
         <td id="Tizen_NUI_PixelFormat_COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2">COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2</td>
         <td><p>ETC2 / EAC RGB with single bit per pixel alpha mask.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Tizen_NUI_PixelFormat_COMPRESSED_RGBA8_ETC2_EAC">COMPRESSED_RGBA8_ETC2_EAC</td>
+        <td><p>ETC2 / EAC RGB plus separate alpha channel.</p>
 </td>
       </tr>
       <tr>
@@ -241,8 +241,8 @@ Pixel format, default color depth is RGBA 32 bit with alpha.</p>
 </td>
       </tr>
       <tr>
-        <td id="Tizen_NUI_PixelFormat_COMPRESSED_RGBA8_ETC2_EAC">COMPRESSED_RGBA8_ETC2_EAC</td>
-        <td><p>ETC2 / EAC RGB plus separate alpha channel.</p>
+        <td id="Tizen_NUI_PixelFormat_COMPRESSED_RGB_PVRTC_4BPPV1">COMPRESSED_RGB_PVRTC_4BPPV1</td>
+        <td><p>PowerVR 4bpp RGB format (v1) as defined by extension IMG_texture_compression_pvrtc: <a href="http://www.khronos.org/registry/gles/extensions/IMG/IMG_texture_compression_pvrtc.txt">http://www.khronos.org/registry/gles/extensions/IMG/IMG_texture_compression_pvrtc.txt</a></p>
 </td>
       </tr>
       <tr>
@@ -386,7 +386,7 @@ Pixel format, default color depth is RGBA 32 bit with alpha.</p>
 </td>
       </tr>
     </tbody>
-  </thead></thead></table>
+  </table>
 </article>
           </div>
 
@@ -395,7 +395,7 @@ Pixel format, default color depth is RGBA 32 bit with alpha.</p>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/Samsung/TizenFX/blob/API12/src/Tizen.NUI/src/public/Images/PixelFormat.cs/#L25" class="contribution-link">View Source</a>
+                    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI/src/public/Images/PixelFormat.cs/#L25" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
@@ -421,7 +421,7 @@ Pixel format, default color depth is RGBA 32 bit with alpha.</p>
       </footer>
     </div>
 
-    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../../styles/docfx.js"></script>
     <script type="text/javascript" src="../../styles/main.js"></script>
   </body>

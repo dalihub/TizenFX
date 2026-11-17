@@ -1,19 +1,17 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class ContactsQuery
- </title>
+    <title>Class ContactsQuery </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class ContactsQuery
- ">
+    <meta name="title" content="Class ContactsQuery ">
     <meta name="generator" content="docfx ">
-    <meta name="version" content="API9">
+    <meta name="version" content="">
   
     <link rel="shortcut icon" href="../../images/tizen_favicon.ico">
-    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
     <link rel="stylesheet" href="../../styles/docfx.css">
     <link rel="stylesheet" href="../../styles/main.css">
     <link rel="stylesheet" href="../../styles/tizen.css">
@@ -44,7 +42,7 @@
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
                 <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
                 </div>
               </form>
             </div>
@@ -62,17 +60,17 @@
       <div class="container body-content">
 
         <div id="search-results">
-          <div class="search-list"> <span></span></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination" data-first="data-prev=" data-next="data-last="></ul>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
 
         <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
           <div class="sidetoggle collapse" id="sidetoggle">
             <div id="sidetoc"></div>
           </div>
@@ -82,11 +80,11 @@
             <article class="content wrap" id="_content" data-uid="Tizen.Pims.Contacts.ContactsQuery">
 
 
-  <h1 id="Tizen_Pims_Contacts_ContactsQuery" data-uid="Tizen.Pims.Contacts.ContactsQuery" class="text-break">Class ContactsQuery
-</h1>
+
+  <h1 id="Tizen_Pims_Contacts_ContactsQuery" data-uid="Tizen.Pims.Contacts.ContactsQuery" class="text-break">Class ContactsQuery</h1>
   <h3 class="hidden-anchor" id="definition"><a href="#definition"></a>Definition</h3>
 
-  <dl class="attribute-list"><dt>Namespace:</dt><dd><a class="xref" href="Tizen.html">Tizen</a>.<span class="xref">Pims</span>.<a class="xref" href="Tizen.Pims.Contacts.html">Contacts</a></dd></dl>
+  <dl class="attribute-list"><dt>Namespace:</dt><dd><a class="xref" href="Tizen.html">Tizen</a>.<a class="xref" href="Tizen.Pims.html">Pims</a>.<a class="xref" href="Tizen.Pims.Contacts.html">Contacts</a></dd></dl>
   <dl class="attribute-list"><dt>Assembly:</dt><dd>Tizen.Pims.Contacts.dll</dd></dl>
 
   <div class="markdown level0 summary"><p>A query is used to retrieve the data, which satisfies a given criteria.</p>
@@ -94,7 +92,7 @@
   <div class="markdown level0 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class ContactsQuery : IDisposable</code></pre>
+    <pre><code class="lang- hljs">public class ContactsQuery : IDisposable</code></pre>
   </div>
 
 
@@ -102,7 +100,7 @@
     <dt>Inheritance</dt>
     <dd>
       <div class="pdl-holder">
-        <div class="pdl"><span class="xref">object</span></div>
+        <div class="pdl"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
         <div><span class="xref">ContactsQuery</span></div>
       </div>
     </dd>
@@ -113,7 +111,7 @@
   <dl class="attribute-list stack">
     <dt>Implements</dt>
     <dd>
-      <div class="pdl"><span class="xref">System.IDisposable</span></div>
+      <div class="pdl"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
     </dd>
   </dl>
 
@@ -124,7 +122,7 @@ A query needs a filter which can set the conditions for the search.</p>
   <h3 id="constructors">Constructors
 </h3>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API9/src/Tizen.Pims.Contacts/Tizen.Pims.Contacts/ContactsQuery.cs/#L43">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Pims.Contacts/Tizen.Pims.Contacts/ContactsQuery.cs/#L43">View Source</a>
   </span>
   <a id="Tizen_Pims_Contacts_ContactsQuery__ctor_" data-uid="Tizen.Pims.Contacts.ContactsQuery.#ctor*"></a>
   <h4 id="Tizen_Pims_Contacts_ContactsQuery__ctor_System_String_" data-uid="Tizen.Pims.Contacts.ContactsQuery.#ctor(System.String)">ContactsQuery(string)</h4>
@@ -133,7 +131,8 @@ A query needs a filter which can set the conditions for the search.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ContactsQuery(string viewUri)</code></pre>
+    <pre><code class="lang- hljs">[SuppressMessage(&quot;Microsoft.Design&quot;, &quot;CA1054:UriParametersShouldNotBeStrings&quot;)]
+public ContactsQuery(string viewUri)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -146,17 +145,13 @@ A query needs a filter which can set the conditions for the search.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">string</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">viewUri</span></td>
         <td><p>The view URI of a query.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 id="Tizen_Pims_Contacts_ContactsQuery__ctor_System_String__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>A query is used to retrieve a person, group, speed dial, and log data, which satisfies a given criteria, such as an integer property being greater than a given value or a string property containing a given substring.
-A query needs a filter which can set the conditions for the search.</p>
-</div>
   <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -167,17 +162,17 @@ A query needs a filter which can set the conditions for the search.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.NotSupportedException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a></td>
         <td><p>Thrown when the feature is not supported.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
         <td><p>Thrown when one of the arguments provided to a method is not valid.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.OutOfMemoryException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.outofmemoryexception">OutOfMemoryException</a></td>
         <td><p>Thrown when failed due to out of memory.</p>
 </td>
       </tr>
@@ -190,7 +185,7 @@ A query needs a filter which can set the conditions for the search.</p>
   <h3 id="methods">Methods
 </h3>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API9/src/Tizen.Pims.Contacts/Tizen.Pims.Contacts/ContactsQuery.cs/#L101">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Pims.Contacts/Tizen.Pims.Contacts/ContactsQuery.cs/#L101">View Source</a>
   </span>
   <a id="Tizen_Pims_Contacts_ContactsQuery_Dispose_" data-uid="Tizen.Pims.Contacts.ContactsQuery.Dispose*"></a>
   <h4 id="Tizen_Pims_Contacts_ContactsQuery_Dispose" data-uid="Tizen.Pims.Contacts.ContactsQuery.Dispose">Dispose()</h4>
@@ -200,18 +195,14 @@ It should be called after it has finished using the object.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+    <pre><code class="lang- hljs">public void Dispose()</code></pre>
   </div>
-  <h5 id="Tizen_Pims_Contacts_ContactsQuery_Dispose_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>A query is used to retrieve a person, group, speed dial, and log data, which satisfies a given criteria, such as an integer property being greater than a given value or a string property containing a given substring.
-A query needs a filter which can set the conditions for the search.</p>
-</div>
 
 
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API9/src/Tizen.Pims.Contacts/Tizen.Pims.Contacts/ContactsQuery.cs/#L75">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Pims.Contacts/Tizen.Pims.Contacts/ContactsQuery.cs/#L75">View Source</a>
   </span>
   <a id="Tizen_Pims_Contacts_ContactsQuery_Dispose_" data-uid="Tizen.Pims.Contacts.ContactsQuery.Dispose*"></a>
   <h4 id="Tizen_Pims_Contacts_ContactsQuery_Dispose_System_Boolean_" data-uid="Tizen.Pims.Contacts.ContactsQuery.Dispose(System.Boolean)">Dispose(bool)</h4>
@@ -220,7 +211,7 @@ A query needs a filter which can set the conditions for the search.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected virtual void Dispose(bool disposing)</code></pre>
+    <pre><code class="lang- hljs">protected virtual void Dispose(bool disposing)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -233,23 +224,19 @@ A query needs a filter which can set the conditions for the search.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">bool</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
         <td><span class="parametername">disposing</span></td>
         <td><p>Disposing by the user.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 id="Tizen_Pims_Contacts_ContactsQuery_Dispose_System_Boolean__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>A query is used to retrieve a person, group, speed dial, and log data, which satisfies a given criteria, such as an integer property being greater than a given value or a string property containing a given substring.
-A query needs a filter which can set the conditions for the search.</p>
-</div>
 
 
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API9/src/Tizen.Pims.Contacts/Tizen.Pims.Contacts/ContactsQuery.cs/#L63">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Pims.Contacts/Tizen.Pims.Contacts/ContactsQuery.cs/#L63">View Source</a>
   </span>
   <a id="Tizen_Pims_Contacts_ContactsQuery_Finalize_" data-uid="Tizen.Pims.Contacts.ContactsQuery.Finalize*"></a>
   <h4 id="Tizen_Pims_Contacts_ContactsQuery_Finalize" data-uid="Tizen.Pims.Contacts.ContactsQuery.Finalize">~ContactsQuery()</h4>
@@ -258,18 +245,14 @@ A query needs a filter which can set the conditions for the search.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected ~ContactsQuery()</code></pre>
+    <pre><code class="lang- hljs">protected ~ContactsQuery()</code></pre>
   </div>
-  <h5 id="Tizen_Pims_Contacts_ContactsQuery_Finalize_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>A query is used to retrieve a person, group, speed dial, and log data, which satisfies a given criteria, such as an integer property being greater than a given value or a string property containing a given substring.
-A query needs a filter which can set the conditions for the search.</p>
-</div>
 
 
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API9/src/Tizen.Pims.Contacts/Tizen.Pims.Contacts/ContactsQuery.cs/#L138">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Pims.Contacts/Tizen.Pims.Contacts/ContactsQuery.cs/#L138">View Source</a>
   </span>
   <a id="Tizen_Pims_Contacts_ContactsQuery_SetDistinct_" data-uid="Tizen.Pims.Contacts.ContactsQuery.SetDistinct*"></a>
   <h4 id="Tizen_Pims_Contacts_ContactsQuery_SetDistinct_System_Boolean_" data-uid="Tizen.Pims.Contacts.ContactsQuery.SetDistinct(System.Boolean)">SetDistinct(bool)</h4>
@@ -278,7 +261,7 @@ A query needs a filter which can set the conditions for the search.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void SetDistinct(bool set)</code></pre>
+    <pre><code class="lang- hljs">public void SetDistinct(bool set)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -291,17 +274,13 @@ A query needs a filter which can set the conditions for the search.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">bool</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
         <td><span class="parametername">set</span></td>
         <td><p>If true it is set, otherwise if false it is unset.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 id="Tizen_Pims_Contacts_ContactsQuery_SetDistinct_System_Boolean__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>A query is used to retrieve a person, group, speed dial, and log data, which satisfies a given criteria, such as an integer property being greater than a given value or a string property containing a given substring.
-A query needs a filter which can set the conditions for the search.</p>
-</div>
   <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -312,7 +291,7 @@ A query needs a filter which can set the conditions for the search.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.NotSupportedException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a></td>
         <td><p>Thrown when the feature is not supported.</p>
 </td>
       </tr>
@@ -323,7 +302,7 @@ A query needs a filter which can set the conditions for the search.</p>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API9/src/Tizen.Pims.Contacts/Tizen.Pims.Contacts/ContactsQuery.cs/#L156">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Pims.Contacts/Tizen.Pims.Contacts/ContactsQuery.cs/#L156">View Source</a>
   </span>
   <a id="Tizen_Pims_Contacts_ContactsQuery_SetFilter_" data-uid="Tizen.Pims.Contacts.ContactsQuery.SetFilter*"></a>
   <h4 id="Tizen_Pims_Contacts_ContactsQuery_SetFilter_Tizen_Pims_Contacts_ContactsFilter_" data-uid="Tizen.Pims.Contacts.ContactsQuery.SetFilter(Tizen.Pims.Contacts.ContactsFilter)">SetFilter(ContactsFilter)</h4>
@@ -332,7 +311,7 @@ A query needs a filter which can set the conditions for the search.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void SetFilter(ContactsFilter filter)</code></pre>
+    <pre><code class="lang- hljs">public void SetFilter(ContactsFilter filter)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -352,10 +331,6 @@ A query needs a filter which can set the conditions for the search.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="Tizen_Pims_Contacts_ContactsQuery_SetFilter_Tizen_Pims_Contacts_ContactsFilter__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>A query is used to retrieve a person, group, speed dial, and log data, which satisfies a given criteria, such as an integer property being greater than a given value or a string property containing a given substring.
-A query needs a filter which can set the conditions for the search.</p>
-</div>
   <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -366,12 +341,12 @@ A query needs a filter which can set the conditions for the search.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.NotSupportedException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a></td>
         <td><p>Thrown when the feature is not supported.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
         <td><p>Thrown when one of the arguments provided to a method is not valid.</p>
 </td>
       </tr>
@@ -382,7 +357,7 @@ A query needs a filter which can set the conditions for the search.</p>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API9/src/Tizen.Pims.Contacts/Tizen.Pims.Contacts/ContactsQuery.cs/#L116">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Pims.Contacts/Tizen.Pims.Contacts/ContactsQuery.cs/#L116">View Source</a>
   </span>
   <a id="Tizen_Pims_Contacts_ContactsQuery_SetProjection_" data-uid="Tizen.Pims.Contacts.ContactsQuery.SetProjection*"></a>
   <h4 id="Tizen_Pims_Contacts_ContactsQuery_SetProjection_System_UInt32___" data-uid="Tizen.Pims.Contacts.ContactsQuery.SetProjection(System.UInt32[])">SetProjection(uint[])</h4>
@@ -391,7 +366,7 @@ A query needs a filter which can set the conditions for the search.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void SetProjection(uint[] propertyIdArray)</code></pre>
+    <pre><code class="lang- hljs">public void SetProjection(uint[] propertyIdArray)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -404,17 +379,13 @@ A query needs a filter which can set the conditions for the search.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">uint</span>[]</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>[]</td>
         <td><span class="parametername">propertyIdArray</span></td>
         <td><p>The property ID array.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 id="Tizen_Pims_Contacts_ContactsQuery_SetProjection_System_UInt32____remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>A query is used to retrieve a person, group, speed dial, and log data, which satisfies a given criteria, such as an integer property being greater than a given value or a string property containing a given substring.
-A query needs a filter which can set the conditions for the search.</p>
-</div>
   <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -425,12 +396,12 @@ A query needs a filter which can set the conditions for the search.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.NotSupportedException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a></td>
         <td><p>Thrown when the feature is not supported.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
         <td><p>Thrown when one of the arguments provided to a method is not valid.</p>
 </td>
       </tr>
@@ -441,7 +412,7 @@ A query needs a filter which can set the conditions for the search.</p>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API9/src/Tizen.Pims.Contacts/Tizen.Pims.Contacts/ContactsQuery.cs/#L175">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Pims.Contacts/Tizen.Pims.Contacts/ContactsQuery.cs/#L175">View Source</a>
   </span>
   <a id="Tizen_Pims_Contacts_ContactsQuery_SetSort_" data-uid="Tizen.Pims.Contacts.ContactsQuery.SetSort*"></a>
   <h4 id="Tizen_Pims_Contacts_ContactsQuery_SetSort_System_UInt32_System_Boolean_" data-uid="Tizen.Pims.Contacts.ContactsQuery.SetSort(System.UInt32,System.Boolean)">SetSort(uint, bool)</h4>
@@ -450,7 +421,7 @@ A query needs a filter which can set the conditions for the search.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void SetSort(uint propertyId, bool isAscending)</code></pre>
+    <pre><code class="lang- hljs">public void SetSort(uint propertyId, bool isAscending)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -463,23 +434,19 @@ A query needs a filter which can set the conditions for the search.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">uint</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></td>
         <td><span class="parametername">propertyId</span></td>
         <td><p>The property ID to sort.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">bool</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
         <td><span class="parametername">isAscending</span></td>
         <td><p>If true it sorts in ascending order, otherwise if false it sorts in descending order.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 id="Tizen_Pims_Contacts_ContactsQuery_SetSort_System_UInt32_System_Boolean__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>A query is used to retrieve a person, group, speed dial, and log data, which satisfies a given criteria, such as an integer property being greater than a given value or a string property containing a given substring.
-A query needs a filter which can set the conditions for the search.</p>
-</div>
   <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -490,12 +457,12 @@ A query needs a filter which can set the conditions for the search.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.NotSupportedException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a></td>
         <td><p>Thrown when the feature is not supported.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
         <td><p>Thrown when one of the arguments provided to a method is not valid.</p>
 </td>
       </tr>
@@ -507,8 +474,9 @@ A query needs a filter which can set the conditions for the search.</p>
 
   <h3 id="implements">Implements</h3>
   <div>
-      <span class="xref">System.IDisposable</span>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a>
   </div>
+
 </article>
           </div>
 
@@ -517,7 +485,7 @@ A query needs a filter which can set the conditions for the search.</p>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/Samsung/TizenFX/blob/API9/src/Tizen.Pims.Contacts/Tizen.Pims.Contacts/ContactsQuery.cs/#L30" class="contribution-link">View Source</a>
+                    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Pims.Contacts/Tizen.Pims.Contacts/ContactsQuery.cs/#L30" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
@@ -543,7 +511,7 @@ A query needs a filter which can set the conditions for the search.</p>
       </footer>
     </div>
 
-    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../../styles/docfx.js"></script>
     <script type="text/javascript" src="../../styles/main.js"></script>
   </body>

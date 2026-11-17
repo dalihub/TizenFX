@@ -1,19 +1,17 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class Context
- </title>
+    <title>Class Context </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class Context
- ">
+    <meta name="title" content="Class Context ">
     <meta name="generator" content="docfx ">
-    <meta name="version" content="API6">
+    <meta name="version" content="">
   
     <link rel="shortcut icon" href="../../images/tizen_favicon.ico">
-    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
     <link rel="stylesheet" href="../../styles/docfx.css">
     <link rel="stylesheet" href="../../styles/main.css">
     <link rel="stylesheet" href="../../styles/tizen.css">
@@ -44,7 +42,7 @@
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
                 <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
                 </div>
               </form>
             </div>
@@ -62,17 +60,17 @@
       <div class="container body-content">
 
         <div id="search-results">
-          <div class="search-list"> <span></span></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination" data-first="data-prev=" data-next="data-last="></ul>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
 
         <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
           <div class="sidetoggle collapse" id="sidetoggle">
             <div id="sidetoc"></div>
           </div>
@@ -82,8 +80,8 @@
             <article class="content wrap" id="_content" data-uid="Tizen.Security.TEEC.Context">
 
 
-  <h1 id="Tizen_Security_TEEC_Context" data-uid="Tizen.Security.TEEC.Context" class="text-break">Class Context
-</h1>
+
+  <h1 id="Tizen_Security_TEEC_Context" data-uid="Tizen.Security.TEEC.Context" class="text-break">Class Context</h1>
   <h3 class="hidden-anchor" id="definition"><a href="#definition"></a>Definition</h3>
 
   <dl class="attribute-list"><dt>Namespace:</dt><dd><a class="xref" href="Tizen.html">Tizen</a>.<a class="xref" href="Tizen.Security.html">Security</a>.<a class="xref" href="Tizen.Security.TEEC.html">TEEC</a></dd></dl>
@@ -94,7 +92,7 @@
   <div class="markdown level0 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class Context : IDisposable</code></pre>
+    <pre><code class="lang- hljs">public sealed class Context : IDisposable</code></pre>
   </div>
 
 
@@ -102,7 +100,7 @@
     <dt>Inheritance</dt>
     <dd>
       <div class="pdl-holder">
-        <div class="pdl"><span class="xref">object</span></div>
+        <div class="pdl"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
         <div><span class="xref">Context</span></div>
       </div>
     </dd>
@@ -113,14 +111,14 @@
   <dl class="attribute-list stack">
     <dt>Implements</dt>
     <dd>
-      <div class="pdl"><span class="xref">System.IDisposable</span></div>
+      <div class="pdl"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
     </dd>
   </dl>
 
   <h3 id="constructors">Constructors
 </h3>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API6/src/Tizen.Security.TEEC/Tizen.Security.TEEC/Libteec.cs/#L793">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Security.TEEC/Tizen.Security.TEEC/Libteec.cs/#L793">View Source</a>
   </span>
   <a id="Tizen_Security_TEEC_Context__ctor_" data-uid="Tizen.Security.TEEC.Context.#ctor*"></a>
   <h4 id="Tizen_Security_TEEC_Context__ctor_System_String_" data-uid="Tizen.Security.TEEC.Context.#ctor(System.String)">Context(string)</h4>
@@ -130,7 +128,7 @@ TEE identified by the string identifier name (empty or null name denotes a defau
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Context(string name)</code></pre>
+    <pre><code class="lang- hljs">public Context(string name)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -143,7 +141,7 @@ TEE identified by the string identifier name (empty or null name denotes a defau
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">string</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">name</span></td>
         <td><p>The TEE name.</p>
 </td>
@@ -160,17 +158,17 @@ TEE identified by the string identifier name (empty or null name denotes a defau
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.UnauthorizedAccessException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></td>
         <td><p>Thrown when an application does not have the privilege to access this method.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.NotSupportedException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a></td>
         <td><p>The required feature is not supported.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.InvalidOperationException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
         <td><p>The operation is invalid.</p>
 </td>
       </tr>
@@ -183,7 +181,7 @@ TEE identified by the string identifier name (empty or null name denotes a defau
   <h3 id="methods">Methods
 </h3>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API6/src/Tizen.Security.TEEC/Tizen.Security.TEEC/Libteec.cs/#L998">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Security.TEEC/Tizen.Security.TEEC/Libteec.cs/#L998">View Source</a>
   </span>
   <a id="Tizen_Security_TEEC_Context_AllocateSharedMemory_" data-uid="Tizen.Security.TEEC.Context.AllocateSharedMemory*"></a>
   <h4 id="Tizen_Security_TEEC_Context_AllocateSharedMemory_System_UInt32_Tizen_Security_TEEC_SharedMemoryFlags_" data-uid="Tizen.Security.TEEC.Context.AllocateSharedMemory(System.UInt32,Tizen.Security.TEEC.SharedMemoryFlags)">AllocateSharedMemory(uint, SharedMemoryFlags)</h4>
@@ -193,7 +191,7 @@ specified context, in accordance with the parameters.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SharedMemory AllocateSharedMemory(uint size, SharedMemoryFlags flags)</code></pre>
+    <pre><code class="lang- hljs">public SharedMemory AllocateSharedMemory(uint size, SharedMemoryFlags flags)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -206,7 +204,7 @@ specified context, in accordance with the parameters.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">uint</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></td>
         <td><span class="parametername">size</span></td>
         <td><p>The size of shared memory.</p>
 </td>
@@ -245,17 +243,17 @@ specified context, in accordance with the parameters.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.UnauthorizedAccessException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></td>
         <td><p>Thrown when an application does not have the privilege to access this method.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.NotSupportedException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a></td>
         <td><p>The required feature is not supported.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.InvalidOperationException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
         <td><p>The operation is invalid.</p>
 </td>
       </tr>
@@ -266,7 +264,7 @@ specified context, in accordance with the parameters.</p>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API6/src/Tizen.Security.TEEC/Tizen.Security.TEEC/Libteec.cs/#L845">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Security.TEEC/Tizen.Security.TEEC/Libteec.cs/#L845">View Source</a>
   </span>
   <a id="Tizen_Security_TEEC_Context_Dispose_" data-uid="Tizen.Security.TEEC.Context.Dispose*"></a>
   <h4 id="Tizen_Security_TEEC_Context_Dispose" data-uid="Tizen.Security.TEEC.Context.Dispose">Dispose()</h4>
@@ -275,14 +273,14 @@ specified context, in accordance with the parameters.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+    <pre><code class="lang- hljs">public void Dispose()</code></pre>
   </div>
 
 
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API6/src/Tizen.Security.TEEC/Tizen.Security.TEEC/Libteec.cs/#L833">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Security.TEEC/Tizen.Security.TEEC/Libteec.cs/#L833">View Source</a>
   </span>
   <a id="Tizen_Security_TEEC_Context_Finalize_" data-uid="Tizen.Security.TEEC.Context.Finalize*"></a>
   <h4 id="Tizen_Security_TEEC_Context_Finalize" data-uid="Tizen.Security.TEEC.Context.Finalize">~Context()</h4>
@@ -291,25 +289,23 @@ specified context, in accordance with the parameters.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected ~Context()</code></pre>
+    <pre><code class="lang- hljs">protected ~Context()</code></pre>
   </div>
 
 
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API6/src/Tizen.Security.TEEC/Tizen.Security.TEEC/Libteec.cs/#L872">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Security.TEEC/Tizen.Security.TEEC/Libteec.cs/#L894">View Source</a>
   </span>
   <a id="Tizen_Security_TEEC_Context_OpenSession_" data-uid="Tizen.Security.TEEC.Context.OpenSession*"></a>
-  <h4 id="Tizen_Security_TEEC_Context_OpenSession_System_Guid_System_UInt32_System_Byte___Tizen_Security_TEEC_Parameter___" data-uid="Tizen.Security.TEEC.Context.OpenSession(System.Guid,System.UInt32,System.Byte[],Tizen.Security.TEEC.Parameter[])">OpenSession(Guid, uint, byte[], Parameter[])</h4>
-  <div class="markdown level1 summary"><p>This function opens a new session between the client application and the specified trusted application.
-The target trusted application is identified by an UUID passed in the parameter destination.
-There can be up to four parameter objects given in the <code data-dev-comment-type="paramref" class="paramref">paramlist</code> array.</p>
+  <h4 id="Tizen_Security_TEEC_Context_OpenSession_System_Guid_" data-uid="Tizen.Security.TEEC.Context.OpenSession(System.Guid)">OpenSession(Guid)</h4>
+  <div class="markdown level1 summary"><p>@see OpenSession (Guid destination, uint connectionMethod, byte[] connectionData, Parameter[] paramlist, CancellationToken token).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Session OpenSession(Guid destination, uint loginMethod, byte[] connectionData, Parameter[] paramlist)</code></pre>
+    <pre><code class="lang- hljs">public Session OpenSession(Guid destination)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -322,19 +318,97 @@ There can be up to four parameter objects given in the <code data-dev-comment-ty
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Guid</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a></td>
+        <td><span class="parametername">destination</span></td>
+        <td><p>The UUID of the destination TA.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Tizen.Security.TEEC.Session.html">Session</a></td>
+        <td><p>Returns opened session.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></td>
+        <td><p>Thrown when an application does not have the privilege to access this method.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a></td>
+        <td><p>The required feature is not supported.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
+        <td><p>The operation is invalid.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <div style="margin-bottom: 15px"></div>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Security.TEEC/Tizen.Security.TEEC/Libteec.cs/#L872">View Source</a>
+  </span>
+  <a id="Tizen_Security_TEEC_Context_OpenSession_" data-uid="Tizen.Security.TEEC.Context.OpenSession*"></a>
+  <h4 id="Tizen_Security_TEEC_Context_OpenSession_System_Guid_System_UInt32_System_Byte___Tizen_Security_TEEC_Parameter___" data-uid="Tizen.Security.TEEC.Context.OpenSession(System.Guid,System.UInt32,System.Byte[],Tizen.Security.TEEC.Parameter[])">OpenSession(Guid, uint, byte[], Parameter[])</h4>
+  <div class="markdown level1 summary"><p>This function opens a new session between the client application and the specified trusted application.
+The target trusted application is identified by an UUID passed in the parameter destination.
+There can be up to four parameter objects given in the <code class="paramref">paramlist</code> array.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">public Session OpenSession(Guid destination, uint loginMethod, byte[] connectionData, Parameter[] paramlist)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a></td>
         <td><span class="parametername">destination</span></td>
         <td><p>The UUID of the destination TA.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">uint</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></td>
         <td><span class="parametername">loginMethod</span></td>
         <td><p>The authentication algorithm <a class="xref" href="Tizen.Security.TEEC.LoginMethod.html">LoginMethod</a>.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">byte</span>[]</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</td>
         <td><span class="parametername">connectionData</span></td>
         <td><p>The data to be verified by a given login method.</p>
 </td>
@@ -373,22 +447,22 @@ There can be up to four parameter objects given in the <code data-dev-comment-ty
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.UnauthorizedAccessException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></td>
         <td><p>Thrown when an application does not have the privilege to access this method.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.NotSupportedException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a></td>
         <td><p>The required feature is not supported.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.InvalidOperationException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
         <td><p>The operation is invalid.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
         <td><p>One of the arguments is wrong.</p>
 </td>
       </tr>
@@ -399,83 +473,7 @@ There can be up to four parameter objects given in the <code data-dev-comment-ty
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API6/src/Tizen.Security.TEEC/Tizen.Security.TEEC/Libteec.cs/#L894">View Source</a>
-  </span>
-  <a id="Tizen_Security_TEEC_Context_OpenSession_" data-uid="Tizen.Security.TEEC.Context.OpenSession*"></a>
-  <h4 id="Tizen_Security_TEEC_Context_OpenSession_System_Guid_" data-uid="Tizen.Security.TEEC.Context.OpenSession(System.Guid)">OpenSession(Guid)</h4>
-  <div class="markdown level1 summary"><p>@see OpenSession (Guid destination, uint connectionMethod, byte[] connectionData, Parameter[] paramlist, CancellationToken token).</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Session OpenSession(Guid destination)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Guid</span></td>
-        <td><span class="parametername">destination</span></td>
-        <td><p>The UUID of the destination TA.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Tizen.Security.TEEC.Session.html">Session</a></td>
-        <td><p>Returns opened session.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.UnauthorizedAccessException</span></td>
-        <td><p>Thrown when an application does not have the privilege to access this method.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.NotSupportedException</span></td>
-        <td><p>The required feature is not supported.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.InvalidOperationException</span></td>
-        <td><p>The operation is invalid.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <div style="margin-bottom: 15px"></div>
-
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API6/src/Tizen.Security.TEEC/Tizen.Security.TEEC/Libteec.cs/#L945">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Security.TEEC/Tizen.Security.TEEC/Libteec.cs/#L945">View Source</a>
   </span>
   <a id="Tizen_Security_TEEC_Context_OpenSessionAsync_" data-uid="Tizen.Security.TEEC.Context.OpenSessionAsync*"></a>
   <h4 id="Tizen_Security_TEEC_Context_OpenSessionAsync_System_Guid_System_Threading_CancellationToken_" data-uid="Tizen.Security.TEEC.Context.OpenSessionAsync(System.Guid,System.Threading.CancellationToken)">OpenSessionAsync(Guid, CancellationToken)</h4>
@@ -485,7 +483,7 @@ There can be up to four parameter objects given in the <code data-dev-comment-ty
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;Session&gt; OpenSessionAsync(Guid destination, CancellationToken token = default)</code></pre>
+    <pre><code class="lang- hljs">public Task&lt;Session&gt; OpenSessionAsync(Guid destination, CancellationToken token = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -498,13 +496,13 @@ There can be up to four parameter objects given in the <code data-dev-comment-ty
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Guid</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a></td>
         <td><span class="parametername">destination</span></td>
         <td><p>The UUID of the destination TA.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">token</span></td>
         <td><p>The token for a task manipulation.</p>
 </td>
@@ -521,7 +519,7 @@ There can be up to four parameter objects given in the <code data-dev-comment-ty
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task&lt;TResult&gt;</span>&lt;<a class="xref" href="Tizen.Security.TEEC.Session.html">Session</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Tizen.Security.TEEC.Session.html">Session</a>&gt;</td>
         <td><p>Returns a task executing session open in the background.</p>
 </td>
       </tr>
@@ -537,17 +535,17 @@ There can be up to four parameter objects given in the <code data-dev-comment-ty
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.UnauthorizedAccessException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></td>
         <td><p>Thrown when an application does not have the privilege to access this method.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.NotSupportedException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a></td>
         <td><p>The required feature is not supported.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.InvalidOperationException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
         <td><p>The operation is invalid.</p>
 </td>
       </tr>
@@ -558,7 +556,7 @@ There can be up to four parameter objects given in the <code data-dev-comment-ty
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API6/src/Tizen.Security.TEEC/Tizen.Security.TEEC/Libteec.cs/#L923">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Security.TEEC/Tizen.Security.TEEC/Libteec.cs/#L923">View Source</a>
   </span>
   <a id="Tizen_Security_TEEC_Context_OpenSessionAsync_" data-uid="Tizen.Security.TEEC.Context.OpenSessionAsync*"></a>
   <h4 id="Tizen_Security_TEEC_Context_OpenSessionAsync_System_Guid_System_UInt32_System_Byte___Tizen_Security_TEEC_Parameter___System_Threading_CancellationToken_" data-uid="Tizen.Security.TEEC.Context.OpenSessionAsync(System.Guid,System.UInt32,System.Byte[],Tizen.Security.TEEC.Parameter[],System.Threading.CancellationToken)">OpenSessionAsync(Guid, uint, byte[], Parameter[], CancellationToken)</h4>
@@ -568,7 +566,7 @@ There can be up to four parameter objects given in the <code data-dev-comment-ty
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;Session&gt; OpenSessionAsync(Guid destination, uint loginMethod, byte[] connectionData, Parameter[] paramlist, CancellationToken token = default)</code></pre>
+    <pre><code class="lang- hljs">public Task&lt;Session&gt; OpenSessionAsync(Guid destination, uint loginMethod, byte[] connectionData, Parameter[] paramlist, CancellationToken token = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -581,19 +579,19 @@ There can be up to four parameter objects given in the <code data-dev-comment-ty
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Guid</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a></td>
         <td><span class="parametername">destination</span></td>
         <td><p>The UUID of the destination TA.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">uint</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></td>
         <td><span class="parametername">loginMethod</span></td>
         <td><p>The authentication algorithm <a class="xref" href="Tizen.Security.TEEC.LoginMethod.html">LoginMethod</a>.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">byte</span>[]</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</td>
         <td><span class="parametername">connectionData</span></td>
         <td><p>The data to be verified by a given login method.</p>
 </td>
@@ -605,7 +603,7 @@ There can be up to four parameter objects given in the <code data-dev-comment-ty
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">token</span></td>
         <td><p>The token for the task manipulation.</p>
 </td>
@@ -622,7 +620,7 @@ There can be up to four parameter objects given in the <code data-dev-comment-ty
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task&lt;TResult&gt;</span>&lt;<a class="xref" href="Tizen.Security.TEEC.Session.html">Session</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Tizen.Security.TEEC.Session.html">Session</a>&gt;</td>
         <td><p>Returns a Task executing the session open in the background.</p>
 </td>
       </tr>
@@ -638,22 +636,22 @@ There can be up to four parameter objects given in the <code data-dev-comment-ty
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.UnauthorizedAccessException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></td>
         <td><p>Thrown when an application does not have the privilege to access this method.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.NotSupportedException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a></td>
         <td><p>The required feature is not supported.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.InvalidOperationException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
         <td><p>The operation is invalid.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
         <td><p>One of the arguments is wrong.</p>
 </td>
       </tr>
@@ -664,18 +662,18 @@ There can be up to four parameter objects given in the <code data-dev-comment-ty
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API6/src/Tizen.Security.TEEC/Tizen.Security.TEEC/Libteec.cs/#L971">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Security.TEEC/Tizen.Security.TEEC/Libteec.cs/#L971">View Source</a>
   </span>
   <a id="Tizen_Security_TEEC_Context_RegisterSharedMemory_" data-uid="Tizen.Security.TEEC.Context.RegisterSharedMemory*"></a>
   <h4 id="Tizen_Security_TEEC_Context_RegisterSharedMemory_System_IntPtr_System_UInt32_Tizen_Security_TEEC_SharedMemoryFlags_" data-uid="Tizen.Security.TEEC.Context.RegisterSharedMemory(System.IntPtr,System.UInt32,Tizen.Security.TEEC.SharedMemoryFlags)">RegisterSharedMemory(IntPtr, uint, SharedMemoryFlags)</h4>
   <div class="markdown level1 summary"><p>This function registers a block of the existing client application memory as a block of shared memory within
 the scope of the specified context, in accordance with the parameters.
-The input <code data-dev-comment-type="paramref" class="paramref">memaddr</code> must point to the shared memory region to register.</p>
+The input <code class="paramref">memaddr</code> must point to the shared memory region to register.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SharedMemory RegisterSharedMemory(IntPtr memaddr, uint size, SharedMemoryFlags flags)</code></pre>
+    <pre><code class="lang- hljs">public SharedMemory RegisterSharedMemory(IntPtr memaddr, uint size, SharedMemoryFlags flags)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -688,13 +686,13 @@ The input <code data-dev-comment-type="paramref" class="paramref">memaddr</code>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.IntPtr</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">IntPtr</a></td>
         <td><span class="parametername">memaddr</span></td>
         <td><p>The address of the shared memory.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">uint</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></td>
         <td><span class="parametername">size</span></td>
         <td><p>The size of the shared memory.</p>
 </td>
@@ -733,23 +731,23 @@ The input <code data-dev-comment-type="paramref" class="paramref">memaddr</code>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.UnauthorizedAccessException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></td>
         <td><p>Thrown when an application does not have the privilege to access this method.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.NotSupportedException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a></td>
         <td><p>The required feature is not supported.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.InvalidOperationException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
         <td><p>The operation is invalid.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
-        <td><p>The argument <code data-dev-comment-type="paramref" class="paramref">memaddr</code> is wrong.</p>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
+        <td><p>The argument <code class="paramref">memaddr</code> is wrong.</p>
 </td>
       </tr>
     </tbody>
@@ -759,7 +757,7 @@ The input <code data-dev-comment-type="paramref" class="paramref">memaddr</code>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API6/src/Tizen.Security.TEEC/Tizen.Security.TEEC/Libteec.cs/#L1031">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Security.TEEC/Tizen.Security.TEEC/Libteec.cs/#L1031">View Source</a>
   </span>
   <a id="Tizen_Security_TEEC_Context_ReleaseSharedMemory_" data-uid="Tizen.Security.TEEC.Context.ReleaseSharedMemory*"></a>
   <h4 id="Tizen_Security_TEEC_Context_ReleaseSharedMemory_Tizen_Security_TEEC_SharedMemory_" data-uid="Tizen.Security.TEEC.Context.ReleaseSharedMemory(Tizen.Security.TEEC.SharedMemory)">ReleaseSharedMemory(SharedMemory)</h4>
@@ -768,7 +766,7 @@ The input <code data-dev-comment-type="paramref" class="paramref">memaddr</code>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void ReleaseSharedMemory(SharedMemory shm)</code></pre>
+    <pre><code class="lang- hljs">public void ReleaseSharedMemory(SharedMemory shm)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -807,22 +805,22 @@ other purposes as the memory is owned by it.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.UnauthorizedAccessException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></td>
         <td><p>Thrown when an application does not have the privilege to access this method.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.NotSupportedException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a></td>
         <td><p>The required feature is not supported.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.InvalidOperationException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
         <td><p>The operation is invalid.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
         <td><p>The argument is wrong.</p>
 </td>
       </tr>
@@ -834,8 +832,9 @@ other purposes as the memory is owned by it.</p>
 
   <h3 id="implements">Implements</h3>
   <div>
-      <span class="xref">System.IDisposable</span>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a>
   </div>
+
 </article>
           </div>
 
@@ -844,7 +843,7 @@ other purposes as the memory is owned by it.</p>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/Samsung/TizenFX/blob/API6/src/Tizen.Security.TEEC/Tizen.Security.TEEC/Libteec.cs/#L774" class="contribution-link">View Source</a>
+                    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Security.TEEC/Tizen.Security.TEEC/Libteec.cs/#L774" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
@@ -870,7 +869,7 @@ other purposes as the memory is owned by it.</p>
       </footer>
     </div>
 
-    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../../styles/docfx.js"></script>
     <script type="text/javascript" src="../../styles/main.js"></script>
   </body>

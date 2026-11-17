@@ -1,19 +1,17 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class StubBase
- </title>
+    <title>Class StubBase </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class StubBase
- ">
+    <meta name="title" content="Class StubBase ">
     <meta name="generator" content="docfx ">
-    <meta name="version" content="API12">
+    <meta name="version" content="">
   
     <link rel="shortcut icon" href="../../images/tizen_favicon.ico">
-    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
     <link rel="stylesheet" href="../../styles/docfx.css">
     <link rel="stylesheet" href="../../styles/main.css">
     <link rel="stylesheet" href="../../styles/tizen.css">
@@ -44,7 +42,7 @@
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
                 <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
                 </div>
               </form>
             </div>
@@ -62,17 +60,17 @@
       <div class="container body-content">
 
         <div id="search-results">
-          <div class="search-list"> <span></span></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination" data-first="data-prev=" data-next="data-last="></ul>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
 
         <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
           <div class="sidetoggle collapse" id="sidetoggle">
             <div id="sidetoc"></div>
           </div>
@@ -82,8 +80,8 @@
             <article class="content wrap" id="_content" data-uid="Tizen.Applications.RPCPort.StubBase">
 
 
-  <h1 id="Tizen_Applications_RPCPort_StubBase" data-uid="Tizen.Applications.RPCPort.StubBase" class="text-break">Class StubBase
-</h1>
+
+  <h1 id="Tizen_Applications_RPCPort_StubBase" data-uid="Tizen.Applications.RPCPort.StubBase" class="text-break">Class StubBase</h1>
   <h3 class="hidden-anchor" id="definition"><a href="#definition"></a>Definition</h3>
 
   <dl class="attribute-list"><dt>Namespace:</dt><dd><a class="xref" href="Tizen.html">Tizen</a>.<a class="xref" href="Tizen.Applications.html">Applications</a>.<a class="xref" href="Tizen.Applications.RPCPort.html">RPCPort</a></dd></dl>
@@ -94,7 +92,7 @@
   <div class="markdown level0 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract class StubBase : IDisposable</code></pre>
+    <pre><code class="lang- hljs">public abstract class StubBase : IDisposable</code></pre>
   </div>
 
 
@@ -102,7 +100,7 @@
     <dt>Inheritance</dt>
     <dd>
       <div class="pdl-holder">
-        <div class="pdl"><span class="xref">object</span></div>
+        <div class="pdl"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
         <div><span class="xref">StubBase</span></div>
       </div>
     </dd>
@@ -113,7 +111,7 @@
   <dl class="attribute-list stack">
     <dt>Implements</dt>
     <dd>
-      <div class="pdl"><span class="xref">System.IDisposable</span></div>
+      <div class="pdl"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
     </dd>
   </dl>
 
@@ -125,7 +123,7 @@ To create a stub for a specific interface, you need to extend the StubBase class
   <h3 id="constructors">Constructors
 </h3>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API12/src/Tizen.Applications.Common/Tizen.Applications.RPCPort/StubBase.cs/#L57">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Applications.Common/Tizen.Applications.RPCPort/StubBase.cs/#L57">View Source</a>
   </span>
   <a id="Tizen_Applications_RPCPort_StubBase__ctor_" data-uid="Tizen.Applications.RPCPort.StubBase.#ctor*"></a>
   <h4 id="Tizen_Applications_RPCPort_StubBase__ctor_System_String_" data-uid="Tizen.Applications.RPCPort.StubBase.#ctor(System.String)">StubBase(string)</h4>
@@ -134,7 +132,7 @@ To create a stub for a specific interface, you need to extend the StubBase class
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public StubBase(string portName)</code></pre>
+    <pre><code class="lang- hljs">public StubBase(string portName)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -147,22 +145,17 @@ To create a stub for a specific interface, you need to extend the StubBase class
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">string</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">portName</span></td>
         <td><p>The name of the port that wants to listen.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 id="Tizen_Applications_RPCPort_StubBase__ctor_System_String__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This class provides a base implementation for creating stubs that are used in Remote Procedure Call (RPC). By extending this class, you can easily implement your own stubs for specific interfaces.
-The StubBase class handles common functionality such as managing the connection state and handling incoming requests from clients. It also provides methods for sending responses back to the client after processing the request.
-To create a stub for a specific interface, you need to extend the StubBase class and override its virtual methods according to the requirements of the interface.</p>
-</div>
   <h5 id="Tizen_Applications_RPCPort_StubBase__ctor_System_String__examples">Examples</h5>
   <p>Here's an example showing how to construct a new instance of the StubBase class:</p>
-<pre><code>// Create a new instance of the StubBase class
-var stubBase = new StubBase(&quot;MyPort&quot;);</code></pre>
+<pre><code class="lang-csharp">// Create a new instance of the StubBase class
+var stubBase = new StubBase("MyPort");</code></pre>
 
   <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -187,7 +180,7 @@ var stubBase = new StubBase(&quot;MyPort&quot;);</code></pre>
   <h3 id="properties">Properties
 </h3>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API12/src/Tizen.Applications.Common/Tizen.Applications.RPCPort/StubBase.cs/#L41">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Applications.Common/Tizen.Applications.RPCPort/StubBase.cs/#L41">View Source</a>
   </span>
   <a id="Tizen_Applications_RPCPort_StubBase_PortName_" data-uid="Tizen.Applications.RPCPort.StubBase.PortName*"></a>
   <h4 id="Tizen_Applications_RPCPort_StubBase_PortName" data-uid="Tizen.Applications.RPCPort.StubBase.PortName">PortName</h4>
@@ -196,7 +189,7 @@ var stubBase = new StubBase(&quot;MyPort&quot;);</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string PortName { get; }</code></pre>
+    <pre><code class="lang- hljs">public string PortName { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -208,16 +201,11 @@ var stubBase = new StubBase(&quot;MyPort&quot;);</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">string</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <h5 id="Tizen_Applications_RPCPort_StubBase_PortName_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This class provides a base implementation for creating stubs that are used in Remote Procedure Call (RPC). By extending this class, you can easily implement your own stubs for specific interfaces.
-The StubBase class handles common functionality such as managing the connection state and handling incoming requests from clients. It also provides methods for sending responses back to the client after processing the request.
-To create a stub for a specific interface, you need to extend the StubBase class and override its virtual methods according to the requirements of the interface.</p>
-</div>
 
 
   <div style="margin-bottom: 15px"></div>
@@ -225,7 +213,7 @@ To create a stub for a specific interface, you need to extend the StubBase class
   <h3 id="methods">Methods
 </h3>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API12/src/Tizen.Applications.Common/Tizen.Applications.RPCPort/StubBase.cs/#L96">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Applications.Common/Tizen.Applications.RPCPort/StubBase.cs/#L96">View Source</a>
   </span>
   <a id="Tizen_Applications_RPCPort_StubBase_AddPrivilege_" data-uid="Tizen.Applications.RPCPort.StubBase.AddPrivilege*"></a>
   <h4 id="Tizen_Applications_RPCPort_StubBase_AddPrivilege_System_String_" data-uid="Tizen.Applications.RPCPort.StubBase.AddPrivilege(System.String)">AddPrivilege(string)</h4>
@@ -234,7 +222,7 @@ To create a stub for a specific interface, you need to extend the StubBase class
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected void AddPrivilege(string privilege)</code></pre>
+    <pre><code class="lang- hljs">protected void AddPrivilege(string privilege)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -247,18 +235,13 @@ To create a stub for a specific interface, you need to extend the StubBase class
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">string</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">privilege</span></td>
         <td><p>The privilege to access this stub.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 id="Tizen_Applications_RPCPort_StubBase_AddPrivilege_System_String__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This class provides a base implementation for creating stubs that are used in Remote Procedure Call (RPC). By extending this class, you can easily implement your own stubs for specific interfaces.
-The StubBase class handles common functionality such as managing the connection state and handling incoming requests from clients. It also provides methods for sending responses back to the client after processing the request.
-To create a stub for a specific interface, you need to extend the StubBase class and override its virtual methods according to the requirements of the interface.</p>
-</div>
   <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -269,7 +252,7 @@ To create a stub for a specific interface, you need to extend the StubBase class
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
         <td><p>Thrown when the privilege is null.</p>
 </td>
       </tr>
@@ -280,7 +263,7 @@ To create a stub for a specific interface, you need to extend the StubBase class
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API12/src/Tizen.Applications.Common/Tizen.Applications.RPCPort/StubBase.cs/#L227">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Applications.Common/Tizen.Applications.RPCPort/StubBase.cs/#L227">View Source</a>
   </span>
   <a id="Tizen_Applications_RPCPort_StubBase_Dispose_" data-uid="Tizen.Applications.RPCPort.StubBase.Dispose*"></a>
   <h4 id="Tizen_Applications_RPCPort_StubBase_Dispose" data-uid="Tizen.Applications.RPCPort.StubBase.Dispose">Dispose()</h4>
@@ -289,19 +272,14 @@ To create a stub for a specific interface, you need to extend the StubBase class
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+    <pre><code class="lang- hljs">public void Dispose()</code></pre>
   </div>
-  <h5 id="Tizen_Applications_RPCPort_StubBase_Dispose_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This class provides a base implementation for creating stubs that are used in Remote Procedure Call (RPC). By extending this class, you can easily implement your own stubs for specific interfaces.
-The StubBase class handles common functionality such as managing the connection state and handling incoming requests from clients. It also provides methods for sending responses back to the client after processing the request.
-To create a stub for a specific interface, you need to extend the StubBase class and override its virtual methods according to the requirements of the interface.</p>
-</div>
 
 
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API12/src/Tizen.Applications.Common/Tizen.Applications.RPCPort/StubBase.cs/#L198">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Applications.Common/Tizen.Applications.RPCPort/StubBase.cs/#L198">View Source</a>
   </span>
   <a id="Tizen_Applications_RPCPort_StubBase_Dispose_" data-uid="Tizen.Applications.RPCPort.StubBase.Dispose*"></a>
   <h4 id="Tizen_Applications_RPCPort_StubBase_Dispose_System_Boolean_" data-uid="Tizen.Applications.RPCPort.StubBase.Dispose(System.Boolean)">Dispose(bool)</h4>
@@ -310,7 +288,7 @@ To create a stub for a specific interface, you need to extend the StubBase class
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected virtual void Dispose(bool disposing)</code></pre>
+    <pre><code class="lang- hljs">protected virtual void Dispose(bool disposing)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -323,24 +301,19 @@ To create a stub for a specific interface, you need to extend the StubBase class
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">bool</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
         <td><span class="parametername">disposing</span></td>
         <td><p>true to disposes any disposable objects, or false not to dispose disposable objects.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 id="Tizen_Applications_RPCPort_StubBase_Dispose_System_Boolean__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This class provides a base implementation for creating stubs that are used in Remote Procedure Call (RPC). By extending this class, you can easily implement your own stubs for specific interfaces.
-The StubBase class handles common functionality such as managing the connection state and handling incoming requests from clients. It also provides methods for sending responses back to the client after processing the request.
-To create a stub for a specific interface, you need to extend the StubBase class and override its virtual methods according to the requirements of the interface.</p>
-</div>
 
 
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API12/src/Tizen.Applications.Common/Tizen.Applications.RPCPort/StubBase.cs/#L219">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Applications.Common/Tizen.Applications.RPCPort/StubBase.cs/#L219">View Source</a>
   </span>
   <a id="Tizen_Applications_RPCPort_StubBase_Finalize_" data-uid="Tizen.Applications.RPCPort.StubBase.Finalize*"></a>
   <h4 id="Tizen_Applications_RPCPort_StubBase_Finalize" data-uid="Tizen.Applications.RPCPort.StubBase.Finalize">~StubBase()</h4>
@@ -349,19 +322,14 @@ To create a stub for a specific interface, you need to extend the StubBase class
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected ~StubBase()</code></pre>
+    <pre><code class="lang- hljs">protected ~StubBase()</code></pre>
   </div>
-  <h5 id="Tizen_Applications_RPCPort_StubBase_Finalize_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This class provides a base implementation for creating stubs that are used in Remote Procedure Call (RPC). By extending this class, you can easily implement your own stubs for specific interfaces.
-The StubBase class handles common functionality such as managing the connection state and handling incoming requests from clients. It also provides methods for sending responses back to the client after processing the request.
-To create a stub for a specific interface, you need to extend the StubBase class and override its virtual methods according to the requirements of the interface.</p>
-</div>
 
 
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API12/src/Tizen.Applications.Common/Tizen.Applications.RPCPort/StubBase.cs/#L125">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Applications.Common/Tizen.Applications.RPCPort/StubBase.cs/#L125">View Source</a>
   </span>
   <a id="Tizen_Applications_RPCPort_StubBase_GetPort_" data-uid="Tizen.Applications.RPCPort.StubBase.GetPort*"></a>
   <h4 id="Tizen_Applications_RPCPort_StubBase_GetPort_Tizen_Applications_RPCPort_Port_Type_System_String_" data-uid="Tizen.Applications.RPCPort.StubBase.GetPort(Tizen.Applications.RPCPort.Port.Type,System.String)">GetPort(Type, string)</h4>
@@ -370,7 +338,7 @@ To create a stub for a specific interface, you need to extend the StubBase class
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected Port GetPort(Port.Type t, string instance)</code></pre>
+    <pre><code class="lang- hljs">protected Port GetPort(Port.Type t, string instance)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -389,7 +357,7 @@ To create a stub for a specific interface, you need to extend the StubBase class
 </td>
       </tr>
       <tr>
-        <td><span class="xref">string</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">instance</span></td>
         <td><p>The ID of the instance that the port is connected to.</p>
 </td>
@@ -412,11 +380,6 @@ To create a stub for a specific interface, you need to extend the StubBase class
       </tr>
     </tbody>
   </table>
-  <h5 id="Tizen_Applications_RPCPort_StubBase_GetPort_Tizen_Applications_RPCPort_Port_Type_System_String__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This class provides a base implementation for creating stubs that are used in Remote Procedure Call (RPC). By extending this class, you can easily implement your own stubs for specific interfaces.
-The StubBase class handles common functionality such as managing the connection state and handling incoming requests from clients. It also provides methods for sending responses back to the client after processing the request.
-To create a stub for a specific interface, you need to extend the StubBase class and override its virtual methods according to the requirements of the interface.</p>
-</div>
   <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -443,7 +406,7 @@ To create a stub for a specific interface, you need to extend the StubBase class
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API12/src/Tizen.Applications.Common/Tizen.Applications.RPCPort/StubBase.cs/#L79">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Applications.Common/Tizen.Applications.RPCPort/StubBase.cs/#L79">View Source</a>
   </span>
   <a id="Tizen_Applications_RPCPort_StubBase_Listen_" data-uid="Tizen.Applications.RPCPort.StubBase.Listen*"></a>
   <h4 id="Tizen_Applications_RPCPort_StubBase_Listen" data-uid="Tizen.Applications.RPCPort.StubBase.Listen">Listen()</h4>
@@ -452,7 +415,7 @@ To create a stub for a specific interface, you need to extend the StubBase class
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected void Listen()</code></pre>
+    <pre><code class="lang- hljs">protected void Listen()</code></pre>
   </div>
   <h5 id="Tizen_Applications_RPCPort_StubBase_Listen_remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>This method enables your application to listen for incoming connection requests from other applications.
@@ -479,7 +442,7 @@ It is typically called after setting up the necessary network infrastructure suc
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API12/src/Tizen.Applications.Common/Tizen.Applications.RPCPort/StubBase.cs/#L146">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Applications.Common/Tizen.Applications.RPCPort/StubBase.cs/#L146">View Source</a>
   </span>
   <a id="Tizen_Applications_RPCPort_StubBase_OnConnectedEvent_" data-uid="Tizen.Applications.RPCPort.StubBase.OnConnectedEvent*"></a>
   <h4 id="Tizen_Applications_RPCPort_StubBase_OnConnectedEvent_System_String_System_String_" data-uid="Tizen.Applications.RPCPort.StubBase.OnConnectedEvent(System.String,System.String)">OnConnectedEvent(string, string)</h4>
@@ -488,7 +451,7 @@ It is typically called after setting up the necessary network infrastructure suc
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void OnConnectedEvent(string sender, string instance)</code></pre>
+    <pre><code class="lang- hljs">protected abstract void OnConnectedEvent(string sender, string instance)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -501,30 +464,25 @@ It is typically called after setting up the necessary network infrastructure suc
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">string</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">sender</span></td>
         <td><p>The target proxy applicstion ID.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">string</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">instance</span></td>
         <td><p>The information about the request.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 id="Tizen_Applications_RPCPort_StubBase_OnConnectedEvent_System_String_System_String__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This class provides a base implementation for creating stubs that are used in Remote Procedure Call (RPC). By extending this class, you can easily implement your own stubs for specific interfaces.
-The StubBase class handles common functionality such as managing the connection state and handling incoming requests from clients. It also provides methods for sending responses back to the client after processing the request.
-To create a stub for a specific interface, you need to extend the StubBase class and override its virtual methods according to the requirements of the interface.</p>
-</div>
 
 
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API12/src/Tizen.Applications.Common/Tizen.Applications.RPCPort/StubBase.cs/#L154">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Applications.Common/Tizen.Applications.RPCPort/StubBase.cs/#L154">View Source</a>
   </span>
   <a id="Tizen_Applications_RPCPort_StubBase_OnDisconnectedEvent_" data-uid="Tizen.Applications.RPCPort.StubBase.OnDisconnectedEvent*"></a>
   <h4 id="Tizen_Applications_RPCPort_StubBase_OnDisconnectedEvent_System_String_System_String_" data-uid="Tizen.Applications.RPCPort.StubBase.OnDisconnectedEvent(System.String,System.String)">OnDisconnectedEvent(string, string)</h4>
@@ -533,7 +491,7 @@ To create a stub for a specific interface, you need to extend the StubBase class
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void OnDisconnectedEvent(string sender, string instance)</code></pre>
+    <pre><code class="lang- hljs">protected abstract void OnDisconnectedEvent(string sender, string instance)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -546,30 +504,25 @@ To create a stub for a specific interface, you need to extend the StubBase class
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">string</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">sender</span></td>
         <td><p>The target proxy applicstion ID.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">string</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">instance</span></td>
         <td><p>The information about the request.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 id="Tizen_Applications_RPCPort_StubBase_OnDisconnectedEvent_System_String_System_String__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This class provides a base implementation for creating stubs that are used in Remote Procedure Call (RPC). By extending this class, you can easily implement your own stubs for specific interfaces.
-The StubBase class handles common functionality such as managing the connection state and handling incoming requests from clients. It also provides methods for sending responses back to the client after processing the request.
-To create a stub for a specific interface, you need to extend the StubBase class and override its virtual methods according to the requirements of the interface.</p>
-</div>
 
 
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API12/src/Tizen.Applications.Common/Tizen.Applications.RPCPort/StubBase.cs/#L164">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Applications.Common/Tizen.Applications.RPCPort/StubBase.cs/#L164">View Source</a>
   </span>
   <a id="Tizen_Applications_RPCPort_StubBase_OnReceivedEvent_" data-uid="Tizen.Applications.RPCPort.StubBase.OnReceivedEvent*"></a>
   <h4 id="Tizen_Applications_RPCPort_StubBase_OnReceivedEvent_System_String_System_String_Tizen_Applications_RPCPort_Port_" data-uid="Tizen.Applications.RPCPort.StubBase.OnReceivedEvent(System.String,System.String,Tizen.Applications.RPCPort.Port)">OnReceivedEvent(string, string, Port)</h4>
@@ -578,7 +531,7 @@ To create a stub for a specific interface, you need to extend the StubBase class
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract bool OnReceivedEvent(string sender, string instance, Port port)</code></pre>
+    <pre><code class="lang- hljs">protected abstract bool OnReceivedEvent(string sender, string instance, Port port)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -591,13 +544,13 @@ To create a stub for a specific interface, you need to extend the StubBase class
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">string</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">sender</span></td>
         <td><p>The target proxy applicstion ID.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">string</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">instance</span></td>
         <td><p>The information about the request.</p>
 </td>
@@ -620,23 +573,18 @@ To create a stub for a specific interface, you need to extend the StubBase class
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">bool</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
         <td><p><code>true</code> to continue receiving data, otherwise <code>false</code> to disconnect from the port.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 id="Tizen_Applications_RPCPort_StubBase_OnReceivedEvent_System_String_System_String_Tizen_Applications_RPCPort_Port__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This class provides a base implementation for creating stubs that are used in Remote Procedure Call (RPC). By extending this class, you can easily implement your own stubs for specific interfaces.
-The StubBase class handles common functionality such as managing the connection state and handling incoming requests from clients. It also provides methods for sending responses back to the client after processing the request.
-To create a stub for a specific interface, you need to extend the StubBase class and override its virtual methods according to the requirements of the interface.</p>
-</div>
 
 
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API12/src/Tizen.Applications.Common/Tizen.Applications.RPCPort/StubBase.cs/#L170">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Applications.Common/Tizen.Applications.RPCPort/StubBase.cs/#L170">View Source</a>
   </span>
   <a id="Tizen_Applications_RPCPort_StubBase_OnTerminatedEvent_" data-uid="Tizen.Applications.RPCPort.StubBase.OnTerminatedEvent*"></a>
   <h4 id="Tizen_Applications_RPCPort_StubBase_OnTerminatedEvent" data-uid="Tizen.Applications.RPCPort.StubBase.OnTerminatedEvent">OnTerminatedEvent()</h4>
@@ -645,19 +593,14 @@ To create a stub for a specific interface, you need to extend the StubBase class
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void OnTerminatedEvent()</code></pre>
+    <pre><code class="lang- hljs">protected abstract void OnTerminatedEvent()</code></pre>
   </div>
-  <h5 id="Tizen_Applications_RPCPort_StubBase_OnTerminatedEvent_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This class provides a base implementation for creating stubs that are used in Remote Procedure Call (RPC). By extending this class, you can easily implement your own stubs for specific interfaces.
-The StubBase class handles common functionality such as managing the connection state and handling incoming requests from clients. It also provides methods for sending responses back to the client after processing the request.
-To create a stub for a specific interface, you need to extend the StubBase class and override its virtual methods according to the requirements of the interface.</p>
-</div>
 
 
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API12/src/Tizen.Applications.Common/Tizen.Applications.RPCPort/StubBase.cs/#L111">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Applications.Common/Tizen.Applications.RPCPort/StubBase.cs/#L111">View Source</a>
   </span>
   <a id="Tizen_Applications_RPCPort_StubBase_SetTrusted_" data-uid="Tizen.Applications.RPCPort.StubBase.SetTrusted*"></a>
   <h4 id="Tizen_Applications_RPCPort_StubBase_SetTrusted_System_Boolean_" data-uid="Tizen.Applications.RPCPort.StubBase.SetTrusted(System.Boolean)">SetTrusted(bool)</h4>
@@ -666,7 +609,7 @@ To create a stub for a specific interface, you need to extend the StubBase class
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected void SetTrusted(bool trusted)</code></pre>
+    <pre><code class="lang- hljs">protected void SetTrusted(bool trusted)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -679,26 +622,22 @@ To create a stub for a specific interface, you need to extend the StubBase class
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">bool</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
         <td><span class="parametername">trusted</span></td>
         <td><p>Indicates if the stub allows only trusted proxies or not.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 id="Tizen_Applications_RPCPort_StubBase_SetTrusted_System_Boolean__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This class provides a base implementation for creating stubs that are used in Remote Procedure Call (RPC). By extending this class, you can easily implement your own stubs for specific interfaces.
-The StubBase class handles common functionality such as managing the connection state and handling incoming requests from clients. It also provides methods for sending responses back to the client after processing the request.
-To create a stub for a specific interface, you need to extend the StubBase class and override its virtual methods according to the requirements of the interface.</p>
-</div>
 
 
   <div style="margin-bottom: 15px"></div>
 
   <h3 id="implements">Implements</h3>
   <div>
-      <span class="xref">System.IDisposable</span>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a>
   </div>
+
 </article>
           </div>
 
@@ -707,7 +646,7 @@ To create a stub for a specific interface, you need to extend the StubBase class
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/Samsung/TizenFX/blob/API12/src/Tizen.Applications.Common/Tizen.Applications.RPCPort/StubBase.cs/#L30" class="contribution-link">View Source</a>
+                    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Applications.Common/Tizen.Applications.RPCPort/StubBase.cs/#L30" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
@@ -733,7 +672,7 @@ To create a stub for a specific interface, you need to extend the StubBase class
       </footer>
     </div>
 
-    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../../styles/docfx.js"></script>
     <script type="text/javascript" src="../../styles/main.js"></script>
   </body>

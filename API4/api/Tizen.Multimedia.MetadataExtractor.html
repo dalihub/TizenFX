@@ -1,19 +1,17 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class MetadataExtractor
- </title>
+    <title>Class MetadataExtractor </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class MetadataExtractor
- ">
+    <meta name="title" content="Class MetadataExtractor ">
     <meta name="generator" content="docfx ">
-    <meta name="version" content="API4">
+    <meta name="version" content="">
   
     <link rel="shortcut icon" href="../../images/tizen_favicon.ico">
-    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
     <link rel="stylesheet" href="../../styles/docfx.css">
     <link rel="stylesheet" href="../../styles/main.css">
     <link rel="stylesheet" href="../../styles/tizen.css">
@@ -44,7 +42,7 @@
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
                 <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
                 </div>
               </form>
             </div>
@@ -62,17 +60,17 @@
       <div class="container body-content">
 
         <div id="search-results">
-          <div class="search-list"> <span></span></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination" data-first="data-prev=" data-next="data-last="></ul>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
 
         <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
           <div class="sidetoggle collapse" id="sidetoggle">
             <div id="sidetoc"></div>
           </div>
@@ -82,8 +80,8 @@
             <article class="content wrap" id="_content" data-uid="Tizen.Multimedia.MetadataExtractor">
 
 
-  <h1 id="Tizen_Multimedia_MetadataExtractor" data-uid="Tizen.Multimedia.MetadataExtractor" class="text-break">Class MetadataExtractor
-</h1>
+
+  <h1 id="Tizen_Multimedia_MetadataExtractor" data-uid="Tizen.Multimedia.MetadataExtractor" class="text-break">Class MetadataExtractor</h1>
   <h3 class="hidden-anchor" id="definition"><a href="#definition"></a>Definition</h3>
 
   <dl class="attribute-list"><dt>Namespace:</dt><dd><a class="xref" href="Tizen.html">Tizen</a>.<a class="xref" href="Tizen.Multimedia.html">Multimedia</a></dd></dl>
@@ -94,7 +92,7 @@
   <div class="markdown level0 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class MetadataExtractor : IDisposable</code></pre>
+    <pre><code class="lang- hljs">public class MetadataExtractor : IDisposable</code></pre>
   </div>
 
 
@@ -102,7 +100,7 @@
     <dt>Inheritance</dt>
     <dd>
       <div class="pdl-holder">
-        <div class="pdl"><span class="xref">object</span></div>
+        <div class="pdl"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
         <div><span class="xref">MetadataExtractor</span></div>
       </div>
     </dd>
@@ -113,14 +111,14 @@
   <dl class="attribute-list stack">
     <dt>Implements</dt>
     <dd>
-      <div class="pdl"><span class="xref">System.IDisposable</span></div>
+      <div class="pdl"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
     </dd>
   </dl>
 
   <h3 id="constructors">Constructors
 </h3>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API4/src/Tizen.Multimedia.Metadata/MetadataExtractor/MetadataExtractor.cs/#L75">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Multimedia.Metadata/MetadataExtractor/MetadataExtractor.cs/#L75">View Source</a>
   </span>
   <a id="Tizen_Multimedia_MetadataExtractor__ctor_" data-uid="Tizen.Multimedia.MetadataExtractor.#ctor*"></a>
   <h4 id="Tizen_Multimedia_MetadataExtractor__ctor_System_Byte___" data-uid="Tizen.Multimedia.MetadataExtractor.#ctor(System.Byte[])">MetadataExtractor(byte[])</h4>
@@ -129,7 +127,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public MetadataExtractor(byte[] buffer)</code></pre>
+    <pre><code class="lang- hljs">public MetadataExtractor(byte[] buffer)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -142,7 +140,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">byte</span>[]</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</td>
         <td><span class="parametername">buffer</span></td>
         <td><p>The buffer to extract the metadata.</p>
 </td>
@@ -159,13 +157,13 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.ArgumentNullException</span></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">buffer</code> is null.</p>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code class="paramref">buffer</code> is null.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
-        <td><p>The length of <code data-dev-comment-type="paramref" class="paramref">buffer</code> is zero.</p>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
+        <td><p>The length of <code class="paramref">buffer</code> is zero.</p>
 </td>
       </tr>
     </tbody>
@@ -175,7 +173,7 @@
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API4/src/Tizen.Multimedia.Metadata/MetadataExtractor/MetadataExtractor.cs/#L58">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Multimedia.Metadata/MetadataExtractor/MetadataExtractor.cs/#L58">View Source</a>
   </span>
   <a id="Tizen_Multimedia_MetadataExtractor__ctor_" data-uid="Tizen.Multimedia.MetadataExtractor.#ctor*"></a>
   <h4 id="Tizen_Multimedia_MetadataExtractor__ctor_System_String_" data-uid="Tizen.Multimedia.MetadataExtractor.#ctor(System.String)">MetadataExtractor(string)</h4>
@@ -184,7 +182,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public MetadataExtractor(string path)</code></pre>
+    <pre><code class="lang- hljs">public MetadataExtractor(string path)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -197,7 +195,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">string</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">path</span></td>
         <td><p>The path for the file to extract the metadata.</p>
 </td>
@@ -214,13 +212,13 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.ArgumentNullException</span></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">path</code> is null.</p>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code class="paramref">path</code> is null.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.IO.FileNotFoundException</span></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">path</code> does not exist.</p>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.filenotfoundexception">FileNotFoundException</a></td>
+        <td><p><code class="paramref">path</code> does not exist.</p>
 </td>
       </tr>
     </tbody>
@@ -232,7 +230,7 @@
   <h3 id="methods">Methods
 </h3>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API4/src/Tizen.Multimedia.Metadata/MetadataExtractor/MetadataExtractor.cs/#L320">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Multimedia.Metadata/MetadataExtractor/MetadataExtractor.cs/#L320">View Source</a>
   </span>
   <a id="Tizen_Multimedia_MetadataExtractor_Dispose_" data-uid="Tizen.Multimedia.MetadataExtractor.Dispose*"></a>
   <h4 id="Tizen_Multimedia_MetadataExtractor_Dispose" data-uid="Tizen.Multimedia.MetadataExtractor.Dispose">Dispose()</h4>
@@ -241,14 +239,14 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+    <pre><code class="lang- hljs">public void Dispose()</code></pre>
   </div>
 
 
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API4/src/Tizen.Multimedia.Metadata/MetadataExtractor/MetadataExtractor.cs/#L287">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Multimedia.Metadata/MetadataExtractor/MetadataExtractor.cs/#L287">View Source</a>
   </span>
   <a id="Tizen_Multimedia_MetadataExtractor_Dispose_" data-uid="Tizen.Multimedia.MetadataExtractor.Dispose*"></a>
   <h4 id="Tizen_Multimedia_MetadataExtractor_Dispose_System_Boolean_" data-uid="Tizen.Multimedia.MetadataExtractor.Dispose(System.Boolean)">Dispose(bool)</h4>
@@ -257,7 +255,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected virtual void Dispose(bool disposing)</code></pre>
+    <pre><code class="lang- hljs">protected virtual void Dispose(bool disposing)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -270,7 +268,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">bool</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
         <td><span class="parametername">disposing</span></td>
         <td><p>true to release both managed and unmanaged resources; false to release only unmanaged resources.</p>
 </td>
@@ -282,7 +280,7 @@
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API4/src/Tizen.Multimedia.Metadata/MetadataExtractor/MetadataExtractor.cs/#L275">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Multimedia.Metadata/MetadataExtractor/MetadataExtractor.cs/#L275">View Source</a>
   </span>
   <a id="Tizen_Multimedia_MetadataExtractor_Finalize_" data-uid="Tizen.Multimedia.MetadataExtractor.Finalize*"></a>
   <h4 id="Tizen_Multimedia_MetadataExtractor_Finalize" data-uid="Tizen.Multimedia.MetadataExtractor.Finalize">~MetadataExtractor()</h4>
@@ -291,14 +289,14 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected ~MetadataExtractor()</code></pre>
+    <pre><code class="lang- hljs">protected ~MetadataExtractor()</code></pre>
   </div>
 
 
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API4/src/Tizen.Multimedia.Metadata/MetadataExtractor/MetadataExtractor.cs/#L140">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Multimedia.Metadata/MetadataExtractor/MetadataExtractor.cs/#L140">View Source</a>
   </span>
   <a id="Tizen_Multimedia_MetadataExtractor_GetArtwork_" data-uid="Tizen.Multimedia.MetadataExtractor.GetArtwork*"></a>
   <h4 id="Tizen_Multimedia_MetadataExtractor_GetArtwork" data-uid="Tizen.Multimedia.MetadataExtractor.GetArtwork">GetArtwork()</h4>
@@ -307,7 +305,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Artwork GetArtwork()</code></pre>
+    <pre><code class="lang- hljs">public Artwork GetArtwork()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -335,12 +333,12 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.InvalidOperationException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
         <td><p>An internal process error occurs.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.ObjectDisposedException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></td>
         <td><p>The <a class="xref" href="Tizen.Multimedia.MetadataExtractor.html">MetadataExtractor</a> has been already disposed of.</p>
 </td>
       </tr>
@@ -351,7 +349,7 @@
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API4/src/Tizen.Multimedia.Metadata/MetadataExtractor/MetadataExtractor.cs/#L245">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Multimedia.Metadata/MetadataExtractor/MetadataExtractor.cs/#L245">View Source</a>
   </span>
   <a id="Tizen_Multimedia_MetadataExtractor_GetFrameAt_" data-uid="Tizen.Multimedia.MetadataExtractor.GetFrameAt*"></a>
   <h4 id="Tizen_Multimedia_MetadataExtractor_GetFrameAt_System_UInt32_System_Boolean_" data-uid="Tizen.Multimedia.MetadataExtractor.GetFrameAt(System.UInt32,System.Boolean)">GetFrameAt(uint, bool)</h4>
@@ -360,7 +358,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public byte[] GetFrameAt(uint timeStamp, bool accurate)</code></pre>
+    <pre><code class="lang- hljs">public byte[] GetFrameAt(uint timeStamp, bool accurate)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -373,13 +371,13 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">uint</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></td>
         <td><span class="parametername">timeStamp</span></td>
         <td><p>The timestamp in milliseconds.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">bool</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
         <td><span class="parametername">accurate</span></td>
         <td><p>true to get an accurate frame for the given timestamp,
 otherwise false to get the nearest i-frame of the video rapidly.</p>
@@ -397,7 +395,7 @@ otherwise false to get the nearest i-frame of the video rapidly.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">byte</span>[]</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</td>
         <td><p>The raw frame data in RGB888 if a frame at specified time exists, otherwise null.</p>
 </td>
       </tr>
@@ -413,12 +411,12 @@ otherwise false to get the nearest i-frame of the video rapidly.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.InvalidOperationException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
         <td><p>An internal error occurs.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.ObjectDisposedException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></td>
         <td><p>The <a class="xref" href="Tizen.Multimedia.MetadataExtractor.html">MetadataExtractor</a> has been already disposed of.</p>
 </td>
       </tr>
@@ -429,7 +427,7 @@ otherwise false to get the nearest i-frame of the video rapidly.</p>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API4/src/Tizen.Multimedia.Metadata/MetadataExtractor/MetadataExtractor.cs/#L123">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Multimedia.Metadata/MetadataExtractor/MetadataExtractor.cs/#L123">View Source</a>
   </span>
   <a id="Tizen_Multimedia_MetadataExtractor_GetMetadata_" data-uid="Tizen.Multimedia.MetadataExtractor.GetMetadata*"></a>
   <h4 id="Tizen_Multimedia_MetadataExtractor_GetMetadata" data-uid="Tizen.Multimedia.MetadataExtractor.GetMetadata">GetMetadata()</h4>
@@ -438,7 +436,7 @@ otherwise false to get the nearest i-frame of the video rapidly.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Metadata GetMetadata()</code></pre>
+    <pre><code class="lang- hljs">public Metadata GetMetadata()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -466,12 +464,12 @@ otherwise false to get the nearest i-frame of the video rapidly.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.InvalidOperationException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
         <td><p>An internal process error occurs.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.ObjectDisposedException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></td>
         <td><p>The <a class="xref" href="Tizen.Multimedia.MetadataExtractor.html">MetadataExtractor</a> has been already disposed of.</p>
 </td>
       </tr>
@@ -482,7 +480,7 @@ otherwise false to get the nearest i-frame of the video rapidly.</p>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API4/src/Tizen.Multimedia.Metadata/MetadataExtractor/MetadataExtractor.cs/#L177">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Multimedia.Metadata/MetadataExtractor/MetadataExtractor.cs/#L177">View Source</a>
   </span>
   <a id="Tizen_Multimedia_MetadataExtractor_GetSyncLyrics_" data-uid="Tizen.Multimedia.MetadataExtractor.GetSyncLyrics*"></a>
   <h4 id="Tizen_Multimedia_MetadataExtractor_GetSyncLyrics_System_Int32_" data-uid="Tizen.Multimedia.MetadataExtractor.GetSyncLyrics(System.Int32)">GetSyncLyrics(int)</h4>
@@ -491,7 +489,7 @@ otherwise false to get the nearest i-frame of the video rapidly.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SyncLyrics GetSyncLyrics(int index)</code></pre>
+    <pre><code class="lang- hljs">public SyncLyrics GetSyncLyrics(int index)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -504,7 +502,7 @@ otherwise false to get the nearest i-frame of the video rapidly.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">int</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">index</span></td>
         <td><p>The index of lyrics to retrieve.</p>
 </td>
@@ -522,7 +520,7 @@ otherwise false to get the nearest i-frame of the video rapidly.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="Tizen.Multimedia.SyncLyrics.html">SyncLyrics</a></td>
-        <td><p>The <a class="xref" href="Tizen.Multimedia.SyncLyrics.html">SyncLyrics</a> object if <code data-dev-comment-type="paramref" class="paramref">index</code> is valid, otherwise null.</p>
+        <td><p>The <a class="xref" href="Tizen.Multimedia.SyncLyrics.html">SyncLyrics</a> object if <code class="paramref">index</code> is valid, otherwise null.</p>
 </td>
       </tr>
     </tbody>
@@ -537,12 +535,12 @@ otherwise false to get the nearest i-frame of the video rapidly.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.InvalidOperationException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
         <td><p>An internal process error occurs.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.ObjectDisposedException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></td>
         <td><p>The <a class="xref" href="Tizen.Multimedia.MetadataExtractor.html">MetadataExtractor</a> has been already disposed of.</p>
 </td>
       </tr>
@@ -553,7 +551,7 @@ otherwise false to get the nearest i-frame of the video rapidly.</p>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API4/src/Tizen.Multimedia.Metadata/MetadataExtractor/MetadataExtractor.cs/#L208">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Multimedia.Metadata/MetadataExtractor/MetadataExtractor.cs/#L208">View Source</a>
   </span>
   <a id="Tizen_Multimedia_MetadataExtractor_GetVideoThumbnail_" data-uid="Tizen.Multimedia.MetadataExtractor.GetVideoThumbnail*"></a>
   <h4 id="Tizen_Multimedia_MetadataExtractor_GetVideoThumbnail" data-uid="Tizen.Multimedia.MetadataExtractor.GetVideoThumbnail">GetVideoThumbnail()</h4>
@@ -562,7 +560,7 @@ otherwise false to get the nearest i-frame of the video rapidly.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public byte[] GetVideoThumbnail()</code></pre>
+    <pre><code class="lang- hljs">public byte[] GetVideoThumbnail()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -574,7 +572,7 @@ otherwise false to get the nearest i-frame of the video rapidly.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">byte</span>[]</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</td>
         <td><p>The raw thumbnail data in RGB888 if it exists, otherwise null.</p>
 </td>
       </tr>
@@ -590,12 +588,12 @@ otherwise false to get the nearest i-frame of the video rapidly.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.InvalidOperationException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
         <td><p>An internal process error occurs.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.ObjectDisposedException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></td>
         <td><p>The <a class="xref" href="Tizen.Multimedia.MetadataExtractor.html">MetadataExtractor</a> has been already disposed of.</p>
 </td>
       </tr>
@@ -607,8 +605,9 @@ otherwise false to get the nearest i-frame of the video rapidly.</p>
 
   <h3 id="implements">Implements</h3>
   <div>
-      <span class="xref">System.IDisposable</span>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a>
   </div>
+
 </article>
           </div>
 
@@ -617,7 +616,7 @@ otherwise false to get the nearest i-frame of the video rapidly.</p>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/Samsung/TizenFX/blob/API4/src/Tizen.Multimedia.Metadata/MetadataExtractor/MetadataExtractor.cs/#L27" class="contribution-link">View Source</a>
+                    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Multimedia.Metadata/MetadataExtractor/MetadataExtractor.cs/#L27" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
@@ -643,7 +642,7 @@ otherwise false to get the nearest i-frame of the video rapidly.</p>
       </footer>
     </div>
 
-    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../../styles/docfx.js"></script>
     <script type="text/javascript" src="../../styles/main.js"></script>
   </body>

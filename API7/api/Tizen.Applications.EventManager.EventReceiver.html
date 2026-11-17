@@ -1,19 +1,17 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class EventReceiver
- </title>
+    <title>Class EventReceiver </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class EventReceiver
- ">
+    <meta name="title" content="Class EventReceiver ">
     <meta name="generator" content="docfx ">
-    <meta name="version" content="API7">
+    <meta name="version" content="">
   
     <link rel="shortcut icon" href="../../images/tizen_favicon.ico">
-    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
     <link rel="stylesheet" href="../../styles/docfx.css">
     <link rel="stylesheet" href="../../styles/main.css">
     <link rel="stylesheet" href="../../styles/tizen.css">
@@ -44,7 +42,7 @@
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
                 <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
                 </div>
               </form>
             </div>
@@ -62,17 +60,17 @@
       <div class="container body-content">
 
         <div id="search-results">
-          <div class="search-list"> <span></span></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination" data-first="data-prev=" data-next="data-last="></ul>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
 
         <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
           <div class="sidetoggle collapse" id="sidetoggle">
             <div id="sidetoc"></div>
           </div>
@@ -82,8 +80,8 @@
             <article class="content wrap" id="_content" data-uid="Tizen.Applications.EventManager.EventReceiver">
 
 
-  <h1 id="Tizen_Applications_EventManager_EventReceiver" data-uid="Tizen.Applications.EventManager.EventReceiver" class="text-break">Class EventReceiver
-</h1>
+
+  <h1 id="Tizen_Applications_EventManager_EventReceiver" data-uid="Tizen.Applications.EventManager.EventReceiver" class="text-break">Class EventReceiver</h1>
   <h3 class="hidden-anchor" id="definition"><a href="#definition"></a>Definition</h3>
 
   <dl class="attribute-list"><dt>Namespace:</dt><dd><a class="xref" href="Tizen.html">Tizen</a>.<a class="xref" href="Tizen.Applications.html">Applications</a>.<a class="xref" href="Tizen.Applications.EventManager.html">EventManager</a></dd></dl>
@@ -94,7 +92,7 @@
   <div class="markdown level0 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class EventReceiver : IDisposable</code></pre>
+    <pre><code class="lang- hljs">public class EventReceiver : IDisposable</code></pre>
   </div>
 
 
@@ -102,7 +100,7 @@
     <dt>Inheritance</dt>
     <dd>
       <div class="pdl-holder">
-        <div class="pdl"><span class="xref">object</span></div>
+        <div class="pdl"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
         <div><span class="xref">EventReceiver</span></div>
       </div>
     </dd>
@@ -113,39 +111,39 @@
   <dl class="attribute-list stack">
     <dt>Implements</dt>
     <dd>
-      <div class="pdl"><span class="xref">System.IDisposable</span></div>
+      <div class="pdl"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
     </dd>
   </dl>
 
   <h5 id="Tizen_Applications_EventManager_EventReceiver_examples"><strong>Examples</strong></h5>
-  <pre><code>using Tizen.Applications.EventManager.SystemEvents;
+  <pre><code class="lang-csharp">using Tizen.Applications.EventManager.SystemEvents;
 void OnReceived(object sender, ApplicationEventArgs e)
 {
-    if (e.Name == &quot;event.org.tizen.example.AppEventTestApp.Tizen.Mobile.AppEvent&quot;)
-        LogUtils.Write(LogUtils.DEBUG, LOG_TAG, &quot;On Received : &quot; + e.Name);
+    if (e.Name == "event.org.tizen.example.AppEventTestApp.Tizen.Mobile.AppEvent")
+        LogUtils.Write(LogUtils.DEBUG, LOG_TAG, "On Received : " + e.Name);
 
     if (e.Name == EarjackStatus.EventName)
     {
         Bundle eventData = e.Data;
         object aValue = eventData.GetItem(EarjackStatus.StatusKey);
-        if (eventData.Is&lt;string>(EarjackStatus.StatusKey))
+        if (eventData.Is&lt;string&gt;(EarjackStatus.StatusKey))
         {
             string statusValue = (string)aValue;
-            LogUtils.Write(LogUtils.DEBUG, LOG_TAG, &quot;EarjackStatus : &quot; + statusValue);
+            LogUtils.Write(LogUtils.DEBUG, LOG_TAG, "EarjackStatus : " + statusValue);
         }
     }
 }
 public class EventManagerSample
 {
    ...
-   EventReceiver receiver = new EventReceiver(&quot;event.org.tizen.example.helloworld.AppEvent&quot;);
+   EventReceiver receiver = new EventReceiver("event.org.tizen.example.helloworld.AppEvent");
    receiver.Received += OnReceived;
 }</code></pre>
 
   <h3 id="constructors">Constructors
 </h3>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API7/src/Tizen.Applications.EventManager/Tizen.Applications/EventReceiver.cs/#L66">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Applications.EventManager/Tizen.Applications/EventReceiver.cs/#L66">View Source</a>
   </span>
   <a id="Tizen_Applications_EventManager_EventReceiver__ctor_" data-uid="Tizen.Applications.EventManager.EventReceiver.#ctor*"></a>
   <h4 id="Tizen_Applications_EventManager_EventReceiver__ctor_System_String_" data-uid="Tizen.Applications.EventManager.EventReceiver.#ctor(System.String)">EventReceiver(string)</h4>
@@ -154,7 +152,7 @@ public class EventManagerSample
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public EventReceiver(string eventName)</code></pre>
+    <pre><code class="lang- hljs">public EventReceiver(string eventName)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -167,7 +165,7 @@ public class EventManagerSample
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">string</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">eventName</span></td>
         <td><p>The interested event name.</p>
 </td>
@@ -181,7 +179,7 @@ public class EventManagerSample
   <h3 id="properties">Properties
 </h3>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API7/src/Tizen.Applications.EventManager/Tizen.Applications/EventReceiver.cs/#L84">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Applications.EventManager/Tizen.Applications/EventReceiver.cs/#L84">View Source</a>
   </span>
   <a id="Tizen_Applications_EventManager_EventReceiver_EventName_" data-uid="Tizen.Applications.EventManager.EventReceiver.EventName*"></a>
   <h4 id="Tizen_Applications_EventManager_EventReceiver_EventName" data-uid="Tizen.Applications.EventManager.EventReceiver.EventName">EventName</h4>
@@ -190,7 +188,7 @@ public class EventManagerSample
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string EventName { get; }</code></pre>
+    <pre><code class="lang- hljs">public string EventName { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -202,7 +200,7 @@ public class EventManagerSample
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">string</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -214,7 +212,7 @@ public class EventManagerSample
   <h3 id="methods">Methods
 </h3>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API7/src/Tizen.Applications.EventManager/Tizen.Applications/EventReceiver.cs/#L170">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Applications.EventManager/Tizen.Applications/EventReceiver.cs/#L170">View Source</a>
   </span>
   <a id="Tizen_Applications_EventManager_EventReceiver_Dispose_" data-uid="Tizen.Applications.EventManager.EventReceiver.Dispose*"></a>
   <h4 id="Tizen_Applications_EventManager_EventReceiver_Dispose" data-uid="Tizen.Applications.EventManager.EventReceiver.Dispose">Dispose()</h4>
@@ -223,14 +221,14 @@ public class EventManagerSample
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+    <pre><code class="lang- hljs">public void Dispose()</code></pre>
   </div>
 
 
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API7/src/Tizen.Applications.EventManager/Tizen.Applications/EventReceiver.cs/#L149">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Applications.EventManager/Tizen.Applications/EventReceiver.cs/#L149">View Source</a>
   </span>
   <a id="Tizen_Applications_EventManager_EventReceiver_Dispose_" data-uid="Tizen.Applications.EventManager.EventReceiver.Dispose*"></a>
   <h4 id="Tizen_Applications_EventManager_EventReceiver_Dispose_System_Boolean_" data-uid="Tizen.Applications.EventManager.EventReceiver.Dispose(System.Boolean)">Dispose(bool)</h4>
@@ -239,7 +237,7 @@ public class EventManagerSample
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected virtual void Dispose(bool disposing)</code></pre>
+    <pre><code class="lang- hljs">protected virtual void Dispose(bool disposing)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -252,7 +250,7 @@ public class EventManagerSample
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">bool</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
         <td><span class="parametername">disposing</span></td>
         <td><p>If true, disposes any disposable objects. If false, does not dispose disposable objects.</p>
 </td>
@@ -264,7 +262,7 @@ public class EventManagerSample
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API7/src/Tizen.Applications.EventManager/Tizen.Applications/EventReceiver.cs/#L75">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Applications.EventManager/Tizen.Applications/EventReceiver.cs/#L75">View Source</a>
   </span>
   <a id="Tizen_Applications_EventManager_EventReceiver_Finalize_" data-uid="Tizen.Applications.EventManager.EventReceiver.Finalize*"></a>
   <h4 id="Tizen_Applications_EventManager_EventReceiver_Finalize" data-uid="Tizen.Applications.EventManager.EventReceiver.Finalize">~EventReceiver()</h4>
@@ -273,7 +271,7 @@ public class EventManagerSample
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected ~EventReceiver()</code></pre>
+    <pre><code class="lang- hljs">protected ~EventReceiver()</code></pre>
   </div>
 
 
@@ -282,7 +280,7 @@ public class EventManagerSample
   <h3 id="events">Events
 </h3>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API7/src/Tizen.Applications.EventManager/Tizen.Applications/EventReceiver.cs/#L105">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Applications.EventManager/Tizen.Applications/EventReceiver.cs/#L105">View Source</a>
   </span>
   <h4 id="Tizen_Applications_EventManager_EventReceiver_Received" data-uid="Tizen.Applications.EventManager.EventReceiver.Received">Received</h4>
   <div class="markdown level1 summary"><p>Occurs when events are received.</p>
@@ -290,7 +288,7 @@ public class EventManagerSample
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public event EventHandler&lt;EventManagerEventArgs&gt; Received</code></pre>
+    <pre><code class="lang- hljs">public event EventHandler&lt;EventManagerEventArgs&gt; Received</code></pre>
   </div>
   <h5 class="eventType">Event Type</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -302,7 +300,7 @@ public class EventManagerSample
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.EventHandler&lt;TEventArgs&gt;</span>&lt;<a class="xref" href="Tizen.Applications.EventManager.EventManagerEventArgs.html">EventManagerEventArgs</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="Tizen.Applications.EventManager.EventManagerEventArgs.html">EventManagerEventArgs</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -318,8 +316,9 @@ The privileged events are commented on remarks of it's definitions.</p>
 
   <h3 id="implements">Implements</h3>
   <div>
-      <span class="xref">System.IDisposable</span>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a>
   </div>
+
 </article>
           </div>
 
@@ -328,7 +327,7 @@ The privileged events are commented on remarks of it's definitions.</p>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/Samsung/TizenFX/blob/API7/src/Tizen.Applications.EventManager/Tizen.Applications/EventReceiver.cs/#L52" class="contribution-link">View Source</a>
+                    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Applications.EventManager/Tizen.Applications/EventReceiver.cs/#L52" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
@@ -354,7 +353,7 @@ The privileged events are commented on remarks of it's definitions.</p>
       </footer>
     </div>
 
-    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../../styles/docfx.js"></script>
     <script type="text/javascript" src="../../styles/main.js"></script>
   </body>

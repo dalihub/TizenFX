@@ -1,19 +1,17 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class ComplicationProvider
- </title>
+    <title>Class ComplicationProvider </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class ComplicationProvider
- ">
+    <meta name="title" content="Class ComplicationProvider ">
     <meta name="generator" content="docfx ">
-    <meta name="version" content="API12">
+    <meta name="version" content="">
   
     <link rel="shortcut icon" href="../../images/tizen_favicon.ico">
-    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
     <link rel="stylesheet" href="../../styles/docfx.css">
     <link rel="stylesheet" href="../../styles/main.css">
     <link rel="stylesheet" href="../../styles/tizen.css">
@@ -44,7 +42,7 @@
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
                 <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
                 </div>
               </form>
             </div>
@@ -62,17 +60,17 @@
       <div class="container body-content">
 
         <div id="search-results">
-          <div class="search-list"> <span></span></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination" data-first="data-prev=" data-next="data-last="></ul>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
 
         <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
           <div class="sidetoggle collapse" id="sidetoggle">
             <div id="sidetoc"></div>
           </div>
@@ -82,8 +80,8 @@
             <article class="content wrap" id="_content" data-uid="Tizen.Applications.WatchfaceComplication.ComplicationProvider">
 
 
-  <h1 id="Tizen_Applications_WatchfaceComplication_ComplicationProvider" data-uid="Tizen.Applications.WatchfaceComplication.ComplicationProvider" class="text-break">Class ComplicationProvider
-</h1>
+
+  <h1 id="Tizen_Applications_WatchfaceComplication_ComplicationProvider" data-uid="Tizen.Applications.WatchfaceComplication.ComplicationProvider" class="text-break">Class ComplicationProvider</h1>
   <h3 class="hidden-anchor" id="definition"><a href="#definition"></a>Definition</h3>
 
   <dl class="attribute-list"><dt>Namespace:</dt><dd><a class="xref" href="Tizen.html">Tizen</a>.<a class="xref" href="Tizen.Applications.html">Applications</a>.<a class="xref" href="Tizen.Applications.WatchfaceComplication.html">WatchfaceComplication</a></dd></dl>
@@ -94,7 +92,7 @@
   <div class="markdown level0 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract class ComplicationProvider : IDisposable</code></pre>
+    <pre><code class="lang- hljs">public abstract class ComplicationProvider : IDisposable</code></pre>
   </div>
 
 
@@ -102,7 +100,7 @@
     <dt>Inheritance</dt>
     <dd>
       <div class="pdl-holder">
-        <div class="pdl"><span class="xref">object</span></div>
+        <div class="pdl"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
         <div><span class="xref">ComplicationProvider</span></div>
       </div>
     </dd>
@@ -113,14 +111,14 @@
   <dl class="attribute-list stack">
     <dt>Implements</dt>
     <dd>
-      <div class="pdl"><span class="xref">System.IDisposable</span></div>
+      <div class="pdl"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
     </dd>
   </dl>
 
   <h3 id="constructors">Constructors
 </h3>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API12/src/Tizen.Applications.WatchfaceComplication/Tizen.Applications/ComplicationProvider.cs/#L59">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Applications.WatchfaceComplication/Tizen.Applications/ComplicationProvider.cs/#L59">View Source</a>
   </span>
   <a id="Tizen_Applications_WatchfaceComplication_ComplicationProvider__ctor_" data-uid="Tizen.Applications.WatchfaceComplication.ComplicationProvider.#ctor*"></a>
   <h4 id="Tizen_Applications_WatchfaceComplication_ComplicationProvider__ctor_System_String_" data-uid="Tizen.Applications.WatchfaceComplication.ComplicationProvider.#ctor(System.String)">ComplicationProvider(string)</h4>
@@ -129,7 +127,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected ComplicationProvider(string providerId)</code></pre>
+    <pre><code class="lang- hljs">protected ComplicationProvider(string providerId)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -142,7 +140,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">string</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">providerId</span></td>
         <td><p>The id of the complication provider.</p>
 </td>
@@ -150,7 +148,7 @@
     </tbody>
   </table>
   <h5 id="Tizen_Applications_WatchfaceComplication_ComplicationProvider__ctor_System_String__examples">Examples</h5>
-  <pre><code>public class MyComplicationProvider : ComplicationProvider
+  <pre><code class="lang-csharp">public class MyComplicationProvider : ComplicationProvider
 {
     public MyComplicationProvider(string providerId)
      : base(providerId)
@@ -171,22 +169,22 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
         <td><p>Thrown when providerId is invalid.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.InvalidOperationException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
         <td><p>Thrown when the method failed due to invalid operation.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.NotSupportedException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a></td>
         <td><p>Thrown when the watchface complication is not supported.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.UnauthorizedAccessException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></td>
         <td><p>Thrown when the application does not have privilege to access this method.</p>
 </td>
       </tr>
@@ -199,7 +197,7 @@
   <h3 id="properties">Properties
 </h3>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API12/src/Tizen.Applications.WatchfaceComplication/Tizen.Applications/ComplicationProvider.cs/#L80">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Applications.WatchfaceComplication/Tizen.Applications/ComplicationProvider.cs/#L80">View Source</a>
   </span>
   <a id="Tizen_Applications_WatchfaceComplication_ComplicationProvider_Id_" data-uid="Tizen.Applications.WatchfaceComplication.ComplicationProvider.Id*"></a>
   <h4 id="Tizen_Applications_WatchfaceComplication_ComplicationProvider_Id" data-uid="Tizen.Applications.WatchfaceComplication.ComplicationProvider.Id">Id</h4>
@@ -208,7 +206,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string Id { get; }</code></pre>
+    <pre><code class="lang- hljs">public string Id { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -220,7 +218,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">string</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -232,7 +230,7 @@
   <h3 id="methods">Methods
 </h3>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API12/src/Tizen.Applications.WatchfaceComplication/Tizen.Applications/ComplicationProvider.cs/#L262">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Applications.WatchfaceComplication/Tizen.Applications/ComplicationProvider.cs/#L262">View Source</a>
   </span>
   <a id="Tizen_Applications_WatchfaceComplication_ComplicationProvider_Dispose_" data-uid="Tizen.Applications.WatchfaceComplication.ComplicationProvider.Dispose*"></a>
   <h4 id="Tizen_Applications_WatchfaceComplication_ComplicationProvider_Dispose" data-uid="Tizen.Applications.WatchfaceComplication.ComplicationProvider.Dispose">Dispose()</h4>
@@ -241,14 +239,14 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+    <pre><code class="lang- hljs">public void Dispose()</code></pre>
   </div>
 
 
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API12/src/Tizen.Applications.WatchfaceComplication/Tizen.Applications/ComplicationProvider.cs/#L249">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Applications.WatchfaceComplication/Tizen.Applications/ComplicationProvider.cs/#L249">View Source</a>
   </span>
   <a id="Tizen_Applications_WatchfaceComplication_ComplicationProvider_Dispose_" data-uid="Tizen.Applications.WatchfaceComplication.ComplicationProvider.Dispose*"></a>
   <h4 id="Tizen_Applications_WatchfaceComplication_ComplicationProvider_Dispose_System_Boolean_" data-uid="Tizen.Applications.WatchfaceComplication.ComplicationProvider.Dispose(System.Boolean)">Dispose(bool)</h4>
@@ -257,7 +255,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected virtual void Dispose(bool disposing)</code></pre>
+    <pre><code class="lang- hljs">protected virtual void Dispose(bool disposing)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -270,7 +268,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">bool</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
         <td><span class="parametername">disposing</span></td>
         <td><p>true for a normal dispose operation; false to finalize the handle.</p>
 </td>
@@ -282,7 +280,7 @@
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API12/src/Tizen.Applications.WatchfaceComplication/Tizen.Applications/ComplicationProvider.cs/#L71">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Applications.WatchfaceComplication/Tizen.Applications/ComplicationProvider.cs/#L71">View Source</a>
   </span>
   <a id="Tizen_Applications_WatchfaceComplication_ComplicationProvider_Finalize_" data-uid="Tizen.Applications.WatchfaceComplication.ComplicationProvider.Finalize*"></a>
   <h4 id="Tizen_Applications_WatchfaceComplication_ComplicationProvider_Finalize" data-uid="Tizen.Applications.WatchfaceComplication.ComplicationProvider.Finalize">~ComplicationProvider()</h4>
@@ -291,14 +289,14 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected ~ComplicationProvider()</code></pre>
+    <pre><code class="lang- hljs">protected ~ComplicationProvider()</code></pre>
   </div>
 
 
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API12/src/Tizen.Applications.WatchfaceComplication/Tizen.Applications/ComplicationProvider.cs/#L203">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Applications.WatchfaceComplication/Tizen.Applications/ComplicationProvider.cs/#L203">View Source</a>
   </span>
   <a id="Tizen_Applications_WatchfaceComplication_ComplicationProvider_GetEventComplicationType_" data-uid="Tizen.Applications.WatchfaceComplication.ComplicationProvider.GetEventComplicationType*"></a>
   <h4 id="Tizen_Applications_WatchfaceComplication_ComplicationProvider_GetEventComplicationType_Tizen_Applications_ReceivedAppControl_" data-uid="Tizen.Applications.WatchfaceComplication.ComplicationProvider.GetEventComplicationType(Tizen.Applications.ReceivedAppControl)">GetEventComplicationType(ReceivedAppControl)</h4>
@@ -307,7 +305,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ComplicationTypes GetEventComplicationType(ReceivedAppControl recvAppCtrl)</code></pre>
+    <pre><code class="lang- hljs">public static ComplicationTypes GetEventComplicationType(ReceivedAppControl recvAppCtrl)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -344,7 +342,7 @@
     </tbody>
   </table>
   <h5 id="Tizen_Applications_WatchfaceComplication_ComplicationProvider_GetEventComplicationType_Tizen_Applications_ReceivedAppControl__examples">Examples</h5>
-  <pre><code>protected override void OnAppControlReceived(AppControlReceivedEventArgs e)
+  <pre><code class="lang-csharp">protected override void OnAppControlReceived(AppControlReceivedEventArgs e)
 {
     ComplicationTypes type = ComplicationProvider.GetEventComplicationType(e.ReceivedAppControl);
     base.OnAppControlReceived(e);
@@ -360,17 +358,17 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
         <td><p>Thrown when e is invalid.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.InvalidOperationException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
         <td><p>Thrown when the method failed due to invalid operation.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.NotSupportedException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a></td>
         <td><p>Thrown when the watchface complication is not supported.</p>
 </td>
       </tr>
@@ -381,7 +379,7 @@
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API12/src/Tizen.Applications.WatchfaceComplication/Tizen.Applications/ComplicationProvider.cs/#L230">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Applications.WatchfaceComplication/Tizen.Applications/ComplicationProvider.cs/#L230">View Source</a>
   </span>
   <a id="Tizen_Applications_WatchfaceComplication_ComplicationProvider_GetEventContext_" data-uid="Tizen.Applications.WatchfaceComplication.ComplicationProvider.GetEventContext*"></a>
   <h4 id="Tizen_Applications_WatchfaceComplication_ComplicationProvider_GetEventContext_Tizen_Applications_ReceivedAppControl_" data-uid="Tizen.Applications.WatchfaceComplication.ComplicationProvider.GetEventContext(Tizen.Applications.ReceivedAppControl)">GetEventContext(ReceivedAppControl)</h4>
@@ -390,7 +388,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Bundle GetEventContext(ReceivedAppControl recvAppCtrl)</code></pre>
+    <pre><code class="lang- hljs">public static Bundle GetEventContext(ReceivedAppControl recvAppCtrl)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -427,7 +425,7 @@
     </tbody>
   </table>
   <h5 id="Tizen_Applications_WatchfaceComplication_ComplicationProvider_GetEventContext_Tizen_Applications_ReceivedAppControl__examples">Examples</h5>
-  <pre><code>protected override void OnAppControlReceived(AppControlReceivedEventArgs e)
+  <pre><code class="lang-csharp">protected override void OnAppControlReceived(AppControlReceivedEventArgs e)
 {
     Bundle context = ComplicationProvider.GetEventContext(e.ReceivedAppControl);
     base.OnAppControlReceived(e);
@@ -443,17 +441,17 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
         <td><p>Thrown when e is invalid.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.InvalidOperationException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
         <td><p>Thrown when the method failed due to invalid operation.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.NotSupportedException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a></td>
         <td><p>Thrown when the watchface complication is not supported.</p>
 </td>
       </tr>
@@ -464,7 +462,7 @@
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API12/src/Tizen.Applications.WatchfaceComplication/Tizen.Applications/ComplicationProvider.cs/#L176">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Applications.WatchfaceComplication/Tizen.Applications/ComplicationProvider.cs/#L176">View Source</a>
   </span>
   <a id="Tizen_Applications_WatchfaceComplication_ComplicationProvider_GetEventProviderId_" data-uid="Tizen.Applications.WatchfaceComplication.ComplicationProvider.GetEventProviderId*"></a>
   <h4 id="Tizen_Applications_WatchfaceComplication_ComplicationProvider_GetEventProviderId_Tizen_Applications_ReceivedAppControl_" data-uid="Tizen.Applications.WatchfaceComplication.ComplicationProvider.GetEventProviderId(Tizen.Applications.ReceivedAppControl)">GetEventProviderId(ReceivedAppControl)</h4>
@@ -473,7 +471,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string GetEventProviderId(ReceivedAppControl recvAppCtrl)</code></pre>
+    <pre><code class="lang- hljs">public static string GetEventProviderId(ReceivedAppControl recvAppCtrl)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -503,14 +501,14 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">string</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><p>The target provider ID of received event</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 id="Tizen_Applications_WatchfaceComplication_ComplicationProvider_GetEventProviderId_Tizen_Applications_ReceivedAppControl__examples">Examples</h5>
-  <pre><code>protected override void OnAppControlReceived(AppControlReceivedEventArgs e)
+  <pre><code class="lang-csharp">protected override void OnAppControlReceived(AppControlReceivedEventArgs e)
 {
     string providerId = ComplicationProvider.GetEventProviderId(e.ReceivedAppControl);
     base.OnAppControlReceived(e);
@@ -526,17 +524,17 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
         <td><p>Thrown when e is invalid.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.InvalidOperationException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
         <td><p>Thrown when the method failed due to invalid operation.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.NotSupportedException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a></td>
         <td><p>Thrown when the watchface complication is not supported.</p>
 </td>
       </tr>
@@ -547,7 +545,7 @@
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API12/src/Tizen.Applications.WatchfaceComplication/Tizen.Applications/ComplicationProvider.cs/#L149">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Applications.WatchfaceComplication/Tizen.Applications/ComplicationProvider.cs/#L149">View Source</a>
   </span>
   <a id="Tizen_Applications_WatchfaceComplication_ComplicationProvider_GetEventType_" data-uid="Tizen.Applications.WatchfaceComplication.ComplicationProvider.GetEventType*"></a>
   <h4 id="Tizen_Applications_WatchfaceComplication_ComplicationProvider_GetEventType_Tizen_Applications_ReceivedAppControl_" data-uid="Tizen.Applications.WatchfaceComplication.ComplicationProvider.GetEventType(Tizen.Applications.ReceivedAppControl)">GetEventType(ReceivedAppControl)</h4>
@@ -556,7 +554,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static EventTypes GetEventType(ReceivedAppControl recvAppCtrl)</code></pre>
+    <pre><code class="lang- hljs">public static EventTypes GetEventType(ReceivedAppControl recvAppCtrl)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -593,7 +591,7 @@
     </tbody>
   </table>
   <h5 id="Tizen_Applications_WatchfaceComplication_ComplicationProvider_GetEventType_Tizen_Applications_ReceivedAppControl__examples">Examples</h5>
-  <pre><code>protected override void OnAppControlReceived(AppControlReceivedEventArgs e)
+  <pre><code class="lang-csharp">protected override void OnAppControlReceived(AppControlReceivedEventArgs e)
 {
     EventTypes type = ComplicationProvider.GetEventType(e.ReceivedAppControl);
     if (type == EventTypes.EventDoubleTap)
@@ -613,17 +611,17 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
         <td><p>Thrown when the invalid parameter is passed.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.InvalidOperationException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
         <td><p>Thrown when the method failed due to invalid operation.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.NotSupportedException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a></td>
         <td><p>Thrown when the watchface complication is not supported.</p>
 </td>
       </tr>
@@ -634,7 +632,7 @@
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API12/src/Tizen.Applications.WatchfaceComplication/Tizen.Applications/ComplicationProvider.cs/#L120">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Applications.WatchfaceComplication/Tizen.Applications/ComplicationProvider.cs/#L120">View Source</a>
   </span>
   <a id="Tizen_Applications_WatchfaceComplication_ComplicationProvider_NotifyUpdate_" data-uid="Tizen.Applications.WatchfaceComplication.ComplicationProvider.NotifyUpdate*"></a>
   <h4 id="Tizen_Applications_WatchfaceComplication_ComplicationProvider_NotifyUpdate" data-uid="Tizen.Applications.WatchfaceComplication.ComplicationProvider.NotifyUpdate">NotifyUpdate()</h4>
@@ -643,7 +641,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void NotifyUpdate()</code></pre>
+    <pre><code class="lang- hljs">public void NotifyUpdate()</code></pre>
   </div>
   <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -655,12 +653,12 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.UnauthorizedAccessException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></td>
         <td><p>Thrown when the application does not have privilege to access this method.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.NotSupportedException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a></td>
         <td><p>Thrown when the watchface complication is not supported.</p>
 </td>
       </tr>
@@ -671,7 +669,7 @@
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API12/src/Tizen.Applications.WatchfaceComplication/Tizen.Applications/ComplicationProvider.cs/#L111">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Applications.WatchfaceComplication/Tizen.Applications/ComplicationProvider.cs/#L111">View Source</a>
   </span>
   <a id="Tizen_Applications_WatchfaceComplication_ComplicationProvider_OnDataUpdateRequested_" data-uid="Tizen.Applications.WatchfaceComplication.ComplicationProvider.OnDataUpdateRequested*"></a>
   <h4 id="Tizen_Applications_WatchfaceComplication_ComplicationProvider_OnDataUpdateRequested_System_String_Tizen_Applications_WatchfaceComplication_ComplicationTypes_Tizen_Applications_Bundle_" data-uid="Tizen.Applications.WatchfaceComplication.ComplicationProvider.OnDataUpdateRequested(System.String,Tizen.Applications.WatchfaceComplication.ComplicationTypes,Tizen.Applications.Bundle)">OnDataUpdateRequested(string, ComplicationTypes, Bundle)</h4>
@@ -680,7 +678,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract ComplicationData OnDataUpdateRequested(string reqestAppId, ComplicationTypes type, Bundle contextData)</code></pre>
+    <pre><code class="lang- hljs">protected abstract ComplicationData OnDataUpdateRequested(string reqestAppId, ComplicationTypes type, Bundle contextData)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -693,7 +691,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">string</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">reqestAppId</span></td>
         <td><p>The ID of application which sent update request.</p>
 </td>
@@ -734,8 +732,9 @@
 
   <h3 id="implements">Implements</h3>
   <div>
-      <span class="xref">System.IDisposable</span>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a>
   </div>
+
 </article>
           </div>
 
@@ -744,7 +743,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/Samsung/TizenFX/blob/API12/src/Tizen.Applications.WatchfaceComplication/Tizen.Applications/ComplicationProvider.cs/#L28" class="contribution-link">View Source</a>
+                    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Applications.WatchfaceComplication/Tizen.Applications/ComplicationProvider.cs/#L28" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
@@ -770,7 +769,7 @@
       </footer>
     </div>
 
-    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../../styles/docfx.js"></script>
     <script type="text/javascript" src="../../styles/main.js"></script>
   </body>

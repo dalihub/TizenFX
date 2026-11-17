@@ -1,19 +1,17 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class BarcodeDetector
- </title>
+    <title>Class BarcodeDetector </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class BarcodeDetector
- ">
+    <meta name="title" content="Class BarcodeDetector ">
     <meta name="generator" content="docfx ">
-    <meta name="version" content="API13">
+    <meta name="version" content="">
   
     <link rel="shortcut icon" href="../../images/tizen_favicon.ico">
-    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
     <link rel="stylesheet" href="../../styles/docfx.css">
     <link rel="stylesheet" href="../../styles/main.css">
     <link rel="stylesheet" href="../../styles/tizen.css">
@@ -44,7 +42,7 @@
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
                 <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
                 </div>
               </form>
             </div>
@@ -62,17 +60,17 @@
       <div class="container body-content">
 
         <div id="search-results">
-          <div class="search-list"> <span></span></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination" data-first="data-prev=" data-next="data-last="></ul>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
 
         <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
           <div class="sidetoggle collapse" id="sidetoggle">
             <div id="sidetoc"></div>
           </div>
@@ -82,8 +80,8 @@
             <article class="content wrap" id="_content" data-uid="Tizen.Multimedia.Vision.BarcodeDetector">
 
 
-  <h1 id="Tizen_Multimedia_Vision_BarcodeDetector" data-uid="Tizen.Multimedia.Vision.BarcodeDetector" class="text-break">Class BarcodeDetector
-</h1>
+
+  <h1 id="Tizen_Multimedia_Vision_BarcodeDetector" data-uid="Tizen.Multimedia.Vision.BarcodeDetector" class="text-break">Class BarcodeDetector</h1>
   <h3 class="hidden-anchor" id="definition"><a href="#definition"></a>Definition</h3>
 
   <dl class="attribute-list"><dt>Namespace:</dt><dd><a class="xref" href="Tizen.html">Tizen</a>.<a class="xref" href="Tizen.Multimedia.html">Multimedia</a>.<a class="xref" href="Tizen.Multimedia.Vision.html">Vision</a></dd></dl>
@@ -94,7 +92,7 @@
   <div class="markdown level0 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static class BarcodeDetector</code></pre>
+    <pre><code class="lang- hljs">public static class BarcodeDetector</code></pre>
   </div>
 
 
@@ -102,7 +100,7 @@
     <dt>Inheritance</dt>
     <dd>
       <div class="pdl-holder">
-        <div class="pdl"><span class="xref">object</span></div>
+        <div class="pdl"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
         <div><span class="xref">BarcodeDetector</span></div>
       </div>
     </dd>
@@ -114,7 +112,94 @@
   <h3 id="methods">Methods
 </h3>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.Multimedia.Vision/MediaVision/BarcodeDetector.cs/#L66">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Multimedia.Vision/MediaVision/BarcodeDetector.cs/#L43">View Source</a>
+  </span>
+  <a id="Tizen_Multimedia_Vision_BarcodeDetector_DetectAsync_" data-uid="Tizen.Multimedia.Vision.BarcodeDetector.DetectAsync*"></a>
+  <h4 id="Tizen_Multimedia_Vision_BarcodeDetector_DetectAsync_Tizen_Multimedia_Vision_MediaVisionSource_Tizen_Multimedia_Rectangle_" data-uid="Tizen.Multimedia.Vision.BarcodeDetector.DetectAsync(Tizen.Multimedia.Vision.MediaVisionSource,Tizen.Multimedia.Rectangle)">DetectAsync(MediaVisionSource, Rectangle)</h4>
+  <div class="markdown level1 summary"><p>Detects barcodes on the source and reads the message from it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">public static Task&lt;IEnumerable&lt;Barcode&gt;&gt; DetectAsync(MediaVisionSource source, Rectangle roi)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Tizen.Multimedia.Vision.MediaVisionSource.html">MediaVisionSource</a></td>
+        <td><span class="parametername">source</span></td>
+        <td><p>The <a class="xref" href="Tizen.Multimedia.Vision.MediaVisionSource.html">MediaVisionSource</a> instance.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Tizen.Multimedia.Rectangle.html">Rectangle</a></td>
+        <td><span class="parametername">roi</span></td>
+        <td><p>Region of interest - rectangular area on the source which will be used for
+barcode detection. Note that roi should be inside area on the source.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Tizen.Multimedia.Vision.Barcode.html">Barcode</a>&gt;&gt;</td>
+        <td><p>A task that represents the asynchronous detect operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code class="paramref">source</code> is null.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a></td>
+        <td><p>The feature is not supported.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></td>
+        <td><p><code class="paramref">source</code> already has been disposed of.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Tizen_Multimedia_Vision_BarcodeDetector_DetectAsync_Tizen_Multimedia_Vision_MediaVisionSource_Tizen_Multimedia_Rectangle__seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="Tizen.Multimedia.Vision.Barcode.html">Barcode</a></div>
+  </div>
+
+
+  <div style="margin-bottom: 15px"></div>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Multimedia.Vision/MediaVision/BarcodeDetector.cs/#L66">View Source</a>
   </span>
   <a id="Tizen_Multimedia_Vision_BarcodeDetector_DetectAsync_" data-uid="Tizen.Multimedia.Vision.BarcodeDetector.DetectAsync*"></a>
   <h4 id="Tizen_Multimedia_Vision_BarcodeDetector_DetectAsync_Tizen_Multimedia_Vision_MediaVisionSource_Tizen_Multimedia_Rectangle_Tizen_Multimedia_Vision_BarcodeDetectionConfiguration_" data-uid="Tizen.Multimedia.Vision.BarcodeDetector.DetectAsync(Tizen.Multimedia.Vision.MediaVisionSource,Tizen.Multimedia.Rectangle,Tizen.Multimedia.Vision.BarcodeDetectionConfiguration)">DetectAsync(MediaVisionSource, Rectangle, BarcodeDetectionConfiguration)</h4>
@@ -123,7 +208,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;IEnumerable&lt;Barcode&gt;&gt; DetectAsync(MediaVisionSource source, Rectangle roi, BarcodeDetectionConfiguration config)</code></pre>
+    <pre><code class="lang- hljs">public static Task&lt;IEnumerable&lt;Barcode&gt;&gt; DetectAsync(MediaVisionSource source, Rectangle roi, BarcodeDetectionConfiguration config)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -166,7 +251,7 @@ barcode detection. Note that roi should be inside area on the source.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task&lt;TResult&gt;</span>&lt;<span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>&lt;<a class="xref" href="Tizen.Multimedia.Vision.Barcode.html">Barcode</a>&gt;&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Tizen.Multimedia.Vision.Barcode.html">Barcode</a>&gt;&gt;</td>
         <td><p>A task that represents the asynchronous detect operation.</p>
 </td>
       </tr>
@@ -182,20 +267,20 @@ barcode detection. Note that roi should be inside area on the source.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.ArgumentNullException</span></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">source</code> is null.</p>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code class="paramref">source</code> is null.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.NotSupportedException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a></td>
         <td><p>The feature is not supported.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.ObjectDisposedException</span></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">source</code> already has been disposed of.<br>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></td>
+        <td><p><code class="paramref">source</code> already has been disposed of.<br>
 -or-<br>
-<code data-dev-comment-type="paramref" class="paramref">config</code> already has been disposed of.</p>
+<code class="paramref">config</code> already has been disposed of.</p>
 </td>
       </tr>
     </tbody>
@@ -208,92 +293,6 @@ barcode detection. Note that roi should be inside area on the source.</p>
 
   <div style="margin-bottom: 15px"></div>
 
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.Multimedia.Vision/MediaVision/BarcodeDetector.cs/#L43">View Source</a>
-  </span>
-  <a id="Tizen_Multimedia_Vision_BarcodeDetector_DetectAsync_" data-uid="Tizen.Multimedia.Vision.BarcodeDetector.DetectAsync*"></a>
-  <h4 id="Tizen_Multimedia_Vision_BarcodeDetector_DetectAsync_Tizen_Multimedia_Vision_MediaVisionSource_Tizen_Multimedia_Rectangle_" data-uid="Tizen.Multimedia.Vision.BarcodeDetector.DetectAsync(Tizen.Multimedia.Vision.MediaVisionSource,Tizen.Multimedia.Rectangle)">DetectAsync(MediaVisionSource, Rectangle)</h4>
-  <div class="markdown level1 summary"><p>Detects barcodes on the source and reads the message from it.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;IEnumerable&lt;Barcode&gt;&gt; DetectAsync(MediaVisionSource source, Rectangle roi)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Tizen.Multimedia.Vision.MediaVisionSource.html">MediaVisionSource</a></td>
-        <td><span class="parametername">source</span></td>
-        <td><p>The <a class="xref" href="Tizen.Multimedia.Vision.MediaVisionSource.html">MediaVisionSource</a> instance.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="Tizen.Multimedia.Rectangle.html">Rectangle</a></td>
-        <td><span class="parametername">roi</span></td>
-        <td><p>Region of interest - rectangular area on the source which will be used for
-barcode detection. Note that roi should be inside area on the source.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Threading.Tasks.Task&lt;TResult&gt;</span>&lt;<span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>&lt;<a class="xref" href="Tizen.Multimedia.Vision.Barcode.html">Barcode</a>&gt;&gt;</td>
-        <td><p>A task that represents the asynchronous detect operation.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentNullException</span></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">source</code> is null.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.NotSupportedException</span></td>
-        <td><p>The feature is not supported.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.ObjectDisposedException</span></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">source</code> already has been disposed of.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="Tizen_Multimedia_Vision_BarcodeDetector_DetectAsync_Tizen_Multimedia_Vision_MediaVisionSource_Tizen_Multimedia_Rectangle__seealso">See Also</h5>
-  <div class="seealso">
-      <div><a class="xref" href="Tizen.Multimedia.Vision.Barcode.html">Barcode</a></div>
-  </div>
-
-
-  <div style="margin-bottom: 15px"></div>
 
 </article>
           </div>
@@ -303,7 +302,7 @@ barcode detection. Note that roi should be inside area on the source.</p>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.Multimedia.Vision/MediaVision/BarcodeDetector.cs/#L29" class="contribution-link">View Source</a>
+                    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.Multimedia.Vision/MediaVision/BarcodeDetector.cs/#L29" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
@@ -329,7 +328,7 @@ barcode detection. Note that roi should be inside area on the source.</p>
       </footer>
     </div>
 
-    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../../styles/docfx.js"></script>
     <script type="text/javascript" src="../../styles/main.js"></script>
   </body>

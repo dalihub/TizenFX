@@ -1,19 +1,17 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class TabView
- </title>
+    <title>Class TabView </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class TabView
- ">
+    <meta name="title" content="Class TabView ">
     <meta name="generator" content="docfx ">
-    <meta name="version" content="API10">
+    <meta name="version" content="">
   
     <link rel="shortcut icon" href="../../images/tizen_favicon.ico">
-    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
     <link rel="stylesheet" href="../../styles/docfx.css">
     <link rel="stylesheet" href="../../styles/main.css">
     <link rel="stylesheet" href="../../styles/tizen.css">
@@ -44,7 +42,7 @@
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
                 <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
                 </div>
               </form>
             </div>
@@ -62,17 +60,17 @@
       <div class="container body-content">
 
         <div id="search-results">
-          <div class="search-list"> <span></span></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination" data-first="data-prev=" data-next="data-last="></ul>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
 
         <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
           <div class="sidetoggle collapse" id="sidetoggle">
             <div id="sidetoc"></div>
           </div>
@@ -82,8 +80,8 @@
             <article class="content wrap" id="_content" data-uid="Tizen.NUI.Components.TabView">
 
 
-  <h1 id="Tizen_NUI_Components_TabView" data-uid="Tizen.NUI.Components.TabView" class="text-break">Class TabView
-</h1>
+
+  <h1 id="Tizen_NUI_Components_TabView" data-uid="Tizen.NUI.Components.TabView" class="text-break">Class TabView</h1>
   <h3 class="hidden-anchor" id="definition"><a href="#definition"></a>Definition</h3>
 
   <dl class="attribute-list"><dt>Namespace:</dt><dd><a class="xref" href="Tizen.html">Tizen</a>.<a class="xref" href="Tizen.NUI.html">NUI</a>.<a class="xref" href="Tizen.NUI.Components.html">Components</a></dd></dl>
@@ -94,50 +92,59 @@ TabView adds TabButtons and Views to TabBar and TabContent in TabView by <a clas
 TabView removes TabButtons and Views from TabBar and TabContent in TabView by <a class="xref" href="Tizen.NUI.Components.TabView.html#Tizen_NUI_Components_TabView_RemoveTab_System_Int32_">RemoveTab(int)</a>.
 TabView selects a view from the TabContent according to the selected TabButton in the TabBar.</p>
 <example>
-<pre><code>var tabView = new TabView()
+<pre><code class="lang-csharp">var tabView = new TabView()
 {
     WidthSpecification = LayoutParamPolicies.MatchParent,
     HeightSpecification = LayoutParamPolicies.MatchParent,
 };
-<p>var tabButton = new TabButton()
+
+var tabButton = new TabButton()
 {
-Text = &quot;Tab#1&quot;
-};</p>
-<p>var content = new View()
+    Text = "Tab#1"
+};
+
+var content = new View()
 {
-BackgroundColor = Color.Red,
-WidthSpecification = LayoutParamPolicies.MatchParent,
-HeightSpecification = LayoutParamPolicies.MatchParent,
-};</p>
-<p>tabView.AddTab(tabButton, content);</p>
-<p>var tabButton2 = new TabButton()
+    BackgroundColor = Color.Red,
+    WidthSpecification = LayoutParamPolicies.MatchParent,
+    HeightSpecification = LayoutParamPolicies.MatchParent,
+};
+
+tabView.AddTab(tabButton, content);
+
+var tabButton2 = new TabButton()
 {
-Text = &quot;Tab#2&quot;
-};</p>
-<p>var content2 = new View()
+    Text = "Tab#2"
+};
+
+var content2 = new View()
 {
-BackgroundColor = Color.Green,
-WidthSpecification = LayoutParamPolicies.MatchParent,
-HeightSpecification = LayoutParamPolicies.MatchParent,
-};</p>
-<p>tabView.AddTab(tabButton2, content2);</p>
-<p>var tabButton3 = new TabButton()
+    BackgroundColor = Color.Green,
+    WidthSpecification = LayoutParamPolicies.MatchParent,
+    HeightSpecification = LayoutParamPolicies.MatchParent,
+};
+
+tabView.AddTab(tabButton2, content2);
+
+var tabButton3 = new TabButton()
 {
-Text = &quot;Tab#3&quot;
-};</p>
-<p>var content3 = new View()
+    Text = "Tab#3"
+};
+
+var content3 = new View()
 {
-BackgroundColor = Color.Blue,
-WidthSpecification = LayoutParamPolicies.MatchParent,
-HeightSpecification = LayoutParamPolicies.MatchParent,
-};</p>
-<p>tabView.AddTab(tabButton3, content3);</p></code></pre>
+    BackgroundColor = Color.Blue,
+    WidthSpecification = LayoutParamPolicies.MatchParent,
+    HeightSpecification = LayoutParamPolicies.MatchParent,
+};
+
+tabView.AddTab(tabButton3, content3);</code></pre>
 </example>
 </div>
   <div class="markdown level0 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class TabView : Control, INotifyPropertyChanged, IDisposable</code></pre>
+    <pre><code class="lang- hljs">public class TabView : Control, INotifyPropertyChanged, IDisposable</code></pre>
   </div>
 
 
@@ -145,9 +152,9 @@ HeightSpecification = LayoutParamPolicies.MatchParent,
     <dt>Inheritance</dt>
     <dd>
       <div class="pdl-holder">
-        <div class="pdl"><span class="xref">object</span></div>
+        <div class="pdl"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
         <div class="pdl"><a class="xref" href="Tizen.NUI.Binding.BindableObject.html">BindableObject</a></div>
-        <div class="pdl"><span class="xref">Tizen.NUI.Binding.Element</span></div>
+        <div class="pdl"><span class="xref">Element</span></div>
         <div class="pdl"><a class="xref" href="Tizen.NUI.BaseHandle.html">BaseHandle</a></div>
         <div class="pdl"><a class="xref" href="Tizen.NUI.Animatable.html">Animatable</a></div>
         <div class="pdl"><a class="xref" href="Tizen.NUI.Container.html">Container</a></div>
@@ -155,7 +162,7 @@ HeightSpecification = LayoutParamPolicies.MatchParent,
         <div class="pdl"><a class="xref" href="Tizen.NUI.ViewWrapper.html">ViewWrapper</a></div>
         <div class="pdl"><a class="xref" href="Tizen.NUI.BaseComponents.CustomView.html">CustomView</a></div>
         <div class="pdl"><a class="xref" href="Tizen.NUI.BaseComponents.VisualView.html">VisualView</a></div>
-        <div class="pdl"><span class="xref">Tizen.NUI.Components.Control</span></div>
+        <div class="pdl"><span class="xref">Control</span></div>
         <div><span class="xref">TabView</span></div>
       </div>
     </dd>
@@ -166,15 +173,15 @@ HeightSpecification = LayoutParamPolicies.MatchParent,
   <dl class="attribute-list stack">
     <dt>Implements</dt>
     <dd>
-      <div class="pdl"><span class="xref">System.ComponentModel.INotifyPropertyChanged</span></div>
-      <div class="pdl"><span class="xref">System.IDisposable</span></div>
+      <div class="pdl"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged">INotifyPropertyChanged</a></div>
+      <div class="pdl"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
     </dd>
   </dl>
 
   <h3 id="constructors">Constructors
 </h3>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API10/src/Tizen.NUI.Components/Controls/TabView.cs/#L106">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI.Components/Controls/TabView.cs/#L106">View Source</a>
   </span>
   <a id="Tizen_NUI_Components_TabView__ctor_" data-uid="Tizen.NUI.Components.TabView.#ctor*"></a>
   <h4 id="Tizen_NUI_Components_TabView__ctor" data-uid="Tizen.NUI.Components.TabView.#ctor">TabView()</h4>
@@ -183,7 +190,7 @@ HeightSpecification = LayoutParamPolicies.MatchParent,
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TabView()</code></pre>
+    <pre><code class="lang- hljs">public TabView()</code></pre>
   </div>
 
 
@@ -192,7 +199,7 @@ HeightSpecification = LayoutParamPolicies.MatchParent,
   <h3 id="properties">Properties
 </h3>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API10/src/Tizen.NUI.Components/Controls/TabView.cs/#L204">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI.Components/Controls/TabView.cs/#L204">View Source</a>
   </span>
   <a id="Tizen_NUI_Components_TabView_Content_" data-uid="Tizen.NUI.Components.TabView.Content*"></a>
   <h4 id="Tizen_NUI_Components_TabView_Content" data-uid="Tizen.NUI.Components.TabView.Content">Content</h4>
@@ -201,7 +208,7 @@ HeightSpecification = LayoutParamPolicies.MatchParent,
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TabContent Content { get; protected set; }</code></pre>
+    <pre><code class="lang- hljs">public TabContent Content { get; protected set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -223,7 +230,7 @@ HeightSpecification = LayoutParamPolicies.MatchParent,
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API10/src/Tizen.NUI.Components/Controls/TabView.cs/#L179">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI.Components/Controls/TabView.cs/#L179">View Source</a>
   </span>
   <a id="Tizen_NUI_Components_TabView_TabBar_" data-uid="Tizen.NUI.Components.TabView.TabBar*"></a>
   <h4 id="Tizen_NUI_Components_TabView_TabBar" data-uid="Tizen.NUI.Components.TabView.TabBar">TabBar</h4>
@@ -232,7 +239,7 @@ HeightSpecification = LayoutParamPolicies.MatchParent,
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TabBar TabBar { get; protected set; }</code></pre>
+    <pre><code class="lang- hljs">public TabBar TabBar { get; protected set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -256,7 +263,7 @@ HeightSpecification = LayoutParamPolicies.MatchParent,
   <h3 id="methods">Methods
 </h3>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API10/src/Tizen.NUI.Components/Controls/TabView.cs/#L230">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI.Components/Controls/TabView.cs/#L230">View Source</a>
   </span>
   <a id="Tizen_NUI_Components_TabView_AddTab_" data-uid="Tizen.NUI.Components.TabView.AddTab*"></a>
   <h4 id="Tizen_NUI_Components_TabView_AddTab_Tizen_NUI_Components_TabButton_Tizen_NUI_BaseComponents_View_" data-uid="Tizen.NUI.Components.TabView.AddTab(Tizen.NUI.Components.TabButton,Tizen.NUI.BaseComponents.View)">AddTab(TabButton, View)</h4>
@@ -265,7 +272,7 @@ HeightSpecification = LayoutParamPolicies.MatchParent,
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void AddTab(TabButton tabButton, View view)</code></pre>
+    <pre><code class="lang- hljs">public void AddTab(TabButton tabButton, View view)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -296,7 +303,7 @@ HeightSpecification = LayoutParamPolicies.MatchParent,
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API10/src/Tizen.NUI.Components/Controls/TabView.cs/#L251">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI.Components/Controls/TabView.cs/#L251">View Source</a>
   </span>
   <a id="Tizen_NUI_Components_TabView_RemoveTab_" data-uid="Tizen.NUI.Components.TabView.RemoveTab*"></a>
   <h4 id="Tizen_NUI_Components_TabView_RemoveTab_System_Int32_" data-uid="Tizen.NUI.Components.TabView.RemoveTab(System.Int32)">RemoveTab(int)</h4>
@@ -307,7 +314,7 @@ So the index of a tab(tab button and view) in TabView can be changed whenever <a
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void RemoveTab(int index)</code></pre>
+    <pre><code class="lang- hljs">public void RemoveTab(int index)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -320,7 +327,7 @@ So the index of a tab(tab button and view) in TabView can be changed whenever <a
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">int</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">index</span></td>
         <td><p>The index of a tab(tab button and view) in TabView where the tab will be removed.</p>
 </td>
@@ -337,7 +344,7 @@ So the index of a tab(tab button and view) in TabView can be changed whenever <a
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.ArgumentOutOfRangeException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></td>
         <td><p>Thrown when the index is less than 0, or greater than or equal to the number of tabs.</p>
 </td>
       </tr>
@@ -349,11 +356,12 @@ So the index of a tab(tab button and view) in TabView can be changed whenever <a
 
   <h3 id="implements">Implements</h3>
   <div>
-      <span class="xref">System.ComponentModel.INotifyPropertyChanged</span>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged">INotifyPropertyChanged</a>
   </div>
   <div>
-      <span class="xref">System.IDisposable</span>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a>
   </div>
+
 </article>
           </div>
 
@@ -362,7 +370,7 @@ So the index of a tab(tab button and view) in TabView can be changed whenever <a
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/Samsung/TizenFX/blob/API10/src/Tizen.NUI.Components/Controls/TabView.cs/#L83" class="contribution-link">View Source</a>
+                    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI.Components/Controls/TabView.cs/#L83" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
@@ -388,7 +396,7 @@ So the index of a tab(tab button and view) in TabView can be changed whenever <a
       </footer>
     </div>
 
-    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../../styles/docfx.js"></script>
     <script type="text/javascript" src="../../styles/main.js"></script>
   </body>

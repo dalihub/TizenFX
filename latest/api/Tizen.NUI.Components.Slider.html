@@ -1,19 +1,17 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class Slider
- </title>
+    <title>Class Slider </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class Slider
- ">
+    <meta name="title" content="Class Slider ">
     <meta name="generator" content="docfx ">
-    <meta name="version" content="API13">
+    <meta name="version" content="">
   
     <link rel="shortcut icon" href="../../images/tizen_favicon.ico">
-    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
     <link rel="stylesheet" href="../../styles/docfx.css">
     <link rel="stylesheet" href="../../styles/main.css">
     <link rel="stylesheet" href="../../styles/tizen.css">
@@ -44,7 +42,7 @@
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
                 <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="" autocomplete="off">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
                 </div>
               </form>
             </div>
@@ -62,17 +60,17 @@
       <div class="container body-content">
 
         <div id="search-results">
-          <div class="search-list"> <span></span></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination" data-first="data-prev=" data-next="data-last="></ul>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
 
         <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle"></a>
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
           <div class="sidetoggle collapse" id="sidetoggle">
             <div id="sidetoc"></div>
           </div>
@@ -82,8 +80,8 @@
             <article class="content wrap" id="_content" data-uid="Tizen.NUI.Components.Slider">
 
 
-  <h1 id="Tizen_NUI_Components_Slider" data-uid="Tizen.NUI.Components.Slider" class="text-break">Class Slider
-</h1>
+
+  <h1 id="Tizen_NUI_Components_Slider" data-uid="Tizen.NUI.Components.Slider" class="text-break">Class Slider</h1>
   <h3 class="hidden-anchor" id="definition"><a href="#definition"></a>Definition</h3>
 
   <dl class="attribute-list"><dt>Namespace:</dt><dd><a class="xref" href="Tizen.html">Tizen</a>.<a class="xref" href="Tizen.NUI.html">NUI</a>.<a class="xref" href="Tizen.NUI.Components.html">Components</a></dd></dl>
@@ -94,7 +92,7 @@
   <div class="markdown level0 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class Slider : Control, INotifyPropertyChanged, IDisposable</code></pre>
+    <pre><code class="lang- hljs">public class Slider : Control, INotifyPropertyChanged, IDisposable</code></pre>
   </div>
 
 
@@ -102,9 +100,9 @@
     <dt>Inheritance</dt>
     <dd>
       <div class="pdl-holder">
-        <div class="pdl"><span class="xref">object</span></div>
-        <div class="pdl"><span class="xref">Tizen.NUI.Binding.BindableObject</span></div>
-        <div class="pdl"><span class="xref">Tizen.NUI.Binding.Element</span></div>
+        <div class="pdl"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+        <div class="pdl"><span class="xref">BindableObject</span></div>
+        <div class="pdl"><span class="xref">Element</span></div>
         <div class="pdl"><a class="xref" href="Tizen.NUI.BaseHandle.html">BaseHandle</a></div>
         <div class="pdl"><a class="xref" href="Tizen.NUI.Animatable.html">Animatable</a></div>
         <div class="pdl"><a class="xref" href="Tizen.NUI.Container.html">Container</a></div>
@@ -112,7 +110,7 @@
         <div class="pdl"><a class="xref" href="Tizen.NUI.ViewWrapper.html">ViewWrapper</a></div>
         <div class="pdl"><a class="xref" href="Tizen.NUI.BaseComponents.CustomView.html">CustomView</a></div>
         <div class="pdl"><a class="xref" href="Tizen.NUI.BaseComponents.VisualView.html">VisualView</a></div>
-        <div class="pdl"><span class="xref">Tizen.NUI.Components.Control</span></div>
+        <div class="pdl"><span class="xref">Control</span></div>
         <div><span class="xref">Slider</span></div>
       </div>
     </dd>
@@ -123,15 +121,15 @@
   <dl class="attribute-list stack">
     <dt>Implements</dt>
     <dd>
-      <div class="pdl"><span class="xref">System.ComponentModel.INotifyPropertyChanged</span></div>
-      <div class="pdl"><span class="xref">System.IDisposable</span></div>
+      <div class="pdl"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged">INotifyPropertyChanged</a></div>
+      <div class="pdl"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
     </dd>
   </dl>
 
   <h3 id="constructors">Constructors
 </h3>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.NUI.Components/Controls/Slider.cs/#L144">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI.Components/Controls/Slider.cs/#L144">View Source</a>
   </span>
   <a id="Tizen_NUI_Components_Slider__ctor_" data-uid="Tizen.NUI.Components.Slider.#ctor*"></a>
   <h4 id="Tizen_NUI_Components_Slider__ctor" data-uid="Tizen.NUI.Components.Slider.#ctor">Slider()</h4>
@@ -140,14 +138,14 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Slider()</code></pre>
+    <pre><code class="lang- hljs">public Slider()</code></pre>
   </div>
 
 
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.NUI.Components/Controls/Slider.cs/#L155">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI.Components/Controls/Slider.cs/#L155">View Source</a>
   </span>
   <a id="Tizen_NUI_Components_Slider__ctor_" data-uid="Tizen.NUI.Components.Slider.#ctor*"></a>
   <h4 id="Tizen_NUI_Components_Slider__ctor_System_String_" data-uid="Tizen.NUI.Components.Slider.#ctor(System.String)">Slider(string)</h4>
@@ -156,7 +154,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Slider(string style)</code></pre>
+    <pre><code class="lang- hljs">public Slider(string style)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -169,7 +167,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">string</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">style</span></td>
         <td><p>The string to initialize the Slider</p>
 </td>
@@ -181,7 +179,7 @@
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.NUI.Components/Controls/Slider.cs/#L166">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI.Components/Controls/Slider.cs/#L166">View Source</a>
   </span>
   <a id="Tizen_NUI_Components_Slider__ctor_" data-uid="Tizen.NUI.Components.Slider.#ctor*"></a>
   <h4 id="Tizen_NUI_Components_Slider__ctor_Tizen_NUI_Components_SliderStyle_" data-uid="Tizen.NUI.Components.Slider.#ctor(Tizen.NUI.Components.SliderStyle)">Slider(SliderStyle)</h4>
@@ -190,7 +188,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Slider(SliderStyle sliderStyle)</code></pre>
+    <pre><code class="lang- hljs">public Slider(SliderStyle sliderStyle)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -217,7 +215,7 @@
   <h3 id="properties">Properties
 </h3>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.NUI.Components/Controls/Slider.cs/#L794">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI.Components/Controls/Slider.cs/#L794">View Source</a>
   </span>
   <a id="Tizen_NUI_Components_Slider_BgTrackColor_" data-uid="Tizen.NUI.Components.Slider.BgTrackColor*"></a>
   <h4 id="Tizen_NUI_Components_Slider_BgTrackColor" data-uid="Tizen.NUI.Components.Slider.BgTrackColor">BgTrackColor</h4>
@@ -226,7 +224,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Color BgTrackColor { get; set; }</code></pre>
+    <pre><code class="lang- hljs">public Color BgTrackColor { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -248,7 +246,7 @@
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.NUI.Components/Controls/Slider.cs/#L438">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI.Components/Controls/Slider.cs/#L438">View Source</a>
   </span>
   <a id="Tizen_NUI_Components_Slider_CurrentValue_" data-uid="Tizen.NUI.Components.Slider.CurrentValue*"></a>
   <h4 id="Tizen_NUI_Components_Slider_CurrentValue" data-uid="Tizen.NUI.Components.Slider.CurrentValue">CurrentValue</h4>
@@ -257,7 +255,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public float CurrentValue { get; set; }</code></pre>
+    <pre><code class="lang- hljs">public float CurrentValue { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -269,7 +267,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">float</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -279,7 +277,7 @@
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.NUI.Components/Controls/Slider.cs/#L271">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI.Components/Controls/Slider.cs/#L271">View Source</a>
   </span>
   <a id="Tizen_NUI_Components_Slider_Direction_" data-uid="Tizen.NUI.Components.Slider.Direction*"></a>
   <h4 id="Tizen_NUI_Components_Slider_Direction" data-uid="Tizen.NUI.Components.Slider.Direction">Direction</h4>
@@ -288,7 +286,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Slider.DirectionType Direction { get; set; }</code></pre>
+    <pre><code class="lang- hljs">public Slider.DirectionType Direction { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -310,7 +308,7 @@
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.NUI.Components/Controls/Slider.cs/#L1705">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI.Components/Controls/Slider.cs/#L1705">View Source</a>
   </span>
   <a id="Tizen_NUI_Components_Slider_DiscreteValue_" data-uid="Tizen.NUI.Components.Slider.DiscreteValue*"></a>
   <h4 id="Tizen_NUI_Components_Slider_DiscreteValue" data-uid="Tizen.NUI.Components.Slider.DiscreteValue">DiscreteValue</h4>
@@ -319,7 +317,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public float DiscreteValue { get; set; }</code></pre>
+    <pre><code class="lang- hljs">public float DiscreteValue { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -331,7 +329,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">float</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -347,7 +345,7 @@ The default is 0.</p>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.NUI.Components/Controls/Slider.cs/#L1215">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI.Components/Controls/Slider.cs/#L1215">View Source</a>
   </span>
   <a id="Tizen_NUI_Components_Slider_HighIndicatorImageURL_" data-uid="Tizen.NUI.Components.Slider.HighIndicatorImageURL*"></a>
   <h4 id="Tizen_NUI_Components_Slider_HighIndicatorImageURL" data-uid="Tizen.NUI.Components.Slider.HighIndicatorImageURL">HighIndicatorImageURL</h4>
@@ -356,7 +354,7 @@ The default is 0.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string HighIndicatorImageURL { get; set; }</code></pre>
+    <pre><code class="lang- hljs">public string HighIndicatorImageURL { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -368,7 +366,7 @@ The default is 0.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">string</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -378,7 +376,7 @@ The default is 0.</p>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.NUI.Components/Controls/Slider.cs/#L1413">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI.Components/Controls/Slider.cs/#L1413">View Source</a>
   </span>
   <a id="Tizen_NUI_Components_Slider_HighIndicatorSize_" data-uid="Tizen.NUI.Components.Slider.HighIndicatorSize*"></a>
   <h4 id="Tizen_NUI_Components_Slider_HighIndicatorSize" data-uid="Tizen.NUI.Components.Slider.HighIndicatorSize">HighIndicatorSize</h4>
@@ -387,7 +385,7 @@ The default is 0.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Size HighIndicatorSize { get; set; }</code></pre>
+    <pre><code class="lang- hljs">public Size HighIndicatorSize { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -409,7 +407,7 @@ The default is 0.</p>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.NUI.Components/Controls/Slider.cs/#L1316">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI.Components/Controls/Slider.cs/#L1316">View Source</a>
   </span>
   <a id="Tizen_NUI_Components_Slider_HighIndicatorTextContent_" data-uid="Tizen.NUI.Components.Slider.HighIndicatorTextContent*"></a>
   <h4 id="Tizen_NUI_Components_Slider_HighIndicatorTextContent" data-uid="Tizen.NUI.Components.Slider.HighIndicatorTextContent">HighIndicatorTextContent</h4>
@@ -418,7 +416,7 @@ The default is 0.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string HighIndicatorTextContent { get; set; }</code></pre>
+    <pre><code class="lang- hljs">public string HighIndicatorTextContent { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -430,7 +428,7 @@ The default is 0.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">string</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -440,7 +438,7 @@ The default is 0.</p>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.NUI.Components/Controls/Slider.cs/#L322">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI.Components/Controls/Slider.cs/#L322">View Source</a>
   </span>
   <a id="Tizen_NUI_Components_Slider_Indicator_" data-uid="Tizen.NUI.Components.Slider.Indicator*"></a>
   <h4 id="Tizen_NUI_Components_Slider_Indicator" data-uid="Tizen.NUI.Components.Slider.Indicator">Indicator</h4>
@@ -449,7 +447,7 @@ The default is 0.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Slider.IndicatorType Indicator { get; set; }</code></pre>
+    <pre><code class="lang- hljs">public Slider.IndicatorType Indicator { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -471,7 +469,7 @@ The default is 0.</p>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.NUI.Components/Controls/Slider.cs/#L1667">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI.Components/Controls/Slider.cs/#L1667">View Source</a>
   </span>
   <a id="Tizen_NUI_Components_Slider_IsDiscrete_" data-uid="Tizen.NUI.Components.Slider.IsDiscrete*"></a>
   <h4 id="Tizen_NUI_Components_Slider_IsDiscrete" data-uid="Tizen.NUI.Components.Slider.IsDiscrete">IsDiscrete</h4>
@@ -481,7 +479,7 @@ The default is 0.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool IsDiscrete { get; set; }</code></pre>
+    <pre><code class="lang- hljs">public bool IsDiscrete { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -493,7 +491,7 @@ The default is 0.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">bool</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -503,7 +501,7 @@ The default is 0.</p>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.NUI.Components/Controls/Slider.cs/#L1492">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI.Components/Controls/Slider.cs/#L1492">View Source</a>
   </span>
   <a id="Tizen_NUI_Components_Slider_IsValueShown_" data-uid="Tizen.NUI.Components.Slider.IsValueShown*"></a>
   <h4 id="Tizen_NUI_Components_Slider_IsValueShown" data-uid="Tizen.NUI.Components.Slider.IsValueShown">IsValueShown</h4>
@@ -512,7 +510,7 @@ The default is 0.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool IsValueShown { get; set; }</code></pre>
+    <pre><code class="lang- hljs">public bool IsValueShown { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -524,7 +522,7 @@ The default is 0.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">bool</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -534,7 +532,7 @@ The default is 0.</p>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.NUI.Components/Controls/Slider.cs/#L1162">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI.Components/Controls/Slider.cs/#L1162">View Source</a>
   </span>
   <a id="Tizen_NUI_Components_Slider_LowIndicatorImageURL_" data-uid="Tizen.NUI.Components.Slider.LowIndicatorImageURL*"></a>
   <h4 id="Tizen_NUI_Components_Slider_LowIndicatorImageURL" data-uid="Tizen.NUI.Components.Slider.LowIndicatorImageURL">LowIndicatorImageURL</h4>
@@ -543,7 +541,7 @@ The default is 0.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string LowIndicatorImageURL { get; set; }</code></pre>
+    <pre><code class="lang- hljs">public string LowIndicatorImageURL { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -555,7 +553,7 @@ The default is 0.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">string</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -565,7 +563,7 @@ The default is 0.</p>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.NUI.Components/Controls/Slider.cs/#L1364">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI.Components/Controls/Slider.cs/#L1364">View Source</a>
   </span>
   <a id="Tizen_NUI_Components_Slider_LowIndicatorSize_" data-uid="Tizen.NUI.Components.Slider.LowIndicatorSize*"></a>
   <h4 id="Tizen_NUI_Components_Slider_LowIndicatorSize" data-uid="Tizen.NUI.Components.Slider.LowIndicatorSize">LowIndicatorSize</h4>
@@ -574,7 +572,7 @@ The default is 0.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Size LowIndicatorSize { get; set; }</code></pre>
+    <pre><code class="lang- hljs">public Size LowIndicatorSize { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -596,7 +594,7 @@ The default is 0.</p>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.NUI.Components/Controls/Slider.cs/#L1268">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI.Components/Controls/Slider.cs/#L1268">View Source</a>
   </span>
   <a id="Tizen_NUI_Components_Slider_LowIndicatorTextContent_" data-uid="Tizen.NUI.Components.Slider.LowIndicatorTextContent*"></a>
   <h4 id="Tizen_NUI_Components_Slider_LowIndicatorTextContent" data-uid="Tizen.NUI.Components.Slider.LowIndicatorTextContent">LowIndicatorTextContent</h4>
@@ -605,7 +603,7 @@ The default is 0.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string LowIndicatorTextContent { get; set; }</code></pre>
+    <pre><code class="lang- hljs">public string LowIndicatorTextContent { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -617,7 +615,7 @@ The default is 0.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">string</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -627,7 +625,7 @@ The default is 0.</p>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.NUI.Components/Controls/Slider.cs/#L395">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI.Components/Controls/Slider.cs/#L395">View Source</a>
   </span>
   <a id="Tizen_NUI_Components_Slider_MaxValue_" data-uid="Tizen.NUI.Components.Slider.MaxValue*"></a>
   <h4 id="Tizen_NUI_Components_Slider_MaxValue" data-uid="Tizen.NUI.Components.Slider.MaxValue">MaxValue</h4>
@@ -636,7 +634,7 @@ The default is 0.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public float MaxValue { get; set; }</code></pre>
+    <pre><code class="lang- hljs">public float MaxValue { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -648,7 +646,7 @@ The default is 0.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">float</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -658,7 +656,7 @@ The default is 0.</p>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.NUI.Components/Controls/Slider.cs/#L352">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI.Components/Controls/Slider.cs/#L352">View Source</a>
   </span>
   <a id="Tizen_NUI_Components_Slider_MinValue_" data-uid="Tizen.NUI.Components.Slider.MinValue*"></a>
   <h4 id="Tizen_NUI_Components_Slider_MinValue" data-uid="Tizen.NUI.Components.Slider.MinValue">MinValue</h4>
@@ -667,7 +665,7 @@ The default is 0.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public float MinValue { get; set; }</code></pre>
+    <pre><code class="lang- hljs">public float MinValue { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -679,7 +677,7 @@ The default is 0.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">float</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -689,7 +687,7 @@ The default is 0.</p>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.NUI.Components/Controls/Slider.cs/#L842">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI.Components/Controls/Slider.cs/#L842">View Source</a>
   </span>
   <a id="Tizen_NUI_Components_Slider_SlidedTrackColor_" data-uid="Tizen.NUI.Components.Slider.SlidedTrackColor*"></a>
   <h4 id="Tizen_NUI_Components_Slider_SlidedTrackColor" data-uid="Tizen.NUI.Components.Slider.SlidedTrackColor">SlidedTrackColor</h4>
@@ -698,7 +696,7 @@ The default is 0.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Color SlidedTrackColor { get; set; }</code></pre>
+    <pre><code class="lang- hljs">public Color SlidedTrackColor { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -720,7 +718,7 @@ The default is 0.</p>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.NUI.Components/Controls/Slider.cs/#L1462">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI.Components/Controls/Slider.cs/#L1462">View Source</a>
   </span>
   <a id="Tizen_NUI_Components_Slider_SpaceBetweenTrackAndIndicator_" data-uid="Tizen.NUI.Components.Slider.SpaceBetweenTrackAndIndicator*"></a>
   <h4 id="Tizen_NUI_Components_Slider_SpaceBetweenTrackAndIndicator" data-uid="Tizen.NUI.Components.Slider.SpaceBetweenTrackAndIndicator">SpaceBetweenTrackAndIndicator</h4>
@@ -729,7 +727,7 @@ The default is 0.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public uint SpaceBetweenTrackAndIndicator { get; set; }</code></pre>
+    <pre><code class="lang- hljs">public uint SpaceBetweenTrackAndIndicator { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -741,7 +739,7 @@ The default is 0.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">uint</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -751,7 +749,7 @@ The default is 0.</p>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.NUI.Components/Controls/Slider.cs/#L265">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI.Components/Controls/Slider.cs/#L265">View Source</a>
   </span>
   <a id="Tizen_NUI_Components_Slider_Style_" data-uid="Tizen.NUI.Components.Slider.Style*"></a>
   <h4 id="Tizen_NUI_Components_Slider_Style" data-uid="Tizen.NUI.Components.Slider.Style">Style</h4>
@@ -760,7 +758,7 @@ The default is 0.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SliderStyle Style { get; }</code></pre>
+    <pre><code class="lang- hljs">public SliderStyle Style { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -785,7 +783,7 @@ The default is 0.</p>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.NUI.Components/Controls/Slider.cs/#L719">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI.Components/Controls/Slider.cs/#L719">View Source</a>
   </span>
   <a id="Tizen_NUI_Components_Slider_ThumbColor_" data-uid="Tizen.NUI.Components.Slider.ThumbColor*"></a>
   <h4 id="Tizen_NUI_Components_Slider_ThumbColor" data-uid="Tizen.NUI.Components.Slider.ThumbColor">ThumbColor</h4>
@@ -794,7 +792,7 @@ The default is 0.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Color ThumbColor { get; set; }</code></pre>
+    <pre><code class="lang- hljs">public Color ThumbColor { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -816,54 +814,7 @@ The default is 0.</p>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.NUI.Components/Controls/Slider.cs/#L660">View Source</a>
-  </span>
-  <a id="Tizen_NUI_Components_Slider_ThumbImageUrl_" data-uid="Tizen.NUI.Components.Slider.ThumbImageUrl*"></a>
-  <h4 id="Tizen_NUI_Components_Slider_ThumbImageUrl" data-uid="Tizen.NUI.Components.Slider.ThumbImageUrl">ThumbImageUrl</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the Url of the thumb image.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Selector&lt;string&gt; ThumbImageUrl { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Tizen.NUI.BaseComponents.Selector-1.html">Selector</a>&lt;<span class="xref">string</span>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.NullReferenceException</span></td>
-        <td><p>Thrown when setting null value.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <div style="margin-bottom: 15px"></div>
-
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.NUI.Components/Controls/Slider.cs/#L551">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI.Components/Controls/Slider.cs/#L551">View Source</a>
   </span>
   <a id="Tizen_NUI_Components_Slider_ThumbImageURL_" data-uid="Tizen.NUI.Components.Slider.ThumbImageURL*"></a>
   <h4 id="Tizen_NUI_Components_Slider_ThumbImageURL" data-uid="Tizen.NUI.Components.Slider.ThumbImageURL">ThumbImageURL</h4>
@@ -873,7 +824,7 @@ The default is 0.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string ThumbImageURL { get; set; }</code></pre>
+    <pre><code class="lang- hljs">public string ThumbImageURL { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -885,7 +836,7 @@ The default is 0.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">string</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -895,7 +846,7 @@ The default is 0.</p>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.NUI.Components/Controls/Slider.cs/#L604">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI.Components/Controls/Slider.cs/#L604">View Source</a>
   </span>
   <a id="Tizen_NUI_Components_Slider_ThumbImageURLSelector_" data-uid="Tizen.NUI.Components.Slider.ThumbImageURLSelector*"></a>
   <h4 id="Tizen_NUI_Components_Slider_ThumbImageURLSelector" data-uid="Tizen.NUI.Components.Slider.ThumbImageURLSelector">ThumbImageURLSelector</h4>
@@ -906,7 +857,7 @@ Getter returns copied selector value if exist, null otherwise.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public StringSelector ThumbImageURLSelector { get; set; }</code></pre>
+    <pre><code class="lang- hljs">public StringSelector ThumbImageURLSelector { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -918,7 +869,7 @@ Getter returns copied selector value if exist, null otherwise.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Tizen.NUI.Components.StringSelector</span></td>
+        <td><span class="xref">StringSelector</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -933,7 +884,7 @@ Getter returns copied selector value if exist, null otherwise.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.NullReferenceException</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullreferenceexception">NullReferenceException</a></td>
         <td><p>Thrown when setting null value.</p>
 </td>
       </tr>
@@ -944,7 +895,54 @@ Getter returns copied selector value if exist, null otherwise.</p>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.NUI.Components/Controls/Slider.cs/#L500">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI.Components/Controls/Slider.cs/#L660">View Source</a>
+  </span>
+  <a id="Tizen_NUI_Components_Slider_ThumbImageUrl_" data-uid="Tizen.NUI.Components.Slider.ThumbImageUrl*"></a>
+  <h4 id="Tizen_NUI_Components_Slider_ThumbImageUrl" data-uid="Tizen.NUI.Components.Slider.ThumbImageUrl">ThumbImageUrl</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the Url of the thumb image.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang- hljs">public Selector&lt;string&gt; ThumbImageUrl { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Tizen.NUI.BaseComponents.Selector-1.html">Selector</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullreferenceexception">NullReferenceException</a></td>
+        <td><p>Thrown when setting null value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <div style="margin-bottom: 15px"></div>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI.Components/Controls/Slider.cs/#L500">View Source</a>
   </span>
   <a id="Tizen_NUI_Components_Slider_ThumbSize_" data-uid="Tizen.NUI.Components.Slider.ThumbSize*"></a>
   <h4 id="Tizen_NUI_Components_Slider_ThumbSize" data-uid="Tizen.NUI.Components.Slider.ThumbSize">ThumbSize</h4>
@@ -953,7 +951,7 @@ Getter returns copied selector value if exist, null otherwise.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Size ThumbSize { get; set; }</code></pre>
+    <pre><code class="lang- hljs">public Size ThumbSize { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -975,7 +973,7 @@ Getter returns copied selector value if exist, null otherwise.</p>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.NUI.Components/Controls/Slider.cs/#L890">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI.Components/Controls/Slider.cs/#L890">View Source</a>
   </span>
   <a id="Tizen_NUI_Components_Slider_TrackThickness_" data-uid="Tizen.NUI.Components.Slider.TrackThickness*"></a>
   <h4 id="Tizen_NUI_Components_Slider_TrackThickness" data-uid="Tizen.NUI.Components.Slider.TrackThickness">TrackThickness</h4>
@@ -984,7 +982,7 @@ Getter returns copied selector value if exist, null otherwise.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public uint TrackThickness { get; set; }</code></pre>
+    <pre><code class="lang- hljs">public uint TrackThickness { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -996,7 +994,7 @@ Getter returns copied selector value if exist, null otherwise.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">uint</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -1006,7 +1004,7 @@ Getter returns copied selector value if exist, null otherwise.</p>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.NUI.Components/Controls/Slider.cs/#L1569">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI.Components/Controls/Slider.cs/#L1569">View Source</a>
   </span>
   <a id="Tizen_NUI_Components_Slider_ValueIndicatorSize_" data-uid="Tizen.NUI.Components.Slider.ValueIndicatorSize*"></a>
   <h4 id="Tizen_NUI_Components_Slider_ValueIndicatorSize" data-uid="Tizen.NUI.Components.Slider.ValueIndicatorSize">ValueIndicatorSize</h4>
@@ -1015,7 +1013,7 @@ Getter returns copied selector value if exist, null otherwise.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Size ValueIndicatorSize { get; set; }</code></pre>
+    <pre><code class="lang- hljs">public Size ValueIndicatorSize { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1037,7 +1035,7 @@ Getter returns copied selector value if exist, null otherwise.</p>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.NUI.Components/Controls/Slider.cs/#L1536">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI.Components/Controls/Slider.cs/#L1536">View Source</a>
   </span>
   <a id="Tizen_NUI_Components_Slider_ValueIndicatorText_" data-uid="Tizen.NUI.Components.Slider.ValueIndicatorText*"></a>
   <h4 id="Tizen_NUI_Components_Slider_ValueIndicatorText" data-uid="Tizen.NUI.Components.Slider.ValueIndicatorText">ValueIndicatorText</h4>
@@ -1046,7 +1044,7 @@ Getter returns copied selector value if exist, null otherwise.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string ValueIndicatorText { get; set; }</code></pre>
+    <pre><code class="lang- hljs">public string ValueIndicatorText { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1058,7 +1056,7 @@ Getter returns copied selector value if exist, null otherwise.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">string</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -1068,7 +1066,7 @@ Getter returns copied selector value if exist, null otherwise.</p>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.NUI.Components/Controls/Slider.cs/#L1617">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI.Components/Controls/Slider.cs/#L1617">View Source</a>
   </span>
   <a id="Tizen_NUI_Components_Slider_ValueIndicatorUrl_" data-uid="Tizen.NUI.Components.Slider.ValueIndicatorUrl*"></a>
   <h4 id="Tizen_NUI_Components_Slider_ValueIndicatorUrl" data-uid="Tizen.NUI.Components.Slider.ValueIndicatorUrl">ValueIndicatorUrl</h4>
@@ -1077,7 +1075,7 @@ Getter returns copied selector value if exist, null otherwise.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string ValueIndicatorUrl { get; set; }</code></pre>
+    <pre><code class="lang- hljs">public string ValueIndicatorUrl { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1089,7 +1087,7 @@ Getter returns copied selector value if exist, null otherwise.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">string</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -1101,7 +1099,7 @@ Getter returns copied selector value if exist, null otherwise.</p>
   <h3 id="methods">Methods
 </h3>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.NUI.Components/Controls/Slider.cs/#L2001">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI.Components/Controls/Slider.cs/#L2001">View Source</a>
   </span>
   <a id="Tizen_NUI_Components_Slider_ApplyStyle_" data-uid="Tizen.NUI.Components.Slider.ApplyStyle*"></a>
   <h4 id="Tizen_NUI_Components_Slider_ApplyStyle_Tizen_NUI_BaseComponents_ViewStyle_" data-uid="Tizen.NUI.Components.Slider.ApplyStyle(Tizen.NUI.BaseComponents.ViewStyle)">ApplyStyle(ViewStyle)</h4>
@@ -1110,7 +1108,7 @@ Getter returns copied selector value if exist, null otherwise.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override void ApplyStyle(ViewStyle viewStyle)</code></pre>
+    <pre><code class="lang- hljs">public override void ApplyStyle(ViewStyle viewStyle)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1137,7 +1135,7 @@ Getter returns copied selector value if exist, null otherwise.</p>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.NUI.Components/Controls/Slider.cs/#L2143">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI.Components/Controls/Slider.cs/#L2143">View Source</a>
   </span>
   <a id="Tizen_NUI_Components_Slider_CreateViewStyle_" data-uid="Tizen.NUI.Components.Slider.CreateViewStyle*"></a>
   <h4 id="Tizen_NUI_Components_Slider_CreateViewStyle" data-uid="Tizen.NUI.Components.Slider.CreateViewStyle">CreateViewStyle()</h4>
@@ -1146,7 +1144,7 @@ Getter returns copied selector value if exist, null otherwise.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected override ViewStyle CreateViewStyle()</code></pre>
+    <pre><code class="lang- hljs">protected override ViewStyle CreateViewStyle()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1171,7 +1169,7 @@ Getter returns copied selector value if exist, null otherwise.</p>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.NUI.Components/Controls/Slider.cs/#L2153">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI.Components/Controls/Slider.cs/#L2153">View Source</a>
   </span>
   <a id="Tizen_NUI_Components_Slider_Dispose_" data-uid="Tizen.NUI.Components.Slider.Dispose*"></a>
   <h4 id="Tizen_NUI_Components_Slider_Dispose_Tizen_NUI_DisposeTypes_" data-uid="Tizen.NUI.Components.Slider.Dispose(Tizen.NUI.DisposeTypes)">Dispose(DisposeTypes)</h4>
@@ -1180,7 +1178,7 @@ Getter returns copied selector value if exist, null otherwise.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected override void Dispose(DisposeTypes type)</code></pre>
+    <pre><code class="lang- hljs">protected override void Dispose(DisposeTypes type)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1201,13 +1199,13 @@ Getter returns copied selector value if exist, null otherwise.</p>
     </tbody>
   </table>
   <h5 class="overrides">Overrides</h5>
-  <div><span class="xref">Tizen.NUI.Components.Control.Dispose(Tizen.NUI.DisposeTypes)</span></div>
+  <div><a class="xref" href="Tizen.NUI.DisposeTypes.html">Control.Dispose(DisposeTypes)</a></div>
 
 
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.NUI.Components/Controls/Slider.cs/#L1870">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI.Components/Controls/Slider.cs/#L1870">View Source</a>
   </span>
   <a id="Tizen_NUI_Components_Slider_OnFocusGained_" data-uid="Tizen.NUI.Components.Slider.OnFocusGained*"></a>
   <h4 id="Tizen_NUI_Components_Slider_OnFocusGained" data-uid="Tizen.NUI.Components.Slider.OnFocusGained">OnFocusGained()</h4>
@@ -1216,7 +1214,7 @@ Getter returns copied selector value if exist, null otherwise.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override void OnFocusGained()</code></pre>
+    <pre><code class="lang- hljs">public override void OnFocusGained()</code></pre>
   </div>
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">Tizen.NUI.Components.Control.OnFocusGained()</span></div>
@@ -1225,7 +1223,7 @@ Getter returns copied selector value if exist, null otherwise.</p>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.NUI.Components/Controls/Slider.cs/#L1881">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI.Components/Controls/Slider.cs/#L1881">View Source</a>
   </span>
   <a id="Tizen_NUI_Components_Slider_OnFocusLost_" data-uid="Tizen.NUI.Components.Slider.OnFocusLost*"></a>
   <h4 id="Tizen_NUI_Components_Slider_OnFocusLost" data-uid="Tizen.NUI.Components.Slider.OnFocusLost">OnFocusLost()</h4>
@@ -1234,7 +1232,7 @@ Getter returns copied selector value if exist, null otherwise.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override void OnFocusLost()</code></pre>
+    <pre><code class="lang- hljs">public override void OnFocusLost()</code></pre>
   </div>
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">Tizen.NUI.Components.Control.OnFocusLost()</span></div>
@@ -1245,7 +1243,7 @@ Getter returns copied selector value if exist, null otherwise.</p>
   <h3 id="events">Events
 </h3>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.NUI.Components/Controls/Slider.cs/#L208">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI.Components/Controls/Slider.cs/#L208">View Source</a>
   </span>
   <h4 id="Tizen_NUI_Components_Slider_SlidingFinished" data-uid="Tizen.NUI.Components.Slider.SlidingFinished">SlidingFinished</h4>
   <div class="markdown level1 summary"><p>The sliding finished event handler.</p>
@@ -1253,7 +1251,7 @@ Getter returns copied selector value if exist, null otherwise.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public event EventHandler&lt;SliderSlidingFinishedEventArgs&gt; SlidingFinished</code></pre>
+    <pre><code class="lang- hljs">public event EventHandler&lt;SliderSlidingFinishedEventArgs&gt; SlidingFinished</code></pre>
   </div>
   <h5 class="eventType">Event Type</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1265,7 +1263,7 @@ Getter returns copied selector value if exist, null otherwise.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.EventHandler&lt;TEventArgs&gt;</span>&lt;<a class="xref" href="Tizen.NUI.Components.SliderSlidingFinishedEventArgs.html">SliderSlidingFinishedEventArgs</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="Tizen.NUI.Components.SliderSlidingFinishedEventArgs.html">SliderSlidingFinishedEventArgs</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -1275,7 +1273,7 @@ Getter returns copied selector value if exist, null otherwise.</p>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.NUI.Components/Controls/Slider.cs/#L192">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI.Components/Controls/Slider.cs/#L192">View Source</a>
   </span>
   <h4 id="Tizen_NUI_Components_Slider_SlidingStarted" data-uid="Tizen.NUI.Components.Slider.SlidingStarted">SlidingStarted</h4>
   <div class="markdown level1 summary"><p>The sliding started event handler.</p>
@@ -1283,7 +1281,7 @@ Getter returns copied selector value if exist, null otherwise.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public event EventHandler&lt;SliderSlidingStartedEventArgs&gt; SlidingStarted</code></pre>
+    <pre><code class="lang- hljs">public event EventHandler&lt;SliderSlidingStartedEventArgs&gt; SlidingStarted</code></pre>
   </div>
   <h5 class="eventType">Event Type</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1295,7 +1293,7 @@ Getter returns copied selector value if exist, null otherwise.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.EventHandler&lt;TEventArgs&gt;</span>&lt;<a class="xref" href="Tizen.NUI.Components.SliderSlidingStartedEventArgs.html">SliderSlidingStartedEventArgs</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="Tizen.NUI.Components.SliderSlidingStartedEventArgs.html">SliderSlidingStartedEventArgs</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -1305,7 +1303,7 @@ Getter returns copied selector value if exist, null otherwise.</p>
   <div style="margin-bottom: 15px"></div>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.NUI.Components/Controls/Slider.cs/#L176">View Source</a>
+    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI.Components/Controls/Slider.cs/#L176">View Source</a>
   </span>
   <h4 id="Tizen_NUI_Components_Slider_ValueChanged" data-uid="Tizen.NUI.Components.Slider.ValueChanged">ValueChanged</h4>
   <div class="markdown level1 summary"><p>The value changed event handler.</p>
@@ -1313,7 +1311,7 @@ Getter returns copied selector value if exist, null otherwise.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public event EventHandler&lt;SliderValueChangedEventArgs&gt; ValueChanged</code></pre>
+    <pre><code class="lang- hljs">public event EventHandler&lt;SliderValueChangedEventArgs&gt; ValueChanged</code></pre>
   </div>
   <h5 class="eventType">Event Type</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1325,7 +1323,7 @@ Getter returns copied selector value if exist, null otherwise.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.EventHandler&lt;TEventArgs&gt;</span>&lt;<a class="xref" href="Tizen.NUI.Components.SliderValueChangedEventArgs.html">SliderValueChangedEventArgs</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="Tizen.NUI.Components.SliderValueChangedEventArgs.html">SliderValueChangedEventArgs</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -1336,11 +1334,12 @@ Getter returns copied selector value if exist, null otherwise.</p>
 
   <h3 id="implements">Implements</h3>
   <div>
-      <span class="xref">System.ComponentModel.INotifyPropertyChanged</span>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged">INotifyPropertyChanged</a>
   </div>
   <div>
-      <span class="xref">System.IDisposable</span>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a>
   </div>
+
 </article>
           </div>
 
@@ -1349,7 +1348,7 @@ Getter returns copied selector value if exist, null otherwise.</p>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/Samsung/TizenFX/blob/API13/src/Tizen.NUI.Components/Controls/SliderBindableProperty.cs/#L24" class="contribution-link">View Source</a>
+                    <a href="https://github.com/Samsung/TizenFX/blob/master/src/Tizen.NUI.Components/Controls/SliderBindableProperty.cs/#L24" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
@@ -1375,7 +1374,7 @@ Getter returns copied selector value if exist, null otherwise.</p>
       </footer>
     </div>
 
-    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../../styles/docfx.js"></script>
     <script type="text/javascript" src="../../styles/main.js"></script>
   </body>
